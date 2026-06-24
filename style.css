@@ -1,241 +1,112 @@
-/* ===== Global Reset ===== */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, sans-serif;
+/* FOTOLAB Main Styles - Blue & White Edition */
+:root {
+    --bg-light: #f8f9fa;        /* Main Light Background */
+    --primary-blue: #0d6efd;    /* Bright Royal Blue */
+    --dark-blue: #002244;       /* Deep Navy Blue */
+    --text-dark: #111111;       /* Dark Text for Readability */
+    --text-muted: #6c757d;      /* Muted Gray Text */
 }
 
-html{
-    scroll-behavior:smooth;
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
 }
 
-body{
-    background:#ffffff;
-    color:#333;
-    line-height:1.6;
+h1, h2, h3, h4, h5 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+    color: var(--dark-blue);
 }
 
-/* ===== Container ===== */
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* ===== Header ===== */
-header{
-    background:#0056b3;
-    color:white;
-    padding:15px 0;
-    position:sticky;
-    top:0;
-    z-index:1000;
+.nav-link {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-blue) !important;
 }
 
-.logo{
-    font-size:28px;
-    font-weight:bold;
-    color:white;
-    text-decoration:none;
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 34, 68, 0.6), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
+    color: white;
 }
 
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:25px;
+/* Aapki Custom Amber Classes ko Blue par map kar diya taake HTML na badalna paray */
+.btn-amber {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    transition: all 0.3s;
 }
 
-nav ul li a{
-    color:white;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
+.btn-amber:hover {
+    background-color: var(--dark-blue);
+    color: white;
+    transform: translateY(-2px);
 }
 
-nav ul li a:hover{
-    color:#dbeafe;
+.text-amber { color: var(--primary-blue); }
+.text-gold { color: var(--text-muted); }
+
+.category-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    transition: all 0.3s;
 }
 
-/* ===== Hero Section ===== */
-.hero{
-    background:linear-gradient(rgba(0,86,179,0.85), rgba(0,86,179,0.85)),
-    url('images/hero.jpg');
-    background-size:cover;
-    background-position:center;
-    color:white;
-    text-align:center;
-    padding:100px 20px;
+.category-card:hover {
+    transform: scale(1.05);
+    background: rgba(13, 110, 253, 0.05);
+    border-color: var(--primary-blue);
 }
 
-.hero h1{
-    font-size:48px;
-    margin-bottom:15px;
+/* Product Cards */
+.product-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hero p{
-    font-size:18px;
-    margin-bottom:20px;
+.product-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(13, 110, 253, 0.15);
+    border-color: var(--primary-blue);
 }
 
-/* ===== Buttons ===== */
-.btn{
-    display:inline-block;
-    background:#0056b3;
-    color:white;
-    padding:12px 25px;
-    text-decoration:none;
-    border-radius:5px;
-    transition:0.3s;
+/* Lens Aperture Animation */
+.lens-aperture {
+    animation: pulse 4s infinite ease-in-out;
 }
 
-.btn:hover{
-    background:#003f82;
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
 }
 
-/* ===== Sections ===== */
-section{
-    padding:70px 0;
+/* Footer Links */
+footer {
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
 }
 
-.section-title{
-    text-align:center;
-    color:#0056b3;
-    margin-bottom:40px;
-    font-size:34px;
+footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-/* ===== Cards ===== */
-.card-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:white;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 4px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.card-content{
-    padding:20px;
-}
-
-.card h3{
-    color:#0056b3;
-    margin-bottom:10px;
-}
-
-/* ===== About ===== */
-.about-content{
-    display:flex;
-    gap:40px;
-    align-items:center;
-    flex-wrap:wrap;
-}
-
-.about-content img{
-    width:100%;
-    max-width:500px;
-    border-radius:10px;
-}
-
-.about-text{
-    flex:1;
-}
-
-/* ===== Contact Form ===== */
-.contact-form{
-    max-width:700px;
-    margin:auto;
-}
-
-.contact-form input,
-.contact-form textarea{
-    width:100%;
-    padding:12px;
-    margin-bottom:15px;
-    border:1px solid #ccc;
-    border-radius:5px;
-}
-
-.contact-form textarea{
-    height:150px;
-}
-
-.contact-form button{
-    border:none;
-    cursor:pointer;
-}
-
-/* ===== Table ===== */
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
-}
-
-table th{
-    background:#0056b3;
-    color:white;
-}
-
-table th,
-table td{
-    padding:12px;
-    border:1px solid #ddd;
-}
-
-/* ===== Footer ===== */
-footer{
-    background:#003f82;
-    color:white;
-    text-align:center;
-    padding:25px;
-}
-
-/* ===== Responsive ===== */
-@media(max-width:768px){
-
-    .navbar{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    nav ul{
-        flex-direction:column;
-        text-align:center;
-        gap:10px;
-    }
-
-    .hero h1{
-        font-size:34px;
-    }
-
-    .hero p{
-        font-size:16px;
-    }
-
-    .section-title{
-        font-size:28px;
-    }
+footer a:hover {
+    color: var(--primary-blue);
 }
