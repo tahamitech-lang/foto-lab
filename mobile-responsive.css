@@ -1,0 +1,13 @@
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .display-1 {
+        font-size: 3rem;
+    }
+}
+
+.navbar-toggler {
+    border-color: var(--amber);
+}
