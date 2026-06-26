@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Nikon cameras and lenses at FOTOLAB - premium optics for every shooter.">
+    <title>Nikon - FOTOLAB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="mobile-responsive.css">
+    <script>
+        const IMAGE_PATH = "fotoloader.png";
+    </script>
+    <style>
+        :root {
+            --brand-accent: #ffd500;
+            --brand-accent-dark: #332600;
+        }
+
+        .brand-hero {
+            min-height: 88vh;
+            background: linear-gradient(135deg, #02070f 0%, #091c33 50%, #02070f 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .brand-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(255,213,0,0.18), transparent 35%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,213,0,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,213,0,0.06) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes gridMove {
+            from { background-position: 0 0; }
+            to   { background-position: 60px 60px; }
+        }
+
+        .brand-heading {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(80px, 14vw, 180px);
+            color: var(--brand-accent);
+            letter-spacing: -2px;
+            line-height: 1;
+            text-shadow: 0 0 80px rgba(255,213,0,0.25);
+            animation: logoReveal 1s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes logoReveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .brand-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(13px, 2vw, 17px);
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-top: 8px;
+            animation: fadeUp 1s 0.3s ease forwards;
+            opacity: 0;
+        }
+
+        .stat-number, .brand-pill i, .product-badge, .filter-btn.active, .filter-btn:hover, .red-line, .why-icon {
+            color: #111;
+            background: var(--brand-accent);
+            border-color: var(--brand-accent);
+        }
+
+        .feature-pill {
+            background: rgba(255,213,0,0.12);
+            border-color: rgba(255,213,0,0.25);
+        }
+
+        .feature-pill:hover { background: rgba(255,213,0,0.2); }
+        .product-price { color: #fff; }
+        .product-category { color: var(--brand-accent); }
+        .hero-divider { background: rgba(255,213,0,0.25); }
+        .about-section::after { color: rgba(255,213,0,0.06); }
+        .why-card:hover { border-color: rgba(255,213,0,0.3); }
+        .why-icon { color: #111; }
+        .btn-canon { background: var(--brand-accent); }
+        .btn-canon:hover { background: var(--brand-accent-dark); }
+        .product-badge { background: var(--brand-accent); }
+        .red-line { background: var(--brand-accent); }
+        footer a:hover { color: var(--brand-accent) !important; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
+                <span class="fw-bold fs-3">FOTOLAB</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="brands.html">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="brand-hero">
+        <div class="hero-grid"></div>
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <p class="section-eyebrow mb-3">FOTOLAB × Brand Spotlight</p>
+                    <h1 class="brand-heading">NIKON</h1>
+                    <p class="brand-tagline">Legendary Precision, Modern Speed</p>
+                    <p class="mt-4" style="color: rgba(255,255,255,0.65); max-width: 520px; line-height: 1.8; font-family: 'Inter', sans-serif;">Nikon is trusted by shooters who demand clarity, durability, and optical excellence. From groundbreaking DSLRs to advanced mirrorless systems, Nikon delivers sharp images in every condition.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#products" class="btn btn-canon">View Nikon Gear</a>
+                        <a href="brands.html" class="text-white-50" style="text-decoration:none; align-self:center;">← All Brands</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-flex justify-content-center align-items-center">
+                    <img src="https://picsum.photos/id/1005/500/500" alt="Nikon Camera" class="img-fluid rounded shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-5 reveal">
+                    <p class="section-eyebrow">About Nikon</p>
+                    <div class="red-line mt-3"></div>
+                    <h2 class="section-title mt-3">Precision Optics. Rugged Performance.</h2>
+                    <p style="color: rgba(255,255,255,0.65); line-height: 1.8; font-family:'Inter',sans-serif; margin-top:20px;">Nikon cameras are engineered for creators who push the boundaries. Since 1917, Nikon has refined optics, autofocus, and imaging to deliver sharp, vibrant results in the field and studio.</p>
+                    <div class="d-flex flex-wrap gap-2 mt-4">
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> NIKKOR Lens Heritage</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Weather-Sealed Bodies</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> High-Speed Tracking AF</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> 4K Video and 3D Tracking</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1 reveal reveal-delay-2">
+                    <p class="section-eyebrow">Key Milestones</p>
+                    <div class="red-line mt-3 mb-4"></div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1917</div>
+                        <div class="timeline-text">Nikon founded in Tokyo as Nippon Kogaku — building precision optical instruments for photographers and the military.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1999</div>
+                        <div class="timeline-text">Launch of the D1, Nikon's first digital SLR built for professionals and sports photographers.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2018</div>
+                        <div class="timeline-text">Introduction of the Z-mount mirrorless system — wider lens mount, faster glass, and enhanced low-light performance.</div>
+                    </div>
+                    <div class="timeline-item" style="padding-bottom:0; border-left-color:transparent;">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-text">Nikon Z8 and Z9 continue Nikon's pursuit of speed, reliability, and professional imaging excellence worldwide.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-section">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <p class="section-eyebrow">Why Choose Nikon</p>
+                <div class="red-line mx-auto mt-3"></div>
+                <h2 class="section-title mt-2">Optics Built for the Moment</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3 reveal reveal-delay-1">
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-binoculars"></i></div>
+                        <div class="why-title">Nikkor Lenses</div>
+                        <p class="why-text">Engineered in-house for unmatched sharpness, contrast, and beautiful bokeh across every focal length.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 reveal reveal-delay-2">
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="why-title">High-Speed AF</div>
+                        <p class="why-text">Advanced subject detection keeps pace with sports, wildlife, and fast-moving action.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 reveal reveal-delay-3">
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-video"></i></div>
+                        <div class="why-title">Pro Video</div>
+                        <p class="why-text">Nikon cinema and mirrorless bodies support 4K RAW recording, N-Log, and cinematic workflows.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 reveal reveal-delay-4">
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="why-title">Built Tough</div>
+                        <p class="why-text">Weather-sealed magnesium alloy bodies designed to perform in rain, dust, and extreme conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="text-center mb-4 reveal">
+                <p class="section-eyebrow">Nikon Lineup</p>
+                <div class="red-line mx-auto mt-3"></div>
+                <h2 class="section-title mt-2">Featured Nikon Gear</h2>
+                <p style="color: rgba(255,255,255,0.35); font-size:14px; margin-top:10px;">Premium Nikon cameras and lenses available at FOTOLAB with official warranty.</p>
+            </div>
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="mirrorless">Mirrorless</button>
+                <button class="filter-btn" data-filter="dslr">DSLR</button>
+                <button class="filter-btn" data-filter="lens">Lens</button>
+                <button class="filter-btn" data-filter="pro">Pro Video</button>
+            </div>
+            <div class="row g-4" id="products-grid">
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="mirrorless">
+                    <div class="product-card">
+                        <div class="product-img-wrap"><img src="https://picsum.photos/id/1031/400/300" alt="Nikon Z9"></div>
+                        <div class="product-body">
+                            <div class="product-category">Mirrorless</div>
+                            <div class="product-name">Nikon Z9</div>
+                            <p class="product-desc">Flagship mirrorless speed, 45.7MP, 8K ProRes RAW, and 120fps still capture for elite shooters.</p>
+                            <div class="product-specs"><span class="spec-tag">45.7MP</span><span class="spec-tag">8K Video</span><span class="spec-tag">120fps</span></div>
+                            <div class="d-flex align-items-center justify-content-between"><div class="product-price">PKR 1,450,000</div><a href="products.html" class="btn-canon">Inquire</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="mirrorless">
+                    <div class="product-card">
+                        <div class="product-img-wrap"><img src="https://picsum.photos/id/1041/400/300" alt="Nikon Z8"></div>
+                        <div class="product-body">
+                            <div class="product-category">Mirrorless</div>
+                            <div class="product-name">Nikon Z8</div>
+                            <p class="product-desc">Compact pro body with 45.7MP, 8K video, and 120fps burst performance for hybrid creators.</p>
+                            <div class="product-specs"><span class="spec-tag">45.7MP</span><span class="spec-tag">8K Video</span><span class="spec-tag">IBIS</span></div>
+                            <div class="d-flex align-items-center justify-content-between"><div class="product-price">PKR 1,180,000</div><a href="products.html" class="btn-canon">Inquire</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="dslr">
+                    <div class="product-card">
+                        <div class="product-img-wrap"><img src="https://picsum.photos/id/1032/400/300" alt="Nikon D850"></div>
+                        <div class="product-body">
+                            <div class="product-category">DSLR</div>
+                            <div class="product-name">Nikon D850</div>
+                            <p class="product-desc">Classic full-frame DSLR for stills and video with 45.7MP and exceptional dynamic range.</p>
+                            <div class="product-specs"><span class="spec-tag">45.7MP</span><span class="spec-tag">4K Video</span><span class="spec-tag">LED Meter</span></div>
+                            <div class="d-flex align-items-center justify-content-between"><div class="product-price">PKR 420,000</div><a href="products.html" class="btn-canon">Inquire</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5" style="background-color: black;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4"><h5 class="text-amber">FOTOLAB</h5><p class="text-white">Premium Photography Solutions since 1991.</p></div>
+                <div class="col-md-4 mb-4"><h5 class="text-amber">Explore</h5><ul class="list-unstyled"><li><a href="products.html" class="text-white">Products</a></li><li><a href="service.html" class="text-white">Services</a></li><li><a href="contact.html" class="text-white">Contact</a></li></ul></div>
+                <div class="col-md-4 mb-4"><h5 class="text-amber">Contact</h5><p class="text-white">info@fotolab.com</p><p class="text-white">+91 98765 43210</p></div>
+            </div>
+            <hr class="border-secondary">
+            <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script src="loader.js"></script>
+</body>
+</html>

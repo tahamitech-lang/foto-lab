@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/mobile-responsive.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="mobile-responsive.css">
+    <script>
+        const IMAGE_PATH = "fotoloader.png";
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -36,7 +40,7 @@
     </nav>
 
     <main class="container py-5 mt-5">
-        <div class="text-center mb-5">
+        <div class="text-center mb-5 fade-in">
             <h1 class="display-5">Explore Our Top Gear</h1>
             <p class="text-white-50">Choose from cameras, lenses, and accessories tailored for every photographer.</p>
         </div>
@@ -47,30 +51,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h5>FOTOLAB</h5>
-                    <p>Premium Photography Solutions since 1991.</p>
+                    <h5 class="text-amber">FOTOLAB</h5>
+                    <p class="text-white">Premium Photography Solutions since 1991.</p>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <h5>Quick Links</h5>
+                    <h5 class="text-amber">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-white-50">Home</a></li>
-                        <li><a href="service.html" class="text-white-50">Services</a></li>
-                        <li><a href="contact.html" class="text-white-50">Contact</a></li>
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="service.html" class="text-white">Services</a></li>
+                        <li><a href="contact.html" class="text-white">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <h5>Contact</h5>
-                    <p class="mb-1">info@fotolab.com</p>
-                    <p>+91 98765 43210</p>
+                    <h5 class="text-amber">Contact</h5>
+                    <p class="text-white">info@fotolab.com</p>
+                    <p class="text-white">+91 98765 43210</p>
                 </div>
             </div>
             <hr class="border-secondary">
-            <p class="text-center mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved.</p>
+            <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/products.js"></script>
+    <script src="main.js"></script>
+    <script src="products.js"></script>
+    <script src="loader.js"></script>
 </body>
 </html>

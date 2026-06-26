@@ -39,6 +39,38 @@ h1, h2, h3, h4, h5 {
     height: 100vh;
     background: linear-gradient(rgba(0, 34, 68, 0.6), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
     color: white;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+}
+
+.brand-card {
+    background: #071028;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    color: white;
+}
+
+.brand-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 60px rgba(13, 110, 253, 0.18);
+    border-color: rgba(13, 110, 253, 0.45);
+}
+
+.brand-card img {
+    max-height: 100px;
+    object-fit: contain;
+}
+
+.brand-card h5,
+.brand-card p {
+    color: inherit;
 }
 
 /* Aapki Custom Amber Classes ko Blue par map kar diya taake HTML na badalna paray */
