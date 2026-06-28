@@ -19,18 +19,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Scroll animations
+    // Scroll animations for fade-in and reveal elements
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.fade-in').forEach(el => {
+    document.querySelectorAll('.fade-in, .reveal').forEach(el => {
         observer.observe(el);
     });
+
+    // Brand page product filtering support
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productItems = document.querySelectorAll('.product-item');
+
+    if (filterBtns.length && productItems.length) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+
+                productItems.forEach(item => {
+                    item.style.display = (filter === 'all' || item.dataset.category === filter) ? 'block' : 'none';
+                });
+            });
+        });
+    }
 
     // Featured products population (example data)
     const featuredProductsContainer = document.getElementById('featuredProducts');
@@ -63,4 +82,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     console.log('%cFOTOLAB Website Loaded Successfully', 'color: #E94560; font-size: 16px; font-family: monospace');
+});
+const swup = new Swup();
+// Lens Aperture Rotation
+const aperture = document.getElementById('lensAperture');
+window.addEventListener('scroll', () => {
+    let scrollValue = window.scrollY;
+    aperture.style.transform = `rotate(${scrollValue * 0.5}deg)`;
 });

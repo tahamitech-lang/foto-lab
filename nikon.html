@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore Nikon cameras and lenses at FOTOLAB - premium optics for every shooter.">
+    <meta name="description" content="Explore Nikon cameras and lenses at FOTOLAB - Pakistan's trusted photography store since 1991.">
     <title>Nikon - FOTOLAB</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -14,15 +14,20 @@
     <script>
         const IMAGE_PATH = "fotoloader.png";
     </script>
+
     <style>
+        /* ── Nikon Page Exclusive Styles ── */
         :root {
-            --brand-accent: #ffd500;
-            --brand-accent-dark: #332600;
+            --brand-accent: #FFE000; /* Nikon Iconic Yellow */
+            --brand-accent-dark: #ccb200;
+            --brand-accent-glow: rgba(255,224,0,0.25);
+            --text-dark: #0a0a0a;
         }
 
-        .brand-hero {
+        /* ── Hero ── */
+        .nikon-hero {
             min-height: 88vh;
-            background: linear-gradient(135deg, #02070f 0%, #091c33 50%, #02070f 100%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1800 50%, #0a0a0a 100%);
             display: flex;
             align-items: center;
             position: relative;
@@ -30,20 +35,21 @@
             padding-top: 80px;
         }
 
-        .brand-hero::before {
+        .nikon-hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 20% 20%, rgba(255,213,0,0.18), transparent 35%);
+            background: radial-gradient(ellipse at 70% 50%, rgba(255,224,0,0.08) 0%, transparent 65%);
             pointer-events: none;
         }
 
+        /* Animated grid lines */
         .hero-grid {
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(255,213,0,0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,213,0,0.06) 1px, transparent 1px);
+                linear-gradient(rgba(255,224,0,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,224,0,0.04) 1px, transparent 1px);
             background-size: 60px 60px;
             animation: gridMove 20s linear infinite;
             pointer-events: none;
@@ -54,13 +60,13 @@
             to   { background-position: 60px 60px; }
         }
 
-        .brand-heading {
+        .nikon-logo-big {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(80px, 14vw, 180px);
+            font-size: clamp(60px, 11vw, 140px);
             color: var(--brand-accent);
-            letter-spacing: -2px;
             line-height: 1;
-            text-shadow: 0 0 80px rgba(255,213,0,0.25);
+            letter-spacing: 2px;
+            text-shadow: 0 0 80px rgba(255,224,0,0.3);
             animation: logoReveal 1s ease forwards;
             opacity: 0;
             transform: translateY(30px);
@@ -70,50 +76,425 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .brand-tagline {
+        .nikon-tagline {
             font-family: 'Inter', sans-serif;
-            font-size: clamp(13px, 2vw, 17px);
+            font-size: clamp(13px, 2vw, 16px);
             color: rgba(255,255,255,0.5);
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            margin-top: 8px;
+            margin-top: 12px;
             animation: fadeUp 1s 0.3s ease forwards;
             opacity: 0;
         }
 
-        .stat-number, .brand-pill i, .product-badge, .filter-btn.active, .filter-btn:hover, .red-line, .why-icon {
-            color: #111;
-            background: var(--brand-accent);
-            border-color: var(--brand-accent);
+        .hero-stat {
+            animation: fadeUp 1s ease forwards;
+            opacity: 0;
+        }
+        .hero-stat:nth-child(1) { animation-delay: 0.4s; }
+        .hero-stat:nth-child(2) { animation-delay: 0.55s; }
+        .hero-stat:nth-child(3) { animation-delay: 0.7s; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 42px;
+            color: var(--brand-accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero-divider {
+            width: 1px;
+            height: 50px;
+            background: rgba(255,224,0,0.2);
+        }
+
+        /* ── Section headers ── */
+        .section-eyebrow {
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--brand-accent);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(36px, 5vw, 56px);
+            color: #fff;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        /* ── About Nikon Section ── */
+        .about-section {
+            background: #080808;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .about-section::after {
+            content: 'NIKON';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 160px;
+            color: rgba(255,224,0,0.02);
+            pointer-events: none;
+            white-space: nowrap;
         }
 
         .feature-pill {
-            background: rgba(255,213,0,0.12);
-            border-color: rgba(255,213,0,0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,224,0,0.05);
+            border: 1px solid rgba(255,224,0,0.2);
+            border-radius: 100px;
+            padding: 8px 18px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.75);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
         }
 
-        .feature-pill:hover { background: rgba(255,213,0,0.2); }
-        .product-price { color: #fff; }
-        .product-category { color: var(--brand-accent); }
-        .hero-divider { background: rgba(255,213,0,0.25); }
-        .about-section::after { color: rgba(255,213,0,0.06); }
-        .why-card:hover { border-color: rgba(255,213,0,0.3); }
-        .why-icon { color: #111; }
-        .btn-canon { background: var(--brand-accent); }
-        .btn-canon:hover { background: var(--brand-accent-dark); }
-        .product-badge { background: var(--brand-accent); }
-        .red-line { background: var(--brand-accent); }
+        .feature-pill:hover {
+            background: rgba(255,224,0,0.1);
+            border-color: rgba(255,224,0,0.4);
+            color: #fff;
+        }
+
+        .feature-pill i { color: var(--brand-accent); font-size: 12px; }
+
+        /* ── Timeline / History ── */
+        .timeline-item {
+            position: relative;
+            padding-left: 28px;
+            border-left: 1px solid rgba(255,224,0,0.15);
+            padding-bottom: 32px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 4px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--brand-accent);
+            box-shadow: 0 0 12px rgba(255,224,0,0.5);
+        }
+
+        .timeline-year {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: var(--brand-accent);
+            letter-spacing: 2px;
+        }
+
+        .timeline-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.7;
+            margin-top: 4px;
+        }
+
+        /* ── Products Section ── */
+        .products-section {
+            background: #050505;
+            padding: 100px 0;
+        }
+
+        /* Filter tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            padding: 8px 22px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--brand-accent);
+            border-color: var(--brand-accent);
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Product cards */
+        .product-card {
+            background: #0f0f0f;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            border: 1px solid rgba(255,224,0,0);
+            transition: border-color 0.4s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(255,224,0,0.1);
+        }
+
+        .product-card:hover::before {
+            border-color: rgba(255,224,0,0.3);
+        }
+
+        .product-img-wrap {
+            background: #181818;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img-wrap img {
+            transform: scale(1.06);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--brand-accent);
+            color: var(--text-dark);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .product-body {
+            padding: 20px;
+        }
+
+        .product-category {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--brand-accent);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .product-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .product-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+
+        .spec-tag {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            padding: 3px 10px;
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .product-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 26px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .product-price span {
+            font-size: 14px;
+            color: rgba(255,255,255,0.3);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0;
+        }
+
+        .btn-nikon {
+            background: var(--brand-accent);
+            border: none;
+            color: var(--text-dark);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nikon:hover {
+            background: var(--brand-accent-dark);
+            color: var(--text-dark);
+            transform: translateY(-1px);
+        }
+
+        /* ── Scroll reveal ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ── Why Nikon section ── */
+        .why-section {
+            background: #080808;
+            padding: 100px 0;
+        }
+
+        .why-card {
+            background: #0f0f0f;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 36px 28px;
+            height: 100%;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .why-card:hover {
+            border-color: rgba(255,224,0,0.2);
+            transform: translateY(-4px);
+        }
+
+        .why-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,224,0,0.05);
+            border: 1px solid rgba(255,224,0,0.15);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 22px;
+            color: var(--brand-accent);
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover .why-icon {
+            background: rgba(255,224,0,0.1);
+            box-shadow: 0 0 24px rgba(255,224,0,0.15);
+        }
+
+        .why-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .why-text {
+            font-size: 13px;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.7;
+        }
+
+        /* ── Yellow accent line ── */
+        .yellow-line {
+            width: 40px;
+            height: 3px;
+            background: var(--brand-accent);
+            border-radius: 2px;
+            margin-bottom: 20px;
+        }
+
+        /* ── Footer inherits from main style.css ── */
+        footer a { transition: color 0.2s; }
         footer a:hover { color: var(--brand-accent) !important; }
     </style>
 </head>
 <body>
+
+    <!-- ══════════════ NAVBAR ══════════════ -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <img src="fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
                 <span class="fw-bold fs-3">FOTOLAB</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -122,7 +503,7 @@
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="brands.html">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="brands.html">Brands</a></li>
                     <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
@@ -130,170 +511,390 @@
         </div>
     </nav>
 
-    <section class="brand-hero">
+    <!-- ══════════════ HERO ══════════════ -->
+    <section class="nikon-hero">
         <div class="hero-grid"></div>
         <div class="container position-relative">
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <p class="section-eyebrow mb-3">FOTOLAB × Brand Spotlight</p>
-                    <h1 class="brand-heading">NIKON</h1>
-                    <p class="brand-tagline">Legendary Precision, Modern Speed</p>
-                    <p class="mt-4" style="color: rgba(255,255,255,0.65); max-width: 520px; line-height: 1.8; font-family: 'Inter', sans-serif;">Nikon is trusted by shooters who demand clarity, durability, and optical excellence. From groundbreaking DSLRs to advanced mirrorless systems, Nikon delivers sharp images in every condition.</p>
-                    <div class="d-flex flex-wrap gap-3 mt-4">
-                        <a href="#products" class="btn btn-canon">View Nikon Gear</a>
-                        <a href="brands.html" class="text-white-50" style="text-decoration:none; align-self:center;">← All Brands</a>
+                    <h1 class="nikon-logo-big">NIKON</h1>
+                    <p class="nikon-tagline">At the Heart of the Image — Unmatched Optics</p>
+
+                    <p class="mt-4 mb-5" style="font-size:15px; color:rgba(255,255,255,0.45); max-width:480px; font-family:'Inter',sans-serif; line-height:1.8;">
+                        Behtareen build quality aur be-misaal lenses ka safar. Nikon apne be-jod ergonomical grips, 
+                        quasoor-less sensor dynamic range, aur naye Z-mount optics ke sath wildlife, sports aur wedding professionals ka mustaqil aitmad hai.
+                    </p>
+
+                    <div class="d-flex align-items-center gap-4 flex-wrap">
+                        <div class="hero-stat text-center">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Years of Optical Heritage</div>
+                        </div>
+                        <div class="hero-divider d-none d-sm-block"></div>
+                        <div class="hero-stat text-center">
+                            <div class="stat-number">Z</div>
+                            <div class="stat-label">Widest Mirrorless Mount</div>
+                        </div>
+                        <div class="hero-divider d-none d-sm-block"></div>
+                        <div class="hero-stat text-center">
+                            <div class="stat-number">EXPEED</div>
+                            <div class="stat-label">Advanced AI Tracking</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <a href="#products" class="btn-nikon me-3">Explore Products</a>
+                        <a href="brands.html" style="color:rgba(255,255,255,0.4); font-size:13px; font-family:'Inter',sans-serif; text-decoration:none; letter-spacing:1px;">
+                            ← All Brands
+                        </a>
                     </div>
                 </div>
+
                 <div class="col-lg-5 d-none d-lg-flex justify-content-center align-items-center">
-                    <img src="https://picsum.photos/id/1005/500/500" alt="Nikon Camera" class="img-fluid rounded shadow-lg">
+                    <!-- Decorative Nikon Theme Elements -->
+                    <div style="position:relative; width:320px; height:320px;">
+                        <div style="
+                            position:absolute; inset:0; border-radius:50%;
+                            border: 2px solid rgba(255,224,0,0.1);
+                            animation: n-spin 12s linear infinite;
+                        "></div>
+                        <div style="
+                            position:absolute; inset:30px; border-radius:50%;
+                            border: 1px dashed rgba(255,224,0,0.15);
+                            animation: n-spin 6s linear infinite reverse;
+                        "></div>
+                        <div style="
+                            position:absolute; inset:0;
+                            display:flex; align-items:center; justify-content:center;
+                        ">
+                            <span style="
+                                font-family:'Bebas Neue',sans-serif;
+                                font-size:140px;
+                                color:rgba(255,224,0,0.06);
+                                line-height:1;
+                            ">Z</span>
+                        </div>
+                        <!-- Accent light points -->
+                        <div style="position:absolute;top:50%;left:-4px;width:8px;height:8px;border-radius:50%;background:var(--brand-accent);box-shadow:0 0 14px rgba(255,224,0,0.8);"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ══════════════ ABOUT NIKON ══════════════ -->
     <section class="about-section" id="about">
         <div class="container">
-            <div class="row align-items-center gy-5">
+            <div class="row align-items-start g-5">
                 <div class="col-lg-5 reveal">
-                    <p class="section-eyebrow">About Nikon</p>
-                    <div class="red-line mt-3"></div>
-                    <h2 class="section-title mt-3">Precision Optics. Rugged Performance.</h2>
-                    <p style="color: rgba(255,255,255,0.65); line-height: 1.8; font-family:'Inter',sans-serif; margin-top:20px;">Nikon cameras are engineered for creators who push the boundaries. Since 1917, Nikon has refined optics, autofocus, and imaging to deliver sharp, vibrant results in the field and studio.</p>
+                    <p class="section-eyebrow">About the Brand</p>
+                    <div class="yellow-line mt-3"></div>
+                    <h2 class="section-title">The Heritage of Perfection</h2>
+                    <p style="color:rgba(255,255,255,0.5); font-size:15px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:20px;">
+                        Nikon ne hamesha optical engineering ko apni pehchan banaya hai. Inke cameras apne **legendary weather sealing**, 
+                        shandar body balance, aur **NIKKOR lenses** ki sharp details ke liye poori duniya me jaane jaate hain.
+                    </p>
+                    <p style="color:rgba(255,255,255,0.4); font-size:14px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:14px;">
+                        Nikon ka naya **Z-mount** industry ka sabse wide lens mount hai, jo sensor tak zyada roshni (light) pohnchata hai aur low-light conditions me kamaal ki performance daita hai.
+                    </p>
                     <div class="d-flex flex-wrap gap-2 mt-4">
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> NIKKOR Lens Heritage</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Weather-Sealed Bodies</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> High-Speed Tracking AF</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> 4K Video and 3D Tracking</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Deep AI Subject Detection (Birds, Vehicles)</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Industry-Leading Rugged Build Quality</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Ultra-Wide 55mm Z-Mount System</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> EXPEED 7 High-Speed Processing</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> True-to-Life Color Science</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> 12-bit Internal N-RAW Recording</span>
                     </div>
                 </div>
+
                 <div class="col-lg-6 offset-lg-1 reveal reveal-delay-2">
-                    <p class="section-eyebrow">Key Milestones</p>
-                    <div class="red-line mt-3 mb-4"></div>
+                    <p class="section-eyebrow">Brand Timeline</p>
+                    <div class="yellow-line mt-3 mb-4"></div>
                     <div class="timeline-item">
                         <div class="timeline-year">1917</div>
-                        <div class="timeline-text">Nikon founded in Tokyo as Nippon Kogaku — building precision optical instruments for photographers and the military.</div>
+                        <div class="timeline-text">Nippon Kogaku K.K. ka aghaaz Tokyo, Japan me optical glasses aur binoculars banane se hua.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1959</div>
+                        <div class="timeline-text">Nikon F launched — Jisne iconic F-mount system diya aur SLR cameras ko professionals ka benchmark banaya.</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-year">1999</div>
-                        <div class="timeline-text">Launch of the D1, Nikon's first digital SLR built for professionals and sports photographers.</div>
+                        <div class="timeline-text">Nikon D1 launched — Duniya ka pehla sacha professional digital SLR (DSLR) jo poori tarah Nikon ne khud design kiya.</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-year">2018</div>
-                        <div class="timeline-text">Introduction of the Z-mount mirrorless system — wider lens mount, faster glass, and enhanced low-light performance.</div>
+                        <div class="timeline-text">Nikon Z6 aur Z7 ke sath naye mirrorless safar aur ultra-wide Z-mount ka shandaar aghaaz.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-text">Flagship Nikon Z9 launched — Bagair mechanical shutter ke duniya ka sabse behtareen professional action camera.</div>
                     </div>
                     <div class="timeline-item" style="padding-bottom:0; border-left-color:transparent;">
-                        <div class="timeline-year">2024</div>
-                        <div class="timeline-text">Nikon Z8 and Z9 continue Nikon's pursuit of speed, reliability, and professional imaging excellence worldwide.</div>
+                        <div class="timeline-year">2025/2026</div>
+                        <div class="timeline-text">Z8, Z6 III, aur retro-styled Z f cameras apni advanced AI tracking ke sath globally top trends me hain.</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ══════════════ WHY NIKON ══════════════ -->
     <section class="why-section">
         <div class="container">
             <div class="text-center mb-5 reveal">
                 <p class="section-eyebrow">Why Choose Nikon</p>
-                <div class="red-line mx-auto mt-3"></div>
-                <h2 class="section-title mt-2">Optics Built for the Moment</h2>
+                <div class="yellow-line mx-auto mt-3"></div>
+                <h2 class="section-title mt-2">Built for the Toughest Environments</h2>
             </div>
             <div class="row g-4">
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-1">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-binoculars"></i></div>
-                        <div class="why-title">Nikkor Lenses</div>
-                        <p class="why-text">Engineered in-house for unmatched sharpness, contrast, and beautiful bokeh across every focal length.</p>
+                        <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="why-title">Legendary Durability</div>
+                        <p class="why-text">Nikon cameras ka weather sealing be-misaal hota hai jo shadeed barish, dhoor, aur thand me bhi rukta nahi.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-2">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        <div class="why-title">High-Speed AF</div>
-                        <p class="why-text">Advanced subject detection keeps pace with sports, wildlife, and fast-moving action.</p>
+                        <div class="why-icon"><i class="fas fa-hand-holding"></i></div>
+                        <div class="why-title">Perfect Ergonomics</div>
+                        <p class="why-text">Inka signature deep-grip design aur button placement bade lenses ke sath ghanton shoot karne ko asaan banata hai.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-3">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-video"></i></div>
-                        <div class="why-title">Pro Video</div>
-                        <p class="why-text">Nikon cinema and mirrorless bodies support 4K RAW recording, N-Log, and cinematic workflows.</p>
+                        <div class="why-icon"><i class="fas fa-bullseye"></i></div>
+                        <div class="why-title">N-AF Intelligent Focus</div>
+                        <p class="why-text">EXPEED 7 processor par chalne wali AI tracking jo parinday, janwar, aur tez gaariyon ko herat-angez speed se follow karti hai.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-4">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
-                        <div class="why-title">Built Tough</div>
-                        <p class="why-text">Weather-sealed magnesium alloy bodies designed to perform in rain, dust, and extreme conditions.</p>
+                        <div class="why-icon"><i class="fas fa-adjust"></i></div>
+                        <div class="why-title">Dynamic Range</div>
+                        <p class="why-text">Nikon ke sensors shadow details ko recover karne me sabse aagay hain, jo landscape aur wedding me behtareen results daitay hain.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ══════════════ PRODUCTS ══════════════ -->
     <section class="products-section" id="products">
         <div class="container">
             <div class="text-center mb-4 reveal">
                 <p class="section-eyebrow">Nikon Lineup</p>
-                <div class="red-line mx-auto mt-3"></div>
-                <h2 class="section-title mt-2">Featured Nikon Gear</h2>
-                <p style="color: rgba(255,255,255,0.35); font-size:14px; margin-top:10px;">Premium Nikon cameras and lenses available at FOTOLAB with official warranty.</p>
+                <div class="yellow-line mx-auto mt-3"></div>
+                <h2 class="section-title mt-2">Nikon Products at FOTOLAB</h2>
+                <p style="color:rgba(255,255,255,0.35); font-size:14px; font-family:'Inter',sans-serif; margin-top:10px;">
+                    Available in-store and online. All products carry official Nikon Pakistan warranty support.
+                </p>
             </div>
+
+            <!-- Filter tabs -->
             <div class="filter-tabs">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="mirrorless">Mirrorless</button>
-                <button class="filter-btn" data-filter="dslr">DSLR</button>
-                <button class="filter-btn" data-filter="lens">Lens</button>
-                <button class="filter-btn" data-filter="pro">Pro Video</button>
+                <button class="filter-btn" data-filter="mirrorless">Z-Series Full Frame</button>
+                <button class="filter-btn" data-filter="lens">NIKKOR Z Lenses</button>
+                <button class="filter-btn" data-filter="flagship">Flagship System</button>
+                <button class="filter-btn" data-filter="retro">Retro Vintage</button>
             </div>
+
             <div class="row g-4" id="products-grid">
+
+                <!-- Nikon Z8 -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="mirrorless">
                     <div class="product-card">
-                        <div class="product-img-wrap"><img src="https://picsum.photos/id/1031/400/300" alt="Nikon Z9"></div>
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1043/400/300" alt="Nikon Z8">
+                            <span class="product-badge">The Hybrid King</span>
+                        </div>
                         <div class="product-body">
-                            <div class="product-category">Mirrorless</div>
-                            <div class="product-name">Nikon Z9</div>
-                            <p class="product-desc">Flagship mirrorless speed, 45.7MP, 8K ProRes RAW, and 120fps still capture for elite shooters.</p>
-                            <div class="product-specs"><span class="spec-tag">45.7MP</span><span class="spec-tag">8K Video</span><span class="spec-tag">120fps</span></div>
-                            <div class="d-flex align-items-center justify-content-between"><div class="product-price">PKR 1,450,000</div><a href="products.html" class="btn-canon">Inquire</a></div>
+                            <div class="product-category">Z-Series Mirrorless</div>
+                            <div class="product-name">Nikon Z8</div>
+                            <p class="product-desc">45.7MP stacked sensor compact body me. Z9 ki poori taqat, 8.3K N-RAW internal video aur be-misaal fast tracking ke sath.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">45.7MP Stacked</span>
+                                <span class="spec-tag">8.3K N-RAW</span>
+                                <span class="spec-tag">No Shutter Wear</span>
+                                <span class="spec-tag">EXPEED 7</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 8,95,000 <span>/ body</span></div>
+                                </div>
+                                <a href="products.html" class="btn-nikon">Inquire</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Nikon Z6 III -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="mirrorless">
                     <div class="product-card">
-                        <div class="product-img-wrap"><img src="https://picsum.photos/id/1041/400/300" alt="Nikon Z8"></div>
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1044/400/300" alt="Nikon Z6 III">
+                            <span class="product-badge">Latest Arrival</span>
+                        </div>
                         <div class="product-body">
-                            <div class="product-category">Mirrorless</div>
-                            <div class="product-name">Nikon Z8</div>
-                            <p class="product-desc">Compact pro body with 45.7MP, 8K video, and 120fps burst performance for hybrid creators.</p>
-                            <div class="product-specs"><span class="spec-tag">45.7MP</span><span class="spec-tag">8K Video</span><span class="spec-tag">IBIS</span></div>
-                            <div class="d-flex align-items-center justify-content-between"><div class="product-price">PKR 1,180,000</div><a href="products.html" class="btn-canon">Inquire</a></div>
+                            <div class="product-category">Z-Series Mirrorless</div>
+                            <div class="product-name">Nikon Z6 III</div>
+                            <p class="product-desc">Duniya ka pehla Partially-Stacked CMOS sensor jo focus speed aur low-light performance ko naye darjay par le jata hai.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">24.5MP Part-Stacked</span>
+                                <span class="spec-tag">6K RAW Video</span>
+                                <span class="spec-tag">4000 nits EVF</span>
+                                <span class="spec-tag">8.0 Stop IBIS</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 5,45,000 <span>/ body</span></div>
+                                </div>
+                                <a href="products.html" class="btn-nikon">Inquire</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="dslr">
+
+                <!-- Nikon Z f -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="retro">
                     <div class="product-card">
-                        <div class="product-img-wrap"><img src="https://picsum.photos/id/1032/400/300" alt="Nikon D850"></div>
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1045/400/300" alt="Nikon Z f">
+                            <span class="product-badge">Classic Design</span>
+                        </div>
                         <div class="product-body">
-                            <div class="product-category">DSLR</div>
-                            <div class="product-name">Nikon D850</div>
-                            <p class="product-desc">Classic full-frame DSLR for stills and video with 45.7MP and exceptional dynamic range.</p>
-                            <div class="product-specs"><span class="spec-tag">45.7MP</span><span class="spec-tag">4K Video</span><span class="spec-tag">LED Meter</span></div>
-                            <div class="d-flex align-items-center justify-content-between"><div class="product-price">PKR 420,000</div><a href="products.html" class="btn-canon">Inquire</a></div>
+                            <div class="product-category">Retro Mirrorless</div>
+                            <div class="product-name">Nikon Z f</div>
+                            <p class="product-desc">Iconic FM2 jesa brass dial vintage look lekin andar se Z6 II se bhi zyada taqatwar AI subject tracking aur advanced black-and-white mode switcher.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">24.5MP Full Frame</span>
+                                <span class="spec-tag">Brass Mechanical Dials</span>
+                                <span class="spec-tag">Pixel Shift Tech</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 4,35,000 <span>/ body</span></div>
+                                </div>
+                                <a href="products.html" class="btn-nikon">Inquire</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <!-- NIKKOR Z 85mm f/1.2 S -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="lens">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1026/400/300" alt="NIKKOR Z 85mm f/1.2 S">
+                            <span class="product-badge">S-Line Luxury</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">NIKKOR Z Lens</div>
+                            <div class="product-name">NIKKOR Z 85mm f/1.2 S</div>
+                            <p class="product-desc">Nikon ka ultimate flagship portrait lens. f/1.2 opening par herat-angez multi-focus system jo background ko bilkul mita daita hai.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">f/1.2 Wide Aperture</span>
+                                <span class="spec-tag">S-Line Premium Glass</span>
+                                <span class="spec-tag">Dual Linear Motors</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 6,15,000</div>
+                                </div>
+                                <a href="products.html" class="btn-nikon">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NIKKOR Z 24-70mm f/2.8 S -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="lens">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1027/400/300" alt="NIKKOR Z 24-70mm f/2.8 S">
+                            <span class="product-badge">Pro Workhorse</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">NIKKOR Z Lens</div>
+                            <div class="product-name">NIKKOR Z 24-70mm f/2.8 S</div>
+                            <p class="product-desc">Har professional photographer ki buniyadi zaroorat. OLED info display panel aur constant f/2.8 premium sharpening ke sath zoom lens.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">f/2.8 Constant</span>
+                                <span class="spec-tag">ARNEO & Nano Coating</span>
+                                <span class="spec-tag">OLED Lens Display</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 4,65,000</div>
+                                </div>
+                                <a href="products.html" class="btn-nikon">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nikon Z9 -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="flagship">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1028/400/300" alt="Nikon Z9">
+                            <span class="product-badge">The Unstoppable</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Flagship System</div>
+                            <div class="product-name">Nikon Z9</div>
+                            <p class="product-desc">Integrated vertical grip ke sath full-size beast camera. 8K 60p recording 2 ghante se zyada lagatar bagair kisi overheat warning ke.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">45.7MP Stacked Full Frame</span>
+                                <span class="spec-tag">8K/60p & 4K/120p</span>
+                                <span class="spec-tag">Dual Card CFexpress</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 12,90,000</div>
+                                </div>
+                                <a href="products.html" class="btn-nikon">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /row -->
         </div>
     </section>
 
-    <footer class="py-5" style="background-color: black;">
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <footer class="py-5" style="background-color: black; border-top: 2px solid #C9A84C;">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4"><h5 class="text-amber">FOTOLAB</h5><p class="text-white">Premium Photography Solutions since 1991.</p></div>
-                <div class="col-md-4 mb-4"><h5 class="text-amber">Explore</h5><ul class="list-unstyled"><li><a href="products.html" class="text-white">Products</a></li><li><a href="service.html" class="text-white">Services</a></li><li><a href="contact.html" class="text-white">Contact</a></li></ul></div>
-                <div class="col-md-4 mb-4"><h5 class="text-amber">Contact</h5><p class="text-white">info@fotolab.com</p><p class="text-white">+91 98765 43210</p></div>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-3">FOTOLAB</h5>
+                    <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="text-amber mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-3">Contact Outlet</h5>
+                    <p class="text-white-50 mb-1"><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi, Karachi, Pakistan</p>
+                    <p class="text-white-50 mb-1"><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
+                    <p class="text-white-50 mb-0"><i class="fas fa-phone text-amber me-2"></i> +91 98765 43210</p>
+                </div>
+                <!-- Geolocation Live Route Module Inside Footer -->
+                <div class="col-md-4">
+                    <h5 class="text-amber mb-3"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
+                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #1A1A2E; border: 1px solid #333;">
+                        <span class="text-white-50"><i class="fas fa-spinner fa-spin me-2"></i>Location track ki ja rahi hai...</span>
+                    </div>
+                </div>
             </div>
-            <hr class="border-secondary">
+            <hr class="border-secondary mt-4">
             <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
         </div>
     </footer>
@@ -301,5 +902,56 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="main.js"></script>
     <script src="loader.js"></script>
+    <script src="geolocation.js"></script>
+
+    <!-- Geolocation Trigger Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof getLocation === "function") {
+                getLocation();
+            }
+        });
+    </script>
+
+    <style>
+        @keyframes n-spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+    </style>
+    <script>
+        // ── Scroll Reveal ──
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        reveals.forEach(el => observer.observe(el));
+
+        // ── Product Filter ──
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productItems = document.querySelectorAll('.product-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                productItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

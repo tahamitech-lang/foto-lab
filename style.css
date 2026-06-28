@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5 {
     color: inherit;
 }
 
-/* Aapki Custom Amber Classes ko Blue par map kar diya taake HTML na badalna paray */
+/* Blue mapped classes */
 .btn-amber {
     background-color: var(--primary-blue);
     color: white;
@@ -141,4 +141,176 @@ footer a {
 
 footer a:hover {
     color: var(--primary-blue);
+}
+
+/* --- Marquee/Auto-Scroll Container --- */
+.brand-marquee-wrapper {
+    overflow: hidden;
+    width: 100%;
+    padding: 20px 0;
+    position: relative;
+}
+
+.brand-marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 1.5rem;
+    animation: scrollMarquee 20s linear infinite;
+}
+
+.brand-marquee-wrapper:hover .brand-marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- Brand Card Hover Effects --- */
+.brand-card {
+    transition: all 0.4s ease-in-out;
+    min-width: 250px;
+}
+
+.brand-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    border-color: var(--primary-blue) !important;
+    box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2) !important;
+}
+
+.brand-card img {
+    filter: grayscale(100%);
+    transition: filter 0.4s ease;
+}
+
+.brand-card:hover img {
+    filter: grayscale(0%);
+}
+
+/* ── Specification Animation ── */
+.spec-row {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: specFadeInUp 0.5s ease forwards;
+}
+
+@keyframes specFadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Ripple Effect ── */
+.btn-amber {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    border-radius: 50%;
+    animation: rippleEffect 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes rippleEffect {
+    to { transform: scale(4); opacity: 0; }
+}
+
+/* Service Card */
+.service-card {
+    transition: all 0.5s ease;
+    border-radius: 15px;
+    background: #1a1a2e;
+    border: 1px solid rgba(13, 110, 253, 0.2);
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-15px);
+    background: #1a1f3d;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--primary-blue);
+}
+
+.service-card:hover i {
+    animation: iconBounce 0.8s ease infinite;
+    color: #fff !important;
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+.service-card { animation: fadeUp 0.8s ease forwards; }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form Styling */
+.form-control {
+    transition: all 0.3s ease;
+    border: 1px solid #6c757d;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    border-color: var(--primary-blue) !important;
+}
+
+/* Google Map */
+.ratio.ratio-16x9 { animation: fadeIn 1.5s ease-in-out; }
+
+/* Brands & Products */
+.brand-card:hover { border-color: var(--primary-blue) !important; }
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(13, 110, 253, 0.2);
+    border-color: var(--primary-blue) !important;
+}
+
+.btn-slide-in {
+    position: relative;
+    background-color: transparent;
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.btn-slide-in:hover {
+    background-color: var(--primary-blue);
+    color: #fff;
+}
+
+.product-card:hover .img-zoom-container img { transform: scale(1.1); }
+
+.service-card:hover { border-color: var(--primary-blue) !important; box-shadow: 0 10px 20px rgba(13, 110, 253, 0.15); }
+
+/* Glassmorphism */
+.category-card:hover {
+    border-color: var(--primary-blue);
+    background: rgba(13, 110, 253, 0.1);
+}
+
+.btn-amber:hover {
+    box-shadow: 0 0 20px rgba(13, 110, 253, 0.5);
+    background-color: var(--dark-blue);
+}
+/* Image ko center aur 50% width dene ke liye */
+.brand-card img {
+    width: 50% !important;    /* Image ka size card ka 50% */
+    height: auto !important;
+    display: block;           /* Block level banata hai taake margin kaam kare */
+    margin: 0 auto 1rem auto; /* Upar/neeche margin aur left/right auto se center */
+}
+
+/* Card ke andar text ko bhi center karne ke liye */
+.brand-card {
+    text-align: center;
 }

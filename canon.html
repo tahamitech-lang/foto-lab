@@ -944,34 +944,45 @@
     </section>
 
     <!-- ══════════════ FOOTER ══════════════ -->
-    <footer class="py-5" style="background-color: black;">
+    <footer class="py-5" style="background-color: black; border-top: 2px solid #C9A84C;">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">FOTOLAB</h5>
-                    <p class="text-white">Premium Photography Solutions since 1991.</p>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-3">FOTOLAB</h5>
+                    <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">Explore</h5>
+                <div class="col-md-2">
+                    <h5 class="text-amber mb-3">Explore</h5>
                     <ul class="list-unstyled">
-                        <li><a href="products.html" class="text-white text-decoration-none">Products</a></li>
-                        <li><a href="service.html" class="text-white text-decoration-none">Services</a></li>
-                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                        <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
+                        <li><a href="service.html" class="text-white-50 text-decoration-none">Services</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">Contact</h5>
-                    <p class="text-white">info@fotolab.com</p>
-                    <p class="text-white">+91 98765 43210</p>
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-3">Contact Outlet</h5>
+                    <p class="text-white-50 mb-1"><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi, Karachi, Pakistan</p>
+                    <p class="text-white-50 mb-1"><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
+                    <p class="text-white-50 mb-0"><i class="fas fa-phone text-amber me-2"></i> +91 98765 43210</p>
+                </div>
+                <!-- Geolocation Live Route Module Inside Footer -->
+                <div class="col-md-4">
+                    <h5 class="text-amber mb-3"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
+                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #1A1A2E; border: 1px solid #333;">
+                        <span class="text-white-50"><i class="fas fa-spinner fa-spin me-2"></i>Location track ki ja rahi hai...</span>
+                    </div>
                 </div>
             </div>
-            <hr class="border-secondary">
+            <hr class="border-secondary mt-4">
             <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
         </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="main.js"></script>
     <script src="loader.js"></script>
+    <script src="geolocation.js"></script>
+    
     <style>
         @keyframes fl-spin {
             from { transform: rotate(0deg); }
@@ -1010,6 +1021,13 @@
                     }
                 });
             });
+        });
+
+        // ── Geolocation Trigger ──
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof getLocation === "function") {
+                getLocation();
+            }
         });
     </script>
 </body>

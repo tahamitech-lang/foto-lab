@@ -16,6 +16,7 @@
     </script>
 </head>
 <body>
+    <!-- ══════════════ NAVBAR ══════════════ -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -39,14 +40,16 @@
         </div>
     </nav>
 
-    <header class="hero position-relative d-flex align-items-center" style="background: url('https://picsum.photos/id/106/1920/600') center/cover;">
-        <div class="hero-overlay"></div>
-        <div class="container position-relative text-white py-5">
-            <h1 class="display-3 fw-bold text-white">Our Services</h1>
-            <p class="lead text-white-50 mt-3">Everything photographers need to shoot, edit, and protect their gear.</p>
+    <!-- ══════════════ HERO SECTION (Updated) ══════════════ -->
+    <header class="hero position-relative d-flex align-items-center justify-content-center text-center" 
+            style="height: 50vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/id/106/1920/600') center/cover no-repeat;">
+        <div class="container position-relative z-3">
+            <h1 class="display-1 fw-bold text-white mb-3">OUR SERVICES</h1>
+            <p class="lead text-white-50 fs-3">Professional support for every photographer</p>
         </div>
     </header>
 
+    <!-- ══════════════ SERVICES SECTON ══════════════ -->
     <section class="py-5" style="background-color: black;">
         <div class="container">
             <div class="text-center mb-5">
@@ -55,42 +58,42 @@
             </div>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
-                    <div class="service-card p-4 text-center">
+                    <div class="service-card p-4 text-center h-100">
                         <i class="fas fa-camera fa-3x mb-4 text-amber"></i>
                         <h4 class="text-amber">Camera Sales</h4>
                         <p class="text-white-50">Latest mirrorless and DSLR models for every budget.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="service-card p-4 text-center">
+                    <div class="service-card p-4 text-center h-100">
                         <i class="fas fa-search-dollar fa-3x mb-4 text-amber"></i>
                         <h4 class="text-amber">Lens &amp; Gear Advice</h4>
                         <p class="text-white-50">Expert recommendations tailored to your shooting style.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="service-card p-4 text-center">
+                    <div class="service-card p-4 text-center h-100">
                         <i class="fas fa-tools fa-3x mb-4 text-amber"></i>
                         <h4 class="text-amber">Repair &amp; Maintenance</h4>
                         <p class="text-white-50">Trusted service for camera bodies, lenses, and electronics.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="service-card p-4 text-center">
+                    <div class="service-card p-4 text-center h-100">
                         <i class="fas fa-bolt fa-3x mb-4 text-amber"></i>
                         <h4 class="text-amber">Lighting Kits</h4>
                         <p class="text-white-50">Studio and on-location lighting setups for pro results.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="service-card p-4 text-center">
+                    <div class="service-card p-4 text-center h-100">
                         <i class="fas fa-box-open fa-3x mb-4 text-amber"></i>
                         <h4 class="text-amber">Accessories</h4>
                         <p class="text-white-50">Memory, tripods, bags, batteries, and protective gear.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="service-card p-4 text-center">
+                    <div class="service-card p-4 text-center h-100">
                         <i class="fas fa-headset fa-3x mb-4 text-amber"></i>
                         <h4 class="text-amber">Customer Support</h4>
                         <p class="text-white-50">Personal support for setup, warranty, and questions.</p>
@@ -100,36 +103,45 @@
         </div>
     </section>
 
+    <!-- ══════════════ CTA SECTION ══════════════ -->
     <section class="py-5 text-center bg-amber text-dark">
         <div class="container">
             <h2>Need expert gear advice?</h2>
             <p class="mb-4">Reach out and our team will help you choose the perfect setup.</p>
-            <a href="contact.html" class="btn btn-lg btn-amber px-5 py-3 fs-5">Contact Us</a>
+            <a href="contact.html" class="btn btn-lg btn-dark px-5 py-3 fs-5">Contact Us</a>
         </div>
     </section>
 
-    <footer class="py-5" style="background-color: black;">
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <footer class="py-5" style="background-color: black; border-top: 2px solid #C9A84C;">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">FOTOLAB</h5>
-                    <p class="text-white">Premium Photography Solutions since 1991.</p>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-3">FOTOLAB</h5>
+                    <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">Explore</h5>
+                <div class="col-md-2">
+                    <h5 class="text-amber mb-3">Explore</h5>
                     <ul class="list-unstyled">
-                        <li><a href="products.html" class="text-white">Products</a></li>
-                        <li><a href="about.html" class="text-white">About</a></li>
-                        <li><a href="contact.html" class="text-white">Contact</a></li>
+                        <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">Contact</h5>
-                    <p class="text-white">info@fotolab.com</p>
-                    <p class="text-white">+91 98765 43210</p>
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-3">Contact Outlet</h5>
+                    <p class="text-white-50 mb-1"><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi, Karachi, Pakistan</p>
+                    <p class="text-white-50 mb-1"><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
+                    <p class="text-white-50 mb-0"><i class="fas fa-phone text-amber me-2"></i> +91 98765 43210</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-amber mb-3"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
+                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #1A1A2E; border: 1px solid #333;">
+                        <span class="text-white-50"><i class="fas fa-spinner fa-spin me-2"></i>Location track ki ja rahi hai...</span>
+                    </div>
                 </div>
             </div>
-            <hr class="border-secondary">
+            <hr class="border-secondary mt-4">
             <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
         </div>
     </footer>
@@ -137,5 +149,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="main.js"></script>
     <script src="loader.js"></script>
+    <script src="geolocation.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof getLocation === "function") {
+                getLocation();
+            }
+        });
+    </script>
 </body>
 </html>

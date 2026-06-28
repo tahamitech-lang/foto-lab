@@ -1,30 +1,88 @@
-/* Scroll Animations */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+/* FOTOLAB Branding Base Variable */
+:root {
+    --brand-gold: #C9A84C;
+    --btn-grey: #555555; /* Default grey color for button background */
 }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+/* 1. Product Card Hover Lift Effect */
+.product-card.card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+    will-change: transform;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
-.slide-up {
-    animation: slideUp 0.8s forwards;
+.product-card.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--brand-gold) !important;
+    box-shadow: 0 12px 24px rgba(201, 168, 76, 0.2);
 }
 
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(60px); }
+/* 2. Image Zoom Effect */
+.img-zoom-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.product-card .card-img-top {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    object-fit: cover;
+    height: 220px;
+}
+
+.product-card:hover .card-img-top {
+    transform: scale(1.08);
+}
+
+/* 3. Updated "View Details" Button (Grey to White Slide-In) */
+.btn-slide-in {
+    color: #ffffff !important; /* Text hamesha white rahega */
+    background-color: var(--btn-grey) !important; /* Default state: Grey */
+    border: 1px solid transparent !important;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    font-weight: 500;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Slide layer trigger construct (White background overlay) */
+.btn-slide-in::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Shuruat mein left side par chupa hoga */
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Hover karne par white background slide-in hoga */
+    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+}
+
+/* Jab pooray card par cursor aaye to button ka background smoothly white hojaye */
+.product-card:hover .btn-slide-in::before {
+    left: 0; /* Smooth left to right sliding overlay */
+}
+
+/* Hover state par text color handling */
+.product-card:hover .btn-slide-in {
+    color: #000000 !important; /* White background par text clear dikhne ke liye Black hojayega */
+    font-weight: 600;
+}
+/* Transition Effect */
+.transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+html.is-changing .transition-fade {
+  opacity: 0;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Aperture Blades Animation */
-#apertureBlades {
-    animation: rotateBlades 8s linear infinite;
-}
-
-@keyframes rotateBlades {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+.product-card {
+    animation: fadeInUp 0.6s ease forwards;
 }

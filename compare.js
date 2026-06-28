@@ -325,34 +325,71 @@ function renderComparison(productA, productB) {
     if (!result) return;
 
     if (!productA || !productB || productA.id === productB.id) {
-        result.innerHTML = '<p class="text-white-50">Select two different products to compare.</p>';
+        result.innerHTML = '<p class="text-white-50"><i class="fas fa-exclamation-circle me-2"></i>Select two different products to compare.</p>';
         return;
     }
 
+    // Dono products ki keys ko combine karke unique features list banana (Dynamic Handling)
+    const ignoredKeys = ['id', 'name'];
+    const allKeys = new Set([...Object.keys(productA), ...Object.keys(productB)]);
+    const features = Array.from(allKeys).filter(key => !ignoredKeys.includes(key));
+
     result.innerHTML = `
         <div class="table-responsive">
-            <table class="table table-dark table-bordered text-white align-middle">
+            <table class="table table-dark table-striped m-0 align-middle">
                 <thead>
                     <tr>
-                        <th>Feature</th>
-                        <th>${productA.name}</th>
-                        <th>${productB.name}</th>
+                        <th class="text-primary">Feature</th>
+                        <th class="text-white">${productA.name}</th>
+                        <th class="text-white">${productB.name}</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr><td>Sensor</td><td>${productA.sensor}</td><td>${productB.sensor}</td></tr>
-                    <tr><td>Video</td><td>${productA.video}</td><td>${productB.video}</td></tr>
-                    <tr><td>ISO Range</td><td>${productA.iso}</td><td>${productB.iso}</td></tr>
-                    <tr><td>Autofocus</td><td>${productA.autofocus}</td><td>${productB.autofocus}</td></tr>
-                    <tr><td>Weight</td><td>${productA.weight}</td><td>${productB.weight}</td></tr>
-                    <tr><td>Price</td><td>${productA.price}</td><td>${productB.price}</td></tr>
-                </tbody>
+                <tbody></tbody>
             </table>
         </div>
     `;
+
+    const tbody = result.querySelector('tbody');
+
+    // Har ek feature row ko thode delay ke sath animate karke append karna
+    features.forEach((key, index) => {
+        const row = document.createElement('tr');
+        row.classList.add('spec-row');
+        
+        // Step-by-step appearance ka timing setting (0.12s gap)
+        row.style.animationDelay = `${index * 0.12}s`;
+
+        // Key name ko properly Capitalize format me convert karna (e.g., focalLength -> Focal Length)
+        const formattedKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+
+        const valA = productA[key] !== undefined ? productA[key] : '-';
+        const valB = productB[key] !== undefined ? productB[key] : '-';
+
+        row.innerHTML = `
+            <td class="text-white-50 fw-bold">${formattedKey}</td>
+            <td class="text-white">${valA}</td>
+            <td class="text-amber fw-bold">${valB}</td>
+        `;
+        tbody.appendChild(row);
+    });
 }
 
-function handleCompare() {
+function handleCompare(e) {
+    // ── Ripple Effect Execution ──
+    const btn = e.currentTarget;
+    let ripple = document.createElement("span");
+    ripple.classList.add("ripple");
+    btn.appendChild(ripple);
+
+    let x = e.clientX - btn.getBoundingClientRect().left;
+    let y = e.clientY - btn.getBoundingClientRect().top;
+
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+
+    setTimeout(() => { ripple.remove(); }, 600);
+
+    // ── Comparison Logic Execution ──
     const select1 = document.getElementById('product1');
     const select2 = document.getElementById('product2');
     if (!select1 || !select2) return;

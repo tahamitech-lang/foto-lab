@@ -1,6 +1,7 @@
 (function () {
     const LOADER_DURATION = 1500;
 
+
     const CSS = `
       #fotolab-loader {
         position: fixed;
@@ -117,7 +118,12 @@
       }
     `;
 
+    let loaderInjected = false;
+
     function injectLoader() {
+      if (loaderInjected || document.getElementById('fotolab-loader')) return;
+      loaderInjected = true;
+
       const style = document.createElement('style');
       style.textContent = CSS;
       document.head.appendChild(style);
@@ -143,8 +149,17 @@
 
     function showLoader(callback) {
       const loader = document.getElementById('fotolab-loader');
+      if (!loader) {
+        if (typeof callback === 'function') callback();
+        return;
+      }
+
       loader.classList.add('visible');
-      setTimeout(callback, LOADER_DURATION);
+      requestAnimationFrame(function () {
+        setTimeout(function () {
+          if (typeof callback === 'function') callback();
+        }, LOADER_DURATION);
+      });
     }
 
     function hideLoader() {
@@ -152,44 +167,86 @@
       if (loader) loader.classList.remove('visible');
     }
 
-    function interceptLinks() {
-      document.addEventListener('click', function (e) {
-        const anchor = e.target.closest('a[href]');
-        if (!anchor || anchor.target === '_blank') return;
-
+    function getInternalHref(target) {
+      const anchor = target && target.closest ? target.closest('a[href]') : null;
+      if (anchor) {
         const href = anchor.getAttribute('href');
-        if (!href) return;
+        if (!href) return null;
 
         const trimmed = href.trim();
-        const isAnchor = trimmed.startsWith('#');
-        const isSpecial = /^(javascript|mailto|tel):/.test(trimmed);
-        if (isAnchor || isSpecial) return;
+        if (!trimmed || trimmed.startsWith('#') || /^(javascript|mailto|tel):/i.test(trimmed)) {
+          return null;
+        }
 
         const url = new URL(trimmed, window.location.href);
-        const isExternal = url.origin !== window.location.origin;
-        const isSamePageAnchor = url.pathname === window.location.pathname && url.hash && url.hash !== '';
-        if (isExternal || isSamePageAnchor) return;
+        if (url.origin !== window.location.origin) {
+          return null;
+        }
 
-        e.preventDefault();
-        showLoader(function () { window.location.href = url.href; });
-      });
+        if (url.pathname === window.location.pathname && url.hash) {
+          return null;
+        }
+
+        return url.href;
+      }
+
+      const button = target && target.closest ? target.closest('button[data-href], button[data-loader-link="true"]') : null;
+      if (button) {
+        const href = button.getAttribute('data-href') || button.getAttribute('data-loader-link');
+        if (!href || href === 'true') return null;
+        const trimmed = href.trim();
+        if (!trimmed || trimmed.startsWith('#') || /^(javascript|mailto|tel):/i.test(trimmed)) {
+          return null;
+        }
+
+        const url = new URL(trimmed, window.location.href);
+        if (url.origin !== window.location.origin) {
+          return null;
+        }
+        return url.href;
+      }
+
+      return null;
     }
 
-    window.addEventListener('pageshow', function (event) {
+    function interceptNavigation() {
+      if (window.__fotolabLoaderBound) return;
+      window.__fotolabLoaderBound = true;
+
+      document.addEventListener('click', function (event) {
+        const target = event.target && event.target.closest ? event.target.closest('a[href], button[data-href], button[data-loader-link="true"]') : null;
+        if (!target) return;
+
+        const href = getInternalHref(target);
+        if (!href) return;
+
+        if (target.tagName === 'BUTTON' && target.getAttribute('type') === 'submit') {
+          return;
+        }
+
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        requestAnimationFrame(function () {
+          showLoader(function () {
+            window.location.assign(href);
+          });
+        });
+      }, true);
+    }
+
+    function init() {
+      injectLoader();
+      interceptNavigation();
+    }
+
+    window.addEventListener('pageshow', function () {
       hideLoader();
-      if (event.persisted) {
-        const loader = document.getElementById('fotolab-loader');
-        if (loader) loader.classList.remove('visible');
-      }
     });
 
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function () {
-        injectLoader();
-        interceptLinks();
-      });
+      document.addEventListener('DOMContentLoaded', init, { once: true });
     } else {
-      injectLoader();
-      interceptLinks();
+      init();
     }
-  })();
+})();

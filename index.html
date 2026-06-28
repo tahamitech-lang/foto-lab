@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="mobile-responsive.css">
+    <!-- Swup Library -->
+<script src="https://unpkg.com/swup@4"></script>
+<script>
+    window.swup = new Swup();
+</script>
     <script>
         const IMAGE_PATH = "fotoloader.png";
     </script>
@@ -75,11 +80,15 @@
                 <div class="col-lg-6">
                     <h2 class="display-5 fw-bold text-amber">FOTOLAB</h2>
                     <p class="lead text-light">Established in 1991, FOTOLAB has been at the forefront of photographic innovation, offering the finest digital cameras, SLR systems, handycams, and professional accessories to enthusiasts and professionals alike.</p>
-                    <a href="about.html" class="btn btn-amber mt-3">Learn our story</a>
+                    <a href="about.html" class="btn btn-amber mt-3" data-loader-link="true">Learn our story</a>
                 </div>
-                <div class="col-lg-6">
-                    <img src="https://picsum.photos/id/1015/800/500" alt="Camera Store" class="img-fluid rounded shadow">
-                </div>
+               <div class="col-lg-6">
+                <div class="ratio ratio-16x9 shadow rounded overflow-hidden">
+                  <iframe src="https://www.youtube.com/embed/9MIHteLnKwo" 
+                    title="FOTOLAB Video" 
+                    allowfullscreen>
+                 </iframe>
+             </div>
             </div>
         </div>
     </section>
@@ -88,7 +97,7 @@
     <section class="py-5" style="background: linear-gradient(135deg, #1A1A2E, #0F3460);">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-5 text-white">Explore Categories</h2>
+                <h2 class="display-5 text-white">Explore Our Products</h2>
                 <p class="text-white-50">Shop the latest cameras, lenses, lighting, and accessories.</p>
             </div>
             <div class="row g-4">
@@ -124,8 +133,6 @@
         </div>
     </section>
 
-
-
     <!-- Why Choose Us -->
     <section class="py-5" style="background: linear-gradient(135deg, #1A1A2E, #0F3460);">
         <div class="container">
@@ -134,18 +141,16 @@
                     <i class="fas fa-shield-alt fa-3x text-amber mb-3"></i>
                     <h4 class="text-white">Expert Service</h4>
                 </div>
-    <!-- 2nd Column: Custom UI Design (Photoshop Layouts) -->
-        <div class="col-md-4">
-         <i class="fas fa-vector-square fa-3x text-amber mb-3 d-block mx-auto"></i>
-            <h4 class="text-white">Custom UI Design</h4>
-         </div>
-
-     <!-- 3rd Column: High-Quality Mockups -->
-        <div class="col-md-4">
-         <i class="fas fa-layer-group fa-3x text-amber mb-3 d-block mx-auto"></i>
-          <h4 class="text-white">High-Quality Mockups</h4>
-        </div>
-                <!-- More -->
+                <!-- 2nd Column: Custom UI Design (Photoshop Layouts) -->
+                <div class="col-md-4">
+                    <i class="fas fa-vector-square fa-3x text-amber mb-3 d-block mx-auto"></i>
+                    <h4 class="text-white">Custom UI Design</h4>
+                </div>
+                <!-- 3rd Column: High-Quality Mockups -->
+                <div class="col-md-4">
+                    <i class="fas fa-layer-group fa-3x text-amber mb-3 d-block mx-auto"></i>
+                    <h4 class="text-white">High-Quality Mockups</h4>
+                </div>
             </div>
         </div>
     </section>
@@ -168,28 +173,35 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-5" style="background-color: black;">
+     <!-- Footer -->
+    <footer class="py-5" style="background-color: black; border-top: 2px solid #C9A84C;">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5 class="text-amber">FOTOLAB</h5>
-                    <p class="text-white">Premium Photography Solutions</p>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-3">FOTOLAB</h5>
+                    <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
                 </div>
-                <div class="col-md-4">
-                    <h5 class="text-amber">Quick Links</h5>
+                <div class="col-md-2">
+                    <h5 class="text-amber mb-3">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="products.html" class="text-white">Products</a></li>
-                        <!-- etc -->
+                        <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
                     </ul>
                 </div>
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-3">Contact Outlet</h5>
+                    <p class="text-white-50 mb-1"><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi, Karachi, Pakistan</p>
+                    <p class="text-white-50 mb-1"><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
+                    <p class="text-white-50 mb-0"><i class="fas fa-phone text-amber me-2"></i> +91 98765 43210</p>
+                </div>
+                <!-- Geolocation Live Route Module Inside Footer -->
                 <div class="col-md-4">
-                    <h5 class="text-amber">Contact</h5>
-                    <p class="text-white">info@fotolab.com</p>
-                    <p class="text-white">+91 98765 43210</p>
+                    <h5 class="text-amber mb-3"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
+                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #1A1A2E; border: 1px solid #333;">
+                        <span class="text-white-50"><i class="fas fa-spinner fa-spin me-2"></i>Location track ki ja rahi hai...</span>
+                    </div>
                 </div>
             </div>
-            <hr class="border-secondary">
+            <hr class="border-secondary mt-4">
             <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
         </div>
     </footer>
@@ -198,5 +210,23 @@
     <script src="main.js"></script>
     <script src="products.js"></script>
     <script src="loader.js"></script>
+    <script src="geolocation.js"></script>
+    
+    <!-- Geolocation Trigger Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof getLocation === "function") {
+                getLocation();
+            }
+        });
+    </script>
+    <!-- Add this in <head> -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Add this before </body> -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true });
+</script>
 </body>
 </html>
