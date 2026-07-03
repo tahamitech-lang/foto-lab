@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Yashica cameras and lenses at FOTOLAB - Pakistan's trusted photography store since 1991.">
+    <title>Yashica - FOTOLAB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/mobile-responsive.css">
+    <script>
+        const IMAGE_PATH = "../images/fotoloader.png";
+    </script>
+
+    <style>
+       /* ── Yashica Page Exclusive Styles (Updated to Purple Theme) ── */
+:root {
+    --brand-accent: #8A2BE2; /* BlueViolet */
+    --brand-accent-dark: #4B0082; /* Indigo */
+    --brand-accent-glow: rgba(138,43,226,0.25);
+}
+
+/* ── Hero ── */
+.yashica-hero {
+    min-height: 88vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a22 50%, #0a0a0a 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.yashica-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(138,43,226,0.12) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+/* Animated grid lines */
+.hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(138,43,226,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(138,43,226,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes gridMove {
+    from { background-position: 0 0; }
+    to   { background-position: 60px 60px; }
+}
+
+.yashica-logo-big {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(80px, 14vw, 180px);
+    color: var(--brand-accent);
+    line-height: 1;
+    letter-spacing: -2px;
+    text-shadow: 0 0 80px rgba(138,43,226,0.4);
+    animation: logoReveal 1s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+@keyframes logoReveal {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.yashica-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(13px, 2vw, 17px);
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-top: 8px;
+    animation: fadeUp 1s 0.3s ease forwards;
+    opacity: 0;
+}
+
+.hero-stat {
+    animation: fadeUp 1s ease forwards;
+    opacity: 0;
+}
+.hero-stat:nth-child(1) { animation-delay: 0.4s; }
+.hero-stat:nth-child(2) { animation-delay: 0.55s; }
+.hero-stat:nth-child(3) { animation-delay: 0.7s; }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--brand-accent);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero-divider {
+    width: 1px;
+    height: 50px;
+    background: rgba(138,43,226,0.3);
+}
+
+/* ── Section headers ── */
+.section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--brand-accent);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+.section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 56px);
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 1.1;
+}
+
+/* ── About Yashica Section ── */
+.about-section {
+    background: #080808;
+    padding: 100px 0;
+    position: relative;
+}
+
+.about-section::after {
+    content: 'YASHICA';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 200px;
+    color: rgba(138,43,226,0.04);
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.feature-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(138,43,226,0.1);
+    border: 1px solid rgba(138,43,226,0.25);
+    border-radius: 100px;
+    padding: 8px 18px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.feature-pill:hover {
+    background: rgba(138,43,226,0.2);
+    border-color: rgba(138,43,226,0.5);
+    color: #fff;
+}
+
+.feature-pill i { color: var(--brand-accent); font-size: 12px; }
+
+/* ── Timeline / History ── */
+.timeline-item {
+    position: relative;
+    padding-left: 28px;
+    border-left: 1px solid rgba(138,43,226,0.2);
+    padding-bottom: 32px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 4px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--brand-accent);
+    box-shadow: 0 0 12px rgba(138,43,226,0.6);
+}
+
+.timeline-year {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--brand-accent);
+    letter-spacing: 2px;
+}
+
+.timeline-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-top: 4px;
+}
+
+/* ── Products Section ── */
+.products-section {
+    background: #050505;
+    padding: 100px 0;
+}
+
+/* Filter tabs */
+.filter-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 48px;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.5);
+    padding: 8px 22px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--brand-accent);
+    border-color: var(--brand-accent);
+    color: #fff;
+}
+
+/* Product cards */
+.product-card {
+    background: #0f0f0f;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 1px solid rgba(138,43,226,0);
+    transition: border-color 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 60px rgba(138,43,226,0.15);
+}
+
+.product-card:hover::before {
+    border-color: rgba(138,43,226,0.4);
+}
+
+.product-img-wrap {
+    background: #181818;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img-wrap img {
+    transform: scale(1.06);
+}
+
+.product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--brand-accent);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+}
+
+.product-body {
+    padding: 20px;
+}
+
+.product-category {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brand-accent);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.product-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.product-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.product-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.spec-tag {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    font-family: 'Inter', sans-serif;
+}
+
+.product-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.product-price span {
+    font-size: 14px;
+    color: rgba(255,255,255,0.3);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.btn-yashica {
+    background: var(--brand-accent);
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-yashica:hover {
+    background: var(--brand-accent-dark);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── Why Yashica section ── */
+.why-section {
+    background: #080808;
+    padding: 100px 0;
+}
+
+.why-card {
+    background: #0f0f0f;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 36px 28px;
+    height: 100%;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.why-card:hover {
+    border-color: rgba(138,43,226,0.3);
+    transform: translateY(-4px);
+}
+
+.why-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(138,43,226,0.1);
+    border: 1px solid rgba(138,43,226,0.2);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 22px;
+    color: var(--brand-accent);
+    transition: all 0.3s ease;
+}
+
+.why-card:hover .why-icon {
+    background: rgba(138,43,226,0.2);
+    box-shadow: 0 0 24px rgba(138,43,226,0.25);
+}
+
+.why-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.why-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+}
+
+/* ── Purple accent line ── */
+.blue-line {
+    width: 40px;
+    height: 3px;
+    background: var(--brand-accent);
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+
+/* ── Footer ── */
+footer a { transition: color 0.2s; }
+footer a:hover { color: var(--brand-accent) !important; }
+
+@keyframes fl-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+    </style>
+</head>
+<body>
+
+    <!-- ══════════════ NAVBAR ══════════════ -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
+                <span class="fw-bold fs-3">FOTOLAB</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="brands.html">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link" href="canon.html">Canon</a></li>
+                    <li class="nav-item"><a class="nav-link" href="fujifilm.html">FujiFilm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nikon.html">Nikon</a></li>
+                    <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <section class="yashica-hero">
+        <div class="hero-grid"></div>
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <p class="section-eyebrow mb-3">FOTOLAB × Brand Spotlight</p>
+                    <h1 class="yashica-logo-big">YASHICA</h1>
+                    <p class="yashica-tagline">The Art of Analog Legacy</p>
+
+                    <p class="mt-4 mb-5" style="font-size:15px; color:rgba(255,255,255,0.45); max-width:480px; font-family:'Inter',sans-serif; line-height:1.8;">
+                        Japan se judi ek purani virasat — Yashica ne apni iconic design aur precision engineering ke zariye photography ke shaukeeno ke dilon mein jagah banayi hai.
+                        Classic aesthetics aur modern simplicity ka sangam.
+                    </p>
+
+                    <div class="d-flex align-items-center gap-4 flex-wrap">
+                        <div class="hero-stat text-center">
+                            <div class="stat-number">70+</div>
+                            <div class="stat-label">Years of Heritage</div>
+                        </div>
+                        <div class="hero-divider d-none d-sm-block"></div>
+                        <div class="hero-stat text-center">
+                            <div class="stat-number">Iconic</div>
+                            <div class="stat-label">Film Aesthetics</div>
+                        </div>
+                        <div class="hero-divider d-none d-sm-block"></div>
+                        <div class="hero-stat text-center">
+                            <div class="stat-number">Pure</div>
+                            <div class="stat-label">Photography Experience</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <a href="#products" class="btn-yashica me-3">Explore Products</a>
+                        <a href="brands.html" style="color:rgba(255,255,255,0.4); font-size:13px; font-family:'Inter',sans-serif; text-decoration:none; letter-spacing:1px;">
+                            ← All Brands
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 d-none d-lg-flex justify-content-center align-items-center">
+                    <!-- Decorative Yashica element -->
+                    <div style="position:relative; width:320px; height:320px;">
+                        <div style="
+                            position:absolute; inset:0; border-radius:50%;
+                            border: 2px solid rgba(139,69,19,0.15);
+                            animation: fl-spin 8s linear infinite;
+                        "></div>
+                        <div style="
+                            position:absolute; inset:20px; border-radius:50%;
+                            border: 1px solid rgba(139,69,19,0.1);
+                            animation: fl-spin 5s linear infinite reverse;
+                        "></div>
+                        <div style="
+                            position:absolute; inset:0;
+                            display:flex; align-items:center; justify-content:center;
+                        ">
+                            <span style="
+                                font-family:'Bebas Neue',sans-serif;
+                                font-size:120px;
+                                color:rgba(139,69,19,0.12);
+                                line-height:1;
+                            ">Y</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ ABOUT YASHICA ══════════════ -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="row align-items-start g-5">
+                <div class="col-lg-5 reveal">
+                    <p class="section-eyebrow">About the Brand</p>
+                    <div class="blue-line mt-3"></div>
+                    <h2 class="section-title">Timeless Classic Elegance</h2>
+                    <p style="color:rgba(255,255,255,0.5); font-size:15px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:20px;">
+                        Yashica ne hamesha un logon ke liye cameras banaye hain jo photography ke asli art aur tactile feel ko pasand karte hain. 
+                        Unke cameras apne compact size aur shandaar lens quality ke liye mashhoor rahe hain.
+                    </p>
+                    <p style="color:rgba(255,255,255,0.4); font-size:14px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:14px;">
+                        Chahe aap street photography ke shaukeen hon ya film look ki nostalgia chahte hon, Yashica ka minimalist approach aapko har click par ek nayi kahani sunane ka mauka deta hai.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2 mt-4">
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Iconic Retro Design</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Tactile Manual Controls</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Compact Film Aesthetics</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Legendary Optics</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 offset-lg-1 reveal reveal-delay-2">
+                    <p class="section-eyebrow">Brand History</p>
+                    <div class="blue-line mt-3 mb-4"></div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1949</div>
+                        <div class="timeline-text">Yashica ki shuruat Nagano, Japan mein hui.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1950s</div>
+                        <div class="timeline-text">TLR (Twin Lens Reflex) cameras ke sath duniya bhar mein naam kamaya.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1970s</div>
+                        <div class="timeline-text">Carl Zeiss ke sath historic partnership, jisne high-quality lenses aur cameras ko janam diya.</div>
+                    </div>
+                    <div class="timeline-item" style="padding-bottom:0; border-left-color:transparent;">
+                        <div class="timeline-year">Present</div>
+                        <div class="timeline-text">Yashica aaj bhi vintage lovers ke liye 'Yashica' brand name ke sath nayi digi-film cameras aur accessories ke sath wapsi kar raha hai.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ WHY YASHICA ══════════════ -->
+    <section class="why-section">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <p class="section-eyebrow">Why Choose Yashica</p>
+                <div class="blue-line mx-auto mt-3"></div>
+                <h2 class="section-title mt-2">Simplicity & Style</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3 reveal reveal-delay-1">
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-camera"></i></div>
+                        <div class="why-title">Tactile Experience</div>
+                        <p class="why-text">Buttons aur dials ka woh classic feel, jo aapko har photo lete waqt purane daur ki yaad dilata hai.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 reveal reveal-delay-2">
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-palette"></i></div>
+                        <div class="why-title">Unique Color Science</div>
+                        <p class="why-text">Yashica ki color science mein woh khaas warmth aur grain hai jo digital ko bhi film look deta hai.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 reveal reveal-delay-3">
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-compact-disc"></i></div>
+                        <div class="why-title">Minimalist Design</div>
+                        <p class="why-text">Bina kisi complex menu ke, simple aur creative photography ke liye best companion.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 reveal reveal-delay-4">
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-history"></i></div>
+                        <div class="why-title">Iconic Legacy</div>
+                        <p class="why-text">Photography ki history ka ek bada hissa, jo aaj bhi styles aur trends se upar hai.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ PRODUCTS ══════════════ -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="text-center mb-4 reveal">
+                <p class="section-eyebrow">Yashica Lineup</p>
+                <div class="blue-line mx-auto mt-3"></div>
+                <h2 class="section-title mt-2">Yashica Products at FOTOLAB</h2>
+                <p style="color:rgba(255,255,255,0.35); font-size:14px; font-family:'Inter',sans-serif; margin-top:10px;">
+                    Selected models available.
+                </p>
+            </div>
+
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="digifilm">DigiFilm</button>
+                <button class="filter-btn" data-filter="accessory">Accessories</button>
+            </div>
+
+            <div class="row g-4" id="products-grid">
+
+                <!-- Yashica Y35 -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="digifilm">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1080/400/300" alt="Yashica Y35">
+                            <span class="product-badge">DigiFilm</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Camera</div>
+                            <div class="product-name">Y35 Camera</div>
+                            <p class="product-desc">Yashica ka unique digi-film system jisme aap film module badal kar alag-alag color profile ke sath photo lete hain.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">DigiFilm Module</span>
+                                <span class="spec-tag">Vintage Feel</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 85,000</div>
+                                </div>
+                                <a href="products.html" class="btn-yashica">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <footer class="py-5" style="background-color: black; border-top: 2px solid #C9A84C;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-3">FOTOLAB</h5>
+                    <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="text-amber mb-3">Explore</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
+                        <li><a href="service.html" class="text-white-50 text-decoration-none">Services</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-3">Contact Outlet</h5>
+                    <p class="text-white-50 mb-1"><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi, Karachi, Pakistan</p>
+                    <p class="text-white-50 mb-1"><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
+                    <p class="text-white-50 mb-0"><i class="fas fa-phone text-amber me-2"></i> +91 98765 43210</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-amber mb-3"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
+                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #1A1A2E; border: 1px solid #333;">
+                        <span class="text-white-50"><i class="fas fa-spinner fa-spin me-2"></i>Location track ki ja rahi hai...</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4">
+            <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/loader.js"></script>
+    <script src="../js/geolocation.js"></script>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        reveals.forEach(el => observer.observe(el));
+
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productItems = document.querySelectorAll('.product-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                productItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof getLocation === "function") {
+                getLocation();
+            }
+        });
+    </script>
+</body>
+</html>

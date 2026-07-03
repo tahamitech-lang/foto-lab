@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Yashica cameras and lenses at FOTOLAB - Pakistan's trusted photography store since 1991.">
+    <title>Camera sale - FOTOLAB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/mobile-responsive.css">
+    <script>
+        const IMAGE_PATH = "../images/fotoloader.png";
+    </script>
+    <style>
+        /* ── Camera Sales Page (FOTOLAB design system: dark charcoal / teal / crimson / gold) ── */
+
+        .cam-hero {
+            min-height: 50vh;
+            background: linear-gradient(rgba(10,10,15,0.75), rgba(10,10,15,0.88)), url('https://picsum.photos/id/250/1920/800') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .cam-eyebrow {
+            font-size: 12px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #2FB8AC;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .cam-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(44px, 7vw, 84px);
+            color: #fff;
+            letter-spacing: 2px;
+            line-height: 1.05;
+        }
+
+        .cam-sub {
+            font-size: 15px;
+            color: rgba(255,255,255,0.5);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            max-width: 580px;
+        }
+
+        /* ── Brand nav strip ── */
+        .brand-strip {
+            background: #0d0d12;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            position: sticky;
+            top: 76px;
+            z-index: 500;
+            padding: 14px 0;
+        }
+
+        .brand-strip-inner {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .brand-strip-inner::-webkit-scrollbar { display: none; }
+
+        .brand-pill {
+            flex-shrink: 0;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.55);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .brand-pill:hover,
+        .brand-pill.active {
+            background: #2FB8AC;
+            border-color: #2FB8AC;
+            color: #0a0a0f;
+        }
+
+        /* ── Brand section ── */
+        .brand-section {
+            background: #0a0a0f;
+            padding: 70px 0;
+            scroll-margin-top: 140px;
+        }
+
+        .brand-section:nth-of-type(even) {
+            background: #0d0d12;
+        }
+
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 36px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            padding-bottom: 24px;
+        }
+
+        .brand-name-display {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(34px, 5vw, 48px);
+            color: #fff;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        .brand-tagline {
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+            font-family: 'Inter', sans-serif;
+            margin-top: 6px;
+        }
+
+        .brand-link {
+            color: #2FB8AC;
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s ease;
+        }
+
+        .brand-link:hover {
+            color: #fff;
+            gap: 10px;
+        }
+
+        /* ── Product cards ── */
+        .cam-card {
+            background: #131318;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px;
+            overflow: hidden;
+            height: 100%;
+            transition: all 0.35s ease;
+        }
+
+        .cam-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(47,184,172,0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .cam-img-wrap {
+            background: #1a1a20;
+            height: 190px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cam-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .cam-card:hover .cam-img-wrap img {
+            transform: scale(1.07);
+        }
+
+        .cam-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #C9A227;
+            color: #0a0a0f;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 9px;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .cam-body {
+            padding: 18px;
+        }
+
+        .cam-type-tag {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #2FB8AC;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .cam-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            color: #fff;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .cam-desc {
+            font-size: 12.5px;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.6;
+            margin-bottom: 12px;
+            min-height: 38px;
+        }
+
+        .cam-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .cam-spec-tag {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            padding: 3px 9px;
+            font-size: 10.5px;
+            color: rgba(255,255,255,0.4);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .cam-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .cam-price span {
+            font-size: 11px;
+            color: rgba(255,255,255,0.3);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+
+        .btn-cam {
+            background: transparent;
+            border: 1px solid #2FB8AC;
+            color: #2FB8AC;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            padding: 7px 14px;
+            border-radius: 7px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-cam:hover {
+            background: #2FB8AC;
+            color: #0a0a0f;
+        }
+
+        .cam-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 8px;
+        }
+
+        /* ── Compare checkbox ── */
+        .compare-check {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+        }
+
+        .compare-check input {
+            width: 18px;
+            height: 18px;
+            accent-color: #C9303C;
+            cursor: pointer;
+        }
+
+        /* ── Compare bar ── */
+        #compare-bar {
+            position: fixed;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            background: #131318;
+            border-top: 1px solid rgba(47,184,172,0.3);
+            padding: 16px 0;
+            z-index: 9000;
+            transition: bottom 0.35s ease;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+        }
+
+        #compare-bar.visible { bottom: 0; }
+
+        .compare-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .compare-text strong { color: #fff; }
+
+        /* ── reveal animation ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .divider-line {
+            width: 36px;
+            height: 3px;
+            background: #2FB8AC;
+            border-radius: 2px;
+        }
+
+        footer a { transition: color 0.2s; }
+        footer a:hover { color: #2FB8AC !important;
+         }
+         /* Dropdown items ke liye consistency */
+            .dropdown-item.brand-pill:hover,
+            .dropdown-item.brand-pill.active {
+    background-color: #2FB8AC !important;
+    color: #0a0a0f !important;
+        }
+
+            /* Click karte waqt white flash khatam karne ke liye */
+            .dropdown-item.brand-pill:focus,
+            .dropdown-item.brand-pill:active {
+            outline: none !important;
+            box-shadow: none !important;
+            background-color: #2FB8AC !important;
+            color: #0a0a0f !important;
+        }
+    </style>
+    </head>
+
+    <body>
+
+    <!-- ══════════════ NAVBAR ══════════════ -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
+                <span class="fw-bold fs-3">FOTOLAB</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <!-- Front facing links -->
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/brands.html">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/contact.html">Contact</a></li>
+
+                    <!-- Hamburger / More Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color: #131318; border: 1px solid rgba(255,255,255,0.1);">
+                           <li><button class="dropdown-item brand-pill" data-target="brand-canon" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">Canon</button></li>
+                           <li><button class="dropdown-item brand-pill" data-target="brand-nikon" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">Nikon</button></li>
+                           <li><button class="dropdown-item brand-pill" data-target="brand-sony" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">Sony</button></li>
+                           <li><button class="dropdown-item brand-pill" data-target="brand-fujifilm" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">Fujifilm</button></li>
+                           <li><button class="dropdown-item brand-pill" data-target="brand-yashica" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">Yashica</button></li>
+                           <li><button class="dropdown-item brand-pill" data-target="brand-panasonic" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">Panasonic</button></li>
+                            <li><button class="dropdown-item brand-pill" data-target="brand-gopro" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">GoPro</button></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <header class="cam-hero">
+        <div class="container">
+            <p class="cam-eyebrow mb-2">FOTOLAB Camera Sales</p>
+            <h1 class="cam-title">Shop By Brand</h1>
+            <p class="cam-sub mt-3">
+                Digital cameras, DSLRs, mirrorless bodies and handycams from the world's leading manufacturers — 
+                every brand we stock, organized for you. Genuine products, official warranty, since 1991.
+            </p>
+        </div>
+    </header>
+    <!-- ══════════════ CANON ══════════════ -->
+    <section class="brand-section" id="brand-canon">
+        <div class="container">
+            <div class="brand-header reveal">
+                <div>
+                    <div class="brand-name-display">Canon</div>
+                    <div class="brand-tagline">Delighting You Always — Mirrorless, DSLR & Compact</div>
+                </div>
+                <a href="canon.html" class="brand-link">Full Canon Page <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon EOS R5 Mark II"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1080/400/300" alt="Canon EOS R5 Mark II">
+                            <span class="cam-badge">Flagship</span>
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Mirrorless</div>
+                            <div class="cam-name">EOS R5 Mark II</div>
+                            <p class="cam-desc">45MP full-frame, 8K RAW video, AI-powered Dual Pixel AF.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">45MP</span>
+                                <span class="cam-spec-tag">8K RAW</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 6,49,000</div>
+                                <a href="canon.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon EOS R6 Mark II"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1081/400/300" alt="Canon EOS R6 Mark II">
+                            <span class="cam-badge">Best Seller</span>
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Mirrorless</div>
+                            <div class="cam-name">EOS R6 Mark II</div>
+                            <p class="cam-desc">40MP full-frame speed, 40fps burst, 4K 60fps video.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">40MP</span>
+                                <span class="cam-spec-tag">40fps</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 3,89,000</div>
+                                <a href="canon.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon EOS 90D"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1083/400/300" alt="Canon EOS 90D">
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">DSLR</div>
+                            <div class="cam-name">EOS 90D</div>
+                            <p class="cam-desc">32.5MP APS-C, 45-point AF, 10fps burst, 4K video.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">32.5MP</span>
+                                <span class="cam-spec-tag">EF Mount</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 2,49,000</div>
+                                <a href="canon.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon PowerShot V10"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1053/400/300" alt="Canon PowerShot V10">
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Compact</div>
+                            <div class="cam-name">PowerShot V10</div>
+                            <p class="cam-desc">Vlog-first compact with selfie 4K and built-in stand.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">4K Selfie</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 89,000</div>
+                                <a href="canon.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- ══════════════ NIKON ══════════════ -->
+    <section class="brand-section" id="brand-nikon">
+        <div class="container">
+            <div class="brand-header reveal">
+                <div>
+                    <div class="brand-name-display">Nikon</div>
+                    <div class="brand-tagline">At the Heart of the Image — Z-Series & DSLR</div>
+                </div>
+                <a href="nikon.html" class="brand-link">Full Nikon Page <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Nikon Z8"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1011/400/300" alt="Nikon Z8">
+                            <span class="cam-badge">Flagship</span>
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Mirrorless</div>
+                            <div class="cam-name">Z8</div>
+                            <p class="cam-desc">45.7MP stacked sensor, 8K video, sports-grade speed.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">45.7MP</span>
+                                <span class="cam-spec-tag">8K</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 7,29,000</div>
+                                <a href="nikon.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Nikon Z6 III"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1012/400/300" alt="Nikon Z6 III">
+                            <span class="cam-badge">Best Seller</span>
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Mirrorless</div>
+                            <div class="cam-name">Z6 III</div>
+                            <p class="cam-desc">24.5MP hybrid sensor, partial stacked design, 6K RAW.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">24.5MP</span>
+                                <span class="cam-spec-tag">6K RAW</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 4,29,000</div>
+                                <a href="nikon.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Nikon D7500"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1013/400/300" alt="Nikon D7500">
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">DSLR</div>
+                            <div class="cam-name">D7500</div>
+                            <p class="cam-desc">20.9MP APS-C DSLR, weather-sealed, 8fps burst.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">20.9MP</span>
+                                <span class="cam-spec-tag">F Mount</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 1,99,000</div>
+                                <a href="nikon.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Nikon Z30"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1014/400/300" alt="Nikon Z30">
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Mirrorless</div>
+                            <div class="cam-name">Z30</div>
+                            <p class="cam-desc">Vlogging-focused APS-C body, no viewfinder, flip screen.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">20.9MP</span>
+                                <span class="cam-spec-tag">Compact</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 1,15,000</div>
+                                <a href="nikon.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ SONY ══════════════ -->
+    <section class="brand-section" id="brand-sony">
+        <div class="container">
+            <div class="brand-header reveal">
+                <div>
+                    <div class="brand-name-display">Sony</div>
+                    <div class="brand-tagline">Leading Mirrorless Technology & Speed</div>
+                </div>
+                <a href="sony.html" class="brand-link">Full Sony Page <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Sony A7R V"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1062/400/300" alt="Sony A7R V">
+                            <span class="cam-badge">Flagship</span>
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Mirrorless</div>
+                            <div class="cam-name">A7R V</div>
+                            <p class="cam-desc">61MP resolution monster, AI subject recognition AF.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">61MP</span>
+                                <span class="cam-spec-tag">AI AF</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 8,19,000</div>
+                                <a href="sony.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Sony A7 IV"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1063/400/300" alt="Sony A7 IV">
+                            <span class="cam-badge">Best Seller</span>
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Mirrorless</div>
+                            <div class="cam-name">A7 IV</div>
+                            <p class="cam-desc">33MP hybrid powerhouse for stills and 4K 60p video.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">33MP</span>
+                                <span class="cam-spec-tag">4K 60p</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 4,69,000</div>
+                                <a href="sony.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Sony ZV-E10 II"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1064/400/300" alt="Sony ZV-E10 II">
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Mirrorless</div>
+                            <div class="cam-name">ZV-E10 II</div>
+                            <p class="cam-desc">Vlogging-focused APS-C, background defocus button.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">26MP</span>
+                                <span class="cam-spec-tag">4K</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 1,79,000</div>
+                                <a href="sony.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Sony FX3"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1065/400/300" alt="Sony FX3">
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Cinema</div>
+                            <div class="cam-name">FX3 Cinema Line</div>
+                            <p class="cam-desc">Full-frame cinema body, S-Cinetone color, compact rig.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">4K 120fps</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 6,89,000</div>
+                                <a href="sony.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ FUJIFILM ══════════════ -->
+    <section class="brand-section" id="brand-fujifilm">
+        <div class="container">
+            <div class="brand-header reveal">
+                <div>
+                    <div class="brand-name-display">Fujifilm</div>
+                    <div class="brand-tagline">Classic Styling, Modern Performance — X-Series</div>
+                </div>
+                <a href="fujifilm.html" class="brand-link">Full Fujifilm Page <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Fujifilm X-T5"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1003/400/300" alt="Fujifilm X-T5">
+                            <span class="cam-badge">Best Seller</span>
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Mirrorless</div>
+                            <div class="cam-name">X-T5</div>
+                            <p class="cam-desc">40MP APS-C, retro dial controls, film simulations.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">40MP</span>
+                                <span class="cam-spec-tag">IBIS</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 2,99,000</div>
+                                <a href="fujifilm.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Fujifilm X100VI"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1004/400/300" alt="Fujifilm X100VI">
+                            <span class="cam-badge">Trending</span>
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Compact</div>
+                            <div class="cam-name">X100VI</div>
+                            <p class="cam-desc">Fixed 23mm lens, hybrid viewfinder, cult favorite.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">40MP</span>
+                                <span class="cam-spec-tag">Fixed Lens</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 3,29,000</div>
+                                <a href="fujifilm.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Fujifilm X-S20"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1005/400/300" alt="Fujifilm X-S20">
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Mirrorless</div>
+                            <div class="cam-name">X-S20</div>
+                            <p class="cam-desc">Vlog-friendly grip, 6.2K video, beginner-approachable.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">26MP</span>
+                                <span class="cam-spec-tag">6.2K</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 2,19,000</div>
+                                <a href="fujifilm.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Fujifilm GFX100S"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1006/400/300" alt="Fujifilm GFX100S">
+                            <span class="cam-badge">Medium Format</span>
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Medium Format</div>
+                            <div class="cam-name">GFX100S</div>
+                            <p class="cam-desc">102MP medium format sensor for studio and landscape.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">102MP</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 14,99,000</div>
+                                <a href="fujifilm.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ YASHICA ══════════════ -->
+    <section class="brand-section" id="brand-yashica">
+        <div class="container">
+            <div class="brand-header reveal">
+                <div>
+                    <div class="brand-name-display">Yashica</div>
+                    <div class="brand-tagline">Reborn Heritage — Classic Film & Modern Digital</div>
+                </div>
+                <a href="yashica.html" class="brand-link">Full Yashica Page <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Yashica FX-3 Super 2000"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1031/400/300" alt="Yashica FX-3">
+                            <span class="cam-badge">Classic</span>
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Film SLR</div>
+                            <div class="cam-name">FX-3 Super 2000</div>
+                            <p class="cam-desc">All-manual 35mm film SLR, fully mechanical shutter.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">35mm Film</span>
+                                <span class="cam-spec-tag">Manual</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 45,000</div>
+                                <a href="yashica.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Yashica Y35"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1032/400/300" alt="Yashica Y35">
+                            <span class="cam-badge">Digiflex</span>
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Hybrid Digital</div>
+                            <div class="cam-name">Y35 Digiflex</div>
+                            <p class="cam-desc">Modern digital sensor in a vintage SLR film camera body.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">14MP</span>
+                                <span class="cam-spec-tag">Retro Body</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 39,500</div>
+                                <a href="yashica.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Yashica T5 Compact"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1033/400/300" alt="Yashica T5">
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Compact Film</div>
+                            <div class="cam-name">T5 Compact</div>
+                            <p class="cam-desc">Pocket point-and-shoot with Carl Zeiss T* coated lens.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">35mm Film</span>
+                                <span class="cam-spec-tag">Zeiss Lens</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 28,000</div>
+                                <a href="yashica.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Yashica Electro 35"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1034/400/300" alt="Yashica Electro 35">
+                            <span class="cam-badge">Vintage</span>
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Rangefinder</div>
+                            <div class="cam-name">Electro 35</div>
+                            <p class="cam-desc">Classic 1960s rangefinder, fully restored, collector's piece.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">35mm Film</span>
+                                <span class="cam-spec-tag">Restored</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 32,000</div>
+                                <a href="yashica.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ PANASONIC ══════════════ -->
+    <section class="brand-section" id="brand-panasonic">
+        <div class="container">
+            <div class="brand-header reveal">
+                <div>
+                    <div class="brand-name-display">Panasonic</div>
+                    <div class="brand-tagline">LUMIX — Video-First Mirrorless Systems</div>
+                </div>
+                <a href="panasonic.html" class="brand-link">Full Panasonic Page <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Panasonic Lumix S5 IIX"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1042/400/300" alt="Lumix S5IIX">
+                            <span class="cam-badge">Video Pro</span>
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Mirrorless</div>
+                            <div class="cam-name">Lumix S5 IIX</div>
+                            <p class="cam-desc">Full-frame hybrid with phase-detect AF, ProRes recording.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">24MP</span>
+                                <span class="cam-spec-tag">ProRes</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 4,49,000</div>
+                                <a href="panasonic.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Panasonic Lumix GH6"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1043/400/300" alt="Lumix GH6">
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Micro 4/3</div>
+                            <div class="cam-name">Lumix GH6</div>
+                            <p class="cam-desc">5.7K video, dual native ISO, beloved by indie filmmakers.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">25MP</span>
+                                <span class="cam-spec-tag">5.7K</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 3,49,000</div>
+                                <a href="panasonic.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Panasonic Lumix G100"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1044/400/300" alt="Lumix G100">
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Micro 4/3</div>
+                            <div class="cam-name">Lumix G100</div>
+                            <p class="cam-desc">Vlogger-focused, OZO Audio tracking, lightweight body.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">20MP</span>
+                                <span class="cam-spec-tag">4K</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 99,000</div>
+                                <a href="panasonic.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Panasonic Lumix FZ300"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1045/400/300" alt="Lumix FZ300">
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Bridge Camera</div>
+                            <div class="cam-name">Lumix FZ300</div>
+                            <p class="cam-desc">24x optical zoom, weather-sealed, constant f/2.8 aperture.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">12MP</span>
+                                <span class="cam-spec-tag">24x Zoom</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 79,000</div>
+                                <a href="panasonic.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ GOPRO ══════════════ -->
+    <section class="brand-section" id="brand-gopro">
+        <div class="container">
+            <div class="brand-header reveal">
+                <div>
+                    <div class="brand-name-display">GoPro</div>
+                    <div class="brand-tagline">Action Cameras & Handycams for Every Adventure</div>
+                </div>
+                <a href="gopro.html" class="brand-link">Full GoPro Page <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="GoPro Hero13 Black"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1051/400/300" alt="GoPro Hero13">
+                            <span class="cam-badge">Flagship</span>
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Action Cam</div>
+                            <div class="cam-name">Hero13 Black</div>
+                            <p class="cam-desc">5.3K60 video, HyperSmooth 6.0 stabilization, waterproof.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">5.3K</span>
+                                <span class="cam-spec-tag">Waterproof</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 1,29,000</div>
+                                <a href="gopro.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="GoPro Hero12"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1052/400/300" alt="GoPro Hero12">
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Action Cam</div>
+                            <div class="cam-name">Hero12 Black</div>
+                            <p class="cam-desc">5.3K video at a friendlier price, HDR and slow-mo.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">5.3K</span>
+                                <span class="cam-spec-tag">HDR</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 99,000</div>
+                                <a href="gopro.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="GoPro Max 360"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1056/400/300" alt="GoPro Max">
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">360° Camera</div>
+                            <div class="cam-name">Max 360</div>
+                            <p class="cam-desc">Dual-lens 360° capture, reframe shots in post-production.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">360°</span>
+                                <span class="cam-spec-tag">5.6K</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 1,09,000</div>
+                                <a href="gopro.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 reveal">
+                    <div class="cam-card position-relative">
+                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Sony FDR-AX700 Handycam"></label>
+                        <div class="cam-img-wrap">
+                            <img src="https://picsum.photos/id/1057/400/300" alt="Handycam">
+                        </div>
+                        <div class="cam-body">
+                            <div class="cam-type-tag">Handycam</div>
+                            <div class="cam-name">Sony FDR-AX700</div>
+                            <p class="cam-desc">4K HDR camcorder with fast hybrid AF and big 1-inch sensor.</p>
+                            <div class="cam-specs">
+                                <span class="cam-spec-tag">4K HDR</span>
+                            </div>
+                            <div class="cam-card-footer">
+                                <div class="cam-price">PKR 2,15,000</div>
+                                <a href="sony.html" class="btn-cam">View <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════ COMPARE BAR ══════════════ -->
+    <div id="compare-bar">
+        <div class="container d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div class="compare-text"><strong id="compare-count">0</strong> cameras selected for comparison</div>
+            <div class="d-flex gap-2">
+                <button class="btn-cam" id="compare-clear" style="border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.5);">Clear</button>
+                <a href="compare.html" class="btn-cam" style="background:#2FB8AC; border-color:#2FB8AC; color:#0a0a0f;">Compare Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <footer class="py-5" style="background-color: black;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-amber">FOTOLAB</h5>
+                    <p class="text-white">Premium Photography Solutions since 1991.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-amber">Explore</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="products.html" class="text-white text-decoration-none">Products</a></li>
+                        <li><a href="service.html" class="text-white text-decoration-none">Services</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-amber">Contact</h5>
+                    <p class="text-white">info@fotolab.com</p>
+                    <p class="text-white">+91 98765 43210</p>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/loader.js"></script>
+
+    <script>
+        // ── Scroll reveal ──
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => observer.observe(el));
+
+        // ── Brand strip: smooth scroll + active state ──
+        const brandPills = document.querySelectorAll('.brand-pill');
+        brandPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                brandPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                const target = document.getElementById(pill.dataset.target);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Highlight active pill on scroll
+        const sections = document.querySelectorAll('.brand-section');
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    brandPills.forEach(p => p.classList.remove('active'));
+                    const match = document.querySelector(`.brand-pill[data-target="${entry.target.id}"]`);
+                    if (match) match.classList.add('active');
+                }
+            });
+        }, { threshold: 0.4, rootMargin: '-150px 0px -50% 0px' });
+        sections.forEach(s => scrollObserver.observe(s));
+
+        // ── Compare functionality ──
+        const compareBar = document.getElementById('compare-bar');
+        const compareCount = document.getElementById('compare-count');
+        const compareCheckboxes = document.querySelectorAll('.compare-cb');
+        const clearBtn = document.getElementById('compare-clear');
+
+        function updateCompareBar() {
+            const checked = document.querySelectorAll('.compare-cb:checked');
+            compareCount.textContent = checked.length;
+            if (checked.length > 0) {
+                compareBar.classList.add('visible');
+            } else {
+                compareBar.classList.remove('visible');
+            }
+            const names = Array.from(checked).map(cb => cb.dataset.name);
+            sessionStorage.setItem('fotolab-compare-items', JSON.stringify(names));
+        }
+
+        compareCheckboxes.forEach(cb => {
+            cb.addEventListener('change', updateCompareBar);
+        });
+
+        clearBtn.addEventListener('click', () => {
+            compareCheckboxes.forEach(cb => cb.checked = false);
+            updateCompareBar();
+        });
+    </script>
+
+</body>
+</html>

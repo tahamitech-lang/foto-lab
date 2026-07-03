@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore Fujifilm cameras and lenses at FOTOLAB - Pakistan's trusted photography store since 1991.">
-    <title>Fujifilm - FOTOLAB</title>
+    <meta name="description" content="Explore Sony cameras and lenses at FOTOLAB - Pakistan's trusted photography store since 1991.">
+    <title>Sony - FOTOLAB</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="animations.css">
-    <link rel="stylesheet" href="mobile-responsive.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/mobile-responsive.css">
     <script>
-        const IMAGE_PATH = "fotoloader.png";
+        const IMAGE_PATH = "../images/fotoloader.png";
     </script>
 
     <style>
-        /* ── Fujifilm Page Exclusive Styles ── */
+        /* ── Sony Page Exclusive Styles (Updated to Brown Theme) ── */
         :root {
-            --brand-accent: #009966; /* Fujifilm Iconic Green */
-            --brand-accent-dark: #005533;
-            --brand-accent-glow: rgba(0,153,102,0.25);
+            --brand-accent: #8B4513; /* Saddle Brown */
+            --brand-accent-dark: #5C2E0B; /* Darker Brown */
+            --brand-accent-glow: rgba(139,69,19,0.25);
         }
 
         /* ── Hero ── */
-        .fuji-hero {
+        .sony-hero {
             min-height: 88vh;
-            background: linear-gradient(135deg, #0a0a0a 0%, #001a10 50%, #0a0a0a 100%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #221100 50%, #0a0a0a 100%);
             display: flex;
             align-items: center;
             position: relative;
@@ -34,11 +34,11 @@
             padding-top: 80px;
         }
 
-        .fuji-hero::before {
+        .sony-hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 70% 50%, rgba(0,153,102,0.12) 0%, transparent 65%);
+            background: radial-gradient(ellipse at 70% 50%, rgba(139,69,19,0.12) 0%, transparent 65%);
             pointer-events: none;
         }
 
@@ -47,8 +47,8 @@
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(0,153,102,0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,153,102,0.06) 1px, transparent 1px);
+                linear-gradient(rgba(139,69,19,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139,69,19,0.06) 1px, transparent 1px);
             background-size: 60px 60px;
             animation: gridMove 20s linear infinite;
             pointer-events: none;
@@ -59,13 +59,13 @@
             to   { background-position: 60px 60px; }
         }
 
-        .fuji-logo-big {
+        .sony-logo-big {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(60px, 11vw, 140px);
+            font-size: clamp(80px, 14vw, 180px);
             color: var(--brand-accent);
             line-height: 1;
-            letter-spacing: 1px;
-            text-shadow: 0 0 80px rgba(0,153,102,0.4);
+            letter-spacing: -2px;
+            text-shadow: 0 0 80px rgba(139,69,19,0.4);
             animation: logoReveal 1s ease forwards;
             opacity: 0;
             transform: translateY(30px);
@@ -75,13 +75,13 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .fuji-tagline {
+        .sony-tagline {
             font-family: 'Inter', sans-serif;
-            font-size: clamp(13px, 2vw, 16px);
+            font-size: clamp(13px, 2vw, 17px);
             color: rgba(255,255,255,0.5);
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin-top: 12px;
+            margin-top: 8px;
             animation: fadeUp 1s 0.3s ease forwards;
             opacity: 0;
         }
@@ -116,7 +116,7 @@
         .hero-divider {
             width: 1px;
             height: 50px;
-            background: rgba(0,153,102,0.3);
+            background: rgba(139,69,19,0.3);
         }
 
         /* ── Section headers ── */
@@ -137,7 +137,7 @@
             line-height: 1.1;
         }
 
-        /* ── About Fujifilm Section ── */
+        /* ── About Sony Section ── */
         .about-section {
             background: #080808;
             padding: 100px 0;
@@ -145,14 +145,14 @@
         }
 
         .about-section::after {
-            content: 'FUJIFILM';
+            content: 'SONY';
             position: absolute;
             right: -20px;
             top: 50%;
             transform: translateY(-50%);
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 160px;
-            color: rgba(0,153,102,0.03);
+            font-size: 200px;
+            color: rgba(139,69,19,0.04);
             pointer-events: none;
             white-space: nowrap;
         }
@@ -161,8 +161,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(0,153,102,0.1);
-            border: 1px solid rgba(0,153,102,0.25);
+            background: rgba(139,69,19,0.1);
+            border: 1px solid rgba(139,69,19,0.25);
             border-radius: 100px;
             padding: 8px 18px;
             font-size: 13px;
@@ -172,8 +172,8 @@
         }
 
         .feature-pill:hover {
-            background: rgba(0,153,102,0.2);
-            border-color: rgba(0,153,102,0.5);
+            background: rgba(139,69,19,0.2);
+            border-color: rgba(139,69,19,0.5);
             color: #fff;
         }
 
@@ -183,7 +183,7 @@
         .timeline-item {
             position: relative;
             padding-left: 28px;
-            border-left: 1px solid rgba(0,153,102,0.2);
+            border-left: 1px solid rgba(139,69,19,0.2);
             padding-bottom: 32px;
         }
 
@@ -196,7 +196,7 @@
             height: 9px;
             border-radius: 50%;
             background: var(--brand-accent);
-            box-shadow: 0 0 12px rgba(0,153,102,0.6);
+            box-shadow: 0 0 12px rgba(139,69,19,0.6);
         }
 
         .timeline-year {
@@ -263,7 +263,7 @@
             position: absolute;
             inset: 0;
             border-radius: 16px;
-            border: 1px solid rgba(0,153,102,0);
+            border: 1px solid rgba(139,69,19,0);
             transition: border-color 0.4s ease;
             pointer-events: none;
             z-index: 1;
@@ -271,11 +271,11 @@
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 24px 60px rgba(0,153,102,0.15);
+            box-shadow: 0 24px 60px rgba(139,69,19,0.15);
         }
 
         .product-card:hover::before {
-            border-color: rgba(0,153,102,0.4);
+            border-color: rgba(139,69,19,0.4);
         }
 
         .product-img-wrap {
@@ -375,7 +375,7 @@
             letter-spacing: 0;
         }
 
-        .btn-fuji {
+        .btn-sony {
             background: var(--brand-accent);
             border: none;
             color: #fff;
@@ -391,7 +391,7 @@
             transition: all 0.3s ease;
         }
 
-        .btn-fuji:hover {
+        .btn-sony:hover {
             background: var(--brand-accent-dark);
             color: #fff;
             transform: translateY(-1px);
@@ -414,7 +414,7 @@
         .reveal-delay-3 { transition-delay: 0.3s; }
         .reveal-delay-4 { transition-delay: 0.4s; }
 
-        /* ── Why Fujifilm section ── */
+        /* ── Why Sony section ── */
         .why-section {
             background: #080808;
             padding: 100px 0;
@@ -431,15 +431,15 @@
         }
 
         .why-card:hover {
-            border-color: rgba(0,153,102,0.3);
+            border-color: rgba(139,69,19,0.3);
             transform: translateY(-4px);
         }
 
         .why-icon {
             width: 60px;
             height: 60px;
-            background: rgba(0,153,102,0.1);
-            border: 1px solid rgba(0,153,102,0.2);
+            background: rgba(139,69,19,0.1);
+            border: 1px solid rgba(139,69,19,0.2);
             border-radius: 14px;
             display: flex;
             align-items: center;
@@ -451,8 +451,8 @@
         }
 
         .why-card:hover .why-icon {
-            background: rgba(0,153,102,0.2);
-            box-shadow: 0 0 24px rgba(0,153,102,0.25);
+            background: rgba(139,69,19,0.2);
+            box-shadow: 0 0 24px rgba(139,69,19,0.25);
         }
 
         .why-title {
@@ -469,8 +469,8 @@
             line-height: 1.7;
         }
 
-        /* ── Green accent line ── */
-        .green-line {
+        /* ── Brown accent line ── */
+        .blue-line {
             width: 40px;
             height: 3px;
             background: var(--brand-accent);
@@ -481,6 +481,11 @@
         /* ── Footer inherits from main style.css ── */
         footer a { transition: color 0.2s; }
         footer a:hover { color: var(--brand-accent) !important; }
+        
+        @keyframes fl-spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -488,8 +493,8 @@
     <!-- ══════════════ NAVBAR ══════════════ -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
                 <span class="fw-bold fs-3">FOTOLAB</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -497,11 +502,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
                     <li class="nav-item"><a class="nav-link active" href="brands.html">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link" href="canon.html">Canon</a></li>
+                    <li class="nav-item"><a class="nav-link" href="fujifilm.html">FujiFilm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nikon.html">Nikon</a></li>
                     <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
@@ -510,39 +516,39 @@
     </nav>
 
     <!-- ══════════════ HERO ══════════════ -->
-    <section class="fuji-hero">
+    <section class="sony-hero">
         <div class="hero-grid"></div>
         <div class="container position-relative">
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <p class="section-eyebrow mb-3">FOTOLAB × Brand Spotlight</p>
-                    <h1 class="fuji-logo-big">FUJIFILM</h1>
-                    <p class="fuji-tagline">More Than Just Photography — Color Science Perfection</p>
+                    <h1 class="sony-logo-big">SONY</h1>
+                    <p class="sony-tagline">Be Moved — Pioneering Mirrorless Innovation</p>
 
                     <p class="mt-4 mb-5" style="font-size:15px; color:rgba(255,255,255,0.45); max-width:480px; font-family:'Inter',sans-serif; line-height:1.8;">
-                        Analog ka sabaq aur digital ka mustaqbil. Fujifilm apne bemisaal color science, film simulations, 
-                        aur retro aesthetic dials ke sath street photographers aur modern creators ka dil jeet chuka hai.
+                        Tokyo se lekar poori duniya tak — Sony ne mirrorless technology ke zariye imaging ki dunya ko badal diya hai. 
+                        Duniya bhar ke professional filmmakers aur hybrid creators ka pehla bharosa.
                     </p>
 
                     <div class="d-flex align-items-center gap-4 flex-wrap">
                         <div class="hero-stat text-center">
-                            <div class="stat-number">90+</div>
-                            <div class="stat-label">Years of Color Science</div>
-                        </div>
-                        <div class="hero-divider d-none d-sm-block"></div>
-                        <div class="hero-stat text-center">
                             <div class="stat-number">20+</div>
-                            <div class="stat-label">Film Simulations</div>
+                            <div class="stat-label">Years of Alpha</div>
                         </div>
                         <div class="hero-divider d-none d-sm-block"></div>
                         <div class="hero-stat text-center">
-                            <div class="stat-number">GFX</div>
-                            <div class="stat-label">Medium Format Leader</div>
+                            <div class="stat-number">70+</div>
+                            <div class="stat-label">Native E-Mount Lenses</div>
+                        </div>
+                        <div class="hero-divider d-none d-sm-block"></div>
+                        <div class="hero-stat text-center">
+                            <div class="stat-number">#1</div>
+                            <div class="stat-label">Sensor Manufacturer</div>
                         </div>
                     </div>
 
                     <div class="mt-5">
-                        <a href="#products" class="btn-fuji me-3">Explore Products</a>
+                        <a href="#products" class="btn-sony me-3">Explore Products</a>
                         <a href="brands.html" style="color:rgba(255,255,255,0.4); font-size:13px; font-family:'Inter',sans-serif; text-decoration:none; letter-spacing:1px;">
                             ← All Brands
                         </a>
@@ -550,16 +556,16 @@
                 </div>
 
                 <div class="col-lg-5 d-none d-lg-flex justify-content-center align-items-center">
-                    <!-- Decorative Fujifilm Theme Elements -->
+                    <!-- Decorative Sony "α" Alpha ring (Updated to Brown Glow) -->
                     <div style="position:relative; width:320px; height:320px;">
                         <div style="
                             position:absolute; inset:0; border-radius:50%;
-                            border: 2px solid rgba(0,153,102,0.15);
+                            border: 2px solid rgba(139,69,19,0.15);
                             animation: fl-spin 8s linear infinite;
                         "></div>
                         <div style="
                             position:absolute; inset:20px; border-radius:50%;
-                            border: 1px solid rgba(0,153,102,0.1);
+                            border: 1px solid rgba(139,69,19,0.1);
                             animation: fl-spin 5s linear infinite reverse;
                         "></div>
                         <div style="
@@ -568,113 +574,113 @@
                         ">
                             <span style="
                                 font-family:'Bebas Neue',sans-serif;
-                                font-size:130px;
-                                color:rgba(0,153,102,0.12);
+                                font-size:160px;
+                                color:rgba(139,69,19,0.12);
                                 line-height:1;
-                            ">X</span>
+                            ">α</span>
                         </div>
                         <!-- Dots -->
-                        <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--brand-accent);box-shadow:0 0 14px rgba(0,153,102,0.8);"></div>
-                        <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:rgba(0,153,102,0.5);"></div>
+                        <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--brand-accent);box-shadow:0 0 14px rgba(139,69,19,0.8);"></div>
+                        <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:rgba(139,69,19,0.5);"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══════════════ ABOUT FUJIFILM ══════════════ -->
+    <!-- ══════════════ ABOUT SONY ══════════════ -->
     <section class="about-section" id="about">
         <div class="container">
             <div class="row align-items-start g-5">
                 <div class="col-lg-5 reveal">
                     <p class="section-eyebrow">About the Brand</p>
-                    <div class="green-line mt-3"></div>
-                    <h2 class="section-title">The Master of Colors</h2>
+                    <div class="blue-line mt-3"></div>
+                    <h2 class="section-title">The Future of Imaging Tech</h2>
                     <p style="color:rgba(255,255,255,0.5); font-size:15px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:20px;">
-                        Fujifilm ne hamesha photography ko ek jazba mana hai. Inke cameras sirf tools nahi hain balki vintage design, 
-                        tactile mechanical dials, aur proprietary **X-Trans sensor technology** ka ek bemisaal sargam hain jo bina post-processing ke kamal colors deta hai.
+                        Sony ne mirrorless cameras ki shuruat karke poori photography industry ka rukh mod diya. Apne behtareen 
+                        Exmor sensor aur Real-time Tracking AI ke sath, Sony hamesha technology me sabse aage rehta hai.
                     </p>
                     <p style="color:rgba(255,255,255,0.4); font-size:14px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:14px;">
-                        Chahe baat APS-C X-system ki compact speed ki ho ya GFX Medium Format ki ultra-detailed landscape aur fashion shoots ki, 
-                        Fujifilm har frame me jaan daal deta hai.
+                        Aaj Sony duniya ke behtareen full-frame sensors aur autofocus systems banata hai, jo har kism ke commercial, 
+                        cinematic, aur vlogging projects ke liye perfect hain.
                     </p>
                     <div class="d-flex flex-wrap gap-2 mt-4">
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Film Simulations (Classic Chrome, Provia)</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> X-Trans CMOS Sensor Tech</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Tactile Analogue Shutter & ISO Dials</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Advanced X-Processor 5 Speed</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> GFX Medium Format Ecosystem</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Superb Out-of-Camera JPEGs</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Real-time Eye AF (Human/Animal)</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> G-Master (GM) Optics</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Advanced BIONZ XR Processing</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Class-leading Low Light Sensors</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Universal E-Mount Ecosystem</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Industry Standard Dynamic Range</span>
                     </div>
                 </div>
 
                 <div class="col-lg-6 offset-lg-1 reveal reveal-delay-2">
                     <p class="section-eyebrow">Brand Timeline</p>
-                    <div class="green-line mt-3 mb-4"></div>
+                    <div class="blue-line mt-3 mb-4"></div>
                     <div class="timeline-item">
-                        <div class="timeline-year">1934</div>
-                        <div class="timeline-text">Fuji Photo Film Co., Ltd. ka aghaaz Japan me photographic films banane se hua.</div>
+                        <div class="timeline-year">2006</div>
+                        <div class="timeline-text">Sony Alpha brand ka aghaaz hua, Minolta lens mount asset ko acquire karne ke baad.</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">1988</div>
-                        <div class="timeline-text">Fujix DS-1P launched — Duniya ka sabse pehla sacha digital camera jo memory card par save karta tha.</div>
+                        <div class="timeline-year">2010</div>
+                        <div class="timeline-text">NEX series launched — Sony ka pehla kadam mirrorless technology ki dunya me.</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">2011</div>
-                        <div class="timeline-text">Legendary FinePix X100 launched — Jisne iconic retro look aur hybrid viewfinder se market hila di.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2012</div>
-                        <div class="timeline-text">Fujifilm X-Pro1 aur X-Mount system ka aghaaz, pehle unique X-Trans sensor ke sath.</div>
+                        <div class="timeline-year">2013</div>
+                        <div class="timeline-text">Sony Alpha 7 (A7) release hua — duniya ka sabse pehla commercial Full-Frame Mirrorless camera system.</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-year">2017</div>
-                        <div class="timeline-text">GFX 50S launched — Medium format photography ko sasta aur portable banaya.</div>
+                        <div class="timeline-text">Sony A9 launched — Stacked CMOS sensor ke sath, jisne blackout-free 20fps burst shooting mumkin banayi.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-text">Sony A1 launched — 50MP sensor aur 8K video ke sath flagship performance ka naya standard set kiya.</div>
                     </div>
                     <div class="timeline-item" style="padding-bottom:0; border-left-color:transparent;">
                         <div class="timeline-year">2025/2026</div>
-                        <div class="timeline-text">X-T5, X100VI aur GFX 100 II systems apni unmatched color recipes ke sath trend kar rahe hain.</div>
+                        <div class="timeline-text">Sony A7R V aur A9 III high-speed global shutter tech ke sath markets par raj kar rahe hain.</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══════════════ WHY FUJIFILM ══════════════ -->
+    <!-- ══════════════ WHY SONY ══════════════ -->
     <section class="why-section">
         <div class="container">
             <div class="text-center mb-5 reveal">
-                <p class="section-eyebrow">Why Choose Fujifilm</p>
-                <div class="green-line mx-auto mt-3"></div>
-                <h2 class="section-title mt-2">The Soul of Analog, Power of Digital</h2>
+                <p class="section-eyebrow">Why Choose Sony</p>
+                <div class="blue-line mx-auto mt-3"></div>
+                <h2 class="section-title mt-2">Built for Innovation</h2>
             </div>
             <div class="row g-4">
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-1">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-sliders-h"></i></div>
-                        <div class="why-title">Film Simulations</div>
-                        <p class="why-text">Bina editing ke purani classic film rolls (jaise *Classic Neg, Nostalgic Neg*) jesa aesthetic directly camera se haasil karein.</p>
+                        <div class="why-icon"><i class="fas fa-eye"></i></div>
+                        <div class="why-title">Real-time AI Tracking</div>
+                        <p class="why-text">Sony ka AI processor ankhon, chehron, janwaron aur gariyon ko millisecond me track karta hai, bina focus loose kiye.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-2">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-camera"></i></div>
-                        <div class="why-title">Retro Aesthetics</div>
-                        <p class="why-text">Premium metal body dials jo aapko shutter speed, ISO, aur aperture ko manually touch karne ka purana maza dete hain.</p>
+                        <div class="why-icon"><i class="fas fa-gem"></i></div>
+                        <div class="why-title">G-Master Glass</div>
+                        <p class="why-text">Sony ke premium G-Master (GM) lenses behtareen bokeh aur extreme corners tak zabardast sharpness provide karte hain.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-3">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-palette"></i></div>
-                        <div class="why-title">Unmatched JPEGs</div>
-                        <p class="why-text">Fujifilm ki legendary skin tones aur auto white-balance recipes ki wajah se aapko RAW file edit karne ki zaroorat nahi parti.</p>
+                        <div class="why-icon"><i class="fas fa-film"></i></div>
+                        <div class="why-title">Industry Standard S-Log</div>
+                        <p class="why-text">S-Log3 aur S-Cinetone colors ke sath cinema production aur grading ke liye Sony cameras Hollywood tak use hote hain.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-4">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-expand-arrows-alt"></i></div>
-                        <div class="why-title">GFX Medium Format</div>
-                        <p class="why-text">Full-frame se 1.7x bara sensor jo commercial fashion aur high-end cropping ke liye herat-angez details daita hai.</p>
+                        <div class="why-icon"><i class="fas fa-battery-three-quarters"></i></div>
+                        <div class="why-title">Z-Battery Life</div>
+                        <p class="why-text">Sony ki behtareen NP-FZ100 battery systems ab lambe shoots par bina rukawat chalne ki bharpoor salahiyat rakhti hain.</p>
                     </div>
                 </div>
             </div>
@@ -685,204 +691,203 @@
     <section class="products-section" id="products">
         <div class="container">
             <div class="text-center mb-4 reveal">
-                <p class="section-eyebrow">Fujifilm Lineup</p>
-                <div class="green-line mx-auto mt-3"></div>
-                <h2 class="section-title mt-2">Fujifilm Products at FOTOLAB</h2>
+                <p class="section-eyebrow">Sony Lineup</p>
+                <div class="blue-line mx-auto mt-3"></div>
+                <h2 class="section-title mt-2">Sony Products at FOTOLAB</h2>
                 <p style="color:rgba(255,255,255,0.35); font-size:14px; font-family:'Inter',sans-serif; margin-top:10px;">
-                    Available in-store and online. All products carry official Fujifilm Pakistan warranty support.
+                    Available in-store and online. All products carry official Sony Pakistan warranty support.
                 </p>
             </div>
 
             <!-- Filter tabs -->
             <div class="filter-tabs">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="mirrorless">X-Series APS-C</button>
-                <button class="filter-btn" data-filter="lens">XF Lenses</button>
-                <button class="filter-btn" data-filter="medium-format">GFX Medium Format</button>
-                <button class="filter-btn" data-filter="compact">Premium Compact</button>
+                <button class="filter-btn" data-filter="mirrorless">Mirrorless</button>
+                <button class="filter-btn" data-filter="lens">Lenses</button>
+                <button class="filter-btn" data-filter="video">Cinema & FX Line</button>
+                <button class="filter-btn" data-filter="compact">Vlog / Compact</button>
             </div>
 
             <div class="row g-4" id="products-grid">
 
-                <!-- Fujifilm X-T5 -->
+                <!-- Sony A7R V -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="mirrorless">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1043/400/300" alt="Fujifilm X-T5">
-                            <span class="product-badge">Photographer's Pick</span>
+                            <img src="https://picsum.photos/id/1080/400/300" alt="Sony Alpha 7R V">
+                            <span class="product-badge">High Res</span>
                         </div>
                         <div class="product-body">
-                            <div class="product-category">X-Series Mirrorless</div>
-                            <div class="product-name">Fujifilm X-T5</div>
-                            <p class="product-desc">40.2MP high-resolution X-Trans 5 HR sensor classical dials aur 3-way tilting screen ke sath. Shutter lovers ki pehli pasand.</p>
+                            <div class="product-category">Mirrorless</div>
+                            <div class="product-name">Alpha 7R V</div>
+                            <p class="product-desc">61MP full-frame sensor advanced AI autofocus system aur 8K video recording ke sath. Studio aur commercial photography ka badshah.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">40.2MP X-Trans</span>
-                                <span class="spec-tag">6.2K Video</span>
-                                <span class="spec-tag">7-Stop IBIS</span>
-                                <span class="spec-tag">Retro Dials</span>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <div class="product-price">PKR 3,85,000 <span>/ body</span></div>
-                                </div>
-                                <a href="products.html" class="btn-fuji">Inquire</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Fujifilm X-H2S -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="mirrorless">
-                    <div class="product-card">
-                        <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1044/400/300" alt="Fujifilm X-H2S">
-                            <span class="product-badge">Speed & Video</span>
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category">X-Series Mirrorless</div>
-                            <div class="product-name">Fujifilm X-H2S</div>
-                            <p class="product-desc">Stacked CMOS sensor jo 40fps blackout-free burst shooting aur internally 4K 120p ProRES video card par bagair overheat ke record karta hai.</p>
-                            <div class="product-specs">
-                                <span class="spec-tag">26.1MP Stacked</span>
-                                <span class="spec-tag">4K 120p / 6K</span>
-                                <span class="spec-tag">Apple ProRes</span>
-                                <span class="spec-tag">40 fps Burst</span>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <div class="product-price">PKR 5,10,000 <span>/ body</span></div>
-                                </div>
-                                <a href="products.html" class="btn-fuji">Inquire</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Fujifilm X-T50 -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="mirrorless">
-                    <div class="product-card">
-                        <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1045/400/300" alt="Fujifilm X-T50">
-                            <span class="product-badge">New Arrival</span>
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category">X-Series Mirrorless</div>
-                            <div class="product-name">Fujifilm X-T50</div>
-                            <p class="product-desc">Compact body me 40MP ka taqatwar sensor aur pehli baar dedicated Film Simulation dial jo shortcuts ko mazeed asaan bana deta hai.</p>
-                            <div class="product-specs">
-                                <span class="spec-tag">40.2MP</span>
-                                <span class="spec-tag">Simulation Dial</span>
-                                <span class="spec-tag">IBIS Built-in</span>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <div class="product-price">PKR 2,90,000 <span>/ body</span></div>
-                                </div>
-                                <a href="products.html" class="btn-fuji">Inquire</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- XF 56mm f/1.2 R WR -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="lens">
-                    <div class="product-card">
-                        <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1026/400/300" alt="Fujifilm XF 56mm f/1.2 R WR">
-                            <span class="product-badge">Bokeh Master</span>
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category">XF Lens</div>
-                            <div class="product-name">XF 56mm f/1.2 R WR</div>
-                            <p class="product-desc">Fujifilm ka ultimate portrait glass. f/1.2 ki super wide opening aur naye weather-sealed (WR) structure ke sath makhmali background.</p>
-                            <div class="product-specs">
-                                <span class="spec-tag">f/1.2 Aperture</span>
-                                <span class="spec-tag">85mm (Equiv.)</span>
-                                <span class="spec-tag">Weather Resistant</span>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <div class="product-price">PKR 2,35,000</div>
-                                </div>
-                                <a href="products.html" class="btn-fuji">Inquire</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- XF 16-55mm f/2.8 R LM WR -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="lens">
-                    <div class="product-card">
-                        <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1027/400/300" alt="XF 16-55mm f/2.8">
-                            <span class="product-badge">Red Badge</span>
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category">XF Lens</div>
-                            <div class="product-name">XF 16-55mm f/2.8 R LM WR</div>
-                            <p class="product-desc">Fujifilm ka flagship "Red Badge" standard zoom lens. Constant f/2.8 aperture poori range me prime lens jesi crisp resolution daita hai.</p>
-                            <div class="product-specs">
-                                <span class="spec-tag">f/2.8 Constant</span>
-                                <span class="spec-tag">Linear Motor (LM)</span>
-                                <span class="spec-tag">Pro Resolution</span>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <div class="product-price">PKR 2,65,000</div>
-                                </div>
-                                <a href="products.html" class="btn-fuji">Inquire</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Fujifilm GFX 100S II -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="medium-format">
-                    <div class="product-card">
-                        <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1028/400/300" alt="GFX 100S II">
-                            <span class="product-badge">102 Megapixels</span>
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category">Medium Format</div>
-                            <div class="product-name">GFX 100S II</div>
-                            <p class="product-desc">102 Million Pixels ka vishal Medium Format sensor. Utmost dynamic range aur crop flexibility jo aam full-frame cameras soch bhi nahi sakte.</p>
-                            <div class="product-specs">
-                                <span class="spec-tag">102MP Medium Format</span>
-                                <span class="spec-tag">4K Cinematic</span>
+                                <span class="spec-tag">61MP Exmor R</span>
+                                <span class="spec-tag">8K Video</span>
+                                <span class="spec-tag">AI Tracking</span>
                                 <span class="spec-tag">8-Stop IBIS</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 12,50,000</div>
+                                    <div class="product-price">PKR 6,85,000 <span>/ body</span></div>
                                 </div>
-                                <a href="products.html" class="btn-fuji">Inquire</a>
+                                <a href="products.html" class="btn-sony">Inquire</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Fujifilm X100VI -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="compact">
+                <!-- Sony A7 IV -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="mirrorless">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1029/400/300" alt="Fujifilm X100VI">
-                            <span class="product-badge">Global Trend</span>
+                            <img src="https://picsum.photos/id/1081/400/300" alt="Sony Alpha 7 IV">
+                            <span class="product-badge">Best Seller</span>
                         </div>
                         <div class="product-body">
-                            <div class="product-category">Premium Compact</div>
-                            <div class="product-name">Fujifilm X100VI</div>
-                            <p class="product-desc">Duniya ka sabse mashhoor street camera. 40MP sensor, built-in 23mm f/2 prime lens, hybrid viewfinder aur IBIS ke sath pocket-sized magic.</p>
+                            <div class="product-category">Mirrorless</div>
+                            <div class="product-name">Alpha 7 IV</div>
+                            <p class="product-desc">33MP true hybrid powerhouse. 4K 60p video, behtareen dynamic range aur real-time tracking jo har scene ko perfect banata hai.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">40.2MP Fixed Lens</span>
-                                <span class="spec-tag">Hybrid OVF/EVF</span>
-                                <span class="spec-tag">Pocket Size</span>
+                                <span class="spec-tag">33MP</span>
+                                <span class="spec-tag">4K 60p</span>
+                                <span class="spec-tag">S-Cinetone</span>
+                                <span class="spec-tag">Dual Slots</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 3,95,000</div>
+                                    <div class="product-price">PKR 4,35,000 <span>/ body</span></div>
                                 </div>
-                                <a href="products.html" class="btn-fuji">Inquire</a>
+                                <a href="products.html" class="btn-sony">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sony A6700 -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="mirrorless">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1082/400/300" alt="Sony Alpha 6700">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Mirrorless</div>
+                            <div class="product-name">Alpha 6700</div>
+                            <p class="product-desc">Flagship APS-C mirrorless camera creators ke liye. Compact size me AI recognition Autofocus aur cinematic 4K 120p video.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">26MP APS-C</span>
+                                <span class="spec-tag">4K 120p</span>
+                                <span class="spec-tag">AI Autofocus</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 2,95,000 <span>/ body</span></div>
+                                </div>
+                                <a href="products.html" class="btn-sony">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FE 50mm f/1.2 GM -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="lens">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1050/400/300" alt="Sony FE 50mm f/1.2 G Master">
+                            <span class="product-badge">G-Master</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">E-Mount Lens</div>
+                            <div class="product-name">FE 50mm f/1.2 GM</div>
+                            <p class="product-desc">Sony ka premium portrait lens. f/1.2 aperture par intehai sharp images aur buttery-smooth cream-like bokeh pesh karta hai.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">f/1.2 Aperture</span>
+                                <span class="spec-tag">G Master Class</span>
+                                <span class="spec-tag">XD Linear Motor</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 4,65,000</div>
+                                </div>
+                                <a href="products.html" class="btn-sony">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FE 24-70mm f/2.8 GM II -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="lens">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1051/400/300" alt="Sony FE 24-70mm f/2.8 GM II">
+                            <span class="product-badge">G-Master II</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">E-Mount Lens</div>
+                            <div class="product-name">FE 24-70mm f/2.8 GM II</div>
+                            <p class="product-desc">Duniya ka sabse halka constant f/2.8 standard zoom lens. Professional photography aur high-end filmmaking ke liye heros ki choice.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">f/2.8 Constant</span>
+                                <span class="spec-tag">Gen-2 Optical Design</span>
+                                <span class="spec-tag">Weather Sealed</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 5,15,000</div>
+                                </div>
+                                <a href="products.html" class="btn-sony">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sony FX30 Cinema -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="video">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1052/400/300" alt="Sony FX30">
+                            <span class="product-badge">Cinema Line</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Cinema Camera</div>
+                            <div class="product-name">Cinema Line FX30</div>
+                            <p class="product-desc">Indie filmmakers aur videographers ka pehla choice. Dual Base ISO, S-Log3, aur cooling fan ke sath bagair over-heat hue ghanton recording.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">4K Super35</span>
+                                <span class="spec-tag">Dual Base ISO</span>
+                                <span class="spec-tag">XAVC S-I 10-bit</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 3,99,000</div>
+                                </div>
+                                <a href="products.html" class="btn-sony">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sony ZV-E10 -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="compact">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1053/400/300" alt="Sony ZV-E10">
+                            <span class="product-badge">Vlog King</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Vlog Camera</div>
+                            <div class="product-name">ZV-E10</div>
+                            <p class="product-desc">Interchangeable lens vlogging camera. Product showcase mode aur background defocus switch ke sath content creation ab bohot asaan.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">4K Vlog Mode</span>
+                                <span class="spec-tag">Product Showcase</span>
+                                <span class="spec-tag">Flip LCD</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 1,65,000</div>
+                                </div>
+                                <a href="products.html" class="btn-sony">Inquire</a>
                             </div>
                         </div>
                     </div>
@@ -901,9 +906,11 @@
                     <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
                 </div>
                 <div class="col-md-2">
-                    <h5 class="text-amber mb-3">Quick Links</h5>
+                    <h5 class="text-amber mb-3">Explore</h5>
                     <ul class="list-unstyled">
                         <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
+                        <li><a href="service.html" class="text-white-50 text-decoration-none">Services</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
@@ -925,26 +932,13 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="main.js"></script>
-    <script src="loader.js"></script>
-    <script src="geolocation.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/loader.js"></script>
+    <script src="../js/geolocation.js"></script>
 
-    <!-- Geolocation Trigger Script -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            if (typeof getLocation === "function") {
-                getLocation();
-            }
-        });
-    </script>
-
-    <style>
-        @keyframes fl-spin {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
-        }
-    </style>
+    <!-- Page Specific Script Logic and Geolocation Tracker -->
     <script>
         // ── Scroll Reveal ──
         const reveals = document.querySelectorAll('.reveal');
@@ -977,6 +971,13 @@
                     }
                 });
             });
+        });
+
+        // ── Geolocation Trigger ──
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof getLocation === "function") {
+                getLocation();
+            }
         });
     </script>
 </body>

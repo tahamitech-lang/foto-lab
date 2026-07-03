@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore Canon cameras and lenses at FOTOLAB - Pakistan's trusted photography store since 1991.">
-    <title>Canon - FOTOLAB</title>
+    <meta name="description" content="Explore Fujifilm cameras and lenses at FOTOLAB - Pakistan's trusted photography store since 1991.">
+    <title>Fujifilm - FOTOLAB</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="animations.css">
-    <link rel="stylesheet" href="mobile-responsive.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/mobile-responsive.css">
     <script>
-        const IMAGE_PATH = "fotoloader.png";
+        const IMAGE_PATH = "../images/fotoloader.png";
     </script>
 
     <style>
-        /* ── Canon Page Exclusive Styles ── */
+        /* ── Fujifilm Page Exclusive Styles ── */
         :root {
-            --brand-accent: #0d6efd;
-            --brand-accent-dark: #002244;
-            --brand-accent-glow: rgba(13,110,253,0.25);
+            --brand-accent: #009966; /* Fujifilm Iconic Green */
+            --brand-accent-dark: #005533;
+            --brand-accent-glow: rgba(0,153,102,0.25);
         }
 
         /* ── Hero ── */
-        .canon-hero {
+        .fuji-hero {
             min-height: 88vh;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 50%, #0a0a0a 100%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #001a10 50%, #0a0a0a 100%);
             display: flex;
             align-items: center;
             position: relative;
@@ -34,11 +34,11 @@
             padding-top: 80px;
         }
 
-        .canon-hero::before {
+        .fuji-hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 70% 50%, rgba(13,110,253,0.12) 0%, transparent 65%);
+            background: radial-gradient(ellipse at 70% 50%, rgba(0,153,102,0.12) 0%, transparent 65%);
             pointer-events: none;
         }
 
@@ -47,8 +47,8 @@
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(13,110,253,0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(13,110,253,0.06) 1px, transparent 1px);
+                linear-gradient(rgba(0,153,102,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,153,102,0.06) 1px, transparent 1px);
             background-size: 60px 60px;
             animation: gridMove 20s linear infinite;
             pointer-events: none;
@@ -59,13 +59,13 @@
             to   { background-position: 60px 60px; }
         }
 
-        .canon-logo-big {
+        .fuji-logo-big {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(80px, 14vw, 180px);
+            font-size: clamp(60px, 11vw, 140px);
             color: var(--brand-accent);
             line-height: 1;
-            letter-spacing: -2px;
-            text-shadow: 0 0 80px rgba(13,110,253,0.4);
+            letter-spacing: 1px;
+            text-shadow: 0 0 80px rgba(0,153,102,0.4);
             animation: logoReveal 1s ease forwards;
             opacity: 0;
             transform: translateY(30px);
@@ -75,13 +75,13 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .canon-tagline {
+        .fuji-tagline {
             font-family: 'Inter', sans-serif;
-            font-size: clamp(13px, 2vw, 17px);
+            font-size: clamp(13px, 2vw, 16px);
             color: rgba(255,255,255,0.5);
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            margin-top: 8px;
+            margin-top: 12px;
             animation: fadeUp 1s 0.3s ease forwards;
             opacity: 0;
         }
@@ -116,7 +116,7 @@
         .hero-divider {
             width: 1px;
             height: 50px;
-            background: rgba(13,110,253,0.3);
+            background: rgba(0,153,102,0.3);
         }
 
         /* ── Section headers ── */
@@ -137,7 +137,7 @@
             line-height: 1.1;
         }
 
-        /* ── About Canon Section ── */
+        /* ── About Fujifilm Section ── */
         .about-section {
             background: #080808;
             padding: 100px 0;
@@ -145,14 +145,14 @@
         }
 
         .about-section::after {
-            content: 'CANON';
+            content: 'FUJIFILM';
             position: absolute;
             right: -20px;
             top: 50%;
             transform: translateY(-50%);
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 200px;
-            color: rgba(13,110,253,0.04);
+            font-size: 160px;
+            color: rgba(0,153,102,0.03);
             pointer-events: none;
             white-space: nowrap;
         }
@@ -161,8 +161,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(13,110,253,0.1);
-            border: 1px solid rgba(13,110,253,0.25);
+            background: rgba(0,153,102,0.1);
+            border: 1px solid rgba(0,153,102,0.25);
             border-radius: 100px;
             padding: 8px 18px;
             font-size: 13px;
@@ -172,8 +172,8 @@
         }
 
         .feature-pill:hover {
-            background: rgba(13,110,253,0.2);
-            border-color: rgba(13,110,253,0.5);
+            background: rgba(0,153,102,0.2);
+            border-color: rgba(0,153,102,0.5);
             color: #fff;
         }
 
@@ -183,7 +183,7 @@
         .timeline-item {
             position: relative;
             padding-left: 28px;
-            border-left: 1px solid rgba(13,110,253,0.2);
+            border-left: 1px solid rgba(0,153,102,0.2);
             padding-bottom: 32px;
         }
 
@@ -196,7 +196,7 @@
             height: 9px;
             border-radius: 50%;
             background: var(--brand-accent);
-            box-shadow: 0 0 12px rgba(13,110,253,0.6);
+            box-shadow: 0 0 12px rgba(0,153,102,0.6);
         }
 
         .timeline-year {
@@ -263,7 +263,7 @@
             position: absolute;
             inset: 0;
             border-radius: 16px;
-            border: 1px solid rgba(13,110,253,0);
+            border: 1px solid rgba(0,153,102,0);
             transition: border-color 0.4s ease;
             pointer-events: none;
             z-index: 1;
@@ -271,11 +271,11 @@
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 24px 60px rgba(13,110,253,0.15);
+            box-shadow: 0 24px 60px rgba(0,153,102,0.15);
         }
 
         .product-card:hover::before {
-            border-color: rgba(13,110,253,0.4);
+            border-color: rgba(0,153,102,0.4);
         }
 
         .product-img-wrap {
@@ -375,7 +375,7 @@
             letter-spacing: 0;
         }
 
-        .btn-canon {
+        .btn-fuji {
             background: var(--brand-accent);
             border: none;
             color: #fff;
@@ -391,7 +391,7 @@
             transition: all 0.3s ease;
         }
 
-        .btn-canon:hover {
+        .btn-fuji:hover {
             background: var(--brand-accent-dark);
             color: #fff;
             transform: translateY(-1px);
@@ -414,7 +414,7 @@
         .reveal-delay-3 { transition-delay: 0.3s; }
         .reveal-delay-4 { transition-delay: 0.4s; }
 
-        /* ── Why Canon section ── */
+        /* ── Why Fujifilm section ── */
         .why-section {
             background: #080808;
             padding: 100px 0;
@@ -431,15 +431,15 @@
         }
 
         .why-card:hover {
-            border-color: rgba(13,110,253,0.3);
+            border-color: rgba(0,153,102,0.3);
             transform: translateY(-4px);
         }
 
         .why-icon {
             width: 60px;
             height: 60px;
-            background: rgba(13,110,253,0.1);
-            border: 1px solid rgba(13,110,253,0.2);
+            background: rgba(0,153,102,0.1);
+            border: 1px solid rgba(0,153,102,0.2);
             border-radius: 14px;
             display: flex;
             align-items: center;
@@ -451,8 +451,8 @@
         }
 
         .why-card:hover .why-icon {
-            background: rgba(13,110,253,0.2);
-            box-shadow: 0 0 24px rgba(13,110,253,0.25);
+            background: rgba(0,153,102,0.2);
+            box-shadow: 0 0 24px rgba(0,153,102,0.25);
         }
 
         .why-title {
@@ -469,8 +469,8 @@
             line-height: 1.7;
         }
 
-        /* ── Red accent line ── */
-        .red-line {
+        /* ── Green accent line ── */
+        .green-line {
             width: 40px;
             height: 3px;
             background: var(--brand-accent);
@@ -482,14 +482,14 @@
         footer a { transition: color 0.2s; }
         footer a:hover { color: var(--brand-accent) !important; }
     </style>
-    </head>
-    <body>
+</head>
+<body>
 
     <!-- ══════════════ NAVBAR ══════════════ -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
                 <span class="fw-bold fs-3">FOTOLAB</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -497,11 +497,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
                     <li class="nav-item"><a class="nav-link active" href="brands.html">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link" href="canon.html">Canon</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nikon.html">Nikon</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sony.html">Sony</a></li>
                     <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
@@ -510,39 +511,39 @@
     </nav>
 
     <!-- ══════════════ HERO ══════════════ -->
-    <section class="canon-hero">
+    <section class="fuji-hero">
         <div class="hero-grid"></div>
         <div class="container position-relative">
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <p class="section-eyebrow mb-3">FOTOLAB × Brand Spotlight</p>
-                    <h1 class="canon-logo-big">CANON</h1>
-                    <p class="canon-tagline">Delighting You Always — Since 1937</p>
+                    <h1 class="fuji-logo-big">FUJIFILM</h1>
+                    <p class="fuji-tagline">More Than Just Photography — Color Science Perfection</p>
 
                     <p class="mt-4 mb-5" style="font-size:15px; color:rgba(255,255,255,0.45); max-width:480px; font-family:'Inter',sans-serif; line-height:1.8;">
-                        From Japan to the world — Canon has defined the art of imaging for nearly 90 years. 
-                        Trusted by photojournalists, filmmakers, and hobbyists in 200+ countries.
+                        Analog ka sabaq aur digital ka mustaqbil. Fujifilm apne bemisaal color science, film simulations, 
+                        aur retro aesthetic dials ke sath street photographers aur modern creators ka dil jeet chuka hai.
                     </p>
 
                     <div class="d-flex align-items-center gap-4 flex-wrap">
                         <div class="hero-stat text-center">
-                            <div class="stat-number">87+</div>
-                            <div class="stat-label">Years Legacy</div>
+                            <div class="stat-number">90+</div>
+                            <div class="stat-label">Years of Color Science</div>
                         </div>
                         <div class="hero-divider d-none d-sm-block"></div>
                         <div class="hero-stat text-center">
-                            <div class="stat-number">200+</div>
-                            <div class="stat-label">Countries</div>
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">Film Simulations</div>
                         </div>
                         <div class="hero-divider d-none d-sm-block"></div>
                         <div class="hero-stat text-center">
-                            <div class="stat-number">#1</div>
-                            <div class="stat-label">ILC Market Share</div>
+                            <div class="stat-number">GFX</div>
+                            <div class="stat-label">Medium Format Leader</div>
                         </div>
                     </div>
 
                     <div class="mt-5">
-                        <a href="#products" class="btn-canon me-3">Explore Products</a>
+                        <a href="#products" class="btn-fuji me-3">Explore Products</a>
                         <a href="brands.html" style="color:rgba(255,255,255,0.4); font-size:13px; font-family:'Inter',sans-serif; text-decoration:none; letter-spacing:1px;">
                             ← All Brands
                         </a>
@@ -550,16 +551,16 @@
                 </div>
 
                 <div class="col-lg-5 d-none d-lg-flex justify-content-center align-items-center">
-                    <!-- Decorative Canon "C" ring -->
+                    <!-- Decorative Fujifilm Theme Elements -->
                     <div style="position:relative; width:320px; height:320px;">
                         <div style="
                             position:absolute; inset:0; border-radius:50%;
-                            border: 2px solid rgba(13,110,253,0.15);
+                            border: 2px solid rgba(0,153,102,0.15);
                             animation: fl-spin 8s linear infinite;
                         "></div>
                         <div style="
                             position:absolute; inset:20px; border-radius:50%;
-                            border: 1px solid rgba(13,110,253,0.1);
+                            border: 1px solid rgba(0,153,102,0.1);
                             animation: fl-spin 5s linear infinite reverse;
                         "></div>
                         <div style="
@@ -568,113 +569,113 @@
                         ">
                             <span style="
                                 font-family:'Bebas Neue',sans-serif;
-                                font-size:160px;
-                                color:rgba(13,110,253,0.12);
+                                font-size:130px;
+                                color:rgba(0,153,102,0.12);
                                 line-height:1;
-                            ">C</span>
+                            ">X</span>
                         </div>
                         <!-- Dots -->
-                        <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--brand-accent);box-shadow:0 0 14px rgba(13,110,253,0.8);"></div>
-                        <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:rgba(13,110,253,0.5);"></div>
+                        <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--brand-accent);box-shadow:0 0 14px rgba(0,153,102,0.8);"></div>
+                        <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:rgba(0,153,102,0.5);"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══════════════ ABOUT CANON ══════════════ -->
+    <!-- ══════════════ ABOUT FUJIFILM ══════════════ -->
     <section class="about-section" id="about">
         <div class="container">
             <div class="row align-items-start g-5">
                 <div class="col-lg-5 reveal">
                     <p class="section-eyebrow">About the Brand</p>
-                    <div class="red-line mt-3"></div>
-                    <h2 class="section-title">More than a Camera Company</h2>
+                    <div class="green-line mt-3"></div>
+                    <h2 class="section-title">The Master of Colors</h2>
                     <p style="color:rgba(255,255,255,0.5); font-size:15px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:20px;">
-                        Founded in Tokyo in 1937 as Precision Optical Instruments Laboratory, Canon began with 
-                        a single ambition: to build the finest camera Japan had ever seen. That ambition has never wavered.
+                        Fujifilm ne hamesha photography ko ek jazba mana hai. Inke cameras sirf tools nahi hain balki vintage design, 
+                        tactile mechanical dials, aur proprietary **X-Trans sensor technology** ka ek bemisaal sargam hain jo bina post-processing ke kamal colors deta hai.
                     </p>
                     <p style="color:rgba(255,255,255,0.4); font-size:14px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:14px;">
-                        Today Canon is a global leader in imaging, office solutions, printing, and medical technology — 
-                        but at its heart, it remains a camera company obsessed with the quality of light, glass, and colour.
+                        Chahe baat APS-C X-system ki compact speed ki ho ya GFX Medium Format ki ultra-detailed landscape aur fashion shoots ki, 
+                        Fujifilm har frame me jaan daal deta hai.
                     </p>
                     <div class="d-flex flex-wrap gap-2 mt-4">
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Japanese Precision</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> In-house Lens Manufacturing</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> 50+ Year Warranty Support</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Dual Pixel AF Technology</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> RF & EF Mount Systems</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> World-class Service Network</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Film Simulations (Classic Chrome, Provia)</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> X-Trans CMOS Sensor Tech</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Tactile Analogue Shutter & ISO Dials</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Advanced X-Processor 5 Speed</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> GFX Medium Format Ecosystem</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Superb Out-of-Camera JPEGs</span>
                     </div>
                 </div>
 
                 <div class="col-lg-6 offset-lg-1 reveal reveal-delay-2">
                     <p class="section-eyebrow">Brand Timeline</p>
-                    <div class="red-line mt-3 mb-4"></div>
+                    <div class="green-line mt-3 mb-4"></div>
                     <div class="timeline-item">
-                        <div class="timeline-year">1937</div>
-                        <div class="timeline-text">Canon founded in Tokyo. First camera — the Hansa Canon — released, rivaling German optics.</div>
+                        <div class="timeline-year">1934</div>
+                        <div class="timeline-text">Fuji Photo Film Co., Ltd. ka aghaaz Japan me photographic films banane se hua.</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">1959</div>
-                        <div class="timeline-text">Canon Canonflex launched — Japan's first 35mm SLR camera, redefining professional photography.</div>
+                        <div class="timeline-year">1988</div>
+                        <div class="timeline-text">Fujix DS-1P launched — Duniya ka sabse pehla sacha digital camera jo memory card par save karta tha.</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">1987</div>
-                        <div class="timeline-text">EF lens mount introduced — the revolutionary autofocus system still used in Canon DSLRs today.</div>
+                        <div class="timeline-year">2011</div>
+                        <div class="timeline-text">Legendary FinePix X100 launched — Jisne iconic retro look aur hybrid viewfinder se market hila di.</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">2003</div>
-                        <div class="timeline-text">Canon EOS 300D — the world's first consumer DSLR under $1000. Digital photography for everyone.</div>
+                        <div class="timeline-year">2012</div>
+                        <div class="timeline-text">Fujifilm X-Pro1 aur X-Mount system ka aghaaz, pehle unique X-Trans sensor ke sath.</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">2018</div>
-                        <div class="timeline-text">EOS R system launched. New RF mount ushers Canon into the mirrorless era with groundbreaking speed.</div>
+                        <div class="timeline-year">2017</div>
+                        <div class="timeline-text">GFX 50S launched — Medium format photography ko sasta aur portable banaya.</div>
                     </div>
                     <div class="timeline-item" style="padding-bottom:0; border-left-color:transparent;">
-                        <div class="timeline-year">2024</div>
-                        <div class="timeline-text">Canon EOS R5 Mark II released — 45MP, 8K RAW video, AI-powered subject tracking. The benchmark.</div>
+                        <div class="timeline-year">2025/2026</div>
+                        <div class="timeline-text">X-T5, X100VI aur GFX 100 II systems apni unmatched color recipes ke sath trend kar rahe hain.</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══════════════ WHY CANON ══════════════ -->
+    <!-- ══════════════ WHY FUJIFILM ══════════════ -->
     <section class="why-section">
         <div class="container">
             <div class="text-center mb-5 reveal">
-                <p class="section-eyebrow">Why Choose Canon</p>
-                <div class="red-line mx-auto mt-3"></div>
-                <h2 class="section-title mt-2">Built Different</h2>
+                <p class="section-eyebrow">Why Choose Fujifilm</p>
+                <div class="green-line mx-auto mt-3"></div>
+                <h2 class="section-title mt-2">The Soul of Analog, Power of Digital</h2>
             </div>
             <div class="row g-4">
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-1">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-eye"></i></div>
-                        <div class="why-title">Dual Pixel AF</div>
-                        <p class="why-text">Canon's proprietary Dual Pixel CMOS AF delivers the fastest, most accurate autofocus in any lighting condition — even -6 EV darkness.</p>
+                        <div class="why-icon"><i class="fas fa-sliders-h"></i></div>
+                        <div class="why-title">Film Simulations</div>
+                        <p class="why-text">Bina editing ke purani classic film rolls (jaise *Classic Neg, Nostalgic Neg*) jesa aesthetic directly camera se haasil karein.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-2">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-gem"></i></div>
-                        <div class="why-title">L-Series Glass</div>
-                        <p class="why-text">Canon's legendary L-Series lenses — marked by the red ring — are manufactured in-house with fluorite and UD elements for unmatched clarity.</p>
+                        <div class="why-icon"><i class="fas fa-camera"></i></div>
+                        <div class="why-title">Retro Aesthetics</div>
+                        <p class="why-text">Premium metal body dials jo aapko shutter speed, ISO, aur aperture ko manually touch karne ka purana maza dete hain.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-3">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-film"></i></div>
-                        <div class="why-title">Cinema Grade Video</div>
-                        <p class="why-text">From 4K 60fps to 8K RAW, Canon cameras power Netflix-approved productions and broadcast studios worldwide.</p>
+                        <div class="why-icon"><i class="fas fa-palette"></i></div>
+                        <div class="why-title">Unmatched JPEGs</div>
+                        <p class="why-text">Fujifilm ki legendary skin tones aur auto white-balance recipes ki wajah se aapko RAW file edit karne ki zaroorat nahi parti.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-4">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
-                        <div class="why-title">Build Quality</div>
-                        <p class="why-text">Magnesium alloy bodies with weather sealing rated for dust, moisture, and sub-zero temperatures. Built to work where you work.</p>
+                        <div class="why-icon"><i class="fas fa-expand-arrows-alt"></i></div>
+                        <div class="why-title">GFX Medium Format</div>
+                        <p class="why-text">Full-frame se 1.7x bara sensor jo commercial fashion aur high-end cropping ke liye herat-angez details daita hai.</p>
                     </div>
                 </div>
             </div>
@@ -685,255 +686,204 @@
     <section class="products-section" id="products">
         <div class="container">
             <div class="text-center mb-4 reveal">
-                <p class="section-eyebrow">Canon Lineup</p>
-                <div class="red-line mx-auto mt-3"></div>
-                <h2 class="section-title mt-2">Canon Products at FOTOLAB</h2>
+                <p class="section-eyebrow">Fujifilm Lineup</p>
+                <div class="green-line mx-auto mt-3"></div>
+                <h2 class="section-title mt-2">Fujifilm Products at FOTOLAB</h2>
                 <p style="color:rgba(255,255,255,0.35); font-size:14px; font-family:'Inter',sans-serif; margin-top:10px;">
-                    Available in-store and online. All products carry official Canon Pakistan warranty.
+                    Available in-store and online. All products carry official Fujifilm Pakistan warranty support.
                 </p>
             </div>
 
             <!-- Filter tabs -->
             <div class="filter-tabs">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="mirrorless">Mirrorless</button>
-                <button class="filter-btn" data-filter="dslr">DSLR</button>
-                <button class="filter-btn" data-filter="lens">Lenses</button>
-                <button class="filter-btn" data-filter="video">Video & Cinema</button>
-                <button class="filter-btn" data-filter="compact">Compact</button>
+                <button class="filter-btn" data-filter="mirrorless">X-Series APS-C</button>
+                <button class="filter-btn" data-filter="lens">XF Lenses</button>
+                <button class="filter-btn" data-filter="medium-format">GFX Medium Format</button>
+                <button class="filter-btn" data-filter="compact">Premium Compact</button>
             </div>
 
             <div class="row g-4" id="products-grid">
 
-                <!-- EOS R5 Mark II -->
+                <!-- Fujifilm X-T5 -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="mirrorless">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1080/400/300" alt="Canon EOS R5 Mark II">
-                            <span class="product-badge">Flagship</span>
+                            <img src="https://picsum.photos/id/1043/400/300" alt="Fujifilm X-T5">
+                            <span class="product-badge">Photographer's Pick</span>
                         </div>
                         <div class="product-body">
-                            <div class="product-category">Mirrorless</div>
-                            <div class="product-name">EOS R5 Mark II</div>
-                            <p class="product-desc">45MP full-frame sensor with 8K RAW video and AI-powered Dual Pixel AF. The professional's mirrorless benchmark.</p>
+                            <div class="product-category">X-Series Mirrorless</div>
+                            <div class="product-name">Fujifilm X-T5</div>
+                            <p class="product-desc">40.2MP high-resolution X-Trans 5 HR sensor classical dials aur 3-way tilting screen ke sath. Shutter lovers ki pehli pasand.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">45MP</span>
-                                <span class="spec-tag">8K RAW</span>
-                                <span class="spec-tag">30fps burst</span>
-                                <span class="spec-tag">IBIS</span>
+                                <span class="spec-tag">40.2MP X-Trans</span>
+                                <span class="spec-tag">6.2K Video</span>
+                                <span class="spec-tag">7-Stop IBIS</span>
+                                <span class="spec-tag">Retro Dials</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 6,49,000 <span>/ body</span></div>
+                                    <div class="product-price">PKR 3,85,000 <span>/ body</span></div>
                                 </div>
-                                <a href="products.html" class="btn-canon">Inquire</a>
+                                <a href="products.html" class="btn-fuji">Inquire</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- EOS R6 Mark II -->
+                <!-- Fujifilm X-H2S -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="mirrorless">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1081/400/300" alt="Canon EOS R6 Mark II">
-                            <span class="product-badge">Best Seller</span>
+                            <img src="https://picsum.photos/id/1044/400/300" alt="Fujifilm X-H2S">
+                            <span class="product-badge">Speed & Video</span>
                         </div>
                         <div class="product-body">
-                            <div class="product-category">Mirrorless</div>
-                            <div class="product-name">EOS R6 Mark II</div>
-                            <p class="product-desc">40MP full-frame speed demon. 40fps electronic shutter, 4K 60fps, and subject-tracking AF that rarely misses.</p>
+                            <div class="product-category">X-Series Mirrorless</div>
+                            <div class="product-name">Fujifilm X-H2S</div>
+                            <p class="product-desc">Stacked CMOS sensor jo 40fps blackout-free burst shooting aur internally 4K 120p ProRES video card par bagair overheat ke record karta hai.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">40MP</span>
-                                <span class="spec-tag">4K 60fps</span>
-                                <span class="spec-tag">40fps</span>
-                                <span class="spec-tag">IBIS</span>
+                                <span class="spec-tag">26.1MP Stacked</span>
+                                <span class="spec-tag">4K 120p / 6K</span>
+                                <span class="spec-tag">Apple ProRes</span>
+                                <span class="spec-tag">40 fps Burst</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 3,89,000 <span>/ body</span></div>
+                                    <div class="product-price">PKR 5,10,000 <span>/ body</span></div>
                                 </div>
-                                <a href="products.html" class="btn-canon">Inquire</a>
+                                <a href="products.html" class="btn-fuji">Inquire</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- EOS R50 -->
+                <!-- Fujifilm X-T50 -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="mirrorless">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1082/400/300" alt="Canon EOS R50">
+                            <img src="https://picsum.photos/id/1045/400/300" alt="Fujifilm X-T50">
+                            <span class="product-badge">New Arrival</span>
                         </div>
                         <div class="product-body">
-                            <div class="product-category">Mirrorless</div>
-                            <div class="product-name">EOS R50</div>
-                            <p class="product-desc">Compact APS-C mirrorless for creators and beginners. Lightweight, vari-angle screen, 4K video, and content-creator modes built in.</p>
+                            <div class="product-category">X-Series Mirrorless</div>
+                            <div class="product-name">Fujifilm X-T50</div>
+                            <p class="product-desc">Compact body me 40MP ka taqatwar sensor aur pehli baar dedicated Film Simulation dial jo shortcuts ko mazeed asaan bana deta hai.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">24MP APS-C</span>
-                                <span class="spec-tag">4K</span>
-                                <span class="spec-tag">Vari-angle LCD</span>
+                                <span class="spec-tag">40.2MP</span>
+                                <span class="spec-tag">Simulation Dial</span>
+                                <span class="spec-tag">IBIS Built-in</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 1,29,000 <span>/ body</span></div>
+                                    <div class="product-price">PKR 2,90,000 <span>/ body</span></div>
                                 </div>
-                                <a href="products.html" class="btn-canon">Inquire</a>
+                                <a href="products.html" class="btn-fuji">Inquire</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- EOS 90D DSLR -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="dslr">
-                    <div class="product-card">
-                        <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1083/400/300" alt="Canon EOS 90D">
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category">DSLR</div>
-                            <div class="product-name">EOS 90D</div>
-                            <p class="product-desc">32.5MP APS-C DSLR with 45-point all-cross AF, 10fps burst, and 4K video. The ultimate EF-mount enthusiast body.</p>
-                            <div class="product-specs">
-                                <span class="spec-tag">32.5MP</span>
-                                <span class="spec-tag">4K</span>
-                                <span class="spec-tag">10fps</span>
-                                <span class="spec-tag">EF Mount</span>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <div class="product-price">PKR 2,49,000 <span>/ body</span></div>
-                                </div>
-                                <a href="products.html" class="btn-canon">Inquire</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- EOS 5D Mark IV -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="dslr">
-                    <div class="product-card">
-                        <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1084/400/300" alt="Canon EOS 5D Mark IV">
-                            <span class="product-badge">Pro Classic</span>
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category">DSLR</div>
-                            <div class="product-name">EOS 5D Mark IV</div>
-                            <p class="product-desc">30.4MP full-frame workhorse. Weather-sealed, dual card slots, and stunning dynamic range. The studio and field standard.</p>
-                            <div class="product-specs">
-                                <span class="spec-tag">30.4MP FF</span>
-                                <span class="spec-tag">4K</span>
-                                <span class="spec-tag">Weather Sealed</span>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <div class="product-price">PKR 3,19,000 <span>/ body</span></div>
-                                </div>
-                                <a href="products.html" class="btn-canon">Inquire</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RF 50mm Lens -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="lens">
-                    <div class="product-card">
-                        <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1050/400/300" alt="Canon RF 50mm f/1.2L">
-                            <span class="product-badge">L-Series</span>
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category">RF Lens</div>
-                            <div class="product-name">RF 50mm f/1.2L USM</div>
-                            <p class="product-desc">The nifty fifty, reimagined. Stunning bokeh, razor-sharp wide open, and silent ring-USM AF. Portrait photographers' dream lens.</p>
-                            <div class="product-specs">
-                                <span class="spec-tag">f/1.2 Aperture</span>
-                                <span class="spec-tag">L-Series</span>
-                                <span class="spec-tag">Nano USM</span>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <div class="product-price">PKR 3,89,000</div>
-                                </div>
-                                <a href="products.html" class="btn-canon">Inquire</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RF 24-70mm Lens -->
+                <!-- XF 56mm f/1.2 R WR -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="lens">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1051/400/300" alt="Canon RF 24-70mm f/2.8L">
-                            <span class="product-badge">L-Series</span>
+                            <img src="https://picsum.photos/id/1026/400/300" alt="Fujifilm XF 56mm f/1.2 R WR">
+                            <span class="product-badge">Bokeh Master</span>
                         </div>
                         <div class="product-body">
-                            <div class="product-category">RF Lens</div>
-                            <div class="product-name">RF 24-70mm f/2.8L IS USM</div>
-                            <p class="product-desc">The standard zoom every working photographer needs. IS, weather sealing, constant f/2.8 — built for any situation.</p>
+                            <div class="product-category">XF Lens</div>
+                            <div class="product-name">XF 56mm f/1.2 R WR</div>
+                            <p class="product-desc">Fujifilm ka ultimate portrait glass. f/1.2 ki super wide opening aur naye weather-sealed (WR) structure ke sath makhmali background.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">f/1.2 Aperture</span>
+                                <span class="spec-tag">85mm (Equiv.)</span>
+                                <span class="spec-tag">Weather Resistant</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 2,35,000</div>
+                                </div>
+                                <a href="products.html" class="btn-fuji">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- XF 16-55mm f/2.8 R LM WR -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="lens">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1027/400/300" alt="XF 16-55mm f/2.8">
+                            <span class="product-badge">Red Badge</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">XF Lens</div>
+                            <div class="product-name">XF 16-55mm f/2.8 R LM WR</div>
+                            <p class="product-desc">Fujifilm ka flagship "Red Badge" standard zoom lens. Constant f/2.8 aperture poori range me prime lens jesi crisp resolution daita hai.</p>
                             <div class="product-specs">
                                 <span class="spec-tag">f/2.8 Constant</span>
-                                <span class="spec-tag">IS System</span>
-                                <span class="spec-tag">Weather Sealed</span>
+                                <span class="spec-tag">Linear Motor (LM)</span>
+                                <span class="spec-tag">Pro Resolution</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 4,49,000</div>
+                                    <div class="product-price">PKR 2,65,000</div>
                                 </div>
-                                <a href="products.html" class="btn-canon">Inquire</a>
+                                <a href="products.html" class="btn-fuji">Inquire</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- EOS Cinema C70 -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="video">
+                <!-- Fujifilm GFX 100S II -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="medium-format">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1052/400/300" alt="Canon EOS C70">
-                            <span class="product-badge">Cinema</span>
+                            <img src="https://picsum.photos/id/1028/400/300" alt="GFX 100S II">
+                            <span class="product-badge">102 Megapixels</span>
                         </div>
                         <div class="product-body">
-                            <div class="product-category">Cinema Camera</div>
-                            <div class="product-name">EOS Cinema C70</div>
-                            <p class="product-desc">Cinema EOS in a compact body. 4K 120fps, Canon Log 3, 15+ stops dynamic range, and dual-gain output. Netflix approved.</p>
+                            <div class="product-category">Medium Format</div>
+                            <div class="product-name">GFX 100S II</div>
+                            <p class="product-desc">102 Million Pixels ka vishal Medium Format sensor. Utmost dynamic range aur crop flexibility jo aam full-frame cameras soch bhi nahi sakte.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">4K 120fps</span>
-                                <span class="spec-tag">Canon Log 3</span>
-                                <span class="spec-tag">15+ Stops DR</span>
+                                <span class="spec-tag">102MP Medium Format</span>
+                                <span class="spec-tag">4K Cinematic</span>
+                                <span class="spec-tag">8-Stop IBIS</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 5,49,000</div>
+                                    <div class="product-price">PKR 12,50,000</div>
                                 </div>
-                                <a href="products.html" class="btn-canon">Inquire</a>
+                                <a href="products.html" class="btn-fuji">Inquire</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- PowerShot V10 -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="compact">
+                <!-- Fujifilm X100VI -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="compact">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1053/400/300" alt="Canon PowerShot V10">
+                            <img src="https://picsum.photos/id/1029/400/300" alt="Fujifilm X100VI">
+                            <span class="product-badge">Global Trend</span>
                         </div>
                         <div class="product-body">
-                            <div class="product-category">Compact</div>
-                            <div class="product-name">PowerShot V10</div>
-                            <p class="product-desc">The vlog-first compact. Selfie-facing 4K, built-in stand, stereo mic, and Wi-Fi. Your pocket content studio.</p>
+                            <div class="product-category">Premium Compact</div>
+                            <div class="product-name">Fujifilm X100VI</div>
+                            <p class="product-desc">Duniya ka sabse mashhoor street camera. 40MP sensor, built-in 23mm f/2 prime lens, hybrid viewfinder aur IBIS ke sath pocket-sized magic.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">4K Selfie</span>
-                                <span class="spec-tag">Built-in Stand</span>
-                                <span class="spec-tag">Stereo Mic</span>
+                                <span class="spec-tag">40.2MP Fixed Lens</span>
+                                <span class="spec-tag">Hybrid OVF/EVF</span>
+                                <span class="spec-tag">Pocket Size</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 89,000</div>
+                                    <div class="product-price">PKR 3,95,000</div>
                                 </div>
-                                <a href="products.html" class="btn-canon">Inquire</a>
+                                <a href="products.html" class="btn-fuji">Inquire</a>
                             </div>
                         </div>
                     </div>
@@ -952,11 +902,9 @@
                     <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
                 </div>
                 <div class="col-md-2">
-                    <h5 class="text-amber mb-3">Explore</h5>
+                    <h5 class="text-amber mb-3">Quick Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
-                        <li><a href="service.html" class="text-white-50 text-decoration-none">Services</a></li>
-                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
@@ -979,10 +927,19 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="main.js"></script>
-    <script src="loader.js"></script>
-    <script src="geolocation.js"></script>
-    
+    <script src="../js/main.js"></script>
+    <script src="../js/loader.js"></script>
+    <script src="../js/geolocation.js"></script>
+
+    <!-- Geolocation Trigger Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof getLocation === "function") {
+                getLocation();
+            }
+        });
+    </script>
+
     <style>
         @keyframes fl-spin {
             from { transform: rotate(0deg); }
@@ -1021,13 +978,6 @@
                     }
                 });
             });
-        });
-
-        // ── Geolocation Trigger ──
-        document.addEventListener("DOMContentLoaded", function() {
-            if (typeof getLocation === "function") {
-                getLocation();
-            }
         });
     </script>
 </body>
