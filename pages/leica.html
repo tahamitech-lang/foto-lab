@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore Yashica cameras and lenses at FOTOLAB - Pakistan's trusted photography store since 1991.">
-    <title>Yashica - FOTOLAB</title>
+    <meta name="description" content="Explore Leica cameras and lenses at FOTOLAB - Pakistan's trusted photography store since 1991.">
+    <title>Leica - FOTOLAB</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,18 +16,18 @@
     </script>
 
     <style>
-        /* ── Yashica Page Exclusive Styles (Purple Theme) ── */
+        /* ── Leica Page Exclusive Styles (Pink Theme) ── */
         :root {
-            --brand-accent: #8A2BE2;
-            --brand-accent-dark: #4B0082;
-            --brand-accent-light: #D8B4FE;
-            --brand-accent-glow: rgba(138,43,226,0.25);
+            --brand-accent: #FF69B4; /* Hot Pink */
+            --brand-accent-dark: #C71585; /* Medium Violet Red */
+            --brand-accent-light: #FFB6C1; /* Light Pink */
+            --brand-accent-glow: rgba(255,105,180,0.25);
         }
 
         /* ── Hero ── */
-        .yashica-hero {
+        .leica-hero {
             min-height: 88vh;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a22 50%, #0a0a0a 100%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a12 50%, #0a0a0a 100%);
             display: flex;
             align-items: center;
             position: relative;
@@ -35,11 +35,11 @@
             padding-top: 80px;
         }
 
-        .yashica-hero::before {
+        .leica-hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 70% 50%, rgba(138,43,226,0.12) 0%, transparent 65%);
+            background: radial-gradient(ellipse at 70% 50%, rgba(255,105,180,0.10) 0%, transparent 65%);
             pointer-events: none;
         }
 
@@ -47,8 +47,8 @@
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(138,43,226,0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(138,43,226,0.06) 1px, transparent 1px);
+                linear-gradient(rgba(255,105,180,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,105,180,0.05) 1px, transparent 1px);
             background-size: 60px 60px;
             animation: gridMove 20s linear infinite;
             pointer-events: none;
@@ -59,13 +59,13 @@
             to   { background-position: 60px 60px; }
         }
 
-        .yashica-logo-big {
+        .leica-logo-big {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(70px, 12vw, 160px);
+            font-size: clamp(70px, 12vw, 150px);
             color: var(--brand-accent);
             line-height: 1;
             letter-spacing: -1px;
-            text-shadow: 0 0 80px rgba(138,43,226,0.4);
+            text-shadow: 0 0 80px rgba(255,105,180,0.4);
             animation: logoReveal 1s ease forwards;
             opacity: 0;
             transform: translateY(30px);
@@ -75,7 +75,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .yashica-tagline {
+        .leica-tagline {
             font-family: 'Inter', sans-serif;
             font-size: clamp(13px, 2vw, 17px);
             color: rgba(255,255,255,0.5);
@@ -108,7 +108,7 @@
         }
         .stat-number:hover {
             transform: scale(1.1);
-            text-shadow: 0 0 30px rgba(138,43,226,0.3);
+            text-shadow: 0 0 30px rgba(255,105,180,0.3);
         }
         .hero-stat:hover .stat-number {
             color: var(--brand-accent);
@@ -124,7 +124,7 @@
         .hero-divider {
             width: 1px;
             height: 50px;
-            background: rgba(138,43,226,0.3);
+            background: rgba(255,105,180,0.3);
         }
 
         /* ── Section headers ── */
@@ -145,7 +145,7 @@
             line-height: 1.1;
         }
 
-        /* ── About Yashica Section ── */
+        /* ── About Leica Section ── */
         .about-section {
             background: #080808;
             padding: 100px 0;
@@ -153,14 +153,14 @@
         }
 
         .about-section::after {
-            content: 'YASHICA';
+            content: 'LEICA';
             position: absolute;
             right: -20px;
             top: 50%;
             transform: translateY(-50%);
             font-family: 'Bebas Neue', sans-serif;
             font-size: 180px;
-            color: rgba(138,43,226,0.04);
+            color: rgba(255,105,180,0.04);
             pointer-events: none;
             white-space: nowrap;
         }
@@ -169,8 +169,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(138,43,226,0.1);
-            border: 1px solid rgba(138,43,226,0.25);
+            background: rgba(255,105,180,0.1);
+            border: 1px solid rgba(255,105,180,0.25);
             border-radius: 100px;
             padding: 8px 18px;
             font-size: 13px;
@@ -180,8 +180,8 @@
         }
 
         .feature-pill:hover {
-            background: rgba(138,43,226,0.2);
-            border-color: rgba(138,43,226,0.5);
+            background: rgba(255,105,180,0.2);
+            border-color: rgba(255,105,180,0.5);
             color: #fff;
             transform: translateY(-2px);
         }
@@ -192,7 +192,7 @@
         .timeline-item {
             position: relative;
             padding-left: 28px;
-            border-left: 1px solid rgba(138,43,226,0.2);
+            border-left: 1px solid rgba(255,105,180,0.2);
             padding-bottom: 32px;
         }
 
@@ -205,11 +205,11 @@
             height: 9px;
             border-radius: 50%;
             background: var(--brand-accent);
-            box-shadow: 0 0 12px rgba(138,43,226,0.6);
+            box-shadow: 0 0 12px rgba(255,105,180,0.6);
         }
 
         .timeline-item:hover::before {
-            box-shadow: 0 0 20px rgba(138,43,226,0.8);
+            box-shadow: 0 0 20px rgba(255,105,180,0.8);
         }
 
         .timeline-year {
@@ -257,9 +257,9 @@
         .filter-btn.active {
             background: var(--brand-accent);
             border-color: var(--brand-accent);
-            color: #fff;
+            color: #0a0a0a;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(138,43,226,0.3);
+            box-shadow: 0 4px 15px rgba(255,105,180,0.3);
         }
 
         /* Product cards */
@@ -277,7 +277,7 @@
             position: absolute;
             inset: 0;
             border-radius: 16px;
-            border: 1px solid rgba(138,43,226,0);
+            border: 1px solid rgba(255,105,180,0);
             transition: border-color 0.4s ease;
             pointer-events: none;
             z-index: 1;
@@ -285,11 +285,11 @@
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 24px 60px rgba(138,43,226,0.15);
+            box-shadow: 0 24px 60px rgba(255,105,180,0.15);
         }
 
         .product-card:hover::before {
-            border-color: rgba(138,43,226,0.4);
+            border-color: rgba(255,105,180,0.4);
         }
 
         .product-img-wrap {
@@ -318,7 +318,7 @@
             top: 12px;
             left: 12px;
             background: var(--brand-accent);
-            color: #fff;
+            color: #0a0a0a;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 2px;
@@ -389,10 +389,10 @@
             letter-spacing: 0;
         }
 
-        .btn-yashica {
+        .btn-leica {
             background: var(--brand-accent);
             border: none;
-            color: #fff;
+            color: #0a0a0a;
             font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -405,11 +405,11 @@
             transition: all 0.3s ease;
         }
 
-        .btn-yashica:hover {
+        .btn-leica:hover {
             background: var(--brand-accent-dark);
             color: #fff;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(138,43,226,0.3);
+            box-shadow: 0 8px 25px rgba(255,105,180,0.3);
         }
 
         /* ── Scroll reveal ── */
@@ -429,7 +429,7 @@
         .reveal-delay-3 { transition-delay: 0.3s; }
         .reveal-delay-4 { transition-delay: 0.4s; }
 
-        /* ── Why Yashica section ── */
+        /* ── Why Leica section ── */
         .why-section {
             background: #080808;
             padding: 100px 0;
@@ -446,16 +446,16 @@
         }
 
         .why-card:hover {
-            border-color: rgba(138,43,226,0.3);
+            border-color: rgba(255,105,180,0.3);
             transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(138,43,226,0.1);
+            box-shadow: 0 8px 25px rgba(255,105,180,0.1);
         }
 
         .why-icon {
             width: 60px;
             height: 60px;
-            background: rgba(138,43,226,0.1);
-            border: 1px solid rgba(138,43,226,0.2);
+            background: rgba(255,105,180,0.1);
+            border: 1px solid rgba(255,105,180,0.2);
             border-radius: 14px;
             display: flex;
             align-items: center;
@@ -467,8 +467,8 @@
         }
 
         .why-card:hover .why-icon {
-            background: rgba(138,43,226,0.2);
-            box-shadow: 0 0 24px rgba(138,43,226,0.25);
+            background: rgba(255,105,180,0.2);
+            box-shadow: 0 0 24px rgba(255,105,180,0.25);
         }
 
         .why-title {
@@ -485,8 +485,8 @@
             line-height: 1.7;
         }
 
-        /* ── Purple accent line ── */
-        .purple-line {
+        /* ── Pink accent line ── */
+        .pink-line {
             width: 40px;
             height: 3px;
             background: var(--brand-accent);
@@ -514,12 +514,12 @@
             padding-left: 6px;
         }
         footer hr {
-            border-color: rgba(138,43,226,0.2) !important;
+            border-color: rgba(255,105,180,0.2) !important;
         }
 
         #locationInfo {
             background: #0e0e24 !important;
-            border: 1px solid rgba(138,43,226,0.3) !important;
+            border: 1px solid rgba(255,105,180,0.3) !important;
             border-radius: 18px;
             color: #ddd;
             font-size: 0.9rem;
@@ -541,9 +541,9 @@
         /* ── Navbar Hover ── */
         .navbar .nav-link:hover,
         .navbar .nav-link.active {
-            background: rgba(138,43,226,0.2) !important;
+            background: rgba(255,105,180,0.2) !important;
             color: var(--brand-accent) !important;
-            box-shadow: 0 0 12px rgba(138,43,226,0.3) !important;
+            box-shadow: 0 0 12px rgba(255,105,180,0.3) !important;
         }
     </style>
 </head>
@@ -574,39 +574,39 @@
     </nav>
 
     <!-- ══════════════ HERO ══════════════ -->
-    <section class="yashica-hero">
+    <section class="leica-hero">
         <div class="hero-grid"></div>
         <div class="container position-relative">
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <p class="section-eyebrow mb-3">FOTOLAB × Brand Spotlight</p>
-                    <h1 class="yashica-logo-big">YASHICA</h1>
-                    <p class="yashica-tagline">The Art of Analog Legacy</p>
+                    <h1 class="leica-logo-big">LEICA</h1>
+                    <p class="leica-tagline">German Precision — Iconic Since 1914</p>
 
                     <p class="mt-4 mb-5" style="font-size:15px; color:rgba(255,255,255,0.45); max-width:480px; font-family:'Inter',sans-serif; line-height:1.8;">
-                        Japan se judi ek purani virasat — Yashica ne apni iconic design aur precision engineering ke zariye photography ke shaukeeno ke dilon mein jagah banayi hai.
-                        Classic aesthetics aur modern simplicity ka sangam.
+                        Leica sirf camera nahi, ek legacy hai. German engineering, legendary optics, aur timeless design ka sangam. 
+                        Duniya ke behtareen photographers aur artists ka pehla choice.
                     </p>
 
                     <div class="d-flex align-items-center gap-4 flex-wrap">
                         <div class="hero-stat text-center">
-                            <div class="stat-number">70+</div>
-                            <div class="stat-label">Years of Heritage</div>
+                            <div class="stat-number">110+</div>
+                            <div class="stat-label">Years of Excellence</div>
                         </div>
                         <div class="hero-divider d-none d-sm-block"></div>
                         <div class="hero-stat text-center">
-                            <div class="stat-number">Iconic</div>
-                            <div class="stat-label">Film Aesthetics</div>
+                            <div class="stat-number">M-System</div>
+                            <div class="stat-label">Legendary Rangefinder</div>
                         </div>
                         <div class="hero-divider d-none d-sm-block"></div>
                         <div class="hero-stat text-center">
-                            <div class="stat-number">Pure</div>
-                            <div class="stat-label">Photography Experience</div>
+                            <div class="stat-number">#1</div>
+                            <div class="stat-label">Luxury Camera</div>
                         </div>
                     </div>
 
                     <div class="mt-5">
-                        <a href="#products" class="btn-yashica me-3">Explore Products</a>
+                        <a href="#products" class="btn-leica me-3">Explore Products</a>
                         <a href="brands.html" style="color:rgba(255,255,255,0.4); font-size:13px; font-family:'Inter',sans-serif; text-decoration:none; letter-spacing:1px;">
                             ← All Brands
                         </a>
@@ -617,12 +617,12 @@
                     <div style="position:relative; width:320px; height:320px;">
                         <div style="
                             position:absolute; inset:0; border-radius:50%;
-                            border: 2px solid rgba(138,43,226,0.15);
+                            border: 2px solid rgba(255,105,180,0.15);
                             animation: fl-spin 8s linear infinite;
                         "></div>
                         <div style="
                             position:absolute; inset:20px; border-radius:50%;
-                            border: 1px solid rgba(138,43,226,0.1);
+                            border: 1px solid rgba(255,105,180,0.1);
                             animation: fl-spin 5s linear infinite reverse;
                         "></div>
                         <div style="
@@ -632,110 +632,111 @@
                             <span style="
                                 font-family:'Bebas Neue',sans-serif;
                                 font-size:130px;
-                                color:rgba(138,43,226,0.12);
+                                color:rgba(255,105,180,0.12);
                                 line-height:1;
-                            ">Y</span>
+                            ">L</span>
                         </div>
-                        <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--brand-accent);box-shadow:0 0 14px rgba(138,43,226,0.8);"></div>
-                        <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:rgba(138,43,226,0.5);"></div>
+                        <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--brand-accent);box-shadow:0 0 14px rgba(255,105,180,0.8);"></div>
+                        <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:rgba(255,105,180,0.5);"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══════════════ ABOUT YASHICA ══════════════ -->
+    <!-- ══════════════ ABOUT LEICA ══════════════ -->
     <section class="about-section" id="about">
         <div class="container">
             <div class="row align-items-start g-5">
                 <div class="col-lg-5 reveal">
                     <p class="section-eyebrow">About the Brand</p>
-                    <div class="purple-line mt-3"></div>
-                    <h2 class="section-title">Timeless Classic Elegance</h2>
+                    <div class="pink-line mt-3"></div>
+                    <h2 class="section-title">The Art of German Engineering</h2>
                     <p style="color:rgba(255,255,255,0.5); font-size:15px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:20px;">
-                        Yashica ne hamesha un logon ke liye cameras banaye hain jo photography ke asli art aur tactile feel ko pasand karte hain. 
-                        Unke cameras apni compact size aur shandaar lens quality ke liye mashhoor rahe hain.
+                        Leica ka naam sunte hi aankhon ke samne ek tasveer ban jaati hai — precision, quality, aur timeless elegance. 
+                        Leica cameras sirf tool nahi, heritage hain.
                     </p>
                     <p style="color:rgba(255,255,255,0.4); font-size:14px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:14px;">
-                        Chahe aap street photography ke shaukeen hon ya film look ki nostalgia chahte hon, Yashica ka minimalist approach aapko har click par ek nayi kahani sunane ka mauka deta hai.
+                        Har Leica camera aur lens Germany mein haath se banaye jaate hain, jahan har component ko 100% quality check ke baad hi final product mein shamil kiya jaata hai. 
+                        Yeh woh brand hai jo photography ko art mein badal deta hai.
                     </p>
                     <div class="d-flex flex-wrap gap-2 mt-4">
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Iconic Retro Design</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Tactile Manual Controls</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Compact Film Aesthetics</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Legendary Optics</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Vintage Color Science</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Full Mechanical Shutter</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> German Engineering</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Legendary M-Mount</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Handcrafted Lenses</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Timeless Design</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Rangefinder Legacy</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Collector's Item</span>
                     </div>
                 </div>
 
                 <div class="col-lg-6 offset-lg-1 reveal reveal-delay-2">
                     <p class="section-eyebrow">Brand History</p>
-                    <div class="purple-line mt-3 mb-4"></div>
+                    <div class="pink-line mt-3 mb-4"></div>
                     <div class="timeline-item">
-                        <div class="timeline-year">1949</div>
-                        <div class="timeline-text">Yashica ki shuruat Nagano, Japan mein hui. Shuruaat mein lens aur camera parts banaye.</div>
+                        <div class="timeline-year">1914</div>
+                        <div class="timeline-text">Oskar Barnack ne pehla Leica prototype banaya — Ur-Leica. Yehi woh camera tha jisne 35mm film format ko standard banaya.</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">1950s</div>
-                        <div class="timeline-text">TLR (Twin Lens Reflex) cameras ke sath duniya bhar mein naam kamaya. Yashica Mat series ne camera lovers ko mutasir kiya.</div>
+                        <div class="timeline-year">1925</div>
+                        <div class="timeline-text">Leica I — duniya ka pehla commercial 35mm still camera launch hua. Photography industry badal gayi.</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">1960s</div>
-                        <div class="timeline-text">Yashica Electro 35 launched — duniya ka pehla compact rangefinder camera jisne auto-exposure technology ko introduce kiya.</div>
+                        <div class="timeline-year">1954</div>
+                        <div class="timeline-text">Leica M3 launch — iconic M-Mount rangefinder system ka aghaaz. Aaj bhi yeh system photography ka gold standard hai.</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">1970s</div>
-                        <div class="timeline-text">Carl Zeiss ke sath historic partnership, jisne high-quality lenses aur cameras ko janam diya. Contax series ne professional photography ko naya maqam diya.</div>
+                        <div class="timeline-year">1996</div>
+                        <div class="timeline-text">Leica S-Series — medium format system launch hua, professional photographers ke liye.</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">1980s</div>
-                        <div class="timeline-text">Yashica FX-3 Super 2000 — fully mechanical SLR camera jo aaj bhi collectors ki pehli pasand hai.</div>
+                        <div class="timeline-year">2009</div>
+                        <div class="timeline-text">Leica M9 — pehla full-frame digital rangefinder camera. Digital age mein Leica ka comeback.</div>
                     </div>
                     <div class="timeline-item" style="padding-bottom:0; border-left-color:transparent;">
                         <div class="timeline-year">Present</div>
-                        <div class="timeline-text">Yashica aaj bhi vintage lovers ke liye 'Yashica' brand name ke sath nayi digi-film cameras aur accessories ke sath wapsi kar raha hai.</div>
+                        <div class="timeline-text">Leica M11, Q3 aur SL3 — modern classic cameras jo Leica ki legacy ko aage badha rahe hain.</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══════════════ WHY YASHICA ══════════════ -->
+    <!-- ══════════════ WHY LEICA ══════════════ -->
     <section class="why-section">
         <div class="container">
             <div class="text-center mb-5 reveal">
-                <p class="section-eyebrow">Why Choose Yashica</p>
-                <div class="purple-line mx-auto mt-3"></div>
-                <h2 class="section-title mt-2">Simplicity & Style</h2>
+                <p class="section-eyebrow">Why Choose Leica</p>
+                <div class="pink-line mx-auto mt-3"></div>
+                <h2 class="section-title mt-2">The Soul of Photography</h2>
             </div>
             <div class="row g-4">
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-1">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-camera"></i></div>
-                        <div class="why-title">Tactile Experience</div>
-                        <p class="why-text">Buttons aur dials ka woh classic feel, jo aapko har photo lete waqt purane daur ki yaad dilata hai. Mechanical shutter ka maza kuch aur hai.</p>
+                        <div class="why-icon"><i class="fas fa-gem"></i></div>
+                        <div class="why-title">Legendary Optics</div>
+                        <p class="why-text">Leica lenses duniya ki behtareen optics hain. Har lens ko Germany mein haath se banaya jaata hai aur 100% quality check ke baad hi release kiya jaata hai.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-2">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-palette"></i></div>
-                        <div class="why-title">Unique Color Science</div>
-                        <p class="why-text">Yashica ki color science mein woh khaas warmth aur grain hai jo digital ko bhi film look deta hai. Vintage tones aur soft highlights.</p>
+                        <div class="why-icon"><i class="fas fa-archway"></i></div>
+                        <div class="why-title">Timeless Design</div>
+                        <p class="why-text">Leica ka design kabhi purana nahi hota. Minimalist, elegant, aur functional — har camera ek art piece jaisa hai.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-3">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-compact-disc"></i></div>
-                        <div class="why-title">Minimalist Design</div>
-                        <p class="why-text">Bina kisi complex menu ke, simple aur creative photography ke liye best companion. Jo zaroori hai wohi hai, baqi sab extra.</p>
+                        <div class="why-icon"><i class="fas fa-crown"></i></div>
+                        <div class="why-title">Heritage & Legacy</div>
+                        <p class="why-text">Leica cameras ne photography ki history likhi hai. Henri Cartier-Bresson se lekar modern photographers tak, sab ne Leica ko apnaya.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-4">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-history"></i></div>
-                        <div class="why-title">Iconic Legacy</div>
-                        <p class="why-text">Photography ki history ka ek bada hissa, jo aaj bhi styles aur trends se upar hai. Vintage collectors aur film lovers ki pehli pasand.</p>
+                        <div class="why-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <div class="why-title">Collector's Value</div>
+                        <p class="why-text">Leica cameras time ke sath value gain karte hain. Limited editions aur vintage models collectors ke liye investment hain.</p>
                     </div>
                 </div>
             </div>
@@ -746,201 +747,203 @@
     <section class="products-section" id="products">
         <div class="container">
             <div class="text-center mb-4 reveal">
-                <p class="section-eyebrow">Yashica Lineup</p>
-                <div class="purple-line mx-auto mt-3"></div>
-                <h2 class="section-title mt-2">Yashica Products at FOTOLAB</h2>
+                <p class="section-eyebrow">Leica Lineup</p>
+                <div class="pink-line mx-auto mt-3"></div>
+                <h2 class="section-title mt-2">Leica Products at FOTOLAB</h2>
                 <p style="color:rgba(255,255,255,0.35); font-size:14px; font-family:'Inter',sans-serif; margin-top:10px;">
-                    Available in-store and online. All products carry official warranty support.
+                    Available in-store and online. All products carry official Leica warranty support.
                 </p>
             </div>
 
             <div class="filter-tabs">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="film">Film Cameras</button>
-                <button class="filter-btn" data-filter="digifilm">DigiFilm</button>
+                <button class="filter-btn" data-filter="rangefinder">Rangefinder</button>
+                <button class="filter-btn" data-filter="mirrorless">Mirrorless</button>
                 <button class="filter-btn" data-filter="lens">Lenses</button>
-                <button class="filter-btn" data-filter="accessory">Accessories</button>
+                <button class="filter-btn" data-filter="compact">Compact</button>
             </div>
 
             <div class="row g-4" id="products-grid">
 
-                <!-- Yashica FX-3 Super 2000 -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="film">
+                <!-- Leica M11 -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="rangefinder">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1034/400/300" alt="Yashica FX-3 Super 2000">
-                            <span class="product-badge">Classic</span>
-                        </div>
-                        <div class="product-body">
-                            <div class="product-category">Film SLR</div>
-                            <div class="product-name">FX-3 Super 2000</div>
-                            <p class="product-desc">All-manual 35mm film SLR camera with fully mechanical shutter. No batteries required for operation. A true classic.</p>
-                            <div class="product-specs">
-                                <span class="spec-tag">35mm Film</span>
-                                <span class="spec-tag">Mechanical Shutter</span>
-                                <span class="spec-tag">Manual Focus</span>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <div class="product-price">PKR 45,000</div>
-                                </div>
-                                <a href="products.html" class="btn-yashica">Inquire</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Yashica Electro 35 -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="film">
-                    <div class="product-card">
-                        <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1035/400/300" alt="Yashica Electro 35">
-                            <span class="product-badge">Vintage</span>
+                            <img src="https://picsum.photos/id/1100/400/300" alt="Leica M11">
+                            <span class="product-badge">Flagship</span>
                         </div>
                         <div class="product-body">
                             <div class="product-category">Rangefinder</div>
-                            <div class="product-name">Electro 35</div>
-                            <p class="product-desc">Classic 1960s rangefinder camera with auto-exposure and iconic design. Fully restored and working condition.</p>
+                            <div class="product-name">Leica M11</div>
+                            <p class="product-desc">60MP full-frame rangefinder camera with iconic M-Mount, minimalist design, and legendary Leica image quality.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">60MP</span>
+                                <span class="spec-tag">M-Mount</span>
+                                <span class="spec-tag">Rangefinder</span>
+                                <span class="spec-tag">Made in Germany</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 21,50,000 <span>/ body</span></div>
+                                </div>
+                                <a href="products.html" class="btn-leica">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leica M6 -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="rangefinder">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1101/400/300" alt="Leica M6">
+                            <span class="product-badge">Classic</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Rangefinder</div>
+                            <div class="product-name">Leica M6</div>
+                            <p class="product-desc">Iconic film rangefinder camera. Re-released in 2022 with modern improvements while keeping the classic soul intact.</p>
                             <div class="product-specs">
                                 <span class="spec-tag">35mm Film</span>
-                                <span class="spec-tag">Auto Exposure</span>
-                                <span class="spec-tag">Restored</span>
+                                <span class="spec-tag">M-Mount</span>
+                                <span class="spec-tag">Rangefinder</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 32,000</div>
+                                    <div class="product-price">PKR 8,99,000</div>
                                 </div>
-                                <a href="products.html" class="btn-yashica">Inquire</a>
+                                <a href="products.html" class="btn-leica">Inquire</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Yashica T5 Compact -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="film">
+                <!-- Leica Q3 -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="compact">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1036/400/300" alt="Yashica T5">
-                            <span class="product-badge">Compact</span>
+                            <img src="https://picsum.photos/id/1102/400/300" alt="Leica Q3">
+                            <span class="product-badge">Best Seller</span>
                         </div>
                         <div class="product-body">
-                            <div class="product-category">Compact Film</div>
-                            <div class="product-name">T5 Compact</div>
-                            <p class="product-desc">Pocket-sized point-and-shoot with Carl Zeiss T* coated lens. Perfect for street photography.</p>
+                            <div class="product-category">Compact Full-Frame</div>
+                            <div class="product-name">Leica Q3</div>
+                            <p class="product-desc">60MP full-frame compact camera with fixed 28mm f/1.7 lens, 8K video, and iconic Leica design.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">35mm Film</span>
-                                <span class="spec-tag">Zeiss Lens</span>
-                                <span class="spec-tag">Pocket Size</span>
+                                <span class="spec-tag">60MP</span>
+                                <span class="spec-tag">28mm f/1.7</span>
+                                <span class="spec-tag">8K Video</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 28,000</div>
+                                    <div class="product-price">PKR 13,50,000</div>
                                 </div>
-                                <a href="products.html" class="btn-yashica">Inquire</a>
+                                <a href="products.html" class="btn-leica">Inquire</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Yashica Y35 Digifilm -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="digifilm">
+                <!-- Leica SL3 -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="mirrorless">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1037/400/300" alt="Yashica Y35">
-                            <span class="product-badge">DigiFilm</span>
+                            <img src="https://picsum.photos/id/1103/400/300" alt="Leica SL3">
+                            <span class="product-badge">Pro Mirrorless</span>
                         </div>
                         <div class="product-body">
-                            <div class="product-category">DigiFilm Camera</div>
-                            <div class="product-name">Y35 DigiFilm</div>
-                            <p class="product-desc">Yashica ka unique digi-film system. Different film modules change color profiles. Vintage look in digital world.</p>
+                            <div class="product-category">Mirrorless</div>
+                            <div class="product-name">Leica SL3</div>
+                            <p class="product-desc">60MP professional mirrorless camera with L-Mount, 8K video, and weather-sealed body. Built for professionals.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">14MP</span>
-                                <span class="spec-tag">Film Modules</span>
-                                <span class="spec-tag">Retro Body</span>
+                                <span class="spec-tag">60MP</span>
+                                <span class="spec-tag">L-Mount</span>
+                                <span class="spec-tag">8K Video</span>
+                                <span class="spec-tag">Weather Sealed</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 39,500</div>
+                                    <div class="product-price">PKR 18,50,000 <span>/ body</span></div>
                                 </div>
-                                <a href="products.html" class="btn-yashica">Inquire</a>
+                                <a href="products.html" class="btn-leica">Inquire</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Yashica Y35 Film Modules -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="digifilm">
+                <!-- Leica Summilux-M 35mm f/1.4 -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="lens">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1038/400/300" alt="Yashica Film Modules">
-                            <span class="product-badge">Accessory</span>
+                            <img src="https://picsum.photos/id/1104/400/300" alt="Leica Summilux 35mm">
+                            <span class="product-badge">Legendary</span>
                         </div>
                         <div class="product-body">
-                            <div class="product-category">DigiFilm Module</div>
-                            <div class="product-name">Film Module Set</div>
-                            <p class="product-desc">4 different film modules for Y35 camera: Black & White, Vivid, Soft, and High Contrast. Change the look instantly.</p>
+                            <div class="product-category">M-Mount Lens</div>
+                            <div class="product-name">Summilux-M 35mm f/1.4</div>
+                            <p class="product-desc">Legendary fast wide-angle lens with stunning bokeh and razor-sharp performance. Street photography ki jaan.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">4 Modules</span>
-                                <span class="spec-tag">Color Profiles</span>
-                                <span class="spec-tag">Easy Swap</span>
+                                <span class="spec-tag">f/1.4 Aperture</span>
+                                <span class="spec-tag">M-Mount</span>
+                                <span class="spec-tag">Made in Germany</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 12,000</div>
+                                    <div class="product-price">PKR 7,50,000</div>
                                 </div>
-                                <a href="products.html" class="btn-yashica">Inquire</a>
+                                <a href="products.html" class="btn-leica">Inquire</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Yashica 50mm f/1.9 Lens -->
+                <!-- Leica Summilux-M 50mm f/1.4 -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="lens">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1039/400/300" alt="Yashica 50mm f/1.9">
-                            <span class="product-badge">Lens</span>
+                            <img src="https://picsum.photos/id/1105/400/300" alt="Leica Summilux 50mm">
+                            <span class="product-badge">Classic</span>
                         </div>
                         <div class="product-body">
-                            <div class="product-category">Lens</div>
-                            <div class="product-name">50mm f/1.9 Prime</div>
-                            <p class="product-desc">Classic Yashica prime lens for FX mount. Sharp images with beautiful bokeh. Perfect for portraits.</p>
+                            <div class="product-category">M-Mount Lens</div>
+                            <div class="product-name">Summilux-M 50mm f/1.4</div>
+                            <p class="product-desc">The quintessential Leica lens. Perfect for portraits, street, and everyday photography with creamy bokeh.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">f/1.9 Aperture</span>
-                                <span class="spec-tag">FX Mount</span>
-                                <span class="spec-tag">Manual Focus</span>
+                                <span class="spec-tag">f/1.4 Aperture</span>
+                                <span class="spec-tag">M-Mount</span>
+                                <span class="spec-tag">Made in Germany</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 18,000</div>
+                                    <div class="product-price">PKR 5,99,000</div>
                                 </div>
-                                <a href="products.html" class="btn-yashica">Inquire</a>
+                                <a href="products.html" class="btn-leica">Inquire</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Yashica Neck Strap -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="accessory">
+                <!-- Leica APO-Summicron-SL 50mm f/2 -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="lens">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1040/400/300" alt="Yashica Neck Strap">
-                            <span class="product-badge">Accessory</span>
+                            <img src="https://picsum.photos/id/1106/400/300" alt="Leica APO Summicron SL">
+                            <span class="product-badge">APO</span>
                         </div>
                         <div class="product-body">
-                            <div class="product-category">Accessory</div>
-                            <div class="product-name">Classic Neck Strap</div>
-                            <p class="product-desc">Vintage-style camera neck strap with Yashica branding. Leather-look design with comfortable padding.</p>
+                            <div class="product-category">L-Mount Lens</div>
+                            <div class="product-name">APO-Summicron-SL 50mm f/2</div>
+                            <p class="product-desc">APO corrected lens with stunning sharpness and color accuracy. Perfect for professional work.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">Vintage Design</span>
-                                <span class="spec-tag">Leather Look</span>
-                                <span class="spec-tag">Comfortable</span>
+                                <span class="spec-tag">f/2 Aperture</span>
+                                <span class="spec-tag">L-Mount</span>
+                                <span class="spec-tag">APO Design</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 3,500</div>
+                                    <div class="product-price">PKR 9,99,000</div>
                                 </div>
-                                <a href="products.html" class="btn-yashica">Inquire</a>
+                                <a href="products.html" class="btn-leica">Inquire</a>
                             </div>
                         </div>
                     </div>
@@ -974,12 +977,12 @@
                 </div>
                 <div class="col-md-4">
                     <h5 style="color: var(--brand-accent); font-weight: 600; margin-bottom: 12px;"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
-                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #0e0e24; border: 1px solid rgba(138,43,226,0.3);">
+                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #0e0e24; border: 1px solid rgba(255,105,180,0.3);">
                         <span style="color: rgba(255,255,255,0.5);"><i class="fas fa-spinner fa-pulse me-2"></i>Locating ...</span>
                     </div>
                 </div>
             </div>
-            <hr style="border-color: rgba(138,43,226,0.15); margin: 24px 0;">
+            <hr style="border-color: rgba(255,105,180,0.15); margin: 24px 0;">
             <p class="text-center" style="color: rgba(255,255,255,0.4); margin-bottom: 0; font-size: 0.85rem;">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
         </div>
     </footer>

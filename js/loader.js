@@ -1,13 +1,12 @@
 (function () {
     const LOADER_DURATION = 1500;
 
-
     const CSS = `
       #fotolab-loader {
         position: fixed;
         inset: 0;
         z-index: 99999;
-        background: #0a0a0f;
+        background: #0b0b1a;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -34,7 +33,7 @@
         object-fit: contain;
         position: relative;
         z-index: 2;
-        filter: drop-shadow(0 0 18px rgba(80,160,255,0.35));
+        filter: drop-shadow(0 0 18px rgba(201, 168, 76, 0.4));
       }
       .fl-lens-flash {
         position: absolute;
@@ -52,12 +51,12 @@
         position: absolute;
         inset: 0;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(120,200,255,0.95) 0%, rgba(60,140,255,0.7) 40%, transparent 70%);
+        background: radial-gradient(circle, rgba(201, 168, 76, 0.95) 0%, rgba(201, 168, 76, 0.6) 40%, transparent 70%);
         animation: fl-pulse 0.75s ease-in-out infinite alternate;
       }
       .fl-lens-flash::after {
         animation-delay: 0.375s;
-        background: radial-gradient(circle, rgba(200,235,255,1) 0%, rgba(80,170,255,0.5) 50%, transparent 70%);
+        background: radial-gradient(circle, rgba(255, 215, 100, 1) 0%, rgba(201, 168, 76, 0.5) 50%, transparent 70%);
         transform: scale(0.65);
       }
       @keyframes fl-pulse {
@@ -76,8 +75,8 @@
         position: absolute;
         border-radius: 50%;
         border: 2px solid transparent;
-        border-top-color: rgba(80,170,255,0.9);
-        border-right-color: rgba(80,170,255,0.4);
+        border-top-color: rgba(201, 168, 76, 0.9);
+        border-right-color: rgba(201, 168, 76, 0.4);
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -85,22 +84,22 @@
       .fl-ring:nth-child(1) {
         width: 70px; height: 70px;
         border-width: 2.5px;
-        border-top-color: rgba(100,190,255,1);
-        border-right-color: rgba(100,190,255,0.5);
+        border-top-color: rgba(201, 168, 76, 1);
+        border-right-color: rgba(201, 168, 76, 0.5);
         animation: fl-spin 1s linear infinite;
       }
       .fl-ring:nth-child(2) {
         width: 100px; height: 100px;
         border-width: 2px;
-        border-top-color: rgba(70,155,255,0.85);
-        border-right-color: rgba(70,155,255,0.35);
+        border-top-color: rgba(201, 168, 76, 0.85);
+        border-right-color: rgba(201, 168, 76, 0.35);
         animation: fl-spin 1.5s linear infinite reverse;
       }
       .fl-ring:nth-child(3) {
         width: 134px; height: 134px;
         border-width: 1.5px;
-        border-top-color: rgba(50,130,255,0.65);
-        border-right-color: rgba(50,130,255,0.2);
+        border-top-color: rgba(201, 168, 76, 0.65);
+        border-right-color: rgba(201, 168, 76, 0.2);
         animation: fl-spin 2.2s linear infinite;
       }
       @keyframes fl-spin {
@@ -109,16 +108,27 @@
       }
       .fl-brand {
         margin-top: 28px;
-        font-family: 'Segoe UI', Arial, sans-serif;
-        font-size: 13px;
-        letter-spacing: 5px;
+        font-family: 'Bebas Neue', 'Segoe UI', Arial, sans-serif;
+        font-size: 18px;
+        letter-spacing: 6px;
         text-transform: uppercase;
-        color: rgba(160,200,255,0.55);
+        color: rgba(201, 168, 76, 0.7);
         font-weight: 400;
+        text-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
+      }
+      .fl-brand span {
+        color: #fff;
+        font-weight: 300;
       }
     `;
 
     let loaderInjected = false;
+
+    function resolveLoaderImagePath() {
+      const currentPath = window.location.pathname || '';
+      const isInsidePagesFolder = currentPath.includes('/pages/');
+      return isInsidePagesFolder ? '../images/fotoloader.png' : 'images/fotoloader.png';
+    }
 
     function injectLoader() {
       if (loaderInjected || document.getElementById('fotolab-loader')) return;
@@ -128,7 +138,7 @@
       style.textContent = CSS;
       document.head.appendChild(style);
 
-      const imgPath = (typeof IMAGE_PATH !== 'undefined') ? IMAGE_PATH : 'assets/images/photographer.png';
+      const imgPath = (typeof IMAGE_PATH !== 'undefined') ? IMAGE_PATH : resolveLoaderImagePath();
 
       const loaderHTML = `
         <div id="fotolab-loader">
@@ -141,7 +151,7 @@
             <img src="${imgPath}" alt="Loading" />
             <div class="fl-lens-flash"></div>
           </div>
-          <div class="fl-brand">FOTOLAB</div>
+          <div class="fl-brand">FOTO<span>LAB</span></div>
         </div>
       `;
       document.body.insertAdjacentHTML('afterbegin', loaderHTML);

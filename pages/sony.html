@@ -16,10 +16,11 @@
     </script>
 
     <style>
-        /* ── Sony Page Exclusive Styles (Updated to Brown Theme) ── */
+        /* ── Sony Page Exclusive Styles (Brown Theme) ── */
         :root {
-            --brand-accent: #8B4513; /* Saddle Brown */
-            --brand-accent-dark: #5C2E0B; /* Darker Brown */
+            --brand-accent: #8B4513;
+            --brand-accent-dark: #5C2E0B;
+            --brand-accent-light: #D2B48C;
             --brand-accent-glow: rgba(139,69,19,0.25);
         }
 
@@ -42,7 +43,6 @@
             pointer-events: none;
         }
 
-        /* Animated grid lines */
         .hero-grid {
             position: absolute;
             inset: 0;
@@ -104,6 +104,14 @@
             font-size: 42px;
             color: var(--brand-accent);
             line-height: 1;
+            transition: 0.3s;
+        }
+        .stat-number:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 30px rgba(139,69,19,0.3);
+        }
+        .hero-stat:hover .stat-number {
+            color: var(--brand-accent);
         }
 
         .stat-label {
@@ -175,6 +183,7 @@
             background: rgba(139,69,19,0.2);
             border-color: rgba(139,69,19,0.5);
             color: #fff;
+            transform: translateY(-2px);
         }
 
         .feature-pill i { color: var(--brand-accent); font-size: 12px; }
@@ -199,6 +208,10 @@
             box-shadow: 0 0 12px rgba(139,69,19,0.6);
         }
 
+        .timeline-item:hover::before {
+            box-shadow: 0 0 20px rgba(139,69,19,0.8);
+        }
+
         .timeline-year {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 22px;
@@ -219,7 +232,6 @@
             padding: 100px 0;
         }
 
-        /* Filter tabs */
         .filter-tabs {
             display: flex;
             gap: 8px;
@@ -246,6 +258,8 @@
             background: var(--brand-accent);
             border-color: var(--brand-accent);
             color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139,69,19,0.3);
         }
 
         /* Product cards */
@@ -394,7 +408,8 @@
         .btn-sony:hover {
             background: var(--brand-accent-dark);
             color: #fff;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139,69,19,0.3);
         }
 
         /* ── Scroll reveal ── */
@@ -433,6 +448,7 @@
         .why-card:hover {
             border-color: rgba(139,69,19,0.3);
             transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(139,69,19,0.1);
         }
 
         .why-icon {
@@ -470,7 +486,7 @@
         }
 
         /* ── Brown accent line ── */
-        .blue-line {
+        .brown-line {
             width: 40px;
             height: 3px;
             background: var(--brand-accent);
@@ -478,13 +494,56 @@
             margin-bottom: 20px;
         }
 
-        /* ── Footer inherits from main style.css ── */
-        footer a { transition: color 0.2s; }
-        footer a:hover { color: var(--brand-accent) !important; }
-        
+        /* ── Footer ── */
+        footer {
+            background: #070714;
+            border-top: 2px solid var(--brand-accent);
+        }
+        footer .text-amber {
+            color: var(--brand-accent) !important;
+        }
+        footer .text-white-50 {
+            color: rgba(255,255,255,0.5) !important;
+        }
+        footer .list-unstyled li a {
+            color: rgba(255,255,255,0.5) !important;
+            transition: 0.2s;
+        }
+        footer .list-unstyled li a:hover {
+            color: var(--brand-accent) !important;
+            padding-left: 6px;
+        }
+        footer hr {
+            border-color: rgba(139,69,19,0.2) !important;
+        }
+
+        #locationInfo {
+            background: #0e0e24 !important;
+            border: 1px solid rgba(139,69,19,0.3) !important;
+            border-radius: 18px;
+            color: #ddd;
+            font-size: 0.9rem;
+            padding: 12px 16px !important;
+            min-height: 62px;
+            display: flex;
+            align-items: center;
+        }
+        #locationInfo i { 
+            color: var(--brand-accent); 
+            width: 22px; 
+        }
+
         @keyframes fl-spin {
             from { transform: rotate(0deg); }
             to   { transform: rotate(360deg); }
+        }
+
+        /* ── Navbar Hover ── */
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            background: rgba(139,69,19,0.2) !important;
+            color: var(--brand-accent) !important;
+            box-shadow: 0 0 12px rgba(139,69,19,0.3) !important;
         }
     </style>
 </head>
@@ -493,21 +552,20 @@
     <!-- ══════════════ NAVBAR ══════════════ -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="../index.html">
-                <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
-                <span class="fw-bold fs-3">FOTOLAB</span>
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="https://i.imgur.com/2Zz7k5M.png" alt="FOTOLAB Logo" width="44" height="44" class="me-2" style="filter: drop-shadow(0 0 8px #C9A84C88);">
+                <span class="fw-bold fs-3" style="color: #fff; text-shadow: 0 0 12px #C9A84C55;">FOTOLAB</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="brands.html">Brands</a></li>
-                    <li class="nav-item"><a class="nav-link" href="canon.html">Canon</a></li>
-                    <li class="nav-item"><a class="nav-link" href="fujifilm.html">FujiFilm</a></li>
-                    <li class="nav-item"><a class="nav-link" href="nikon.html">Nikon</a></li>
+                    <li class="nav-item"><a class="nav-link" href="brands.html">Brands</a></li>
                     <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
@@ -556,7 +614,6 @@
                 </div>
 
                 <div class="col-lg-5 d-none d-lg-flex justify-content-center align-items-center">
-                    <!-- Decorative Sony "α" Alpha ring (Updated to Brown Glow) -->
                     <div style="position:relative; width:320px; height:320px;">
                         <div style="
                             position:absolute; inset:0; border-radius:50%;
@@ -579,7 +636,6 @@
                                 line-height:1;
                             ">α</span>
                         </div>
-                        <!-- Dots -->
                         <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--brand-accent);box-shadow:0 0 14px rgba(139,69,19,0.8);"></div>
                         <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:rgba(139,69,19,0.5);"></div>
                     </div>
@@ -594,7 +650,7 @@
             <div class="row align-items-start g-5">
                 <div class="col-lg-5 reveal">
                     <p class="section-eyebrow">About the Brand</p>
-                    <div class="blue-line mt-3"></div>
+                    <div class="brown-line mt-3"></div>
                     <h2 class="section-title">The Future of Imaging Tech</h2>
                     <p style="color:rgba(255,255,255,0.5); font-size:15px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:20px;">
                         Sony ne mirrorless cameras ki shuruat karke poori photography industry ka rukh mod diya. Apne behtareen 
@@ -605,18 +661,18 @@
                         cinematic, aur vlogging projects ke liye perfect hain.
                     </p>
                     <div class="d-flex flex-wrap gap-2 mt-4">
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Real-time Eye AF (Human/Animal)</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> G-Master (GM) Optics</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Advanced BIONZ XR Processing</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Class-leading Low Light Sensors</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Universal E-Mount Ecosystem</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Industry Standard Dynamic Range</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Real-time Eye AF</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> G-Master Optics</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> BIONZ XR Processing</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Exmor Sensors</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> E-Mount Ecosystem</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> S-Cinetone Color</span>
                     </div>
                 </div>
 
                 <div class="col-lg-6 offset-lg-1 reveal reveal-delay-2">
                     <p class="section-eyebrow">Brand Timeline</p>
-                    <div class="blue-line mt-3 mb-4"></div>
+                    <div class="brown-line mt-3 mb-4"></div>
                     <div class="timeline-item">
                         <div class="timeline-year">2006</div>
                         <div class="timeline-text">Sony Alpha brand ka aghaaz hua, Minolta lens mount asset ko acquire karne ke baad.</div>
@@ -638,7 +694,7 @@
                         <div class="timeline-text">Sony A1 launched — 50MP sensor aur 8K video ke sath flagship performance ka naya standard set kiya.</div>
                     </div>
                     <div class="timeline-item" style="padding-bottom:0; border-left-color:transparent;">
-                        <div class="timeline-year">2025/2026</div>
+                        <div class="timeline-year">2025</div>
                         <div class="timeline-text">Sony A7R V aur A9 III high-speed global shutter tech ke sath markets par raj kar rahe hain.</div>
                     </div>
                 </div>
@@ -651,7 +707,7 @@
         <div class="container">
             <div class="text-center mb-5 reveal">
                 <p class="section-eyebrow">Why Choose Sony</p>
-                <div class="blue-line mx-auto mt-3"></div>
+                <div class="brown-line mx-auto mt-3"></div>
                 <h2 class="section-title mt-2">Built for Innovation</h2>
             </div>
             <div class="row g-4">
@@ -672,7 +728,7 @@
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-3">
                     <div class="why-card">
                         <div class="why-icon"><i class="fas fa-film"></i></div>
-                        <div class="why-title">Industry Standard S-Log</div>
+                        <div class="why-title">S-Log & S-Cinetone</div>
                         <p class="why-text">S-Log3 aur S-Cinetone colors ke sath cinema production aur grading ke liye Sony cameras Hollywood tak use hote hain.</p>
                     </div>
                 </div>
@@ -680,7 +736,7 @@
                     <div class="why-card">
                         <div class="why-icon"><i class="fas fa-battery-three-quarters"></i></div>
                         <div class="why-title">Z-Battery Life</div>
-                        <p class="why-text">Sony ki behtareen NP-FZ100 battery systems ab lambe shoots par bina rukawat chalne ki bharpoor salahiyat rakhti hain.</p>
+                        <p class="why-text">Sony ki NP-FZ100 battery systems lambe shoots par bina rukawat chalne ki bharpoor salahiyat rakhti hain.</p>
                     </div>
                 </div>
             </div>
@@ -692,19 +748,18 @@
         <div class="container">
             <div class="text-center mb-4 reveal">
                 <p class="section-eyebrow">Sony Lineup</p>
-                <div class="blue-line mx-auto mt-3"></div>
+                <div class="brown-line mx-auto mt-3"></div>
                 <h2 class="section-title mt-2">Sony Products at FOTOLAB</h2>
                 <p style="color:rgba(255,255,255,0.35); font-size:14px; font-family:'Inter',sans-serif; margin-top:10px;">
                     Available in-store and online. All products carry official Sony Pakistan warranty support.
                 </p>
             </div>
 
-            <!-- Filter tabs -->
             <div class="filter-tabs">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="mirrorless">Mirrorless</button>
                 <button class="filter-btn" data-filter="lens">Lenses</button>
-                <button class="filter-btn" data-filter="video">Cinema & FX Line</button>
+                <button class="filter-btn" data-filter="video">Cinema & FX</button>
                 <button class="filter-btn" data-filter="compact">Vlog / Compact</button>
             </div>
 
@@ -720,12 +775,11 @@
                         <div class="product-body">
                             <div class="product-category">Mirrorless</div>
                             <div class="product-name">Alpha 7R V</div>
-                            <p class="product-desc">61MP full-frame sensor advanced AI autofocus system aur 8K video recording ke sath. Studio aur commercial photography ka badshah.</p>
+                            <p class="product-desc">61MP full-frame sensor advanced AI autofocus system aur 8K video recording ke sath.</p>
                             <div class="product-specs">
                                 <span class="spec-tag">61MP Exmor R</span>
                                 <span class="spec-tag">8K Video</span>
                                 <span class="spec-tag">AI Tracking</span>
-                                <span class="spec-tag">8-Stop IBIS</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
@@ -747,12 +801,11 @@
                         <div class="product-body">
                             <div class="product-category">Mirrorless</div>
                             <div class="product-name">Alpha 7 IV</div>
-                            <p class="product-desc">33MP true hybrid powerhouse. 4K 60p video, behtareen dynamic range aur real-time tracking jo har scene ko perfect banata hai.</p>
+                            <p class="product-desc">33MP true hybrid powerhouse. 4K 60p video aur real-time tracking jo har scene ko perfect banata hai.</p>
                             <div class="product-specs">
                                 <span class="spec-tag">33MP</span>
                                 <span class="spec-tag">4K 60p</span>
                                 <span class="spec-tag">S-Cinetone</span>
-                                <span class="spec-tag">Dual Slots</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
@@ -773,7 +826,7 @@
                         <div class="product-body">
                             <div class="product-category">Mirrorless</div>
                             <div class="product-name">Alpha 6700</div>
-                            <p class="product-desc">Flagship APS-C mirrorless camera creators ke liye. Compact size me AI recognition Autofocus aur cinematic 4K 120p video.</p>
+                            <p class="product-desc">Flagship APS-C mirrorless camera. AI recognition Autofocus aur cinematic 4K 120p video.</p>
                             <div class="product-specs">
                                 <span class="spec-tag">26MP APS-C</span>
                                 <span class="spec-tag">4K 120p</span>
@@ -793,17 +846,17 @@
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="lens">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1050/400/300" alt="Sony FE 50mm f/1.2 G Master">
+                            <img src="https://picsum.photos/id/1050/400/300" alt="Sony FE 50mm f/1.2 GM">
                             <span class="product-badge">G-Master</span>
                         </div>
                         <div class="product-body">
                             <div class="product-category">E-Mount Lens</div>
                             <div class="product-name">FE 50mm f/1.2 GM</div>
-                            <p class="product-desc">Sony ka premium portrait lens. f/1.2 aperture par intehai sharp images aur buttery-smooth cream-like bokeh pesh karta hai.</p>
+                            <p class="product-desc">Sony ka premium portrait lens. f/1.2 aperture par sharp images aur cream-like bokeh.</p>
                             <div class="product-specs">
                                 <span class="spec-tag">f/1.2 Aperture</span>
-                                <span class="spec-tag">G Master Class</span>
-                                <span class="spec-tag">XD Linear Motor</span>
+                                <span class="spec-tag">G Master</span>
+                                <span class="spec-tag">XD Motor</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
@@ -825,10 +878,10 @@
                         <div class="product-body">
                             <div class="product-category">E-Mount Lens</div>
                             <div class="product-name">FE 24-70mm f/2.8 GM II</div>
-                            <p class="product-desc">Duniya ka sabse halka constant f/2.8 standard zoom lens. Professional photography aur high-end filmmaking ke liye heros ki choice.</p>
+                            <p class="product-desc">Duniya ka sabse halka f/2.8 standard zoom. Professional photography aur filmmaking ke liye.</p>
                             <div class="product-specs">
                                 <span class="spec-tag">f/2.8 Constant</span>
-                                <span class="spec-tag">Gen-2 Optical Design</span>
+                                <span class="spec-tag">Gen-2 Design</span>
                                 <span class="spec-tag">Weather Sealed</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
@@ -841,7 +894,7 @@
                     </div>
                 </div>
 
-                <!-- Sony FX30 Cinema -->
+                <!-- Sony FX30 -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="video">
                     <div class="product-card">
                         <div class="product-img-wrap">
@@ -851,11 +904,11 @@
                         <div class="product-body">
                             <div class="product-category">Cinema Camera</div>
                             <div class="product-name">Cinema Line FX30</div>
-                            <p class="product-desc">Indie filmmakers aur videographers ka pehla choice. Dual Base ISO, S-Log3, aur cooling fan ke sath bagair over-heat hue ghanton recording.</p>
+                            <p class="product-desc">Indie filmmakers ka pehla choice. Dual Base ISO, S-Log3, aur cooling fan ke sath.</p>
                             <div class="product-specs">
                                 <span class="spec-tag">4K Super35</span>
                                 <span class="spec-tag">Dual Base ISO</span>
-                                <span class="spec-tag">XAVC S-I 10-bit</span>
+                                <span class="spec-tag">XAVC S-I</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
@@ -877,9 +930,9 @@
                         <div class="product-body">
                             <div class="product-category">Vlog Camera</div>
                             <div class="product-name">ZV-E10</div>
-                            <p class="product-desc">Interchangeable lens vlogging camera. Product showcase mode aur background defocus switch ke sath content creation ab bohot asaan.</p>
+                            <p class="product-desc">Interchangeable lens vlogging camera. Product showcase mode aur background defocus switch.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">4K Vlog Mode</span>
+                                <span class="spec-tag">4K Vlog</span>
                                 <span class="spec-tag">Product Showcase</span>
                                 <span class="spec-tag">Flip LCD</span>
                             </div>
@@ -897,49 +950,50 @@
         </div>
     </section>
 
-    <!-- ══════════════ FOOTER ══════════════ -->
-    <footer class="py-5" style="background-color: black; border-top: 2px solid #C9A84C;">
+    <!-- ====== FOOTER ====== -->
+    <footer class="py-5">
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-3">
-                    <h5 class="text-amber mb-3">FOTOLAB</h5>
-                    <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
+                    <h5 style="color: var(--brand-accent); font-weight: 600; margin-bottom: 12px;">FOTOLAB</h5>
+                    <p style="color: rgba(255,255,255,0.5);">Premium Photography Solutions Since 1991.</p>
                 </div>
                 <div class="col-md-2">
-                    <h5 class="text-amber mb-3">Explore</h5>
+                    <h5 style="color: var(--brand-accent); font-weight: 600; margin-bottom: 12px;">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
-                        <li><a href="service.html" class="text-white-50 text-decoration-none">Services</a></li>
-                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
+                        <li><a href="products.html" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: 0.2s;">Products</a></li>
+                        <li><a href="brands.html" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: 0.2s;">Brands</a></li>
+                        <li><a href="about.html" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: 0.2s;">About</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
-                    <h5 class="text-amber mb-3">Contact Outlet</h5>
-                    <p class="text-white-50 mb-1"><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi, Karachi, Pakistan</p>
-                    <p class="text-white-50 mb-1"><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
-                    <p class="text-white-50 mb-0"><i class="fas fa-phone text-amber me-2"></i> +91 98765 43210</p>
+                    <h5 style="color: var(--brand-accent); font-weight: 600; margin-bottom: 12px;">Contact Outlet</h5>
+                    <p style="color: rgba(255,255,255,0.5); margin-bottom: 4px;"><i class="fas fa-map-marker-alt" style="color: var(--brand-accent); width: 22px;"></i> Korangi, Karachi, Pakistan</p>
+                    <p style="color: rgba(255,255,255,0.5); margin-bottom: 4px;"><i class="fas fa-envelope" style="color: var(--brand-accent); width: 22px;"></i> info@fotolab.com</p>
+                    <p style="color: rgba(255,255,255,0.5); margin-bottom: 0;"><i class="fas fa-phone" style="color: var(--brand-accent); width: 22px;"></i> +92 300 1234567</p>
                 </div>
-                <!-- Geolocation Live Route Module Inside Footer -->
                 <div class="col-md-4">
-                    <h5 class="text-amber mb-3"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
-                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #1A1A2E; border: 1px solid #333;">
-                        <span class="text-white-50"><i class="fas fa-spinner fa-spin me-2"></i>Location track ki ja rahi hai...</span>
+                    <h5 style="color: var(--brand-accent); font-weight: 600; margin-bottom: 12px;"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
+                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #0e0e24; border: 1px solid rgba(139,69,19,0.3);">
+                        <span style="color: rgba(255,255,255,0.5);"><i class="fas fa-spinner fa-pulse me-2"></i>Locating ...</span>
                     </div>
                 </div>
             </div>
-            <hr class="border-secondary mt-4">
-            <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
+            <hr style="border-color: rgba(139,69,19,0.15); margin: 24px 0;">
+            <p class="text-center" style="color: rgba(255,255,255,0.4); margin-bottom: 0; font-size: 0.85rem;">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- ====== SCRIPTS ====== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/loader.js"></script>
     <script src="../js/geolocation.js"></script>
-
-    <!-- Page Specific Script Logic and Geolocation Tracker -->
+    
     <script>
+        AOS.init({ duration: 800, once: true });
+        
         // ── Scroll Reveal ──
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {

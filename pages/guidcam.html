@@ -3,250 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FOTOLAB Buying Guide - expert advice on choosing the right camera and lens for your needs.">
-    <title>Buying Guide - FOTOLAB</title>
+    <meta name="description" content="FOTOLAB Buying Guide - expert advice on choosing the right camera and lens for your needs since 1991.">
+    <title>Buying Guide - FOTOLAB | Camera & Lens Advice</title>
+    <!-- Bootstrap 5 + Icons + Google Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/mobile-responsive.css">
-    <script>
-        const IMAGE_PATH = "../images/fotoloader.png";
-    </script>
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      <link rel="stylesheet" href="../css/animations.css">
 
     <style>
-        /* ── Buying Guide Page (FOTOLAB design system: dark charcoal / teal / crimson / gold) ── */
+        /* ----- GLOBAL RESET & THEME ----- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            background: #0b0b1a;
+            color: #f0f0f5;
+            font-family: 'Inter', sans-serif;
+            padding-top: 76px;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        a { text-decoration: none; }
+        .text-amber { color: #C9A84C; }
+        .bg-amber { background-color: #C9A84C; }
+        .btn-amber {
+            background: #C9A84C;
+            color: #0b0b1a;
+            font-weight: 600;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-amber:hover {
+            background: #b8973a;
+            color: #000;
+            transform: scale(1.02);
+            box-shadow: 0 0 20px #C9A84C66;
+        }
+        .btn-outline-amber {
+            color: #C9A84C;
+            border: 2px solid #C9A84C;
+            background: transparent;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .btn-outline-amber:hover {
+            background: #C9A84C;
+            color: #0b0b1a;
+        }
 
+        /* ----- NAVBAR ----- */
+        .navbar {
+            background: #0b0b1a !important;
+            border-bottom: 2px solid #C9A84C;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            backdrop-filter: blur(4px);
+        }
+        .navbar-brand { color: #fff !important; letter-spacing: 0.5px; }
+        .navbar-brand img { filter: drop-shadow(0 0 6px #C9A84C55); }
+        .nav-link {
+            color: #ddd !important;
+            font-weight: 500;
+            margin: 0 4px;
+            transition: 0.3s;
+            border-radius: 30px;
+            padding: 8px 16px !important;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: #C9A84C22;
+            color: #C9A84C !important;
+            box-shadow: 0 0 12px #C9A84C33;
+        }
+
+        /* ----- HERO ----- */
         .guide-hero {
-            min-height: 50vh;
-            background: linear-gradient(rgba(10,10,15,0.75), rgba(10,10,15,0.88)), url('https://picsum.photos/id/96/1920/800') center/cover no-repeat;
+            min-height: 45vh;
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a1a3a 100%);
+            position: relative;
+            overflow: hidden;
             display: flex;
             align-items: center;
-            position: relative;
-            padding-top: 80px;
+            justify-content: center;
+            text-align: center;
         }
-
-        .guide-eyebrow {
-            font-size: 12px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: #2FB8AC;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
+        .guide-hero .overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 40%, #C9A84C22, transparent 70%);
+            pointer-events: none;
         }
-
-        .guide-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(40px, 6.5vw, 76px);
-            color: #fff;
+        .guide-hero h1 {
+            text-shadow: 0 0 40px #C9A84C55;
             letter-spacing: 2px;
-            line-height: 1.05;
         }
 
-        .guide-sub {
-            font-size: 15px;
-            color: rgba(255,255,255,0.5);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.8;
-            max-width: 580px;
-        }
-
-        /* ── Tab switcher ── */
-        .guide-tabs {
-            background: #0d0d12;
+        /* ----- TAB STRIP ----- */
+        .tab-strip {
+            background: #0d0d1a;
             border-bottom: 1px solid rgba(255,255,255,0.06);
             position: sticky;
             top: 76px;
             z-index: 500;
             padding: 0;
         }
-
-        .guide-tab-btn {
+        .tab-btn {
             background: transparent;
             border: none;
-            border-bottom: 2px solid transparent;
+            border-bottom: 3px solid transparent;
             color: rgba(255,255,255,0.45);
-            padding: 18px 28px;
+            padding: 16px 28px;
             font-size: 14px;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
             letter-spacing: 1px;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: 0.25s;
         }
-
-        .guide-tab-btn i { margin-right: 8px; color: inherit; }
-
-        .guide-tab-btn:hover { color: rgba(255,255,255,0.8); }
-
-        .guide-tab-btn.active {
-            color: #2FB8AC;
-            border-bottom-color: #2FB8AC;
+        .tab-btn i { margin-right: 8px; }
+        .tab-btn:hover { color: rgba(255,255,255,0.8); }
+        .tab-btn.active {
+            color: #C9A84C;
+            border-bottom-color: #C9A84C;
         }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
 
-        .guide-panel { display: none; }
-        .guide-panel.active { display: block; }
-
-        /* ── Section ── */
-        .guide-section {
-            background: #0a0a0f;
-            padding: 70px 0;
-        }
-
+        /* ----- SECTION HEADERS ----- */
         .section-eyebrow {
             font-size: 11px;
             letter-spacing: 5px;
             text-transform: uppercase;
-            color: #2FB8AC;
+            color: #C9A84C;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
         }
-
         .section-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(30px, 4.2vw, 44px);
+            font-size: clamp(30px, 4.2vw, 46px);
             color: #fff;
             letter-spacing: 1px;
             line-height: 1.1;
         }
-
         .divider-line {
             width: 36px;
             height: 3px;
-            background: #2FB8AC;
+            background: #C9A84C;
             border-radius: 2px;
             margin: 14px 0 20px;
         }
 
-        /* ── Quiz-style selector cards ── */
-        .need-card {
-            background: #131318;
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 14px;
-            padding: 28px 24px;
+        /* ----- RECOMMENDATION CARDS ----- */
+        .rec-card {
+            background: #10102a;
+            border: 1px solid #2a2a50;
+            border-radius: 16px;
+            padding: 24px 20px;
             height: 100%;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
         }
-
-        .need-card:hover {
-            border-color: rgba(47,184,172,0.35);
+        .rec-card:hover {
+            border-color: #C9A84C;
             transform: translateY(-5px);
-            box-shadow: 0 18px 44px rgba(0,0,0,0.4);
+            box-shadow: 0 12px 30px #C9A84C33;
         }
-
-        .need-icon {
-            width: 52px;
-            height: 52px;
+        .rec-card .icon-wrap {
+            width: 50px;
+            height: 50px;
             border-radius: 12px;
-            background: rgba(47,184,172,0.1);
-            border: 1px solid rgba(47,184,172,0.25);
+            background: #C9A84C15;
+            border: 1px solid #C9A84C33;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 20px;
-            color: #2FB8AC;
-            margin-bottom: 18px;
+            color: #C9A84C;
+            margin-bottom: 14px;
         }
-
-        .need-title {
+        .rec-card .rec-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 21px;
+            font-size: 22px;
             color: #fff;
             letter-spacing: 0.5px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
-
-        .need-text {
+        .rec-card .rec-desc {
             font-size: 13px;
             color: rgba(255,255,255,0.45);
             line-height: 1.7;
-            margin-bottom: 16px;
+            flex-grow: 1;
         }
-
-        .need-rec {
-            border-top: 1px solid rgba(255,255,255,0.07);
+        .rec-card .rec-footer {
+            border-top: 1px solid rgba(255,255,255,0.06);
             padding-top: 14px;
-            margin-top: auto;
+            margin-top: 12px;
         }
-
-        .need-rec-label {
+        .rec-card .rec-label {
             font-size: 10px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #C9A227;
+            color: #C9A84C;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
-            margin-bottom: 6px;
         }
-
-        .need-rec-item {
+        .rec-card .rec-item {
             font-size: 13px;
             color: rgba(255,255,255,0.65);
-            font-family: 'Inter', sans-serif;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 8px;
+            align-items: center;
+            padding: 3px 0;
         }
-
-        .need-rec-item a {
-            color: #2FB8AC;
-            text-decoration: none;
+        .rec-card .rec-item a {
+            color: #C9A84C;
             font-size: 12px;
             font-weight: 600;
-            white-space: nowrap;
         }
+        .rec-card .rec-item a:hover { color: #fff; }
 
-        .need-rec-item a:hover { color: #fff; }
-
-        /* ── Comparison table ── */
-        .guide-table-wrap {
-            background: #131318;
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 14px;
+        /* ----- COMPARISON TABLE ----- */
+        .compare-table-wrap {
+            background: #10102a;
+            border: 1px solid #2a2a50;
+            border-radius: 16px;
             overflow: hidden;
         }
-
-        .guide-table {
+        .compare-table {
             width: 100%;
             border-collapse: collapse;
             font-family: 'Inter', sans-serif;
             font-size: 13.5px;
         }
-
-        .guide-table th {
-            background: #1a1a20;
+        .compare-table th {
+            background: #1a1a2e;
             color: #fff;
             text-align: left;
             padding: 14px 18px;
             font-weight: 600;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
-
-        .guide-table td {
+        .compare-table td {
             padding: 14px 18px;
             color: rgba(255,255,255,0.55);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
         }
+        .compare-table tr:last-child td { border-bottom: none; }
+        .compare-table .highlight { color: #C9A84C; font-weight: 600; }
 
-        .guide-table tr:last-child td { border-bottom: none; }
-
-        .guide-table .pill-good {
-            color: #2FB8AC;
-            font-weight: 600;
-        }
-
-        /* ── FAQ / tips accordion-style ── */
+        /* ----- TIP / FAQ ITEMS ----- */
         .tip-item {
-            border-bottom: 1px solid rgba(255,255,255,0.07);
-            padding: 22px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 20px 0;
         }
-
         .tip-item:first-child { padding-top: 0; }
         .tip-item:last-child { border-bottom: none; }
-
         .tip-q {
             font-family: 'Inter', sans-serif;
             font-size: 15px;
@@ -256,30 +273,26 @@
             align-items: center;
             gap: 10px;
         }
-
-        .tip-q i { color: #2FB8AC; font-size: 13px; }
-
+        .tip-q i { color: #C9A84C; font-size: 14px; }
         .tip-a {
             font-size: 13.5px;
             color: rgba(255,255,255,0.45);
             line-height: 1.8;
-            margin-top: 10px;
+            margin-top: 8px;
             font-family: 'Inter', sans-serif;
         }
 
-        /* ── Mount compatibility note box ── */
+        /* ----- NOTE BOX ----- */
         .note-box {
             background: rgba(201,162,39,0.07);
             border: 1px solid rgba(201,162,39,0.25);
             border-radius: 12px;
-            padding: 18px 22px;
+            padding: 16px 20px;
             display: flex;
             gap: 14px;
             align-items: flex-start;
         }
-
-        .note-box i { color: #C9A227; font-size: 18px; margin-top: 2px; }
-
+        .note-box i { color: #C9A84C; font-size: 18px; margin-top: 2px; }
         .note-box p {
             font-size: 13px;
             color: rgba(255,255,255,0.5);
@@ -288,554 +301,582 @@
             margin: 0;
         }
 
-        /* ── reveal ── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* ── CTA strip ── */
+        /* ----- CTA SECTION ----- */
         .guide-cta {
-            background: #0d0d12;
-            border: 1px solid rgba(47,184,172,0.2);
+            background: #0d0d1a;
+            border: 1px solid rgba(201,162,39,0.2);
             border-radius: 16px;
             padding: 40px;
             text-align: center;
         }
 
-        .btn-guide {
-            background: #2FB8AC;
-            border: none;
-            color: #0a0a0f;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.25s ease;
+        /* ----- FOOTER ----- */
+        footer {
+            background: #070714;
+            border-top: 2px solid #C9A84C55;
+            margin-top: auto;
+            flex-shrink: 0;
+            width: 100%;
         }
-
-        .btn-guide:hover {
-            background: #fff;
-            color: #0a0a0f;
+        #locationInfo {
+            background: #0e0e24 !important;
+            border: 1px solid #2f2f5a !important;
+            border-radius: 18px;
+            color: #ddd;
+            font-size: 0.85rem;
+            padding: 10px 14px !important;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
         }
+        #locationInfo i { color: #C9A84C; width: 20px; }
+        .list-unstyled li a { transition: 0.2s; }
+        .list-unstyled li a:hover { color: #C9A84C !important; padding-left: 6px; }
 
-        footer a { transition: color 0.2s; }
-        footer a:hover { color: #2FB8AC !important;/* Focus, active, aur hover par har qisam ki white flashing khatam karna */
-        .dropdown-item.guide-tab-btn:focus,
-        .dropdown-item.guide-tab-btn:active,
-        .dropdown-item.guide-tab-btn:visited,
-        .dropdown-item.guide-tab-btn:focus-visible {
-           outline: none !important;
-               box-shadow: none !important;
-              background-color: #2FB8AC !important; /* Click karte hi direct color aaye */
-              color: #0a0a0f !important;
-}
-
-/* Hover state */
-.dropdown-item.guide-tab-btn:hover {
-    background-color: #2FB8AC !important;
-    color: #0a0a0f !important;
-} }
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 768px) {
+            .guide-hero { min-height: 30vh; }
+            .guide-hero h1 { font-size: 2.5rem; }
+            .tab-btn { padding: 12px 16px; font-size: 13px; }
+            .rec-card { padding: 18px 16px; }
+            .compare-table { font-size: 12px; }
+            .compare-table th, .compare-table td { padding: 10px 12px; }
+        }
+        @media (max-width: 576px) {
+            .guide-hero h1 { font-size: 2rem; }
+            .tab-strip { overflow-x: auto; display: flex; flex-wrap: nowrap; }
+            .tab-btn { white-space: nowrap; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- ══════════════ NAVBAR ══════════════ -->
+    <!-- ====== NAVBAR ====== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="../index.html">
-                <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
-                <span class="fw-bold fs-3">FOTOLAB</span>
+        <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="50" height="50" class="me-2">
+                <span class="fw-bold fs-3" style="color: #fff; text-shadow: 0 0 12px #C9A84C55;">FOTOLAB</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <!-- Front facing links -->
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
                     <li class="nav-item"><a class="nav-link" href="brands.html">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="guidecam.html">Buying Guide</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    
-                    <!-- Hamburger / More Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            More
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color: #131318; border: 1px solid rgba(255,255,255,0.1);">
-                         <!-- Camera Advice -->
-                         <li>
-                         <button class="dropdown-item guide-tab-btn" data-panel="panel-camera" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">
-                         <i class="fas fa-camera me-2"></i>Camera Advice
-                         </button>
-                          </li>
-                          <!-- Lens Advice -->
-                          <li>
-                          <button class="dropdown-item guide-tab-btn" data-panel="panel-lens" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">
-                          <i class="fas fa-circle-dot me-2"></i>Lens Advice
-                          </button>
-                          </li>
-                          </ul>   
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- ══════════════ HERO ══════════════ -->
-    <header class="guide-hero">
-        <div class="container">
-            <p class="guide-eyebrow mb-2">FOTOLAB Buying Guide</p>
-            <h1 class="guide-title">Not Sure What to Buy?</h1>
-            <p class="guide-sub mt-3">
-                34 years of helping photographers choose right. Whether it's your first camera or your fifth lens, 
-                here's straight advice — no jargon, no upselling.
-            </p>
-        </div>
-    </header>
-
-    <!-- ══════════════ CAMERA ADVICE PANEL ══════════════ -->
-    <div class="guide-panel active" id="panel-camera">
-
-        <section class="guide-section">
-            <div class="container">
-                <div class="reveal mb-5">
-                    <p class="section-eyebrow">Step 1 — What's it for?</p>
-                    <div class="divider-line"></div>
-                    <h2 class="section-title">Find Your Camera by Purpose</h2>
-                    <p style="color:rgba(255,255,255,0.45); font-family:'Inter',sans-serif; font-size:14px; max-width:600px; margin-top:10px;">
-                        Pick the use-case closest to yours. Each card gives our honest recommendation at two price points.
-                    </p>
-                </div>
-
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3 reveal">
-                        <div class="need-card d-flex flex-column">
-                            <div class="need-icon"><i class="fas fa-person-walking"></i></div>
-                            <div class="need-title">Just Starting Out</div>
-                            <p class="need-text">You want to learn photography properly, not just point-and-shoot. Light, simple, room to grow.</p>
-                            <div class="need-rec">
-                                <div class="need-rec-label">We Recommend</div>
-                                <div class="need-rec-item">Canon EOS R50 <a href="canon.html">View →</a></div>
-                                <div class="need-rec-item">Nikon Z30 <a href="nikon.html">View →</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3 reveal">
-                        <div class="need-card d-flex flex-column">
-                            <div class="need-icon"><i class="fas fa-video"></i></div>
-                            <div class="need-title">Vlogging & Content</div>
-                            <p class="need-text">Flip screen, good auto-focus on faces, lightweight enough to hold for hours.</p>
-                            <div class="need-rec">
-                                <div class="need-rec-label">We Recommend</div>
-                                <div class="need-rec-item">Sony ZV-E10 II <a href="sony.html">View →</a></div>
-                                <div class="need-rec-item">Fujifilm X-S20 <a href="fujifilm.html">View →</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3 reveal">
-                        <div class="need-card d-flex flex-column">
-                            <div class="need-icon"><i class="fas fa-people-group"></i></div>
-                            <div class="need-title">Portraits & Weddings</div>
-                            <p class="need-text">Excellent eye-AF, beautiful skin tones, and the lens ecosystem to back it up.</p>
-                            <div class="need-rec">
-                                <div class="need-rec-label">We Recommend</div>
-                                <div class="need-rec-item">Canon EOS R6 Mark II <a href="canon.html">View →</a></div>
-                                <div class="need-rec-item">Sony A7 IV <a href="sony.html">View →</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3 reveal">
-                        <div class="need-card d-flex flex-column">
-                            <div class="need-icon"><i class="fas fa-futbol"></i></div>
-                            <div class="need-title">Sports & Action</div>
-                            <p class="need-text">Fast burst rate, deep buffer, predictive autofocus that locks and holds.</p>
-                            <div class="need-rec">
-                                <div class="need-rec-label">We Recommend</div>
-                                <div class="need-rec-item">Nikon Z8 <a href="nikon.html">View →</a></div>
-                                <div class="need-rec-item">Canon EOS R5 Mark II <a href="canon.html">View →</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3 reveal">
-                        <div class="need-card d-flex flex-column">
-                            <div class="need-icon"><i class="fas fa-mountain-sun"></i></div>
-                            <div class="need-title">Landscape & Studio</div>
-                            <p class="need-text">Resolution and dynamic range matter more than speed here. Tripod-friendly.</p>
-                            <div class="need-rec">
-                                <div class="need-rec-label">We Recommend</div>
-                                <div class="need-rec-item">Sony A7R V <a href="sony.html">View →</a></div>
-                                <div class="need-rec-item">Fujifilm GFX100S <a href="fujifilm.html">View →</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3 reveal">
-                        <div class="need-card d-flex flex-column">
-                            <div class="need-icon"><i class="fas fa-film"></i></div>
-                            <div class="need-title">Filmmaking & Cinema</div>
-                            <p class="need-text">Log profiles, high bitrate, good rolling shutter performance, and external monitor support.</p>
-                            <div class="need-rec">
-                                <div class="need-rec-label">We Recommend</div>
-                                <div class="need-rec-item">Sony FX3 <a href="sony.html">View →</a></div>
-                                <div class="need-rec-item">Panasonic Lumix GH6 <a href="panasonic.html">View →</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3 reveal">
-                        <div class="need-card d-flex flex-column">
-                            <div class="need-icon"><i class="fas fa-mountain"></i></div>
-                            <div class="need-title">Travel & Adventure</div>
-                            <p class="need-text">Tough body, waterproofing matters, and you don't want to carry a heavy bag.</p>
-                            <div class="need-rec">
-                                <div class="need-rec-label">We Recommend</div>
-                                <div class="need-rec-item">GoPro Hero13 Black <a href="camera-sales.html#brand-gopro">View →</a></div>
-                                <div class="need-rec-item">Fujifilm X100VI <a href="fujifilm.html">View →</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3 reveal">
-                        <div class="need-card d-flex flex-column">
-                            <div class="need-icon"><i class="fas fa-clock-rotate-left"></i></div>
-                            <div class="need-title">Film & Heritage Look</div>
-                            <p class="need-text">You want the process and the look of analog photography, not just the aesthetic filter.</p>
-                            <div class="need-rec">
-                                <div class="need-rec-label">We Recommend</div>
-                                <div class="need-rec-item">Yashica FX-3 Super 2000 <a href="yashica.html">View →</a></div>
-                                <div class="need-rec-item">Yashica Electro 35 <a href="yashica.html">View →</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DSLR vs Mirrorless table -->
-        <section class="guide-section" style="background:#0d0d12; padding-top:0;">
-            <div class="container">
-                <div class="reveal mb-4">
-                    <p class="section-eyebrow">Step 2 — Body Type</p>
-                    <div class="divider-line"></div>
-                    <h2 class="section-title">DSLR vs Mirrorless</h2>
-                </div>
-
-                <div class="guide-table-wrap reveal">
-                    <table class="guide-table">
-                        <thead>
-                            <tr>
-                                <th>Factor</th>
-                                <th>DSLR</th>
-                                <th>Mirrorless</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Battery life</td>
-                                <td class="pill-good">Better — optical viewfinder uses no power</td>
-                                <td>Shorter — electronic viewfinder drains battery faster</td>
-                            </tr>
-                            <tr>
-                                <td>Autofocus speed</td>
-                                <td>Good, but limited in video mode</td>
-                                <td class="pill-good">Faster, especially for video and eye-tracking</td>
-                            </tr>
-                            <tr>
-                                <td>Size & weight</td>
-                                <td>Bulkier body and lenses</td>
-                                <td class="pill-good">Lighter and more compact overall</td>
-                            </tr>
-                            <tr>
-                                <td>Lens selection</td>
-                                <td class="pill-good">Decades of used/affordable EF & F-mount glass</td>
-                                <td>Newer mounts, fewer used options, but growing fast</td>
-                            </tr>
-                            <tr>
-                                <td>Future-proofing</td>
-                                <td>Canon & Nikon have moved focus to mirrorless</td>
-                                <td class="pill-good">Where the industry is investing now</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="note-box mt-4 reveal">
-                    <i class="fas fa-circle-info"></i>
-                    <p>If you're buying your first serious camera in 2026, we generally point people toward mirrorless — but if you already own EF or F-mount lenses, a DSLR body can still make sense to avoid re-buying glass.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- New vs Used -->
-        <section class="guide-section">
-            <div class="container">
-                <div class="reveal mb-4">
-                    <p class="section-eyebrow">Step 3 — Budget</p>
-                    <div class="divider-line"></div>
-                    <h2 class="section-title">New, Used, or Refurbished?</h2>
-                </div>
-
-                <div class="row g-4">
-                    <div class="col-md-4 reveal">
-                        <div class="tip-item" style="border-bottom:none;">
-                            <div class="tip-q"><i class="fas fa-circle-check"></i>New from FOTOLAB</div>
-                            <p class="tip-a">Full manufacturer warranty, latest firmware, and our 7-day return policy. Best for flagship bodies you'll keep for years.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 reveal">
-                        <div class="tip-item" style="border-bottom:none;">
-                            <div class="tip-q"><i class="fas fa-circle-check"></i>Certified Refurbished</div>
-                            <p class="tip-a">Inspected, tested, and re-sealed by us with 6-month warranty. Usually 20-30% cheaper than new.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 reveal">
-                        <div class="tip-item" style="border-bottom:none;">
-                            <div class="tip-q"><i class="fas fa-circle-check"></i>Trade-In Program</div>
-                            <p class="tip-a">Bring your current body in-store. We'll value it on the spot and apply credit toward your next purchase.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </div><!-- /panel-camera -->
-
-    <!-- ══════════════ LENS ADVICE PANEL ══════════════ -->
-    <div class="guide-panel" id="panel-lens">
-
-        <section class="guide-section">
-            <div class="container">
-                <div class="reveal mb-5">
-                    <p class="section-eyebrow">Step 1 — What are you shooting?</p>
-                    <div class="divider-line"></div>
-                    <h2 class="section-title">Find Your Lens by Purpose</h2>
-                    <p style="color:rgba(255,255,255,0.45); font-family:'Inter',sans-serif; font-size:14px; max-width:600px; margin-top:10px;">
-                        Your camera body matters less than the glass in front of it. Here's where to start.
-                    </p>
-                </div>
-
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3 reveal">
-                        <div class="need-card d-flex flex-column">
-                            <div class="need-icon"><i class="fas fa-user"></i></div>
-                            <div class="need-title">Portraits</div>
-                            <p class="need-text">Wide aperture for background blur, flattering compression on faces.</p>
-                            <div class="need-rec">
-                                <div class="need-rec-label">We Recommend</div>
-                                <div class="need-rec-item">Canon RF 50mm f/1.2L <a href="accessories.html#cat-lenses">View →</a></div>
-                                <div class="need-rec-item">Sony FE 85mm f/1.4 GM <a href="accessories.html#cat-lenses">View →</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3 reveal">
-                        <div class="need-card d-flex flex-column">
-                            <div class="need-icon"><i class="fas fa-image"></i></div>
-                            <div class="need-title">Everyday & Travel</div>
-                            <p class="need-text">One lens that does it all — wide enough for rooms, tight enough for details.</p>
-                            <div class="need-rec">
-                                <div class="need-rec-label">We Recommend</div>
-                                <div class="need-rec-item">Canon RF 24-70mm f/2.8L <a href="accessories.html#cat-lenses">View →</a></div>
-                                <div class="need-rec-item">Nikkor Z 24-70mm f/2.8 <a href="accessories.html#cat-lenses">View →</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3 reveal">
-                        <div class="need-card d-flex flex-column">
-                            <div class="need-icon"><i class="fas fa-mountain"></i></div>
-                            <div class="need-title">Landscape</div>
-                            <p class="need-text">Wide angle, sharp corners, ideally with weather sealing for outdoor use.</p>
-                            <div class="need-rec">
-                                <div class="need-rec-label">We Recommend</div>
-                                <div class="need-rec-item">Fujinon XF 16-55mm f/2.8 <a href="accessories.html#cat-lenses">View →</a></div>
-                                <div class="need-rec-item">Sony FE 16-35mm f/2.8 GM</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3 reveal">
-                        <div class="need-card d-flex flex-column">
-                            <div class="need-icon"><i class="fas fa-dove"></i></div>
-                            <div class="need-title">Wildlife & Sports</div>
-                            <p class="need-text">Long reach, fast autofocus motor, and image stabilization to handle distance shake.</p>
-                            <div class="need-rec">
-                                <div class="need-rec-label">We Recommend</div>
-                                <div class="need-rec-item">Canon RF 100-500mm f/4.5-7.1L</div>
-                                <div class="need-rec-item">Nikkor Z 100-400mm f/4.5-5.6</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-<!-- Prime vs Zoom -->
-        <section class="guide-section" style="background:#0d0d12; padding-top:0;">
-            <div class="container">
-                <div class="reveal mb-4">
-                    <p class="section-eyebrow">Step 2 — Prime or Zoom?</p>
-                    <div class="divider-line"></div>
-                    <h2 class="section-title">Prime vs Zoom Lenses</h2>
-                </div>
-
-                <div class="guide-table-wrap reveal">
-                    <table class="guide-table">
-                        <thead>
-                            <tr>
-                                <th>Factor</th>
-                                <th>Prime Lens</th>
-                                <th>Zoom Lens</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Aperture / low light</td>
-                                <td class="pill-good">Wider apertures (f/1.2 - f/1.8), better in dark venues</td>
-                                <td>Usually limited to f/2.8 at best</td>
-                            </tr>
-                            <tr>
-                                <td>Sharpness</td>
-                                <td class="pill-good">Generally sharper at any given aperture</td>
-                                <td>Very good but rarely matches a prime</td>
-                            </tr>
-                            <tr>
-                                <td>Flexibility</td>
-                                <td>Fixed focal length — you move your feet</td>
-                                <td class="pill-good">One lens covers many framings</td>
-                            </tr>
-                            <tr>
-                                <td>Weight & size</td>
-                                <td class="pill-good">Lighter, easier to carry all day</td>
-                                <td>Heavier, especially f/2.8 zooms</td>
-                            </tr>
-                            <tr>
-                                <td>Best for</td>
-                                <td>Portraits, low light, intentional shooting</td>
-                                <td class="pill-good">Events, travel, run-and-gun shooting</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- Mount compatibility & FAQ -->
-        <section class="guide-section">
-            <div class="container">
-                <div class="row g-5">
-                    <div class="col-lg-6">
-                        <div class="reveal mb-4">
-                            <p class="section-eyebrow">Step 3 — Compatibility</p>
-                            <div class="divider-line"></div>
-                            <h2 class="section-title">Check Your Mount First</h2>
-                        </div>
-                        <div class="note-box reveal">
-                            <i class="fas fa-circle-info"></i>
-                            <p>Lenses are mount-specific. Canon RF lenses won't fit an EF body without an adapter, and Sony E-mount lenses don't fit Nikon Z cameras at all. Always confirm your camera's mount before buying — our staff checks this for free in-store.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="reveal mb-4">
-                            <p class="section-eyebrow">Common Questions</p>
-                            <div class="divider-line"></div>
-                            <h2 class="section-title">Quick Answers</h2>
-                        </div>
-
-                        <div class="reveal">
-                            <div class="tip-item">
-                                <div class="tip-q"><i class="fas fa-circle-question"></i> Do I need an L-series / GM / S-line lens?</div>
-                                <p class="tip-a">Only if you're shooting professionally or need weather sealing. Standard consumer lenses are sharp enough for most hobbyists and even paid work.</p>
-                            </div>
-                            <div class="tip-item">
-                                <div class="tip-q"><i class="fas fa-circle-question"></i> Is image stabilization (IS/VR/OSS) worth it?</div>
-                                <p class="tip-a">Yes if you shoot handheld in low light or video. Less critical if your body already has in-body stabilization (IBIS).</p>
-                            </div>
-                            <div class="tip-item">
-                                <div class="tip-q"><i class="fas fa-circle-question"></i> Should I buy third-party lenses?</div>
-                                <p class="tip-a">Sigma and Tamron now make excellent native-mount lenses at lower prices — a smart way to save without sacrificing much quality.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </div><!-- /panel-lens -->
-
-    <!-- ══════════════ CTA ══════════════ -->
-    <section class="guide-section" style="padding-top:0;">
-        <div class="container">
-            <div class="guide-cta reveal">
-                <i class="fas fa-comments" style="font-size:28px; color:#2FB8AC; margin-bottom:14px; display:block;"></i>
-                <h3 style="font-family:'Bebas Neue',sans-serif; font-size:30px; color:#fff; letter-spacing:1px;">Still Not Sure?</h3>
-                <p style="color:rgba(255,255,255,0.45); font-family:'Inter',sans-serif; font-size:14px; max-width:480px; margin:10px auto 24px;">
-                    Visit FOTOLAB in person or message us — our staff will walk you through real options based on your budget and what you actually shoot.
-                </p>
-                <a href="contact.html" class="btn-guide">Talk to Us</a>
-            </div>
+    <!-- ====== HERO ====== -->
+    <section class="guide-hero">
+        <div class="overlay"></div>
+        <div class="container position-relative z-3">
+            <h1 class="display-2 fw-bold text-white" data-aos="fade-up">Buying Guide</h1>
+            <p class="lead text-white-50 fs-4" data-aos="fade-up" data-aos-delay="150">Expert advice to find your perfect camera and lens</p>
         </div>
     </section>
 
-    <!-- ══════════════ FOOTER ══════════════ -->
-    <footer class="py-5" style="background-color: black;">
+    <!-- ====== TAB STRIP ====== -->
+    <div class="tab-strip">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">FOTOLAB</h5>
-                    <p class="text-white">Premium Photography Solutions since 1991.</p>
+            <div class="d-flex flex-wrap">
+                <button class="tab-btn active" data-panel="panel-camera"><i class="fas fa-camera"></i>Camera Advice</button>
+                <button class="tab-btn" data-panel="panel-lens"><i class="fas fa-circle-dot"></i>Lens Advice</button>
+                <button class="tab-btn" data-panel="panel-faq"><i class="fas fa-question-circle"></i>FAQ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== MAIN CONTENT ====== -->
+    <main style="flex: 1 0 auto;">
+
+        <!-- ====== CAMERA PANEL ====== -->
+        <div class="tab-panel active" id="panel-camera">
+            <section class="py-5" style="background: #0b0b1a;">
+                <div class="container">
+                    <div data-aos="fade-up">
+                        <p class="section-eyebrow">Step 1 — What's it for?</p>
+                        <div class="divider-line"></div>
+                        <h2 class="section-title">Find Your Camera by Purpose</h2>
+                        <p style="color:rgba(255,255,255,0.45); font-family:'Inter',sans-serif; font-size:14px; max-width:600px; margin-top:10px;">
+                            Pick the use-case closest to yours. Each card gives our honest recommendation at two price points.
+                        </p>
+                    </div>
+
+                    <div class="row g-4 mt-3">
+                        <!-- Starting Out -->
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="50">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-person-walking"></i></div>
+                                <div class="rec-title">Just Starting Out</div>
+                                <p class="rec-desc">Learn photography properly with light, simple gear that has room to grow.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Canon EOS R50 <a href="products.html">View →</a></div>
+                                    <div class="rec-item">Nikon Z30 <a href="products.html">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vlogging -->
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="100">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-video"></i></div>
+                                <div class="rec-title">Vlogging &amp; Content</div>
+                                <p class="rec-desc">Flip screen, good face autofocus, lightweight enough to hold for hours.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Sony ZV-E10 II <a href="products.html">View →</a></div>
+                                    <div class="rec-item">Fujifilm X-S20 <a href="products.html">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Portraits -->
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="150">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-people-group"></i></div>
+                                <div class="rec-title">Portraits &amp; Weddings</div>
+                                <p class="rec-desc">Excellent eye-AF, beautiful skin tones, and a strong lens ecosystem.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Canon EOS R6 Mark II <a href="products.html">View →</a></div>
+                                    <div class="rec-item">Sony A7 IV <a href="products.html">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sports -->
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="200">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-futbol"></i></div>
+                                <div class="rec-title">Sports &amp; Action</div>
+                                <p class="rec-desc">Fast burst rate, deep buffer, predictive autofocus that locks and holds.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Nikon Z8 <a href="products.html">View →</a></div>
+                                    <div class="rec-item">Canon EOS R5 Mark II <a href="products.html">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Landscape -->
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="250">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-mountain-sun"></i></div>
+                                <div class="rec-title">Landscape &amp; Studio</div>
+                                <p class="rec-desc">Resolution and dynamic range matter more than speed here.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Sony A7R V <a href="products.html">View →</a></div>
+                                    <div class="rec-item">Fujifilm GFX100S <a href="products.html">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Filmmaking -->
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="300">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-film"></i></div>
+                                <div class="rec-title">Filmmaking &amp; Cinema</div>
+                                <p class="rec-desc">Log profiles, high bitrate, good rolling shutter performance.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Sony FX3 <a href="products.html">View →</a></div>
+                                    <div class="rec-item">Panasonic Lumix GH6 <a href="products.html">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Travel -->
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="350">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-mountain"></i></div>
+                                <div class="rec-title">Travel &amp; Adventure</div>
+                                <p class="rec-desc">Tough body, waterproofing, and lightweight for carrying all day.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">GoPro Hero13 Black <a href="products.html">View →</a></div>
+                                    <div class="rec-item">Fujifilm X100VI <a href="products.html">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Film / Heritage -->
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="400">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-clock-rotate-left"></i></div>
+                                <div class="rec-title">Film &amp; Heritage Look</div>
+                                <p class="rec-desc">The process and look of analog photography, not just a filter.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Yashica FX-3 Super 2000 <a href="brands.html">View →</a></div>
+                                    <div class="rec-item">Yashica Electro 35 <a href="brands.html">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">Explore</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="products.html" class="text-white text-decoration-none">Products</a></li>
-                        <li><a href="service.html" class="text-white text-decoration-none">Services</a></li>
-                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+            </section>
+
+            <!-- DSLR vs Mirrorless -->
+            <section class="py-5" style="background: #0d0d1a;">
+                <div class="container">
+                    <div data-aos="fade-up">
+                        <p class="section-eyebrow">Step 2 — Body Type</p>
+                        <div class="divider-line"></div>
+                        <h2 class="section-title">DSLR vs Mirrorless</h2>
+                    </div>
+
+                    <div class="compare-table-wrap mt-3" data-aos="fade-up" data-aos-delay="100">
+                        <table class="compare-table">
+                            <thead>
+                                <tr>
+                                    <th>Factor</th>
+                                    <th>DSLR</th>
+                                    <th>Mirrorless</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Battery life</td>
+                                    <td class="highlight">Better — optical viewfinder uses no power</td>
+                                    <td>Shorter — EVF drains battery faster</td>
+                                </tr>
+                                <tr>
+                                    <td>Autofocus speed</td>
+                                    <td>Good, but limited in video</td>
+                                    <td class="highlight">Faster, better eye-tracking</td>
+                                </tr>
+                                <tr>
+                                    <td>Size &amp; weight</td>
+                                    <td>Bulkier body and lenses</td>
+                                    <td class="highlight">Lighter and more compact</td>
+                                </tr>
+                                <tr>
+                                    <td>Lens selection</td>
+                                    <td class="highlight">Decades of used/affordable glass</td>
+                                    <td>Newer mounts, growing fast</td>
+                                </tr>
+                                <tr>
+                                    <td>Future-proofing</td>
+                                    <td>Canon &amp; Nikon have moved to mirrorless</td>
+                                    <td class="highlight">Where the industry is investing now</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="note-box mt-4" data-aos="fade-up">
+                        <i class="fas fa-circle-info"></i>
+                        <p>If you're buying your first serious camera in 2026, we generally point people toward mirrorless — but if you already own EF or F-mount lenses, a DSLR body can still make sense to avoid re-buying glass.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- New vs Used -->
+            <section class="py-5" style="background: #0b0b1a;">
+                <div class="container">
+                    <div data-aos="fade-up">
+                        <p class="section-eyebrow">Step 3 — Budget</p>
+                        <div class="divider-line"></div>
+                        <h2 class="section-title">New, Used, or Refurbished?</h2>
+                    </div>
+
+                    <div class="row g-4 mt-3">
+                        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="50">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-circle-check"></i></div>
+                                <div class="rec-title">New from FOTOLAB</div>
+                                <p class="rec-desc">Full manufacturer warranty, latest firmware, and our 7-day return policy. Best for flagship bodies you'll keep for years.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-rotate"></i></div>
+                                <div class="rec-title">Certified Refurbished</div>
+                                <p class="rec-desc">Inspected, tested, and re-sealed by us with 6-month warranty. Usually 20-30% cheaper than new.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="150">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-hand-holding"></i></div>
+                                <div class="rec-title">Trade-In Program</div>
+                                <p class="rec-desc">Bring your current body in-store. We'll value it on the spot and apply credit toward your next purchase.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ====== LENS PANEL ====== -->
+        <div class="tab-panel" id="panel-lens">
+            <section class="py-5" style="background: #0b0b1a;">
+                <div class="container">
+                    <div data-aos="fade-up">
+                        <p class="section-eyebrow">Step 1 — What are you shooting?</p>
+                        <div class="divider-line"></div>
+                        <h2 class="section-title">Find Your Lens by Purpose</h2>
+                        <p style="color:rgba(255,255,255,0.45); font-family:'Inter',sans-serif; font-size:14px; max-width:600px; margin-top:10px;">
+                            Your camera body matters less than the glass in front of it. Here's where to start.
+                        </p>
+                    </div>
+
+                    <div class="row g-4 mt-3">
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="50">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-user"></i></div>
+                                <div class="rec-title">Portraits</div>
+                                <p class="rec-desc">Wide aperture for background blur, flattering compression on faces.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Canon RF 50mm f/1.2L <a href="products.html">View →</a></div>
+                                    <div class="rec-item">Sony FE 85mm f/1.4 GM <a href="products.html">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="100">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-image"></i></div>
+                                <div class="rec-title">Everyday &amp; Travel</div>
+                                <p class="rec-desc">One lens that does it all — wide enough for rooms, tight enough for details.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Canon RF 24-70mm f/2.8L <a href="products.html">View →</a></div>
+                                    <div class="rec-item">Nikkor Z 24-70mm f/2.8 <a href="products.html">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="150">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-mountain"></i></div>
+                                <div class="rec-title">Landscape</div>
+                                <p class="rec-desc">Wide angle, sharp corners, ideally with weather sealing.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Fujinon XF 16-55mm f/2.8 <a href="products.html">View →</a></div>
+                                    <div class="rec-item">Sony FE 16-35mm f/2.8 GM <a href="products.html">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="200">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-dove"></i></div>
+                                <div class="rec-title">Wildlife &amp; Sports</div>
+                                <p class="rec-desc">Long reach, fast autofocus, and image stabilization.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Canon RF 100-500mm f/4.5-7.1L <a href="products.html">View →</a></div>
+                                    <div class="rec-item">Nikkor Z 100-400mm f/4.5-5.6 <a href="products.html">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prime vs Zoom -->
+            <section class="py-5" style="background: #0d0d1a;">
+                <div class="container">
+                    <div data-aos="fade-up">
+                        <p class="section-eyebrow">Step 2 — Prime or Zoom?</p>
+                        <div class="divider-line"></div>
+                        <h2 class="section-title">Prime vs Zoom Lenses</h2>
+                    </div>
+
+                    <div class="compare-table-wrap mt-3" data-aos="fade-up" data-aos-delay="100">
+                        <table class="compare-table">
+                            <thead>
+                                <tr>
+                                    <th>Factor</th>
+                                    <th>Prime Lens</th>
+                                    <th>Zoom Lens</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Aperture / low light</td>
+                                    <td class="highlight">Wider apertures (f/1.2 - f/1.8), better in dark venues</td>
+                                    <td>Usually limited to f/2.8 at best</td>
+                                </tr>
+                                <tr>
+                                    <td>Sharpness</td>
+                                    <td class="highlight">Generally sharper at any given aperture</td>
+                                    <td>Very good but rarely matches a prime</td>
+                                </tr>
+                                <tr>
+                                    <td>Flexibility</td>
+                                    <td>Fixed focal length — you move your feet</td>
+                                    <td class="highlight">One lens covers many framings</td>
+                                </tr>
+                                <tr>
+                                    <td>Weight &amp; size</td>
+                                    <td class="highlight">Lighter, easier to carry all day</td>
+                                    <td>Heavier, especially f/2.8 zooms</td>
+                                </tr>
+                                <tr>
+                                    <td>Best for</td>
+                                    <td>Portraits, low light, intentional shooting</td>
+                                    <td class="highlight">Events, travel, run-and-gun shooting</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mount Compatibility -->
+            <section class="py-5" style="background: #0b0b1a;">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-6" data-aos="fade-right">
+                            <p class="section-eyebrow">Step 3 — Compatibility</p>
+                            <div class="divider-line"></div>
+                            <h2 class="section-title">Check Your Mount First</h2>
+                            <div class="note-box mt-3">
+                                <i class="fas fa-circle-info"></i>
+                                <p>Lenses are mount-specific. Canon RF lenses won't fit an EF body without an adapter, and Sony E-mount lenses don't fit Nikon Z cameras at all. Always confirm your camera's mount before buying — our staff checks this for free in-store.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6" data-aos="fade-left">
+                            <p class="section-eyebrow">Common Questions</p>
+                            <div class="divider-line"></div>
+                            <h2 class="section-title">Quick Answers</h2>
+                            <div class="mt-3">
+                                <div class="tip-item">
+                                    <div class="tip-q"><i class="fas fa-circle-question"></i>Do I need an L-series / GM / S-line lens?</div>
+                                    <p class="tip-a">Only if you're shooting professionally or need weather sealing. Standard consumer lenses are sharp enough for most hobbyists and even paid work.</p>
+                                </div>
+                                <div class="tip-item">
+                                    <div class="tip-q"><i class="fas fa-circle-question"></i>Is image stabilization (IS/VR/OSS) worth it?</div>
+                                    <p class="tip-a">Yes if you shoot handheld in low light or video. Less critical if your body already has in-body stabilization (IBIS).</p>
+                                </div>
+                                <div class="tip-item">
+                                    <div class="tip-q"><i class="fas fa-circle-question"></i>Should I buy third-party lenses?</div>
+                                    <p class="tip-a">Sigma and Tamron now make excellent native-mount lenses at lower prices — a smart way to save without sacrificing much quality.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ====== FAQ PANEL ====== -->
+        <div class="tab-panel" id="panel-faq">
+            <section class="py-5" style="background: #0b0b1a;">
+                <div class="container">
+                    <div data-aos="fade-up">
+                        <p class="section-eyebrow">Frequently Asked Questions</p>
+                        <div class="divider-line"></div>
+                        <h2 class="section-title">Common Photography Questions</h2>
+                    </div>
+
+                    <div class="row g-4 mt-3">
+                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="50">
+                            <div class="tip-item">
+                                <div class="tip-q"><i class="fas fa-circle-question"></i>What camera should I buy for travel?</div>
+                                <p class="tip-a">Look for a lightweight mirrorless body with a compact zoom lens. Fujifilm X-T50, Sony A6700, or Canon R50 are great options. Weather sealing is a bonus if you shoot outdoors often.</p>
+                            </div>
+                            <div class="tip-item">
+                                <div class="tip-q"><i class="fas fa-circle-question"></i>How many megapixels do I need?</div>
+                                <p class="tip-a">24MP is plenty for most uses — you can print large and crop reasonably. 45MP+ is only necessary if you're doing professional studio work or need massive crops.</p>
+                            </div>
+                            <div class="tip-item">
+                                <div class="tip-q"><i class="fas fa-circle-question"></i>Is full-frame better than APS-C?</div>
+                                <p class="tip-a">Full-frame gives better low-light performance and shallower depth of field. APS-C is lighter, cheaper, and lenses are more affordable. Both can produce professional results.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="tip-item">
+                                <div class="tip-q"><i class="fas fa-circle-question"></i>How do I clean my camera sensor?</div>
+                                <p class="tip-a">Use a blower first to remove dust particles. If that doesn't work, use a sensor cleaning kit with swabs designed for your sensor size. Bring it to us if you're unsure — we offer professional cleaning services.</p>
+                            </div>
+                            <div class="tip-item">
+                                <div class="tip-q"><i class="fas fa-circle-question"></i>What's the best lens for beginners?</div>
+                                <p class="tip-a">A 50mm f/1.8 prime is affordable, sharp, and teaches you to compose. A 24-70mm f/4 zoom is more versatile for everyday use. Both are excellent starting points.</p>
+                            </div>
+                            <div class="tip-item">
+                                <div class="tip-q"><i class="fas fa-circle-question"></i>How long do camera batteries last?</div>
+                                <p class="tip-a">DSLR batteries typically last 800-1200 shots per charge. Mirrorless batteries last 300-600 shots depending on EVF usage. Always carry a spare for important shoots.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-cta mt-5" data-aos="fade-up">
+                        <i class="fas fa-comments" style="font-size:28px; color:#C9A84C; margin-bottom:14px; display:block;"></i>
+                        <h3 style="font-family:'Bebas Neue',sans-serif; font-size:30px; color:#fff; letter-spacing:1px;">Still Have Questions?</h3>
+                        <p style="color:rgba(255,255,255,0.45); font-family:'Inter',sans-serif; font-size:14px; max-width:480px; margin:10px auto 24px;">
+                            Visit FOTOLAB in person or message us — our staff will walk you through real options based on your budget and what you actually shoot.
+                        </p>
+                        <a href="contact.html" class="btn btn-amber px-5 py-3 fs-5">Talk to Us</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;">FOTOLAB</h5>
+                    <p class="text-white-50 small mb-0">Premium Photography Solutions Since 1991.</p>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;">Quick Links</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
+                        <li><a href="brands.html" class="text-white-50 text-decoration-none">Brands</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">Contact</h5>
-                    <p class="text-white">info@fotolab.com</p>
-                    <p class="text-white">+91 98765 43210</p>
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;">Contact Outlet</h5>
+                    <p class="text-white-50 small mb-1"><i class="fas fa-map-marker-alt text-amber me-1"></i> Korangi, Karachi</p>
+                    <p class="text-white-50 small mb-1"><i class="fas fa-envelope text-amber me-1"></i> info@fotolab.com</p>
+                    <p class="text-white-50 small mb-0"><i class="fas fa-phone text-amber me-1"></i> +92 300 1234567</p>
+                </div>
+                <!-- Geolocation Live Route Module -->
+                <div class="col-md-4">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;"><i class="fas fa-satellite-dish me-1"></i>Your Location Route</h5>
+                    <div id="locationInfo" class="p-2 rounded text-start" style="background: #0e0e24; border: 1px solid #2f2f5a; font-size: 0.8rem; min-height: 48px;">
+                        <span><i class="fas fa-spinner fa-pulse me-2"></i>Locating ...</span>
+                    </div>
                 </div>
             </div>
-            <hr class="border-secondary">
-            <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
+            <hr class="border-secondary my-3">
+            <p class="text-center text-white-50 mb-0 small">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
         </div>
     </footer>
 
+    <!-- ====== SCRIPTS ====== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/loader.js"></script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // ── Scroll reveal ──
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('visible');
-                    observer.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        reveals.forEach(el => observer.observe(el));
+        AOS.init({ duration: 800, once: true });
+    </script>
 
-        // ── Tab switcher ──
-        const tabBtns = document.querySelectorAll('.guide-tab-btn');
-        const panels = document.querySelectorAll('.guide-panel');
+    <!-- ====== TAB SWITCHER ====== -->
+    <script>
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const panels = document.querySelectorAll('.tab-panel');
 
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -844,14 +885,63 @@
 
                 btn.classList.add('active');
                 document.getElementById(btn.dataset.panel).classList.add('active');
-
-                // Re-trigger reveal animations for newly shown panel
-                document.querySelectorAll(`#${btn.dataset.panel} .reveal`).forEach(el => {
-                    el.classList.add('visible');
-                });
             });
         });
+
+        // Activate first tab by default if none active
+        if (!document.querySelector('.tab-btn.active')) {
+            document.querySelector('.tab-btn')?.classList.add('active');
+        }
     </script>
 
+    <!-- ====== GEOLOCATION (Footer) ====== -->
+    <script>
+        (function() {
+            function updateLocationInfo(position) {
+                const lat = position.coords.latitude.toFixed(6);
+                const lng = position.coords.longitude.toFixed(6);
+                const el = document.getElementById('locationInfo');
+                if (el) {
+                    el.innerHTML = `
+                        <i class="fas fa-map-pin text-amber me-1"></i> 
+                        <span class="text-white-50">Lat: ${lat} , Lng: ${lng}</span>
+                        <span class="badge bg-amber text-dark ms-1" style="background:#C9A84C; font-size:0.7rem;">±${Math.round(position.coords.accuracy || 0)}m</span>
+                        <div class="mt-1 small text-white-50"><i class="fas fa-route text-amber me-1"></i>Live route via Geolocation API</div>
+                    `;
+                }
+            }
+            function showLocationError(error) {
+                const el = document.getElementById('locationInfo');
+                if (el) {
+                    let msg = 'Location access denied.';
+                    if (error.code === 1) msg = '❌ Permission denied.';
+                    else if (error.code === 2) msg = '⚠️ Position unavailable.';
+                    else if (error.code === 3) msg = '⏳ Timeout.';
+                    el.innerHTML = `<i class="fas fa-exclamation-triangle text-warning me-1"></i> ${msg}`;
+                }
+            }
+            function getLocation() {
+                if (!navigator.geolocation) {
+                    const el = document.getElementById('locationInfo');
+                    if (el) el.innerHTML = '<i class="fas fa-browser text-warning me-1"></i> Geolocation not supported.';
+                    return;
+                }
+                navigator.geolocation.getCurrentPosition(updateLocationInfo, showLocationError, {
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    maximumAge: 0
+                });
+            }
+            document.addEventListener('DOMContentLoaded', function() {
+                getLocation();
+                setTimeout(() => {
+                    const el = document.getElementById('locationInfo');
+                    if (el && el.innerHTML.includes('Locating')) getLocation();
+                }, 4000);
+            });
+        })();
+    </script>
+<script src="../js/main.js"></script>
+<script src="../js/loader.js"></script>
 </body>
 </html>

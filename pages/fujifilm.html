@@ -18,8 +18,9 @@
     <style>
         /* ── Fujifilm Page Exclusive Styles ── */
         :root {
-            --brand-accent: #009966; /* Fujifilm Iconic Green */
+            --brand-accent: #009966;
             --brand-accent-dark: #005533;
+            --brand-accent-light: #66CC99;
             --brand-accent-glow: rgba(0,153,102,0.25);
         }
 
@@ -42,7 +43,6 @@
             pointer-events: none;
         }
 
-        /* Animated grid lines */
         .hero-grid {
             position: absolute;
             inset: 0;
@@ -175,6 +175,7 @@
             background: rgba(0,153,102,0.2);
             border-color: rgba(0,153,102,0.5);
             color: #fff;
+            transform: translateY(-2px);
         }
 
         .feature-pill i { color: var(--brand-accent); font-size: 12px; }
@@ -199,6 +200,10 @@
             box-shadow: 0 0 12px rgba(0,153,102,0.6);
         }
 
+        .timeline-item:hover::before {
+            box-shadow: 0 0 20px rgba(0,153,102,0.8);
+        }
+
         .timeline-year {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 22px;
@@ -219,7 +224,6 @@
             padding: 100px 0;
         }
 
-        /* Filter tabs */
         .filter-tabs {
             display: flex;
             gap: 8px;
@@ -246,6 +250,8 @@
             background: var(--brand-accent);
             border-color: var(--brand-accent);
             color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,153,102,0.3);
         }
 
         /* Product cards */
@@ -394,7 +400,8 @@
         .btn-fuji:hover {
             background: var(--brand-accent-dark);
             color: #fff;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,153,102,0.3);
         }
 
         /* ── Scroll reveal ── */
@@ -433,6 +440,7 @@
         .why-card:hover {
             border-color: rgba(0,153,102,0.3);
             transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,153,102,0.1);
         }
 
         .why-icon {
@@ -469,7 +477,6 @@
             line-height: 1.7;
         }
 
-        /* ── Green accent line ── */
         .green-line {
             width: 40px;
             height: 3px;
@@ -478,9 +485,68 @@
             margin-bottom: 20px;
         }
 
-        /* ── Footer inherits from main style.css ── */
-        footer a { transition: color 0.2s; }
-        footer a:hover { color: var(--brand-accent) !important; }
+        /* ── Footer ── */
+        footer {
+            background: #070714;
+            border-top: 2px solid var(--brand-accent);
+        }
+        footer .text-amber {
+            color: var(--brand-accent) !important;
+        }
+        footer .text-white-50 {
+            color: rgba(255,255,255,0.5) !important;
+        }
+        footer .list-unstyled li a {
+            color: rgba(255,255,255,0.5) !important;
+            transition: 0.2s;
+        }
+        footer .list-unstyled li a:hover {
+            color: var(--brand-accent) !important;
+            padding-left: 6px;
+        }
+        footer hr {
+            border-color: rgba(0,153,102,0.2) !important;
+        }
+
+        #locationInfo {
+            background: #0e0e24 !important;
+            border: 1px solid rgba(0,153,102,0.3) !important;
+            border-radius: 18px;
+            color: #ddd;
+            font-size: 0.9rem;
+            padding: 12px 16px !important;
+            min-height: 62px;
+            display: flex;
+            align-items: center;
+        }
+        #locationInfo i { 
+            color: var(--brand-accent); 
+            width: 22px; 
+        }
+
+        @keyframes fl-spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* ── Navbar Hover ── */
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            background: rgba(0,153,102,0.2) !important;
+            color: var(--brand-accent) !important;
+            box-shadow: 0 0 12px rgba(0,153,102,0.3) !important;
+        }
+
+        .stat-number {
+            transition: 0.3s;
+        }
+        .stat-number:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 30px rgba(0,153,102,0.3);
+        }
+        .hero-stat:hover .stat-number {
+            color: var(--brand-accent);
+        }
     </style>
 </head>
 <body>
@@ -489,20 +555,19 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="../index.html">
-                <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
-                <span class="fw-bold fs-3">FOTOLAB</span>
+                <img src="https://i.imgur.com/2Zz7k5M.png" alt="FOTOLAB Logo" width="44" height="44" class="me-2" style="filter: drop-shadow(0 0 8px #C9A84C88);">
+                <span class="fw-bold fs-3" style="color: #fff; text-shadow: 0 0 12px #C9A84C55;">FOTOLAB</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="brands.html">Brands</a></li>
-                    <li class="nav-item"><a class="nav-link" href="canon.html">Canon</a></li>
-                    <li class="nav-item"><a class="nav-link" href="nikon.html">Nikon</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sony.html">Sony</a></li>
+                    <li class="nav-item"><a class="nav-link" href="brands.html">Brands</a></li>
                     <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
@@ -551,7 +616,6 @@
                 </div>
 
                 <div class="col-lg-5 d-none d-lg-flex justify-content-center align-items-center">
-                    <!-- Decorative Fujifilm Theme Elements -->
                     <div style="position:relative; width:320px; height:320px;">
                         <div style="
                             position:absolute; inset:0; border-radius:50%;
@@ -574,7 +638,6 @@
                                 line-height:1;
                             ">X</span>
                         </div>
-                        <!-- Dots -->
                         <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--brand-accent);box-shadow:0 0 14px rgba(0,153,102,0.8);"></div>
                         <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:rgba(0,153,102,0.5);"></div>
                     </div>
@@ -593,19 +656,19 @@
                     <h2 class="section-title">The Master of Colors</h2>
                     <p style="color:rgba(255,255,255,0.5); font-size:15px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:20px;">
                         Fujifilm ne hamesha photography ko ek jazba mana hai. Inke cameras sirf tools nahi hain balki vintage design, 
-                        tactile mechanical dials, aur proprietary **X-Trans sensor technology** ka ek bemisaal sargam hain jo bina post-processing ke kamal colors deta hai.
+                        tactile mechanical dials, aur proprietary <strong>X-Trans sensor technology</strong> ka ek bemisaal sargam hain jo bina post-processing ke kamal colors deta hai.
                     </p>
                     <p style="color:rgba(255,255,255,0.4); font-size:14px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:14px;">
                         Chahe baat APS-C X-system ki compact speed ki ho ya GFX Medium Format ki ultra-detailed landscape aur fashion shoots ki, 
                         Fujifilm har frame me jaan daal deta hai.
                     </p>
                     <div class="d-flex flex-wrap gap-2 mt-4">
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Film Simulations (Classic Chrome, Provia)</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> X-Trans CMOS Sensor Tech</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Tactile Analogue Shutter & ISO Dials</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Advanced X-Processor 5 Speed</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> GFX Medium Format Ecosystem</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Superb Out-of-Camera JPEGs</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Film Simulations</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> X-Trans Sensor</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Retro Dials</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> GFX Medium Format</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Out-of-Camera JPEGs</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Weather Resistant</span>
                     </div>
                 </div>
 
@@ -633,7 +696,7 @@
                         <div class="timeline-text">GFX 50S launched — Medium format photography ko sasta aur portable banaya.</div>
                     </div>
                     <div class="timeline-item" style="padding-bottom:0; border-left-color:transparent;">
-                        <div class="timeline-year">2025/2026</div>
+                        <div class="timeline-year">2025</div>
                         <div class="timeline-text">X-T5, X100VI aur GFX 100 II systems apni unmatched color recipes ke sath trend kar rahe hain.</div>
                     </div>
                 </div>
@@ -654,7 +717,7 @@
                     <div class="why-card">
                         <div class="why-icon"><i class="fas fa-sliders-h"></i></div>
                         <div class="why-title">Film Simulations</div>
-                        <p class="why-text">Bina editing ke purani classic film rolls (jaise *Classic Neg, Nostalgic Neg*) jesa aesthetic directly camera se haasil karein.</p>
+                        <p class="why-text">Bina editing ke purani classic film rolls (jaise Classic Neg, Nostalgic Neg) jesa aesthetic directly camera se haasil karein.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-2">
@@ -690,11 +753,10 @@
                 <div class="green-line mx-auto mt-3"></div>
                 <h2 class="section-title mt-2">Fujifilm Products at FOTOLAB</h2>
                 <p style="color:rgba(255,255,255,0.35); font-size:14px; font-family:'Inter',sans-serif; margin-top:10px;">
-                    Available in-store and online. All products carry official Fujifilm Pakistan warranty support.
+                    Available in-store and online. All products carry official Fujifilm Pakistan warranty.
                 </p>
             </div>
 
-            <!-- Filter tabs -->
             <div class="filter-tabs">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="mirrorless">X-Series APS-C</button>
@@ -705,7 +767,7 @@
 
             <div class="row g-4" id="products-grid">
 
-                <!-- Fujifilm X-T5 -->
+                <!-- X-T5 -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="mirrorless">
                     <div class="product-card">
                         <div class="product-img-wrap">
@@ -715,12 +777,11 @@
                         <div class="product-body">
                             <div class="product-category">X-Series Mirrorless</div>
                             <div class="product-name">Fujifilm X-T5</div>
-                            <p class="product-desc">40.2MP high-resolution X-Trans 5 HR sensor classical dials aur 3-way tilting screen ke sath. Shutter lovers ki pehli pasand.</p>
+                            <p class="product-desc">40.2MP X-Trans 5 HR sensor, retro dials, 7-stop IBIS aur 6.2K video. Shutter lovers ki pehli pasand.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">40.2MP X-Trans</span>
+                                <span class="spec-tag">40.2MP</span>
                                 <span class="spec-tag">6.2K Video</span>
                                 <span class="spec-tag">7-Stop IBIS</span>
-                                <span class="spec-tag">Retro Dials</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
@@ -732,7 +793,7 @@
                     </div>
                 </div>
 
-                <!-- Fujifilm X-H2S -->
+                <!-- X-H2S -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="mirrorless">
                     <div class="product-card">
                         <div class="product-img-wrap">
@@ -742,12 +803,11 @@
                         <div class="product-body">
                             <div class="product-category">X-Series Mirrorless</div>
                             <div class="product-name">Fujifilm X-H2S</div>
-                            <p class="product-desc">Stacked CMOS sensor jo 40fps blackout-free burst shooting aur internally 4K 120p ProRES video card par bagair overheat ke record karta hai.</p>
+                            <p class="product-desc">Stacked CMOS sensor, 40fps burst, 4K 120p ProRES video. Sports aur wildlife ke liye beast.</p>
                             <div class="product-specs">
                                 <span class="spec-tag">26.1MP Stacked</span>
-                                <span class="spec-tag">4K 120p / 6K</span>
-                                <span class="spec-tag">Apple ProRes</span>
-                                <span class="spec-tag">40 fps Burst</span>
+                                <span class="spec-tag">4K 120p</span>
+                                <span class="spec-tag">40fps</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
@@ -759,7 +819,7 @@
                     </div>
                 </div>
 
-                <!-- Fujifilm X-T50 -->
+                <!-- X-T50 -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="mirrorless">
                     <div class="product-card">
                         <div class="product-img-wrap">
@@ -769,11 +829,11 @@
                         <div class="product-body">
                             <div class="product-category">X-Series Mirrorless</div>
                             <div class="product-name">Fujifilm X-T50</div>
-                            <p class="product-desc">Compact body me 40MP ka taqatwar sensor aur pehli baar dedicated Film Simulation dial jo shortcuts ko mazeed asaan bana deta hai.</p>
+                            <p class="product-desc">40MP compact body, pehli baar dedicated Film Simulation dial with IBIS. Street photography ka perfect companion.</p>
                             <div class="product-specs">
                                 <span class="spec-tag">40.2MP</span>
                                 <span class="spec-tag">Simulation Dial</span>
-                                <span class="spec-tag">IBIS Built-in</span>
+                                <span class="spec-tag">IBIS</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
@@ -785,21 +845,20 @@
                     </div>
                 </div>
 
-                <!-- XF 56mm f/1.2 R WR -->
+                <!-- XF 56mm f/1.2 -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="lens">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1026/400/300" alt="Fujifilm XF 56mm f/1.2 R WR">
+                            <img src="https://picsum.photos/id/1026/400/300" alt="XF 56mm f/1.2">
                             <span class="product-badge">Bokeh Master</span>
                         </div>
                         <div class="product-body">
                             <div class="product-category">XF Lens</div>
                             <div class="product-name">XF 56mm f/1.2 R WR</div>
-                            <p class="product-desc">Fujifilm ka ultimate portrait glass. f/1.2 ki super wide opening aur naye weather-sealed (WR) structure ke sath makhmali background.</p>
+                            <p class="product-desc">Ultimate portrait glass. f/1.2 aperture aur weather-sealed design ke sath makhmali bokeh.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">f/1.2 Aperture</span>
-                                <span class="spec-tag">85mm (Equiv.)</span>
-                                <span class="spec-tag">Weather Resistant</span>
+                                <span class="spec-tag">f/1.2</span>
+                                <span class="spec-tag">Weather Sealed</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
@@ -811,20 +870,19 @@
                     </div>
                 </div>
 
-                <!-- XF 16-55mm f/2.8 R LM WR -->
+                <!-- XF 16-55mm f/2.8 -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="lens">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1027/400/300" alt="XF 16-55mm f/2.8">
+                            <img src="https://picsum.photos/id/1027/400/300" alt="XF 16-55mm">
                             <span class="product-badge">Red Badge</span>
                         </div>
                         <div class="product-body">
                             <div class="product-category">XF Lens</div>
                             <div class="product-name">XF 16-55mm f/2.8 R LM WR</div>
-                            <p class="product-desc">Fujifilm ka flagship "Red Badge" standard zoom lens. Constant f/2.8 aperture poori range me prime lens jesi crisp resolution daita hai.</p>
+                            <p class="product-desc">Flagship "Red Badge" zoom. Constant f/2.8 aperture aur prime-like crisp resolution.</p>
                             <div class="product-specs">
                                 <span class="spec-tag">f/2.8 Constant</span>
-                                <span class="spec-tag">Linear Motor (LM)</span>
                                 <span class="spec-tag">Pro Resolution</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
@@ -837,7 +895,7 @@
                     </div>
                 </div>
 
-                <!-- Fujifilm GFX 100S II -->
+                <!-- GFX 100S II -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="medium-format">
                     <div class="product-card">
                         <div class="product-img-wrap">
@@ -847,10 +905,9 @@
                         <div class="product-body">
                             <div class="product-category">Medium Format</div>
                             <div class="product-name">GFX 100S II</div>
-                            <p class="product-desc">102 Million Pixels ka vishal Medium Format sensor. Utmost dynamic range aur crop flexibility jo aam full-frame cameras soch bhi nahi sakte.</p>
+                            <p class="product-desc">102MP Medium Format sensor. Full-frame se 1.7x bara sensor aur 8-stop IBIS.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">102MP Medium Format</span>
-                                <span class="spec-tag">4K Cinematic</span>
+                                <span class="spec-tag">102MP</span>
                                 <span class="spec-tag">8-Stop IBIS</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
@@ -863,7 +920,7 @@
                     </div>
                 </div>
 
-                <!-- Fujifilm X100VI -->
+                <!-- X100VI -->
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="compact">
                     <div class="product-card">
                         <div class="product-img-wrap">
@@ -873,11 +930,10 @@
                         <div class="product-body">
                             <div class="product-category">Premium Compact</div>
                             <div class="product-name">Fujifilm X100VI</div>
-                            <p class="product-desc">Duniya ka sabse mashhoor street camera. 40MP sensor, built-in 23mm f/2 prime lens, hybrid viewfinder aur IBIS ke sath pocket-sized magic.</p>
+                            <p class="product-desc">Duniya ka sabse mashhoor street camera. 40MP, built-in 23mm f/2 lens, hybrid viewfinder aur IBIS.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">40.2MP Fixed Lens</span>
-                                <span class="spec-tag">Hybrid OVF/EVF</span>
-                                <span class="spec-tag">Pocket Size</span>
+                                <span class="spec-tag">40.2MP</span>
+                                <span class="spec-tag">Hybrid Viewfinder</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
@@ -893,60 +949,51 @@
         </div>
     </section>
 
-    <!-- ══════════════ FOOTER ══════════════ -->
-    <footer class="py-5" style="background-color: black; border-top: 2px solid #C9A84C;">
+    <!-- ====== FOOTER ====== -->
+    <footer class="py-5">
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-3">
-                    <h5 class="text-amber mb-3">FOTOLAB</h5>
-                    <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
+                    <h5 style="color: var(--brand-accent); font-weight: 600; margin-bottom: 12px;">FOTOLAB</h5>
+                    <p style="color: rgba(255,255,255,0.5);">Premium Photography Solutions Since 1991.</p>
                 </div>
                 <div class="col-md-2">
-                    <h5 class="text-amber mb-3">Quick Links</h5>
+                    <h5 style="color: var(--brand-accent); font-weight: 600; margin-bottom: 12px;">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
+                        <li><a href="products.html" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: 0.2s;">Products</a></li>
+                        <li><a href="brands.html" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: 0.2s;">Brands</a></li>
+                        <li><a href="about.html" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: 0.2s;">About</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
-                    <h5 class="text-amber mb-3">Contact Outlet</h5>
-                    <p class="text-white-50 mb-1"><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi, Karachi, Pakistan</p>
-                    <p class="text-white-50 mb-1"><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
-                    <p class="text-white-50 mb-0"><i class="fas fa-phone text-amber me-2"></i> +91 98765 43210</p>
+                    <h5 style="color: var(--brand-accent); font-weight: 600; margin-bottom: 12px;">Contact Outlet</h5>
+                    <p style="color: rgba(255,255,255,0.5); margin-bottom: 4px;"><i class="fas fa-map-marker-alt" style="color: var(--brand-accent); width: 22px;"></i> Korangi, Karachi, Pakistan</p>
+                    <p style="color: rgba(255,255,255,0.5); margin-bottom: 4px;"><i class="fas fa-envelope" style="color: var(--brand-accent); width: 22px;"></i> info@fotolab.com</p>
+                    <p style="color: rgba(255,255,255,0.5); margin-bottom: 0;"><i class="fas fa-phone" style="color: var(--brand-accent); width: 22px;"></i> +92 300 1234567</p>
                 </div>
-                <!-- Geolocation Live Route Module Inside Footer -->
+                <!-- Geolocation Live Route Module -->
                 <div class="col-md-4">
-                    <h5 class="text-amber mb-3"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
-                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #1A1A2E; border: 1px solid #333;">
-                        <span class="text-white-50"><i class="fas fa-spinner fa-spin me-2"></i>Location track ki ja rahi hai...</span>
+                    <h5 style="color: var(--brand-accent); font-weight: 600; margin-bottom: 12px;"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
+                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #0e0e24; border: 1px solid rgba(0,153,102,0.3);">
+                        <span style="color: rgba(255,255,255,0.5);"><i class="fas fa-spinner fa-pulse me-2"></i>Locating ...</span>
                     </div>
                 </div>
             </div>
-            <hr class="border-secondary mt-4">
-            <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
+            <hr style="border-color: rgba(0,153,102,0.15); margin: 24px 0;">
+            <p class="text-center" style="color: rgba(255,255,255,0.4); margin-bottom: 0; font-size: 0.85rem;">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
         </div>
     </footer>
 
+    <!-- ====== SCRIPTS ====== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/loader.js"></script>
     <script src="../js/geolocation.js"></script>
-
-    <!-- Geolocation Trigger Script -->
+    
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            if (typeof getLocation === "function") {
-                getLocation();
-            }
-        });
-    </script>
-
-    <style>
-        @keyframes fl-spin {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
-        }
-    </style>
-    <script>
+        AOS.init({ duration: 800, once: true });
+        
         // ── Scroll Reveal ──
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
@@ -979,6 +1026,14 @@
                 });
             });
         });
+
+        // ── Geolocation Trigger ──
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof getLocation === "function") {
+                getLocation();
+            }
+        });
     </script>
+
 </body>
 </html>

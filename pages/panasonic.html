@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore Panasonic Lumix cameras and lenses at FOTOLAB - Pakistan's trusted photography store since 1991.">
-    <title>Panasonic Lumix - FOTOLAB</title>
+    <meta name="description" content="Explore Panasonic cameras and lenses at FOTOLAB - Pakistan's trusted photography store since 1991.">
+    <title>Panasonic - FOTOLAB</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,475 +16,579 @@
     </script>
 
     <style>
-       /* ── Panasonic Page Exclusive Styles (Red Theme) ── */
-:root {
-    --brand-accent: #E60000; /* Panasonic Red */
-    --brand-accent-dark: #B30000;
-    --brand-accent-glow: rgba(230,0,0,0.25);
-}
+        /* ── Panasonic Page Exclusive Styles ── */
+        :root {
+            --brand-accent: #00B4A8;
+            --brand-accent-dark: #00695C;
+            --brand-accent-light: #B2DFDB;
+            --brand-accent-glow: rgba(0, 180, 168, 0.25);
+        }
 
-/* ── Hero ── */
-.panasonic-hero {
-    min-height: 88vh;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%);
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    padding-top: 80px;
-}
+        /* ── Hero ── */
+        .panasonic-hero {
+            min-height: 88vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #002b26 50%, #0a0a0a 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
 
-.panasonic-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 70% 50%, rgba(230,0,0,0.12) 0%, transparent 65%);
-    pointer-events: none;
-}
+        .panasonic-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(0, 180, 168, 0.12) 0%, transparent 65%);
+            pointer-events: none;
+        }
 
-/* Animated grid lines */
-.hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(230,0,0,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(230,0,0,0.06) 1px, transparent 1px);
-    background-size: 60px 60px;
-    animation: gridMove 20s linear infinite;
-    pointer-events: none;
-}
+        /* Animated grid lines */
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 180, 168, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 180, 168, 0.06) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+        }
 
-@keyframes gridMove {
-    from { background-position: 0 0; }
-    to   { background-position: 60px 60px; }
-}
+        @keyframes gridMove {
+            from { background-position: 0 0; }
+            to   { background-position: 60px 60px; }
+        }
 
-.panasonic-logo-big {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(80px, 14vw, 180px);
-    color: var(--brand-accent);
-    line-height: 1;
-    letter-spacing: -2px;
-    text-shadow: 0 0 80px rgba(230,0,0,0.4);
-    animation: logoReveal 1s ease forwards;
-    opacity: 0;
-    transform: translateY(30px);
-}
+        .panasonic-logo-big {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(70px, 12vw, 160px);
+            color: var(--brand-accent);
+            line-height: 1;
+            letter-spacing: -2px;
+            text-shadow: 0 0 80px rgba(0, 180, 168, 0.4);
+            animation: logoReveal 1s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
 
-@keyframes logoReveal {
-    to { opacity: 1; transform: translateY(0); }
-}
+        @keyframes logoReveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-.panasonic-tagline {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(13px, 2vw, 17px);
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    margin-top: 8px;
-    animation: fadeUp 1s 0.3s ease forwards;
-    opacity: 0;
-}
+        .panasonic-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(13px, 2vw, 17px);
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-top: 8px;
+            animation: fadeUp 1s 0.3s ease forwards;
+            opacity: 0;
+        }
 
-.hero-stat {
-    animation: fadeUp 1s ease forwards;
-    opacity: 0;
-}
-.hero-stat:nth-child(1) { animation-delay: 0.4s; }
-.hero-stat:nth-child(2) { animation-delay: 0.55s; }
-.hero-stat:nth-child(3) { animation-delay: 0.7s; }
+        .hero-stat {
+            animation: fadeUp 1s ease forwards;
+            opacity: 0;
+        }
+        .hero-stat:nth-child(1) { animation-delay: 0.4s; }
+        .hero-stat:nth-child(2) { animation-delay: 0.55s; }
+        .hero-stat:nth-child(3) { animation-delay: 0.7s; }
 
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
 
-.stat-number {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 42px;
-    color: var(--brand-accent);
-    line-height: 1;
-}
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 42px;
+            color: var(--brand-accent);
+            line-height: 1;
+        }
 
-.stat-label {
-    font-size: 11px;
-    color: rgba(255,255,255,0.4);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
+        .stat-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
 
-.hero-divider {
-    width: 1px;
-    height: 50px;
-    background: rgba(230,0,0,0.3);
-}
+        .hero-divider {
+            width: 1px;
+            height: 50px;
+            background: rgba(0, 180, 168, 0.3);
+        }
 
-/* ── Section headers ── */
-.section-eyebrow {
-    font-size: 11px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--brand-accent);
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-}
+        /* ── Section headers ── */
+        .section-eyebrow {
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--brand-accent);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
 
-.section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(36px, 5vw, 56px);
-    color: #fff;
-    letter-spacing: 2px;
-    line-height: 1.1;
-}
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(36px, 5vw, 56px);
+            color: #fff;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
 
-/* ── About Panasonic Section ── */
-.about-section {
-    background: #080808;
-    padding: 100px 0;
-    position: relative;
-}
+        /* ── About Panasonic Section ── */
+        .about-section {
+            background: #080808;
+            padding: 100px 0;
+            position: relative;
+        }
 
-.about-section::after {
-    content: 'LUMIX';
-    position: absolute;
-    right: -20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 200px;
-    color: rgba(230,0,0,0.04);
-    pointer-events: none;
-    white-space: nowrap;
-}
+        .about-section::after {
+            content: 'PANASONIC';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 180px;
+            color: rgba(0, 180, 168, 0.04);
+            pointer-events: none;
+            white-space: nowrap;
+        }
 
-.feature-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(230,0,0,0.1);
-    border: 1px solid rgba(230,0,0,0.25);
-    border-radius: 100px;
-    padding: 8px 18px;
-    font-size: 13px;
-    color: rgba(255,255,255,0.75);
-    font-family: 'Inter', sans-serif;
-    transition: all 0.3s ease;
-}
+        .feature-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 180, 168, 0.1);
+            border: 1px solid rgba(0, 180, 168, 0.25);
+            border-radius: 100px;
+            padding: 8px 18px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.75);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
 
-.feature-pill:hover {
-    background: rgba(230,0,0,0.2);
-    border-color: rgba(230,0,0,0.5);
-    color: #fff;
-}
+        .feature-pill:hover {
+            background: rgba(0, 180, 168, 0.2);
+            border-color: rgba(0, 180, 168, 0.5);
+            color: #fff;
+        }
 
-.feature-pill i { color: var(--brand-accent); font-size: 12px; }
+        .feature-pill i { color: var(--brand-accent); font-size: 12px; }
 
-/* ── Timeline / History ── */
-.timeline-item {
-    position: relative;
-    padding-left: 28px;
-    border-left: 1px solid rgba(230,0,0,0.2);
-    padding-bottom: 32px;
-}
+        /* ── Timeline / History ── */
+        .timeline-item {
+            position: relative;
+            padding-left: 28px;
+            border-left: 1px solid rgba(0, 180, 168, 0.2);
+            padding-bottom: 32px;
+        }
 
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -5px;
-    top: 4px;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--brand-accent);
-    box-shadow: 0 0 12px rgba(230,0,0,0.6);
-}
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 4px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--brand-accent);
+            box-shadow: 0 0 12px rgba(0, 180, 168, 0.6);
+        }
 
-.timeline-year {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: var(--brand-accent);
-    letter-spacing: 2px;
-}
+        .timeline-year {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: var(--brand-accent);
+            letter-spacing: 2px;
+        }
 
-.timeline-text {
-    font-size: 14px;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.7;
-    margin-top: 4px;
-}
+        .timeline-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.7;
+            margin-top: 4px;
+        }
 
-/* ── Products Section ── */
-.products-section {
-    background: #050505;
-    padding: 100px 0;
-}
+        /* ── Products Section ── */
+        .products-section {
+            background: #050505;
+            padding: 100px 0;
+        }
 
-/* Filter tabs */
-.filter-tabs {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 48px;
-}
+        /* Filter tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
 
-.filter-btn {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.5);
-    padding: 8px 22px;
-    border-radius: 100px;
-    font-size: 13px;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            padding: 8px 22px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-.filter-btn:hover,
-.filter-btn.active {
-    background: var(--brand-accent);
-    border-color: var(--brand-accent);
-    color: #fff;
-}
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--brand-accent);
+            border-color: var(--brand-accent);
+            color: #fff;
+        }
 
-/* Product cards */
-.product-card {
-    background: #0f0f0f;
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    position: relative;
-}
+        /* Product cards */
+        .product-card {
+            background: #0f0f0f;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
 
-.product-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    border: 1px solid rgba(230,0,0,0);
-    transition: border-color 0.4s ease;
-    pointer-events: none;
-    z-index: 1;
-}
+        .product-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 180, 168, 0);
+            transition: border-color 0.4s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
 
-.product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 24px 60px rgba(230,0,0,0.15);
-}
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(0, 180, 168, 0.15);
+        }
 
-.product-card:hover::before {
-    border-color: rgba(230,0,0,0.4);
-}
+        .product-card:hover::before {
+            border-color: rgba(0, 180, 168, 0.4);
+        }
 
-.product-img-wrap {
-    background: #181818;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-}
+        .product-img-wrap {
+            background: #181818;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
 
-.product-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
+        .product-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
 
-.product-card:hover .product-img-wrap img {
-    transform: scale(1.06);
-}
+        .product-card:hover .product-img-wrap img {
+            transform: scale(1.06);
+        }
 
-.product-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: var(--brand-accent);
-    color: #fff;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-family: 'Inter', sans-serif;
-}
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--brand-accent);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+        }
 
-.product-body {
-    padding: 20px;
-}
+        .product-body {
+            padding: 20px;
+        }
 
-.product-category {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--brand-accent);
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    margin-bottom: 6px;
-}
+        .product-category {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--brand-accent);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
 
-.product-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: #fff;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-}
+        .product-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
 
-.product-desc {
-    font-size: 13px;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.6;
-    margin-bottom: 16px;
-}
+        .product-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
 
-.product-specs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 18px;
-}
+        .product-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
 
-.spec-tag {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 6px;
-    padding: 3px 10px;
-    font-size: 11px;
-    color: rgba(255,255,255,0.4);
-    font-family: 'Inter', sans-serif;
-}
+        .spec-tag {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            padding: 3px 10px;
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            font-family: 'Inter', sans-serif;
+        }
 
-.product-price {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    color: #fff;
-    letter-spacing: 1px;
-}
+        .product-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 26px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
 
-.product-price span {
-    font-size: 14px;
-    color: rgba(255,255,255,0.3);
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    letter-spacing: 0;
-}
+        .product-price span {
+            font-size: 14px;
+            color: rgba(255,255,255,0.3);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0;
+        }
 
-.btn-panasonic {
-    background: var(--brand-accent);
-    border: none;
-    color: #fff;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-}
+        .btn-panasonic {
+            background: var(--brand-accent);
+            border: none;
+            color: #fff;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
 
-.btn-panasonic:hover {
-    background: var(--brand-accent-dark);
-    color: #fff;
-    transform: translateY(-1px);
-}
+        .btn-panasonic:hover {
+            background: var(--brand-accent-dark);
+            color: #fff;
+            transform: translateY(-1px);
+        }
 
-/* ── Scroll reveal ── */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
+        /* ── Scroll reveal ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
 
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
 
-/* ── Why Panasonic section ── */
-.why-section {
-    background: #080808;
-    padding: 100px 0;
-}
+        /* ── Why Panasonic section ── */
+        .why-section {
+            background: #080808;
+            padding: 100px 0;
+        }
 
-.why-card {
-    background: #0f0f0f;
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px;
-    padding: 36px 28px;
-    height: 100%;
-    transition: all 0.3s ease;
-    text-align: center;
-}
+        .why-card {
+            background: #0f0f0f;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 36px 28px;
+            height: 100%;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
 
-.why-card:hover {
-    border-color: rgba(230,0,0,0.3);
-    transform: translateY(-4px);
-}
+        .why-card:hover {
+            border-color: rgba(0, 180, 168, 0.3);
+            transform: translateY(-4px);
+        }
 
-.why-icon {
-    width: 60px;
-    height: 60px;
-    background: rgba(230,0,0,0.1);
-    border: 1px solid rgba(230,0,0,0.2);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 22px;
-    color: var(--brand-accent);
-    transition: all 0.3s ease;
-}
+        .why-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 180, 168, 0.1);
+            border: 1px solid rgba(0, 180, 168, 0.2);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 22px;
+            color: var(--brand-accent);
+            transition: all 0.3s ease;
+        }
 
-.why-card:hover .why-icon {
-    background: rgba(230,0,0,0.2);
-    box-shadow: 0 0 24px rgba(230,0,0,0.25);
-}
+        .why-card:hover .why-icon {
+            background: rgba(0, 180, 168, 0.2);
+            box-shadow: 0 0 24px rgba(0, 180, 168, 0.25);
+        }
 
-.why-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: #fff;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-}
+        .why-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
 
-.why-text {
-    font-size: 13px;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.7;
-}
+        .why-text {
+            font-size: 13px;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.7;
+        }
 
-/* ── Red accent line ── */
-.red-line {
-    width: 40px;
-    height: 3px;
-    background: var(--brand-accent);
-    border-radius: 2px;
-    margin-bottom: 20px;
-}
+        /* ── Green accent line ── */
+        .green-line {
+            width: 40px;
+            height: 3px;
+            background: var(--brand-accent);
+            border-radius: 2px;
+            margin-bottom: 20px;
+        }
 
-/* ── Footer ── */
-footer a { transition: color 0.2s; }
-footer a:hover { color: var(--brand-accent) !important; }
+        /* ── Footer ── */
+        footer {
+            background: #070714;
+            border-top: 2px solid var(--brand-accent);
+        }
+        footer .text-amber {
+            color: var(--brand-accent) !important;
+        }
+        footer .text-white-50 {
+            color: rgba(255,255,255,0.5) !important;
+        }
+        footer .list-unstyled li a {
+            color: rgba(255,255,255,0.5) !important;
+            transition: 0.2s;
+        }
+        footer .list-unstyled li a:hover {
+            color: var(--brand-accent) !important;
+            padding-left: 6px;
+        }
+        footer .btn-amber {
+            background: var(--brand-accent);
+            color: #0b0b1a;
+        }
+        footer .btn-amber:hover {
+            background: var(--brand-accent-dark);
+            color: #fff;
+        }
+        footer hr {
+            border-color: rgba(0, 180, 168, 0.2) !important;
+        }
 
-@keyframes fl-spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+        #locationInfo {
+            background: #0e0e24 !important;
+            border: 1px solid rgba(0, 180, 168, 0.3) !important;
+            border-radius: 18px;
+            color: #ddd;
+            font-size: 0.9rem;
+            padding: 12px 16px !important;
+            min-height: 62px;
+            display: flex;
+            align-items: center;
+        }
+        #locationInfo i { 
+            color: var(--brand-accent); 
+            width: 22px; 
+        }
+
+        @keyframes fl-spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* ── Hover Effects ── */
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            background: rgba(0, 180, 168, 0.2) !important;
+            color: var(--brand-accent) !important;
+            box-shadow: 0 0 12px rgba(0, 180, 168, 0.3) !important;
+        }
+
+        .btn-panasonic:hover {
+            background: var(--brand-accent-dark);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 180, 168, 0.3);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(0, 180, 168, 0.15);
+            border-color: rgba(0, 180, 168, 0.3);
+        }
+
+        .why-card:hover {
+            border-color: rgba(0, 180, 168, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 180, 168, 0.1);
+        }
+
+        .feature-pill:hover {
+            background: rgba(0, 180, 168, 0.2);
+            border-color: rgba(0, 180, 168, 0.5);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--brand-accent);
+            border-color: var(--brand-accent);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 180, 168, 0.3);
+        }
+
+        .timeline-item:hover::before {
+            box-shadow: 0 0 20px rgba(0, 180, 168, 0.8);
+        }
+
+        .stat-number {
+            transition: 0.3s;
+        }
+        .stat-number:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 30px rgba(0, 180, 168, 0.3);
+        }
+
+        .hero-stat:hover .stat-number {
+            color: var(--brand-accent);
+        }
     </style>
 </head>
 <body>
@@ -493,20 +597,19 @@ footer a:hover { color: var(--brand-accent) !important; }
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="../index.html">
-                <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
-                <span class="fw-bold fs-3">FOTOLAB</span>
+                <img src="https://i.imgur.com/2Zz7k5M.png" alt="FOTOLAB Logo" width="44" height="44" class="me-2" style="filter: drop-shadow(0 0 8px #C9A84C88);">
+                <span class="fw-bold fs-3" style="color: #fff; text-shadow: 0 0 12px #C9A84C55;">FOTOLAB</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="brands.html">Brands</a></li>
-                    <li class="nav-item"><a class="nav-link" href="canon.html">Canon</a></li>
-                    <li class="nav-item"><a class="nav-link" href="fujifilm.html">FujiFilm</a></li>
-                    <li class="nav-item"><a class="nav-link" href="nikon.html">Nikon</a></li>
+                    <li class="nav-item"><a class="nav-link" href="brands.html">Brands</a></li>
                     <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
@@ -522,27 +625,26 @@ footer a:hover { color: var(--brand-accent) !important; }
                 <div class="col-lg-7">
                     <p class="section-eyebrow mb-3">FOTOLAB × Brand Spotlight</p>
                     <h1 class="panasonic-logo-big">PANASONIC</h1>
-                    <p class="panasonic-tagline">LUMIX - The Power of Innovation</p>
+                    <p class="panasonic-tagline">Just slightly ahead of our time — Since 1918</p>
 
                     <p class="mt-4 mb-5" style="font-size:15px; color:rgba(255,255,255,0.45); max-width:480px; font-family:'Inter',sans-serif; line-height:1.8;">
-                        Japan ki powerful technology ka naam — Panasonic Lumix ne advanced imaging, video capabilities aur reliable performance ke zariye professional aur enthusiast photographers ke liye naya standard set kiya hai.
-                        Cutting-edge technology aur robust build quality ka behtareen combination.
+                        From consumer electronics to cinema-grade imaging — Panasonic Lumix has revolutionized the camera industry with pioneering video technology and compact design.
                     </p>
 
                     <div class="d-flex align-items-center gap-4 flex-wrap">
                         <div class="hero-stat text-center">
-                            <div class="stat-number">20+</div>
-                            <div class="stat-label">Years of Lumix</div>
+                            <div class="stat-number">106+</div>
+                            <div class="stat-label">Years Legacy</div>
                         </div>
                         <div class="hero-divider d-none d-sm-block"></div>
                         <div class="hero-stat text-center">
-                            <div class="stat-number">4K/8K</div>
-                            <div class="stat-label">Video Mastery</div>
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Cinema Awards</div>
                         </div>
                         <div class="hero-divider d-none d-sm-block"></div>
                         <div class="hero-stat text-center">
-                            <div class="stat-number">Pro</div>
-                            <div class="stat-label">Hybrid Performance</div>
+                            <div class="stat-number">#1</div>
+                            <div class="stat-label">Video Innovation</div>
                         </div>
                     </div>
 
@@ -555,16 +657,16 @@ footer a:hover { color: var(--brand-accent) !important; }
                 </div>
 
                 <div class="col-lg-5 d-none d-lg-flex justify-content-center align-items-center">
-                    <!-- Decorative Panasonic element -->
+                    <!-- Decorative Panasonic "P" ring -->
                     <div style="position:relative; width:320px; height:320px;">
                         <div style="
                             position:absolute; inset:0; border-radius:50%;
-                            border: 2px solid rgba(230,0,0,0.15);
+                            border: 2px solid rgba(0, 180, 168, 0.15);
                             animation: fl-spin 8s linear infinite;
                         "></div>
                         <div style="
                             position:absolute; inset:20px; border-radius:50%;
-                            border: 1px solid rgba(230,0,0,0.1);
+                            border: 1px solid rgba(0, 180, 168, 0.1);
                             animation: fl-spin 5s linear infinite reverse;
                         "></div>
                         <div style="
@@ -573,11 +675,13 @@ footer a:hover { color: var(--brand-accent) !important; }
                         ">
                             <span style="
                                 font-family:'Bebas Neue',sans-serif;
-                                font-size:110px;
-                                color:rgba(230,0,0,0.12);
+                                font-size:160px;
+                                color:rgba(0, 180, 168, 0.12);
                                 line-height:1;
                             ">P</span>
                         </div>
+                        <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--brand-accent);box-shadow:0 0 14px rgba(0, 180, 168, 0.8);"></div>
+                        <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:rgba(0, 180, 168, 0.5);"></div>
                     </div>
                 </div>
             </div>
@@ -590,40 +694,50 @@ footer a:hover { color: var(--brand-accent) !important; }
             <div class="row align-items-start g-5">
                 <div class="col-lg-5 reveal">
                     <p class="section-eyebrow">About the Brand</p>
-                    <div class="red-line mt-3"></div>
-                    <h2 class="section-title">Innovation in Every Frame</h2>
+                    <div class="green-line mt-3"></div>
+                    <h2 class="section-title">Pioneers of Video Technology</h2>
                     <p style="color:rgba(255,255,255,0.5); font-size:15px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:20px;">
-                        Panasonic Lumix series ne photography aur videography ko nayi uunchaiyan di hain. Unke cameras advanced sensor technology, powerful image stabilization aur exceptional video recording capabilities ke liye mashhoor hain.
+                        Panasonic Corporation was founded in 1918 by Konosuke Matsushita in Osaka, Japan. What started as a small electrical workshop has grown into one of the world's most respected technology brands.
                     </p>
                     <p style="color:rgba(255,255,255,0.4); font-size:14px; line-height:1.8; font-family:'Inter',sans-serif; margin-top:14px;">
-                        Chahe aap hybrid content creator hon, professional videographer hon ya high-resolution stills ke shaukeen, Lumix aapko powerful tools deta hai jo aapki creativity ko boost karein.
+                        The Lumix camera line, introduced in 2001, has become synonymous with professional video quality. Panasonic's Micro Four Thirds system and full-frame S-series cameras have earned 10+ international awards for cinematography and innovation.
                     </p>
                     <div class="d-flex flex-wrap gap-2 mt-4">
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Advanced Stabilization</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> 4K/8K Video</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Phase Detect AF</span>
-                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Rugged Build</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Japanese Precision</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Micro Four Thirds</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Full-Frame L-Mount</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Cinema-grade Video</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> Dual Native ISO</span>
+                        <span class="feature-pill"><i class="fas fa-circle-check"></i> V-Log Recording</span>
                     </div>
                 </div>
 
                 <div class="col-lg-6 offset-lg-1 reveal reveal-delay-2">
-                    <p class="section-eyebrow">Brand History</p>
-                    <div class="red-line mt-3 mb-4"></div>
+                    <p class="section-eyebrow">Brand Timeline</p>
+                    <div class="green-line mt-3 mb-4"></div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1918</div>
+                        <div class="timeline-text">Panasonic founded in Osaka, Japan as a small electrical workshop producing lamp sockets.</div>
+                    </div>
                     <div class="timeline-item">
                         <div class="timeline-year">2001</div>
-                        <div class="timeline-text">Lumix series ki shuruat — pehle digital cameras launch kiye gaye.</div>
+                        <div class="timeline-text">First Lumix camera launched — the DMC-LC5, a compact digital camera with Leica lens technology.</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-year">2008</div>
-                        <div class="timeline-text">DMC-G1 — Duniya ka pehla mirrorless interchangeable lens camera.</div>
+                        <div class="timeline-text">Panasonic introduces the Lumix GH1 — the world's first Micro Four Thirds camera with 1080p video.</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">2018</div>
-                        <div class="timeline-text">Lumix S Series launch — Full-frame mirrorless system with L-Mount alliance.</div>
+                        <div class="timeline-year">2017</div>
+                        <div class="timeline-text">Lumix GH5 — the first mirrorless camera with 4K 60fps and 10-bit internal recording. A filmmaker's favorite.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2019</div>
+                        <div class="timeline-text">Full-frame S-series launched — Lumix S1, S1R, and S1H with 6K video and L-Mount alliance.</div>
                     </div>
                     <div class="timeline-item" style="padding-bottom:0; border-left-color:transparent;">
-                        <div class="timeline-year">Present</div>
-                        <div class="timeline-text">Aaj Lumix S5 II, GH7 aur S9 jaise models ke sath hybrid photography aur professional video ka leader bana hua hai.</div>
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-text">Lumix S5 II released — 24MP full-frame with phase-detection AF and 6K video. The hybrid powerhouse.</div>
                     </div>
                 </div>
             </div>
@@ -634,37 +748,37 @@ footer a:hover { color: var(--brand-accent) !important; }
     <section class="why-section">
         <div class="container">
             <div class="text-center mb-5 reveal">
-                <p class="section-eyebrow">Why Choose Panasonic Lumix</p>
-                <div class="red-line mx-auto mt-3"></div>
-                <h2 class="section-title mt-2">Power. Precision. Performance.</h2>
+                <p class="section-eyebrow">Why Choose Panasonic</p>
+                <div class="green-line mx-auto mt-3"></div>
+                <h2 class="section-title mt-2">The Filmmaker's Choice</h2>
             </div>
             <div class="row g-4">
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-1">
                     <div class="why-card">
                         <div class="why-icon"><i class="fas fa-video"></i></div>
-                        <div class="why-title">Unmatched Video</div>
-                        <p class="why-text">4K aur 8K recording, unlimited recording time aur professional codecs ke sath cinema-grade video.</p>
+                        <div class="why-title">Video Excellence</div>
+                        <p class="why-text">Panasonic Lumix cameras set the standard for video with 10-bit internal recording, V-Log profiles, and industry-leading dynamic range.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-2">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-hand"></i></div>
-                        <div class="why-title">5-Axis Stabilization</div>
-                        <p class="why-text">Dual I.S. technology jo handheld shooting ko rock-steady banati hai, even low light mein.</p>
+                        <div class="why-icon"><i class="fas fa-arrows-spin"></i></div>
+                        <div class="why-title">Dual Native ISO</div>
+                        <p class="why-text">Panasonic's proprietary Dual Native ISO technology reduces noise at high sensitivity, delivering clean images in challenging light conditions.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-3">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-bolt"></i></div>
-                        <div class="why-title">Lightning Fast AF</div>
-                        <p class="why-text">Phase Hybrid AF system jo subject tracking mein bohot tez aur accurate hai.</p>
+                        <div class="why-icon"><i class="fas fa-layer-group"></i></div>
+                        <div class="why-title">Micro Four Thirds</div>
+                        <p class="why-text">Compact and lightweight system with exceptional image quality. Perfect for travel, vlogging, and run-and-gun shooting.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 reveal reveal-delay-4">
                     <div class="why-card">
-                        <div class="why-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        <div class="why-title">Built for Pros</div>
-                        <p class="why-text">Weather-sealed bodies, high-res viewfinders aur long battery life — field mein reliable performance.</p>
+                        <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
+                        <div class="why-title">Weather Sealed</div>
+                        <p class="why-text">Professional-grade weather sealing on S-series bodies. Shoot confidently in rain, snow, and harsh conditions.</p>
                     </div>
                 </div>
             </div>
@@ -675,40 +789,45 @@ footer a:hover { color: var(--brand-accent) !important; }
     <section class="products-section" id="products">
         <div class="container">
             <div class="text-center mb-4 reveal">
-                <p class="section-eyebrow">Lumix Lineup</p>
-                <div class="red-line mx-auto mt-3"></div>
+                <p class="section-eyebrow">Panasonic Lumix Lineup</p>
+                <div class="green-line mx-auto mt-3"></div>
                 <h2 class="section-title mt-2">Panasonic Products at FOTOLAB</h2>
                 <p style="color:rgba(255,255,255,0.35); font-size:14px; font-family:'Inter',sans-serif; margin-top:10px;">
-                    Selected models available.
+                    Available in-store and online. All products carry official Panasonic Pakistan warranty.
                 </p>
             </div>
 
+            <!-- Filter tabs -->
             <div class="filter-tabs">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="mirrorless">Mirrorless</button>
+                <button class="filter-btn" data-filter="fullframe">Full-Frame</button>
+                <button class="filter-btn" data-filter="micro43">Micro Four Thirds</button>
+                <button class="filter-btn" data-filter="lens">Lenses</button>
+                <button class="filter-btn" data-filter="video">Video</button>
                 <button class="filter-btn" data-filter="compact">Compact</button>
             </div>
 
             <div class="row g-4" id="products-grid">
 
-                <!-- Panasonic Lumix S5 II -->
-                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="mirrorless">
+                <!-- Lumix S5 II -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="fullframe">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1015/400/300" alt="Lumix S5 II">
-                            <span class="product-badge">Full Frame</span>
+                            <img src="https://picsum.photos/id/1090/400/300" alt="Panasonic Lumix S5 II">
+                            <span class="product-badge">Flagship</span>
                         </div>
                         <div class="product-body">
-                            <div class="product-category">Mirrorless Camera</div>
+                            <div class="product-category">Full-Frame</div>
                             <div class="product-name">Lumix S5 II</div>
-                            <p class="product-desc">Full-frame hybrid camera with phase detection AF, 6K video aur exceptional low-light performance.</p>
+                            <p class="product-desc">24MP full-frame hybrid with phase-detection AF, 6K video, and dual native ISO. The ultimate filmmaker's tool.</p>
                             <div class="product-specs">
-                                <span class="spec-tag">24MP Full-Frame</span>
+                                <span class="spec-tag">24MP FF</span>
                                 <span class="spec-tag">6K Video</span>
+                                <span class="spec-tag">Phase-Detect AF</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <div class="product-price">PKR 285,000</div>
+                                    <div class="product-price">PKR 4,49,000 <span>/ body</span></div>
                                 </div>
                                 <a href="products.html" class="btn-panasonic">Inquire</a>
                             </div>
@@ -716,51 +835,261 @@ footer a:hover { color: var(--brand-accent) !important; }
                     </div>
                 </div>
 
-                <!-- Add more products as needed -->
-            </div>
+                <!-- Lumix S5 IIX -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="fullframe">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1091/400/300" alt="Panasonic Lumix S5 IIX">
+                            <span class="product-badge">Cinema</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Full-Frame</div>
+                            <div class="product-name">Lumix S5 IIX</div>
+                            <p class="product-desc">The pro variant with ProRes recording, RAW video output, and wireless streaming. Built for broadcast and cinema.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">24MP FF</span>
+                                <span class="spec-tag">ProRes Recording</span>
+                                <span class="spec-tag">RAW Output</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 5,19,000 <span>/ body</span></div>
+                                </div>
+                                <a href="products.html" class="btn-panasonic">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lumix GH6 -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="micro43">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1092/400/300" alt="Panasonic Lumix GH6">
+                            <span class="product-badge">Best Seller</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Micro Four Thirds</div>
+                            <div class="product-name">Lumix GH6</div>
+                            <p class="product-desc">25.2MP sensor, 5.7K video, dual native ISO. The most advanced MFT camera for professional filmmakers.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">25.2MP</span>
+                                <span class="spec-tag">5.7K Video</span>
+                                <span class="spec-tag">Dual Native ISO</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 3,49,000 <span>/ body</span></div>
+                                </div>
+                                <a href="products.html" class="btn-panasonic">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lumix GH5 II -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="micro43">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1093/400/300" alt="Panasonic Lumix GH5 II">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Micro Four Thirds</div>
+                            <div class="product-name">Lumix GH5 II</div>
+                            <p class="product-desc">20.3MP MFT camera with unlimited 4K 60fps recording. A content creator's dream camera.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">20.3MP</span>
+                                <span class="spec-tag">4K 60fps</span>
+                                <span class="spec-tag">V-Log L</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 2,19,000 <span>/ body</span></div>
+                                </div>
+                                <a href="products.html" class="btn-panasonic">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lumix G100 -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="micro43">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1094/400/300" alt="Panasonic Lumix G100">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Micro Four Thirds</div>
+                            <div class="product-name">Lumix G100</div>
+                            <p class="product-desc">Vlogging-first camera with OZO Audio, 20MP sensor, and 4K video. Lightweight and affordable.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">20MP</span>
+                                <span class="spec-tag">4K</span>
+                                <span class="spec-tag">OZO Audio</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 99,000 <span>/ body</span></div>
+                                </div>
+                                <a href="products.html" class="btn-panasonic">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lumix S 50mm Lens -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="lens">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1095/400/300" alt="Panasonic Lumix S 50mm f/1.8">
+                            <span class="product-badge">L-Mount</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">L-Mount Lens</div>
+                            <div class="product-name">Lumix S 50mm f/1.8</div>
+                            <p class="product-desc">Compact full-frame prime with beautiful bokeh and fast AF. Perfect for portraits and everyday shooting.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">f/1.8 Aperture</span>
+                                <span class="spec-tag">L-Mount</span>
+                                <span class="spec-tag">Weather Sealed</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 1,99,000</div>
+                                </div>
+                                <a href="products.html" class="btn-panasonic">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lumix S 24-105mm Lens -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="lens">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1096/400/300" alt="Panasonic Lumix S 24-105mm f/4">
+                            <span class="product-badge">L-Mount</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">L-Mount Lens</div>
+                            <div class="product-name">Lumix S 24-105mm f/4</div>
+                            <p class="product-desc">Versatile standard zoom with constant f/4 aperture, optical stabilization, and excellent sharpness.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">f/4 Constant</span>
+                                <span class="spec-tag">L-Mount</span>
+                                <span class="spec-tag">OIS</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 3,29,000</div>
+                                </div>
+                                <a href="products.html" class="btn-panasonic">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lumix GH5S Video -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="video">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1097/400/300" alt="Panasonic Lumix GH5S">
+                            <span class="product-badge">Cinema</span>
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Video Camera</div>
+                            <div class="product-name">Lumix GH5S</div>
+                            <p class="product-desc">10.2MP low-light beast with dual native ISO and 4K 60fps. Designed for professional video production.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">10.2MP</span>
+                                <span class="spec-tag">4K 60fps</span>
+                                <span class="spec-tag">Dual Native ISO</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 3,99,000</div>
+                                </div>
+                                <a href="products.html" class="btn-panasonic">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lumix FZ300 -->
+                <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="compact">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="https://picsum.photos/id/1098/400/300" alt="Panasonic Lumix FZ300">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Compact</div>
+                            <div class="product-name">Lumix FZ300</div>
+                            <p class="product-desc">24x optical zoom bridge camera with constant f/2.8 aperture and weather sealing. All-in-one solution.</p>
+                            <div class="product-specs">
+                                <span class="spec-tag">12.1MP</span>
+                                <span class="spec-tag">24x Zoom</span>
+                                <span class="spec-tag">f/2.8 Constant</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="product-price">PKR 79,000</div>
+                                </div>
+                                <a href="products.html" class="btn-panasonic">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /row -->
         </div>
     </section>
 
-    <!-- ══════════════ FOOTER ══════════════ -->
-    <footer class="py-5" style="background-color: black; border-top: 2px solid #C9A84C;">
+    <!-- ====== FOOTER ====== -->
+    <footer class="py-5">
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-3">
-                    <h5 class="text-amber mb-3">FOTOLAB</h5>
-                    <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
+                    <h5 style="color: var(--brand-accent); font-weight: 600; margin-bottom: 12px;">FOTOLAB</h5>
+                    <p style="color: rgba(255,255,255,0.5);">Premium Photography Solutions Since 1991.</p>
                 </div>
                 <div class="col-md-2">
-                    <h5 class="text-amber mb-3">Explore</h5>
+                    <h5 style="color: var(--brand-accent); font-weight: 600; margin-bottom: 12px;">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
-                        <li><a href="service.html" class="text-white-50 text-decoration-none">Services</a></li>
-                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
+                        <li><a href="products.html" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: 0.2s;">Products</a></li>
+                        <li><a href="brands.html" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: 0.2s;">Brands</a></li>
+                        <li><a href="about.html" style="color: rgba(255,255,255,0.5); text-decoration: none; transition: 0.2s;">About</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
-                    <h5 class="text-amber mb-3">Contact Outlet</h5>
-                    <p class="text-white-50 mb-1"><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi, Karachi, Pakistan</p>
-                    <p class="text-white-50 mb-1"><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
-                    <p class="text-white-50 mb-0"><i class="fas fa-phone text-amber me-2"></i> +91 98765 43210</p>
+                    <h5 style="color: var(--brand-accent); font-weight: 600; margin-bottom: 12px;">Contact Outlet</h5>
+                    <p style="color: rgba(255,255,255,0.5); margin-bottom: 4px;"><i class="fas fa-map-marker-alt" style="color: var(--brand-accent); width: 22px;"></i> Korangi, Karachi, Pakistan</p>
+                    <p style="color: rgba(255,255,255,0.5); margin-bottom: 4px;"><i class="fas fa-envelope" style="color: var(--brand-accent); width: 22px;"></i> info@fotolab.com</p>
+                    <p style="color: rgba(255,255,255,0.5); margin-bottom: 0;"><i class="fas fa-phone" style="color: var(--brand-accent); width: 22px;"></i> +92 300 1234567</p>
                 </div>
+                <!-- Geolocation Live Route Module -->
                 <div class="col-md-4">
-                    <h5 class="text-amber mb-3"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
-                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #1A1A2E; border: 1px solid #333;">
-                        <span class="text-white-50"><i class="fas fa-spinner fa-spin me-2"></i>Location track ki ja rahi hai...</span>
+                    <h5 style="color: var(--brand-accent); font-weight: 600; margin-bottom: 12px;"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
+                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #0e0e24; border: 1px solid rgba(0, 180, 168, 0.3);">
+                        <span style="color: rgba(255,255,255,0.5);"><i class="fas fa-spinner fa-pulse me-2"></i>Locating ...</span>
                     </div>
                 </div>
             </div>
-            <hr class="border-secondary mt-4">
-            <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
+            <hr style="border-color: rgba(0, 180, 168, 0.15); margin: 24px 0;">
+            <p class="text-center" style="color: rgba(255,255,255,0.4); margin-bottom: 0; font-size: 0.85rem;">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
         </div>
     </footer>
 
+    <!-- ====== SCRIPTS ====== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/loader.js"></script>
     <script src="../js/geolocation.js"></script>
-
+    
     <script>
+        AOS.init({ duration: 800, once: true });
+        
+        // ── Scroll Reveal ──
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => {
@@ -772,6 +1101,7 @@ footer a:hover { color: var(--brand-accent) !important; }
         }, { threshold: 0.12 });
         reveals.forEach(el => observer.observe(el));
 
+        // ── Product Filter ──
         const filterBtns = document.querySelectorAll('.filter-btn');
         const productItems = document.querySelectorAll('.product-item');
 
@@ -779,7 +1109,9 @@ footer a:hover { color: var(--brand-accent) !important; }
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
+
                 const filter = btn.dataset.filter;
+
                 productItems.forEach(item => {
                     if (filter === 'all' || item.dataset.category === filter) {
                         item.style.display = 'block';
@@ -790,6 +1122,7 @@ footer a:hover { color: var(--brand-accent) !important; }
             });
         });
 
+        // ── Geolocation Trigger ──
         document.addEventListener("DOMContentLoaded", function() {
             if (typeof getLocation === "function") {
                 getLocation();

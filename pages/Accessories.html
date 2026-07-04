@@ -3,72 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore accessories for your cameras at FOTOLAB - Pakistan's trusted photography store since 1991.">
-    <title>accessories - FOTOLAB</title>
+    <meta name="description" content="Shop camera accessories at FOTOLAB - lenses, audio, memory, tripods, lighting, bags and more since 1991.">
+    <title>Accessories - FOTOLAB | Camera Gear & Equipment</title>
+    <!-- Bootstrap 5 + Icons + Google Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/mobile-responsive.css">
-    <script>
-        const IMAGE_PATH = "../images/fotoloader.png";
-    </script>
-    <style>
-        /* ── Accessories Page Styles (uses FOTOLAB design system: dark charcoal / teal / crimson / gold) ── */
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      <link rel="stylesheet" href="../css/animations.css">
 
+    <style>
+        /* ----- GLOBAL RESET & THEME ----- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            background: #0b0b1a;
+            color: #f0f0f5;
+            font-family: 'Inter', sans-serif;
+            padding-top: 76px;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        a { text-decoration: none; }
+        .text-amber { color: #C9A84C; }
+        .bg-amber { background-color: #C9A84C; }
+        .btn-amber {
+            background: #C9A84C;
+            color: #0b0b1a;
+            font-weight: 600;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-amber:hover {
+            background: #b8973a;
+            color: #000;
+            transform: scale(1.02);
+            box-shadow: 0 0 20px #C9A84C66;
+        }
+        .btn-outline-amber {
+            color: #C9A84C;
+            border: 2px solid #C9A84C;
+            background: transparent;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .btn-outline-amber:hover {
+            background: #C9A84C;
+            color: #0b0b1a;
+        }
+
+        /* ----- NAVBAR ----- */
+        .navbar {
+            background: #0b0b1a !important;
+            border-bottom: 2px solid #C9A84C;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            backdrop-filter: blur(4px);
+        }
+        .navbar-brand { color: #fff !important; letter-spacing: 0.5px; }
+        .navbar-brand img { filter: drop-shadow(0 0 6px #C9A84C55); }
+        .nav-link {
+            color: #ddd !important;
+            font-weight: 500;
+            margin: 0 4px;
+            transition: 0.3s;
+            border-radius: 30px;
+            padding: 8px 16px !important;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: #C9A84C22;
+            color: #C9A84C !important;
+            box-shadow: 0 0 12px #C9A84C33;
+        }
+
+        /* ----- HERO ----- */
         .acc-hero {
-            min-height: 50vh;
-            background: linear-gradient(rgba(10,10,15,0.75), rgba(10,10,15,0.85)), url('https://picsum.photos/id/250/1920/800') center/cover no-repeat;
+            min-height: 40vh;
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a1a3a 100%);
+            position: relative;
+            overflow: hidden;
             display: flex;
             align-items: center;
-            position: relative;
-            padding-top: 80px;
+            justify-content: center;
+            text-align: center;
         }
-
-        .acc-eyebrow {
-            font-size: 12px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--bs-teal, #2FB8AC);
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
+        .acc-hero .overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 40%, #C9A84C22, transparent 70%);
+            pointer-events: none;
         }
-
-        .acc-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(44px, 7vw, 84px);
-            color: #fff;
+        .acc-hero h1 {
+            text-shadow: 0 0 40px #C9A84C55;
             letter-spacing: 2px;
-            line-height: 1.05;
         }
 
-        .acc-sub {
-            font-size: 15px;
-            color: rgba(255,255,255,0.5);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.8;
-            max-width: 560px;
-        }
-
-        /* ── Category nav strip ── */
+        /* ----- CATEGORY STRIP ----- */
         .cat-strip {
-            background: #0d0d12;
+            background: #0d0d1a;
             border-bottom: 1px solid rgba(255,255,255,0.06);
             position: sticky;
             top: 76px;
             z-index: 500;
-            padding: 14px 0;
+            padding: 12px 0;
         }
-
         .cat-strip-inner {
             display: flex;
             gap: 10px;
             overflow-x: auto;
             scrollbar-width: none;
+            flex-wrap: nowrap;
         }
         .cat-strip-inner::-webkit-scrollbar { display: none; }
-
         .cat-pill {
             flex-shrink: 0;
             background: transparent;
@@ -78,1057 +129,997 @@
             border-radius: 100px;
             font-size: 13px;
             font-family: 'Inter', sans-serif;
+            font-weight: 600;
             letter-spacing: 0.5px;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: 0.25s;
             white-space: nowrap;
             display: inline-flex;
             align-items: center;
             gap: 7px;
         }
-
         .cat-pill i { font-size: 12px; }
-
-        .cat-pill:hover,
-        .cat-pill.active {
-            background: #2FB8AC;
-            border-color: #2FB8AC;
+        .cat-pill:hover, .cat-pill.active {
+            background: #C9A84C;
+            border-color: #C9A84C;
             color: #0a0a0f;
+        }
+
+        /* ----- SECTION HEADERS ----- */
+        .section-eyebrow {
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #C9A84C;
+            font-family: 'Inter', sans-serif;
             font-weight: 600;
         }
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(30px, 4.2vw, 46px);
+            color: #fff;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+        .divider-line {
+            width: 36px;
+            height: 3px;
+            background: #C9A84C;
+            border-radius: 2px;
+            margin: 14px 0 20px;
+        }
 
-        /* ── Category section ── */
+        /* ----- CATEGORY SECTION ----- */
         .acc-section {
-            background: #0a0a0f;
-            padding: 70px 0;
+            padding: 60px 0;
             scroll-margin-top: 140px;
         }
-
-        .acc-section:nth-of-type(even) {
-            background: #0d0d12;
-        }
+        .acc-section:nth-of-type(even) { background: #0d0d1a; }
+        .acc-section:nth-of-type(odd) { background: #0b0b1a; }
 
         .cat-header {
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 16px;
-            margin-bottom: 36px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
-            padding-bottom: 20px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding-bottom: 18px;
         }
-
+        .cat-header-left { display: flex; align-items: center; gap: 14px; }
         .cat-icon-box {
             width: 48px;
             height: 48px;
             border-radius: 12px;
-            background: rgba(47,184,172,0.1);
-            border: 1px solid rgba(47,184,172,0.25);
+            background: #C9A84C15;
+            border: 1px solid #C9A84C33;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 19px;
-            color: #2FB8AC;
+            font-size: 20px;
+            color: #C9A84C;
         }
-
         .cat-name {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 32px;
+            font-size: 30px;
             color: #fff;
             letter-spacing: 1px;
         }
-
         .cat-count {
             font-size: 12px;
             color: rgba(255,255,255,0.35);
             font-family: 'Inter', sans-serif;
-            letter-spacing: 1px;
         }
 
-        /* ── Product cards ── */
+        /* ----- PRODUCT CARDS ----- */
         .acc-card {
-            background: #131318;
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 14px;
+            background: #10102a;
+            border: 1px solid #2a2a50;
+            border-radius: 16px;
             overflow: hidden;
             height: 100%;
-            transition: all 0.35s ease;
+            transition: 0.35s;
+            position: relative;
         }
-
         .acc-card:hover {
+            border-color: #C9A84C;
             transform: translateY(-6px);
-            border-color: rgba(47,184,172,0.3);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            box-shadow: 0 16px 40px #C9A84C33;
         }
-
-        .acc-img-wrap {
-            background: #1a1a20;
+        .acc-card .img-wrap {
+            background: #1a1a2e;
             height: 170px;
             overflow: hidden;
             position: relative;
         }
-
-        .acc-img-wrap img {
+        .acc-card .img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: 0.5s;
         }
-
-        .acc-card:hover .acc-img-wrap img {
-            transform: scale(1.07);
-        }
-
-        .acc-badge {
+        .acc-card:hover .img-wrap img { transform: scale(1.05); }
+        .acc-card .badge-tag {
             position: absolute;
             top: 10px;
             left: 10px;
-            background: #C9A227;
+            background: #C9A84C;
             color: #0a0a0f;
             font-size: 10px;
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            padding: 4px 9px;
+            padding: 4px 10px;
             border-radius: 4px;
             font-family: 'Inter', sans-serif;
         }
-
-        .acc-body {
-            padding: 18px;
-        }
-
-        .acc-brand-tag {
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #2FB8AC;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .acc-name {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 19px;
-            color: #fff;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-            line-height: 1.2;
-        }
-
-        .acc-desc {
-            font-size: 12.5px;
-            color: rgba(255,255,255,0.4);
-            line-height: 1.6;
-            margin-bottom: 14px;
-            min-height: 38px;
-        }
-
-        .acc-price {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 21px;
-            color: #fff;
-            letter-spacing: 0.5px;
-        }
-
-        .acc-price span {
-            font-size: 11px;
-            color: rgba(255,255,255,0.3);
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-        }
-
-        .btn-acc {
-            background: transparent;
-            border: 1px solid #2FB8AC;
-            color: #2FB8AC;
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            padding: 7px 14px;
-            border-radius: 7px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.25s ease;
-        }
-
-        .btn-acc:hover {
-            background: #2FB8AC;
-            color: #0a0a0f;
-        }
-
-        .acc-card-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-
-        /* ── Compare checkbox ── */
-        .compare-check {
+        .acc-card .compare-check {
             position: absolute;
             top: 10px;
             right: 10px;
             z-index: 2;
         }
-
-        .compare-check input {
+        .acc-card .compare-check input {
             width: 18px;
             height: 18px;
-            accent-color: #C9303C;
+            accent-color: #C9A84C;
             cursor: pointer;
         }
+        .acc-card .body { padding: 16px; }
+        .acc-card .brand-tag {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #C9A84C;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+        .acc-card .name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 19px;
+            color: #fff;
+            letter-spacing: 0.5px;
+            margin: 4px 0 6px;
+            line-height: 1.2;
+        }
+        .acc-card .desc {
+            font-size: 12.5px;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.6;
+            min-height: 36px;
+        }
+        .acc-card .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 12px;
+        }
+        .acc-card .price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 21px;
+            color: #fff;
+        }
+        .acc-card .price span {
+            font-size: 11px;
+            color: rgba(255,255,255,0.3);
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-details {
+            background: transparent;
+            border: 1px solid #C9A84C;
+            color: #C9A84C;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 7px;
+            transition: 0.25s;
+        }
+        .btn-details:hover {
+            background: #C9A84C;
+            color: #0b0b1a;
+        }
 
-        /* ── Compare bar ── */
+        /* ----- SPEC CTA ----- */
+        .spec-cta {
+            background: #10102a;
+            border: 1px solid rgba(201,162,39,0.2);
+            border-radius: 14px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 50px;
+        }
+        .spec-cta i { font-size: 28px; color: #C9A84C; }
+        .spec-cta .title { color: #fff; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; }
+        .spec-cta .sub { color: rgba(255,255,255,0.45); font-family: 'Inter', sans-serif; font-size: 13px; margin-top: 2px; }
+
+        /* ----- COMPARE BAR ----- */
         #compare-bar {
             position: fixed;
             bottom: -100px;
             left: 0;
             right: 0;
-            background: #131318;
-            border-top: 1px solid rgba(47,184,172,0.3);
-            padding: 16px 0;
+            background: #10102a;
+            border-top: 2px solid #C9A84C;
+            padding: 14px 0;
             z-index: 9000;
             transition: bottom 0.35s ease;
-            box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.6);
         }
-
         #compare-bar.visible { bottom: 0; }
-
-        .compare-text {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            color: rgba(255,255,255,0.6);
-        }
-
+        .compare-text { font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); }
         .compare-text strong { color: #fff; }
 
-        /* ── Spec sheet section ── */
-        .spec-cta {
-            background: #131318;
-            border: 1px solid rgba(201,162,39,0.2);
-            border-radius: 14px;
-            padding: 24px;
+        /* ----- FOOTER ----- */
+        footer {
+            background: #070714;
+            border-top: 2px solid #C9A84C55;
+            margin-top: auto;
+            flex-shrink: 0;
+            width: 100%;
+        }
+        #locationInfo {
+            background: #0e0e24 !important;
+            border: 1px solid #2f2f5a !important;
+            border-radius: 18px;
+            color: #ddd;
+            font-size: 0.85rem;
+            padding: 10px 14px !important;
+            min-height: 56px;
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-top: 60px;
         }
+        #locationInfo i { color: #C9A84C; width: 20px; }
+        .list-unstyled li a { transition: 0.2s; }
+        .list-unstyled li a:hover { color: #C9A84C !important; padding-left: 6px; }
 
-        .spec-cta i {
-            font-size: 28px;
-            color: #C9A227;
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 768px) {
+            .acc-hero { min-height: 30vh; }
+            .acc-hero h1 { font-size: 2.5rem; }
+            .acc-card .img-wrap { height: 140px; }
+            .cat-strip { top: 68px; padding: 8px 0; }
+            .cat-pill { padding: 6px 14px; font-size: 12px; }
         }
-
-        /* ── reveal animation ── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+        @media (max-width: 576px) {
+            .acc-hero h1 { font-size: 2rem; }
         }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* ── Section divider line ── */
-        .divider-line {
-            width: 36px;
-            height: 3px;
-            background: #2FB8AC;
-            border-radius: 2px;
-        }
-
-        footer a { transition: color 0.2s; }
-        footer a:hover { color: #2FB8AC !important; 
-        }
-        /* Dropdown items ke liye consistency */
-.dropdown-item.brand-pill:hover,
-.dropdown-item.brand-pill.active {
-    background-color: #2FB8AC !important;
-    color: #0a0a0f !important;
-}
-
-/* Click karte waqt white flash khatam karne ke liye */
-.dropdown-item.brand-pill:focus,
-.dropdown-item.brand-pill:active {
-    outline: none !important;
-    box-shadow: none !important;
-    background-color: #2FB8AC !important;
-    color: #0a0a0f !important;
-}
     </style>
-    </head>
-    <body>
+</head>
+<body>
 
-    <!-- ══════════════ NAVBAR ══════════════ -->
+    <!-- ====== NAVBAR ====== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
-                <span class="fw-bold fs-3">FOTOLAB</span>
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+        <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="50" height="50" class="me-2">
+                <span class="fw-bold fs-3" style="color: #fff; text-shadow: 0 0 12px #C9A84C55;">FOTOLAB</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <!-- Front facing links -->
-                    <li class="nav-item"><a class="nav-link" href="../pages/index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/brands.html">Brands</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/contact.html">Contact</a></li>
-                    
-                    <!-- Hamburger / More Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            More
-                        </a>
-<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color: #131318; border: 1px solid rgba(255,255,255,0.1);">
-    <li><button class="dropdown-item cat-pill" data-target="cat-lenses" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;"><i class="fas fa-circle-dot me-2"></i>Lenses</button></li>
-    <li><button class="dropdown-item cat-pill" data-target="cat-audio" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;"><i class="fas fa-microphone me-2"></i>Pro Audio</button></li>
-    <li><button class="dropdown-item cat-pill" data-target="cat-memory" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;"><i class="fas fa-sd-card me-2"></i>Memory & Media</button></li>
-    <li><button class="dropdown-item cat-pill" data-target="cat-tripods" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;"><i class="fas fa-arrows-up-down-left-right me-2"></i>Tripods & Supports</button></li>
-    <li><button class="dropdown-item cat-pill" data-target="cat-lighting" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;"><i class="fas fa-lightbulb me-2"></i>Lighting & Studio</button></li>
-    <li><button class="dropdown-item cat-pill" data-target="cat-bags" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;"><i class="fas fa-bag-shopping me-2"></i>Bags & Cases</button></li>
-    <li><button class="dropdown-item cat-pill" data-target="cat-misc" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;"><i class="fas fa-screwdriver-wrench me-2"></i>Misc Accessories</button></li>
-</ul>
-                    </li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="accessories.html">Accessories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="brands.html">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- ══════════════ HERO ══════════════ -->
-    <header class="acc-hero">
-        <div class="container">
-            <p class="acc-eyebrow mb-2">FOTOLAB Accessories</p>
-            <h1 class="acc-title">Gear Up Right</h1>
-            <p class="acc-sub mt-3">
-                Lenses, lighting, tripods, bags, audio and storage — everything that goes around the camera, 
-                handpicked and stocked at FOTOLAB since 1991. Genuine products, expert advice, local warranty.
-            </p>
+    <!-- ====== HERO ====== -->
+    <section class="acc-hero">
+        <div class="overlay"></div>
+        <div class="container position-relative z-3">
+            <h1 class="display-2 fw-bold text-white" data-aos="fade-up">Accessories</h1>
+            <p class="lead text-white-50 fs-4" data-aos="fade-up" data-aos-delay="150">Everything that goes around the camera</p>
         </div>
-    </header>
+    </section>
 
-    <!-- ══════════════ CATEGORY STRIP ══════════════ -->
+    <!-- ====== CATEGORY STRIP ====== -->
     <div class="cat-strip">
         <div class="container">
             <div class="cat-strip-inner">
                 <button class="cat-pill active" data-target="cat-lenses"><i class="fas fa-circle-dot"></i> Lenses</button>
                 <button class="cat-pill" data-target="cat-audio"><i class="fas fa-microphone"></i> Pro Audio</button>
-                <button class="cat-pill" data-target="cat-memory"><i class="fas fa-sd-card"></i> Memory & Media</button>
-                <button class="cat-pill" data-target="cat-tripods"><i class="fas fa-arrows-up-down-left-right"></i> Tripods & Supports</button>
-                <button class="cat-pill" data-target="cat-lighting"><i class="fas fa-lightbulb"></i> Lighting & Studio</button>
-                <button class="cat-pill" data-target="cat-bags"><i class="fas fa-bag-shopping"></i> Bags & Cases</button>
-                <button class="cat-pill" data-target="cat-misc"><i class="fas fa-screwdriver-wrench"></i> Misc Accessories</button>
+                <button class="cat-pill" data-target="cat-memory"><i class="fas fa-sd-card"></i> Memory &amp; Media</button>
+                <button class="cat-pill" data-target="cat-tripods"><i class="fas fa-arrows-up-down-left-right"></i> Tripods</button>
+                <button class="cat-pill" data-target="cat-lighting"><i class="fas fa-lightbulb"></i> Lighting</button>
+                <button class="cat-pill" data-target="cat-bags"><i class="fas fa-bag-shopping"></i> Bags &amp; Cases</button>
+                <button class="cat-pill" data-target="cat-misc"><i class="fas fa-screwdriver-wrench"></i> Misc</button>
             </div>
         </div>
     </div>
 
-    <!-- ══════════════ LENSES ══════════════ -->
-    <section class="acc-section" id="cat-lenses">
-        <div class="container">
-            <div class="cat-header reveal">
-                <div class="d-flex align-items-center gap-3">
-                    <div class="cat-icon-box"><i class="fas fa-circle-dot"></i></div>
+    <!-- ====== MAIN CONTENT ====== -->
+    <main style="flex: 1 0 auto;">
+
+        <!-- ====== LENSES ====== -->
+        <section class="acc-section" id="cat-lenses">
+            <div class="container">
+                <div class="cat-header" data-aos="fade-up">
+                    <div class="cat-header-left">
+                        <div class="cat-icon-box"><i class="fas fa-circle-dot"></i></div>
+                        <div>
+                            <div class="cat-name">Camera Lenses</div>
+                            <div class="cat-count">Prime, zoom &amp; specialty glass — all major mounts</div>
+                        </div>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="50">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon RF 50mm f/1.8 STM"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1060/300/250" alt="Canon RF 50mm lens">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Canon</div>
+                                <div class="name">RF 50mm f/1.8 STM</div>
+                                <p class="desc">Lightweight nifty-fifty prime with smooth STM autofocus.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 38,500</div>
+                                    <button class="btn-details" onclick="alert('Canon RF 50mm f/1.8 STM\\nMount: Canon RF\\nAperture: f/1.8\\nFeatures: STM AF, Compact\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="100">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Nikkor Z 24-70mm f/2.8 S"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1061/300/250" alt="Nikkor lens">
+                                <span class="badge-tag">Pro</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Nikon</div>
+                                <div class="name">Nikkor Z 24-70mm f/2.8 S</div>
+                                <p class="desc">Constant f/2.8 standard zoom with weather sealing.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 4,49,000</div>
+                                    <button class="btn-details" onclick="alert('Nikkor Z 24-70mm f/2.8 S\\nMount: Nikon Z\\nAperture: f/2.8\\nFeatures: Weather-sealed\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="150">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Sony FE 85mm f/1.4 GM"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1062/300/250" alt="Sony lens">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Sony</div>
+                                <div class="name">FE 85mm f/1.4 GM</div>
+                                <p class="desc">G Master portrait lens with razor sharpness and bokeh.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 3,79,000</div>
+                                    <button class="btn-details" onclick="alert('Sony FE 85mm f/1.4 GM\\nMount: Sony E\\nAperture: f/1.4\\nFeatures: G Master, XD AF\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="200">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Fujinon XF 16-55mm f/2.8"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1063/300/250" alt="Fujinon lens">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Fujifilm</div>
+                                <div class="name">XF 16-55mm f/2.8 R LM WR</div>
+                                <p class="desc">Standard zoom for X-Series, weather resistant.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 2,19,000</div>
+                                    <button class="btn-details" onclick="alert('Fujinon XF 16-55mm f/2.8\\nMount: Fujifilm X\\nAperture: f/2.8\\nFeatures: Weather-sealed, LM AF\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== PRO AUDIO ====== -->
+        <section class="acc-section" id="cat-audio">
+            <div class="container">
+                <div class="cat-header" data-aos="fade-up">
+                    <div class="cat-header-left">
+                        <div class="cat-icon-box"><i class="fas fa-microphone"></i></div>
+                        <div>
+                            <div class="cat-name">Pro Audio</div>
+                            <div class="cat-count">Microphones, recorders &amp; audio interfaces</div>
+                        </div>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="50">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Rode VideoMic Pro+"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1080/300/250" alt="Rode microphone">
+                                <span class="badge-tag">Best Seller</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Rode</div>
+                                <div class="name">VideoMic Pro+</div>
+                                <p class="desc">On-camera shotgun mic with auto power and safety channel.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 49,000</div>
+                                    <button class="btn-details" onclick="alert('Rode VideoMic Pro+\\nType: Shotgun\\nFeatures: Auto Power, Safety Channel\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="100">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Zoom H6 Recorder"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1081/300/250" alt="Zoom recorder">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Zoom</div>
+                                <div class="name">H6 Handy Recorder</div>
+                                <p class="desc">6-track portable recorder with interchangeable mic capsules.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 59,500</div>
+                                    <button class="btn-details" onclick="alert('Zoom H6\\nTracks: 6\\nAudio: 24-bit/96kHz\\nFeatures: Interchangeable Capsules\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="150">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Rode Wireless GO II"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1082/300/250" alt="Wireless mic">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Rode</div>
+                                <div class="name">Wireless GO II</div>
+                                <p class="desc">Dual-channel wireless mic system with onboard recording.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 67,000</div>
+                                    <button class="btn-details" onclick="alert('Rode Wireless GO II\\nChannels: 2\\nFeatures: Onboard Recording, Compact\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="200">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Boya BY-M1 Lavalier"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1083/300/250" alt="Lavalier mic">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Boya</div>
+                                <div class="name">BY-M1 Lavalier Mic</div>
+                                <p class="desc">Budget-friendly clip-on omnidirectional microphone.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 4,200</div>
+                                    <button class="btn-details" onclick="alert('Boya BY-M1\\nType: Lavalier\\nPattern: Omnidirectional\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== MEMORY & MEDIA ====== -->
+        <section class="acc-section" id="cat-memory">
+            <div class="container">
+                <div class="cat-header" data-aos="fade-up">
+                    <div class="cat-header-left">
+                        <div class="cat-icon-box"><i class="fas fa-sd-card"></i></div>
+                        <div>
+                            <div class="cat-name">Memory &amp; Media</div>
+                            <div class="cat-count">Cards, readers &amp; portable storage</div>
+                        </div>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="50">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="SanDisk Extreme Pro 128GB"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1070/300/250" alt="SanDisk SD card">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">SanDisk</div>
+                                <div class="name">Extreme Pro 128GB SD</div>
+                                <p class="desc">UHS-I V30 card rated for 4K video, 200MB/s read.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 8,900</div>
+                                    <button class="btn-details" onclick="alert('SanDisk Extreme Pro 128GB\\nType: SD UHS-I\\nSpeed: V30, 200MB/s read\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="100">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Lexar CFexpress Type B 256GB"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1071/300/250" alt="Lexar CFexpress card">
+                                <span class="badge-tag">8K Ready</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Lexar</div>
+                                <div class="name">CFexpress Type B 256GB</div>
+                                <p class="desc">High-speed media for 8K RAW video recording.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 42,000</div>
+                                    <button class="btn-details" onclick="alert('Lexar CFexpress Type B 256GB\\nType: CFexpress Type B\\nUse: 8K RAW Video\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="150">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="SanDisk Extreme Portable SSD 1TB"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1072/300/250" alt="Portable SSD">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">SanDisk</div>
+                                <div class="name">Extreme Portable SSD 1TB</div>
+                                <p class="desc">Rugged, water-resistant backup drive for location shoots.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 22,500</div>
+                                    <button class="btn-details" onclick="alert('SanDisk Extreme Portable SSD 1TB\\nType: Portable SSD\\nFeatures: Rugged, Water-resistant\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="200">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Anker USB-C Card Reader"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1073/300/250" alt="Card reader">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Anker</div>
+                                <div class="name">USB-C Multi Card Reader</div>
+                                <p class="desc">Reads SD, microSD and CF over a single USB-C connection.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 3,800</div>
+                                    <button class="btn-details" onclick="alert('Anker USB-C Card Reader\\nPorts: SD, microSD, CF\\nConnection: USB-C\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== TRIPODS ====== -->
+        <section class="acc-section" id="cat-tripods">
+            <div class="container">
+                <div class="cat-header" data-aos="fade-up">
+                    <div class="cat-header-left">
+                        <div class="cat-icon-box"><i class="fas fa-arrows-up-down-left-right"></i></div>
+                        <div>
+                            <div class="cat-name">Tripods &amp; Supports</div>
+                            <div class="cat-count">Tripods, monopods, gimbals &amp; stabilizers</div>
+                        </div>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="50">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Manfrotto MT055 Tripod"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1040/300/250" alt="Manfrotto tripod">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Manfrotto</div>
+                                <div class="name">MT055 Aluminium Tripod</div>
+                                <p class="desc">Pro-grade legs with 90° column, supports up to 9kg.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 34,000</div>
+                                    <button class="btn-details" onclick="alert('Manfrotto MT055\\nMaterial: Aluminium\\nLoad: 9kg\\nFeatures: 90° Column\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="100">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="DJI RS 3 Gimbal"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1041/300/250" alt="DJI gimbal">
+                                <span class="badge-tag">Trending</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">DJI</div>
+                                <div class="name">RS 3 Gimbal Stabilizer</div>
+                                <p class="desc">3-axis motorized stabilizer, supports up to 3kg payload.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 1,15,000</div>
+                                    <button class="btn-details" onclick="alert('DJI RS 3\\nType: 3-Axis Gimbal\\nPayload: 3kg\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="150">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Joby GorillaPod 5K"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1042/300/250" alt="GorillaPod">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Joby</div>
+                                <div class="name">GorillaPod 5K Kit</div>
+                                <p class="desc">Flexible-leg tripod that wraps around any surface.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 19,500</div>
+                                    <button class="btn-details" onclick="alert('Joby GorillaPod 5K\\nType: Flexible Tripod\\nPayload: 5kg\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="200">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Manfrotto Monopod 680B"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1043/300/250" alt="Monopod">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Manfrotto</div>
+                                <div class="name">Monopod 680B</div>
+                                <p class="desc">Lightweight 5-section monopod for sports and events.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 12,800</div>
+                                    <button class="btn-details" onclick="alert('Manfrotto Monopod 680B\\nSections: 5\\nFeatures: Lightweight\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== LIGHTING ====== -->
+        <section class="acc-section" id="cat-lighting">
+            <div class="container">
+                <div class="cat-header" data-aos="fade-up">
+                    <div class="cat-header-left">
+                        <div class="cat-icon-box"><i class="fas fa-lightbulb"></i></div>
+                        <div>
+                            <div class="cat-name">Lighting &amp; Studio</div>
+                            <div class="cat-count">Strobes, softboxes, LED panels &amp; backdrops</div>
+                        </div>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="50">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox SL60W LED"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1015/300/250" alt="Godox LED light">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">SL60W LED Video Light</div>
+                                <p class="desc">60W continuous LED with Bowens mount for studio use.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 24,000</div>
+                                    <button class="btn-details" onclick="alert('Godox SL60W\\nPower: 60W\\nMount: Bowens\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="100">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AD200Pro Strobe"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1016/300/250" alt="Strobe flash">
+                                <span class="badge-tag">Pro</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">AD200Pro Pocket Strobe</div>
+                                <p class="desc">200Ws battery-powered flash, TTL compatible.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 47,000</div>
+                                    <button class="btn-details" onclick="alert('Godox AD200Pro\\nPower: 200Ws\\nFeatures: TTL, Battery-powered\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="150">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Softbox 80cm Octagon"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1018/300/250" alt="Softbox">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">80cm Octagon Softbox</div>
+                                <p class="desc">Bowens-mount softbox for soft, even portrait lighting.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 9,500</div>
+                                    <button class="btn-details" onclick="alert('80cm Octagon Softbox\\nMount: Bowens\\nIncludes: Diffusion fabric, Grid\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="200">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Backdrop Stand Kit"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1019/300/250" alt="Backdrop stand">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">Backdrop Stand Kit</div>
+                                <p class="desc">Adjustable 3m x 2m backdrop support system.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 14,000</div>
+                                    <button class="btn-details" onclick="alert('Backdrop Stand Kit\\nHeight: 3m\\nWidth: 2m\\nIncludes: Carry bag\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== BAGS ====== -->
+        <section class="acc-section" id="cat-bags">
+            <div class="container">
+                <div class="cat-header" data-aos="fade-up">
+                    <div class="cat-header-left">
+                        <div class="cat-icon-box"><i class="fas fa-bag-shopping"></i></div>
+                        <div>
+                            <div class="cat-name">Camera Bags &amp; Cases</div>
+                            <div class="cat-count">Backpacks, shoulder bags &amp; hard cases</div>
+                        </div>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="50">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Lowepro ProTactic 450"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1025/300/250" alt="Lowepro backpack">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Lowepro</div>
+                                <div class="name">ProTactic BP 450 AW II</div>
+                                <p class="desc">Modular backpack, fits 2 bodies and 6+ lenses.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 32,000</div>
+                                    <button class="btn-details" onclick="alert('Lowepro ProTactic 450\\nCapacity: 2 bodies, 6+ lenses\\nFeatures: Modular, Weather cover\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="100">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Peak Design Everyday Sling"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1026/300/250" alt="Peak Design sling bag">
+                                <span class="badge-tag">Best Seller</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Peak Design</div>
+                                <div class="name">Everyday Sling 10L</div>
+                                <p class="desc">Quick-access sling with FlexFold dividers.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 27,500</div>
+                                    <button class="btn-details" onclick="alert('Peak Design Everyday Sling 10L\\nCapacity: 10L\\nFeatures: FlexFold Dividers\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="150">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Pelican 1510 Hard Case"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1027/300/250" alt="Pelican case">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Pelican</div>
+                                <div class="name">1510 Carry-On Hard Case</div>
+                                <p class="desc">Watertight, crushproof case, airline carry-on approved.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 58,000</div>
+                                    <button class="btn-details" onclick="alert('Pelican 1510\\nType: Hard Case\\nFeatures: Watertight, Crushproof\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="200">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Think Tank Lens Case"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1028/300/250" alt="Lens case">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Think Tank</div>
+                                <div class="name">Lens Changer Case</div>
+                                <p class="desc">Padded belt-mounted lens case for fast swaps.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 8,200</div>
+                                    <button class="btn-details" onclick="alert('Think Tank Lens Changer\\nType: Belt-mounted\\nFeatures: Padded\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== MISC ====== -->
+        <section class="acc-section" id="cat-misc">
+            <div class="container">
+                <div class="cat-header" data-aos="fade-up">
+                    <div class="cat-header-left">
+                        <div class="cat-icon-box"><i class="fas fa-screwdriver-wrench"></i></div>
+                        <div>
+                            <div class="cat-name">Miscellaneous Accessories</div>
+                            <div class="cat-count">Batteries, filters, cleaning kits &amp; remotes</div>
+                        </div>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="50">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Hoya UV Filter 77mm"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1035/300/250" alt="UV filter">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Hoya</div>
+                                <div class="name">UV Filter 77mm</div>
+                                <p class="desc">Multi-coated UV filter for lens protection.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 4,500</div>
+                                    <button class="btn-details" onclick="alert('Hoya UV Filter 77mm\\nType: UV\\nFeatures: Multi-coated\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="100">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon LP-E6NH Battery"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1036/300/250" alt="Camera battery">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Canon</div>
+                                <div class="name">LP-E6NH Battery Pack</div>
+                                <p class="desc">Genuine battery compatible with EOS R5/R6 series.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 11,500</div>
+                                    <button class="btn-details" onclick="alert('Canon LP-E6NH\\nType: Li-ion\\nCompatible: EOS R5/R6\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="150">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="VSGO Cleaning Kit"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1037/300/250" alt="Cleaning kit">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">VSGO</div>
+                                <div class="name">Sensor &amp; Lens Cleaning Kit</div>
+                                <p class="desc">Complete kit for safe sensor and lens cleaning.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 5,800</div>
+                                    <button class="btn-details" onclick="alert('VSGO Cleaning Kit\\nIncludes: Swabs, Fluid, Blower, Cloth\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="flip-up" data-aos-delay="200">
+                        <div class="acc-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Wireless Remote Shutter"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1038/300/250" alt="Remote shutter">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Essentials</div>
+                                <div class="name">Wireless Remote Shutter</div>
+                                <p class="desc">Trigger your shutter remotely for long exposures.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 2,900</div>
+                                    <button class="btn-details" onclick="alert('Wireless Remote Shutter\\nRange: 30m\\nBattery: CR2032\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spec Sheet CTA -->
+                <div class="spec-cta" data-aos="fade-up">
+                    <i class="fas fa-file-word"></i>
                     <div>
-                        <div class="cat-name">Camera Lenses</div>
-                        <div class="cat-count">Prime, zoom & specialty glass — all major mounts</div>
-                    </div>
-                </div>
-                <div class="divider-line"></div>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon RF 50mm f/1.8 STM"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1060/300/250" alt="Canon RF 50mm lens">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Canon</div>
-                            <div class="acc-name">RF 50mm f/1.8 STM</div>
-                            <p class="acc-desc">Lightweight nifty-fifty prime with smooth STM autofocus and creamy background blur.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 38,500</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Nikkor Z 24-70mm f/2.8"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1061/300/250" alt="Nikkor lens">
-                            <span class="acc-badge">Pro</span>
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Nikon</div>
-                            <div class="acc-name">Nikkor Z 24-70mm f/2.8 S</div>
-                            <p class="acc-desc">Constant f/2.8 standard zoom with weather sealing — the everyday workhorse lens.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 4,49,000</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Sony FE 85mm f/1.4 GM"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1062/300/250" alt="Sony lens">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Sony</div>
-                            <div class="acc-name">FE 85mm f/1.4 GM</div>
-                            <p class="acc-desc">G Master portrait lens with razor sharpness and dreamy bokeh rendering.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 3,79,000</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Fujinon XF 16-55mm f/2.8"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1063/300/250" alt="Fujinon lens">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Fujifilm</div>
-                            <div class="acc-name">XF 16-55mm f/2.8 R LM WR</div>
-                            <p class="acc-desc">Standard zoom for X-Series bodies, weather resistant with linear motor AF.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 2,19,000</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
+                        <div class="title">Need full specifications?</div>
+                        <div class="sub">Every product's detailed spec sheet is available as a downloadable Word document. Click "Specs" on any item above.</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ══════════════ PRO AUDIO ══════════════ -->
-    <section class="acc-section" id="cat-audio">
-        <div class="container">
-            <div class="cat-header reveal">
-                <div class="d-flex align-items-center gap-3">
-                    <div class="cat-icon-box"><i class="fas fa-microphone"></i></div>
-                    <div>
-                        <div class="cat-name">Pro Audio</div>
-                        <div class="cat-count">Microphones, recorders & audio interfaces</div>
-                    </div>
-                </div>
-                <div class="divider-line"></div>
-            </div>
+    </main>
 
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Rode VideoMic Pro+"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1080/300/250" alt="Rode microphone">
-                            <span class="acc-badge">Best Seller</span>
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Rode</div>
-                            <div class="acc-name">VideoMic Pro+</div>
-                            <p class="acc-desc">On-camera shotgun mic with auto power, digital switching and built-in safety channel.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 49,000</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Zoom H6 Recorder"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1081/300/250" alt="Zoom recorder">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Zoom</div>
-                            <div class="acc-name">H6 Handy Recorder</div>
-                            <p class="acc-desc">6-track portable recorder with interchangeable mic capsules and 24-bit/96kHz audio.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 59,500</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Rode Wireless GO II"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1082/300/250" alt="Wireless mic">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Rode</div>
-                            <div class="acc-name">Wireless GO II</div>
-                            <p class="acc-desc">Dual-channel wireless mic system with onboard recording, ultra-compact and reliable.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 67,000</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Boya BY-M1 Lavalier"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1083/300/250" alt="Lavalier mic">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Boya</div>
-                            <div class="acc-name">BY-M1 Lavalier Mic</div>
-                            <p class="acc-desc">Budget-friendly clip-on omnidirectional mic, ideal for interviews and vlogging.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 4,200</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════ MEMORY & MEDIA ══════════════ -->
-    <section class="acc-section" id="cat-memory">
-        <div class="container">
-            <div class="cat-header reveal">
-                <div class="d-flex align-items-center gap-3">
-                    <div class="cat-icon-box"><i class="fas fa-sd-card"></i></div>
-                    <div>
-                        <div class="cat-name">Memory & Media</div>
-                        <div class="cat-count">Cards, readers & portable storage</div>
-                    </div>
-                </div>
-                <div class="divider-line"></div>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="SanDisk Extreme Pro 128GB"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1070/300/250" alt="SanDisk SD card">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">SanDisk</div>
-                            <div class="acc-name">Extreme Pro 128GB SD</div>
-                            <p class="acc-desc">UHS-I V30 card rated for 4K video, 200MB/s read speed for fast offload.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 8,900</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Lexar CFexpress Type B 256GB"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1071/300/250" alt="Lexar CFexpress card">
-                            <span class="acc-badge">8K Ready</span>
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Lexar</div>
-                            <div class="acc-name">CFexpress Type B 256GB</div>
-                            <p class="acc-desc">High-speed media for 8K RAW video recording on flagship mirrorless cameras.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 42,000</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="SanDisk Extreme Portable SSD 1TB"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1072/300/250" alt="Portable SSD">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">SanDisk</div>
-                            <div class="acc-name">Extreme Portable SSD 1TB</div>
-                            <p class="acc-desc">Rugged, water-resistant backup drive for footage on location shoots.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 22,500</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Anker USB-C Card Reader"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1073/300/250" alt="Card reader">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Anker</div>
-                            <div class="acc-name">USB-C Multi Card Reader</div>
-                            <p class="acc-desc">Reads SD, microSD and CF simultaneously over a single fast USB-C connection.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 3,800</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<!-- ══════════════ TRIPODS & SUPPORTS ══════════════ -->
-    <section class="acc-section" id="cat-tripods">
-        <div class="container">
-            <div class="cat-header reveal">
-                <div class="d-flex align-items-center gap-3">
-                    <div class="cat-icon-box"><i class="fas fa-arrows-up-down-left-right"></i></div>
-                    <div>
-                        <div class="cat-name">Tripods & Supports</div>
-                        <div class="cat-count">Tripods, monopods, gimbals & stabilizers</div>
-                    </div>
-                </div>
-                <div class="divider-line"></div>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Manfrotto MT055 Tripod"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1040/300/250" alt="Manfrotto tripod">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Manfrotto</div>
-                            <div class="acc-name">MT055 Aluminium Tripod</div>
-                            <p class="acc-desc">Pro-grade aluminium legs with 90° column mechanism, supports up to 9kg.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 34,000</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="DJI RS 3 Gimbal"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1041/300/250" alt="DJI gimbal">
-                            <span class="acc-badge">Trending</span>
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">DJI</div>
-                            <div class="acc-name">RS 3 Gimbal Stabilizer</div>
-                            <p class="acc-desc">3-axis motorized stabilizer for DSLR/mirrorless, supports up to 3kg payload.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 1,15,000</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Joby GorillaPod 5K"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1042/300/250" alt="GorillaPod">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Joby</div>
-                            <div class="acc-name">GorillaPod 5K Kit</div>
-                            <p class="acc-desc">Flexible-leg tripod that wraps around any surface, ideal for travel photography.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 19,500</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Manfrotto Monopod 680B"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1043/300/250" alt="Monopod">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Manfrotto</div>
-                            <div class="acc-name">Monopod 680B</div>
-                            <p class="acc-desc">Lightweight 5-section monopod, ideal for sports and event photographers.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 12,800</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════ LIGHTING & STUDIO ══════════════ -->
-    <section class="acc-section" id="cat-lighting">
-        <div class="container">
-            <div class="cat-header reveal">
-                <div class="d-flex align-items-center gap-3">
-                    <div class="cat-icon-box"><i class="fas fa-lightbulb"></i></div>
-                    <div>
-                        <div class="cat-name">Lighting & Studio</div>
-                        <div class="cat-count">Strobes, softboxes, LED panels & backdrops</div>
-                    </div>
-                </div>
-                <div class="divider-line"></div>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox SL60W LED"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1015/300/250" alt="Godox LED light">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Godox</div>
-                            <div class="acc-name">SL60W LED Video Light</div>
-                            <p class="acc-desc">60W continuous LED with bowens mount, ideal for studio video and stills.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 24,000</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AD200Pro Strobe"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1016/300/250" alt="Strobe flash">
-                            <span class="acc-badge">Pro</span>
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Godox</div>
-                            <div class="acc-name">AD200Pro Pocket Strobe</div>
-                            <p class="acc-desc">200Ws battery-powered flash, TTL compatible, works on and off camera.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 47,000</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Softbox 80cm Octagon"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1018/300/250" alt="Softbox">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">FOTOLAB Studio</div>
-                            <div class="acc-name">80cm Octagon Softbox</div>
-                            <p class="acc-desc">Bowens-mount softbox for soft, even portrait lighting in any studio setup.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 9,500</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" data-name="Backdrop Stand Kit" class="compare-cb"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1019/300/250" alt="Backdrop stand">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">FOTOLAB Studio</div>
-                            <div class="acc-name">Backdrop Stand Kit</div>
-                            <p class="acc-desc">Adjustable 3m x 2m backdrop support system with carry bag, easy setup.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 14,000</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ══════════════ BAGS & CASES ══════════════ -->
-    <section class="acc-section" id="cat-bags">
-        <div class="container">
-            <div class="cat-header reveal">
-                <div class="d-flex align-items-center gap-3">
-                    <div class="cat-icon-box"><i class="fas fa-bag-shopping"></i></div>
-                    <div>
-                        <div class="cat-name">Camera Bags & Cases</div>
-                        <div class="cat-count">Backpacks, shoulder bags & hard cases</div>
-                    </div>
-                </div>
-                <div class="divider-line"></div>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Lowepro ProTactic 450"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1025/300/250" alt="Lowepro backpack">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Lowepro</div>
-                            <div class="acc-name">ProTactic BP 450 AW II</div>
-                            <p class="acc-desc">Modular camera backpack with weather cover, fits 2 bodies and 6+ lenses.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 32,000</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Peak Design Everyday Sling"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1026/300/250" alt="Peak Design sling bag">
-                            <span class="acc-badge">Best Seller</span>
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Peak Design</div>
-                            <div class="acc-name">Everyday Sling 10L</div>
-                            <p class="acc-desc">Quick-access sling bag with FlexFold dividers, perfect for street shooters.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 27,500</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Pelican 1510 Hard Case"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1027/300/250" alt="Pelican case">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Pelican</div>
-                            <div class="acc-name">1510 Carry-On Hard Case</div>
-                            <p class="acc-desc">Watertight, crushproof case with customizable foam — airline carry-on approved.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 58,000</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Think Tank Lens Case"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1028/300/250" alt="Lens case">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Think Tank</div>
-                            <div class="acc-name">Lens Changer Case</div>
-                            <p class="acc-desc">Padded belt-mounted lens case for fast swaps during fast-paced shoots.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 8,200</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════ MISC ACCESSORIES ══════════════ -->
-    <section class="acc-section" id="cat-misc">
-        <div class="container">
-            <div class="cat-header reveal">
-                <div class="d-flex align-items-center gap-3">
-                    <div class="cat-icon-box"><i class="fas fa-screwdriver-wrench"></i></div>
-                    <div>
-                        <div class="cat-name">Miscellaneous Accessories</div>
-                        <div class="cat-count">Batteries, filters, cleaning kits & remotes</div>
-                    </div>
-                </div>
-                <div class="divider-line"></div>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Hoya UV Filter 77mm"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1035/300/250" alt="UV filter">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Hoya</div>
-                            <div class="acc-name">UV Filter 77mm</div>
-                            <p class="acc-desc">Multi-coated UV filter for lens protection without affecting image quality.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 4,500</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon LP-E6NH Battery"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1036/300/250" alt="Camera battery">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">Canon</div>
-                            <div class="acc-name">LP-E6NH Battery Pack</div>
-                            <p class="acc-desc">Genuine rechargeable battery pack compatible with EOS R5/R6 series bodies.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 11,500</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="VSGO Cleaning Kit"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1037/300/250" alt="Cleaning kit">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">VSGO</div>
-                            <div class="acc-name">Sensor & Lens Cleaning Kit</div>
-                            <p class="acc-desc">Complete kit with swabs, fluid, blower and cloth for safe sensor cleaning.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 5,800</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="acc-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Wireless Remote Shutter"></label>
-                        <div class="acc-img-wrap">
-                            <img src="https://picsum.photos/id/1038/300/250" alt="Remote shutter">
-                        </div>
-                        <div class="acc-body">
-                            <div class="acc-brand-tag">FOTOLAB Essentials</div>
-                            <div class="acc-name">Wireless Remote Shutter</div>
-                            <p class="acc-desc">Trigger your shutter remotely for long exposures, group photos and timelapses.</p>
-                            <div class="acc-card-footer">
-                                <div class="acc-price">PKR 2,900</div>
-                                <a href="#" class="btn-acc">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Spec sheet CTA -->
-            <div class="spec-cta reveal">
-                <i class="fas fa-file-word"></i>
-                <div>
-                    <div style="color:#fff; font-family:'Inter',sans-serif; font-weight:600; font-size:14px;">Need full specifications?</div>
-                    <div style="color:rgba(255,255,255,0.45); font-family:'Inter',sans-serif; font-size:13px; margin-top:2px;">
-                        Every product's detailed spec sheet is available as a downloadable Word document. Click "Specs" on any item above.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════ COMPARE BAR ══════════════ -->
+    <!-- ====== COMPARE BAR ====== -->
     <div id="compare-bar">
         <div class="container d-flex align-items-center justify-content-between flex-wrap gap-3">
             <div class="compare-text"><strong id="compare-count">0</strong> items selected for comparison</div>
             <div class="d-flex gap-2">
-                <button class="btn-acc" id="compare-clear" style="border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.5);">Clear</button>
-                <a href="../pages/compare.html" class="btn-acc" style="background:#2FB8AC; border-color:#2FB8AC; color:#0a0a0f;">Compare Now <i class="fas fa-arrow-right"></i></a>
+                <button class="btn-details" id="compare-clear" style="border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.5);">Clear</button>
+                <a href="compare.html" class="btn-details" style="background:#C9A84C; border-color:#C9A84C; color:#0b0b1a;">Compare Now <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
 
-    <!-- ══════════════ FOOTER ══════════════ -->
-    <footer class="py-5" style="background-color: black;">
+    <!-- ====== FOOTER ====== -->
+    <footer class="py-4">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">FOTOLAB</h5>
-                    <p class="text-white">Premium Photography Solutions since 1991.</p>
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;">FOTOLAB</h5>
+                    <p class="text-white-50 small mb-0">Premium Photography Solutions Since 1991.</p>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">Explore</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="../pages/products.html" class="text-white text-decoration-none">Products</a></li>
-                        <li><a href="../pages/service.html" class="text-white text-decoration-none">Services</a></li>
-                        <li><a href="../pages/contact.html" class="text-white text-decoration-none">Contact</a></li>
+                <div class="col-md-2">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;">Quick Links</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
+                        <li><a href="brands.html" class="text-white-50 text-decoration-none">Brands</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">Contact</h5>
-                    <p class="text-white">info@fotolab.com</p>
-                    <p class="text-white">+91 98765 43210</p>
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;">Contact Outlet</h5>
+                    <p class="text-white-50 small mb-1"><i class="fas fa-map-marker-alt text-amber me-1"></i> Korangi, Karachi</p>
+                    <p class="text-white-50 small mb-1"><i class="fas fa-envelope text-amber me-1"></i> info@fotolab.com</p>
+                    <p class="text-white-50 small mb-0"><i class="fas fa-phone text-amber me-1"></i> +92 300 1234567</p>
+                </div>
+                <!-- Geolocation Live Route Module -->
+                <div class="col-md-4">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;"><i class="fas fa-satellite-dish me-1"></i>Your Location Route</h5>
+                    <div id="locationInfo" class="p-2 rounded text-start" style="background: #0e0e24; border: 1px solid #2f2f5a; font-size: 0.8rem; min-height: 48px;">
+                        <span><i class="fas fa-spinner fa-pulse me-2"></i>Locating ...</span>
+                    </div>
                 </div>
             </div>
-            <hr class="border-secondary">
-            <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
+            <hr class="border-secondary my-3">
+            <p class="text-center text-white-50 mb-0 small">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
         </div>
     </footer>
 
+    <!-- ====== SCRIPTS ====== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/loader.js"></script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // ── Scroll reveal ──
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('visible');
-                    observer.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        reveals.forEach(el => observer.observe(el));
+        AOS.init({ duration: 800, once: true });
+    </script>
 
-        // ── Category strip: smooth scroll + active state ──
+    <!-- ====== CATEGORY NAVIGATION & COMPARE ====== -->
+    <script>
+        // Category pill navigation
         const catPills = document.querySelectorAll('.cat-pill');
         catPills.forEach(pill => {
             pill.addEventListener('click', () => {
@@ -1139,7 +1130,7 @@
             });
         });
 
-        // Highlight active pill on scroll
+        // Update active pill on scroll
         const sections = document.querySelectorAll('.acc-section');
         const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1149,10 +1140,10 @@
                     if (match) match.classList.add('active');
                 }
             });
-        }, { threshold: 0.4, rootMargin: '-150px 0px -50% 0px' });
+        }, { threshold: 0.35, rootMargin: '-150px 0px -50% 0px' });
         sections.forEach(s => scrollObserver.observe(s));
 
-        // ── Compare functionality ──
+        // Compare functionality
         const compareBar = document.getElementById('compare-bar');
         const compareCount = document.getElementById('compare-count');
         const compareCheckboxes = document.querySelectorAll('.compare-cb');
@@ -1161,24 +1152,68 @@
         function updateCompareBar() {
             const checked = document.querySelectorAll('.compare-cb:checked');
             compareCount.textContent = checked.length;
-            if (checked.length > 0) {
-                compareBar.classList.add('visible');
-            } else {
-                compareBar.classList.remove('visible');
-            }
-            // Save selected items to sessionStorage for compare.html to read
+            compareBar.classList.toggle('visible', checked.length > 0);
             const names = Array.from(checked).map(cb => cb.dataset.name);
             sessionStorage.setItem('fotolab-compare-items', JSON.stringify(names));
         }
 
-        compareCheckboxes.forEach(cb => {
-            cb.addEventListener('change', updateCompareBar);
-        });
+        compareCheckboxes.forEach(cb => cb.addEventListener('change', updateCompareBar));
 
         clearBtn.addEventListener('click', () => {
             compareCheckboxes.forEach(cb => cb.checked = false);
             updateCompareBar();
         });
     </script>
+
+    <!-- ====== GEOLOCATION (Footer) ====== -->
+    <script>
+        (function() {
+            function updateLocationInfo(position) {
+                const lat = position.coords.latitude.toFixed(6);
+                const lng = position.coords.longitude.toFixed(6);
+                const el = document.getElementById('locationInfo');
+                if (el) {
+                    el.innerHTML = `
+                        <i class="fas fa-map-pin text-amber me-1"></i> 
+                        <span class="text-white-50">Lat: ${lat} , Lng: ${lng}</span>
+                        <span class="badge bg-amber text-dark ms-1" style="background:#C9A84C; font-size:0.7rem;">±${Math.round(position.coords.accuracy || 0)}m</span>
+                        <div class="mt-1 small text-white-50"><i class="fas fa-route text-amber me-1"></i>Live route via Geolocation API</div>
+                    `;
+                }
+            }
+            function showLocationError(error) {
+                const el = document.getElementById('locationInfo');
+                if (el) {
+                    let msg = 'Location access denied.';
+                    if (error.code === 1) msg = '❌ Permission denied.';
+                    else if (error.code === 2) msg = '⚠️ Position unavailable.';
+                    else if (error.code === 3) msg = '⏳ Timeout.';
+                    el.innerHTML = `<i class="fas fa-exclamation-triangle text-warning me-1"></i> ${msg}`;
+                }
+            }
+            function getLocation() {
+                if (!navigator.geolocation) {
+                    const el = document.getElementById('locationInfo');
+                    if (el) el.innerHTML = '<i class="fas fa-browser text-warning me-1"></i> Geolocation not supported.';
+                    return;
+                }
+                navigator.geolocation.getCurrentPosition(updateLocationInfo, showLocationError, {
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    maximumAge: 0
+                });
+            }
+            document.addEventListener('DOMContentLoaded', function() {
+                getLocation();
+                setTimeout(() => {
+                    const el = document.getElementById('locationInfo');
+                    if (el && el.innerHTML.includes('Locating')) getLocation();
+                }, 4000);
+            });
+        })();
+    </script>
+
+<script src="../js/main.js"></script>
+<script src="../js/loader.js"></script>
 </body>
 </html>

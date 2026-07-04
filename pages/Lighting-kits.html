@@ -3,97 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shop lighting and studio kits at FOTOLAB - strobes, softboxes, LED panels, backdrops and complete studio setups since 1991.">
-    <title>Lighting Kits - FOTOLAB</title>
+    <meta name="description" content="Shop professional lighting and studio kits at FOTOLAB - strobes, softboxes, LED panels, backdrops and complete studio setups since 1991.">
+    <title>Lighting Kits - FOTOLAB | Studio Lighting Solutions</title>
+    <!-- Bootstrap 5 + Icons + Google Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/mobile-responsive.css">
-    <script>
-        const IMAGE_PATH = "../images/fotoloader.png";
-    </script>
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      <link rel="stylesheet" href="../css/animations.css">
 
     <style>
-        /* ── Lighting Kit Page (FOTOLAB design system: dark charcoal / teal / crimson / gold) ── */
+        /* ----- GLOBAL RESET & THEME ----- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            background: #0b0b1a;
+            color: #f0f0f5;
+            font-family: 'Inter', sans-serif;
+            padding-top: 76px;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        a { text-decoration: none; }
+        .text-amber { color: #C9A84C; }
+        .bg-amber { background-color: #C9A84C; }
+        .btn-amber {
+            background: #C9A84C;
+            color: #0b0b1a;
+            font-weight: 600;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-amber:hover {
+            background: #b8973a;
+            color: #000;
+            transform: scale(1.02);
+            box-shadow: 0 0 20px #C9A84C66;
+        }
+        .btn-outline-amber {
+            color: #C9A84C;
+            border: 2px solid #C9A84C;
+            background: transparent;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .btn-outline-amber:hover {
+            background: #C9A84C;
+            color: #0b0b1a;
+        }
 
-        .lk-hero {
-            min-height: 50vh;
-            background: linear-gradient(rgba(10,10,15,0.75), rgba(10,10,15,0.88)), url('https://picsum.photos/id/1018/1920/800') center/cover no-repeat;
+        /* ----- NAVBAR ----- */
+        .navbar {
+            background: #0b0b1a !important;
+            border-bottom: 2px solid #C9A84C;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            backdrop-filter: blur(4px);
+        }
+        .navbar-brand { color: #fff !important; letter-spacing: 0.5px; }
+        .navbar-brand img { filter: drop-shadow(0 0 6px #C9A84C55); }
+        .nav-link {
+            color: #ddd !important;
+            font-weight: 500;
+            margin: 0 4px;
+            transition: 0.3s;
+            border-radius: 30px;
+            padding: 8px 16px !important;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: #C9A84C22;
+            color: #C9A84C !important;
+            box-shadow: 0 0 12px #C9A84C33;
+        }
+
+        /* ----- HERO ----- */
+        .lighting-hero {
+            min-height: 45vh;
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a1a3a 100%);
+            position: relative;
+            overflow: hidden;
             display: flex;
             align-items: center;
-            position: relative;
-            padding-top: 80px;
+            justify-content: center;
+            text-align: center;
         }
-
-        .lk-eyebrow {
-            font-size: 12px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: #2FB8AC;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
+        .lighting-hero .overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 40%, #C9A84C22, transparent 70%);
+            pointer-events: none;
         }
-
-        .lk-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(44px, 7vw, 84px);
-            color: #fff;
+        .lighting-hero h1 {
+            text-shadow: 0 0 40px #C9A84C55;
             letter-spacing: 2px;
-            line-height: 1.05;
         }
 
-        .lk-sub {
-            font-size: 15px;
-            color: rgba(255,255,255,0.5);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.8;
-            max-width: 580px;
-        }
-
-        .section-eyebrow {
-            font-size: 11px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: #2FB8AC;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-        }
-
-        .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(30px, 4.2vw, 46px);
-            color: #fff;
-            letter-spacing: 1px;
-            line-height: 1.1;
-        }
-
-        .divider-line {
-            width: 36px;
-            height: 3px;
-            background: #2FB8AC;
-            border-radius: 2px;
-            margin: 14px 0 20px;
-        }
-
-        /* ── Category strip ── */
+        /* ----- CATEGORY STRIP ----- */
         .cat-strip {
-            background: #0d0d12;
+            background: #0d0d1a;
             border-bottom: 1px solid rgba(255,255,255,0.06);
             position: sticky;
             top: 76px;
             z-index: 500;
-            padding: 14px 0;
+            padding: 12px 0;
         }
-
         .cat-strip-inner {
             display: flex;
             gap: 10px;
             overflow-x: auto;
             scrollbar-width: none;
+            flex-wrap: nowrap;
         }
         .cat-strip-inner::-webkit-scrollbar { display: none; }
-
         .cat-pill {
             flex-shrink: 0;
             background: transparent;
@@ -111,49 +137,177 @@
             align-items: center;
             gap: 7px;
         }
-
         .cat-pill i { font-size: 12px; }
-
-        .cat-pill:hover,
-        .cat-pill.active {
-            background: #2FB8AC;
-            border-color: #2FB8AC;
+        .cat-pill:hover, .cat-pill.active {
+            background: #C9A84C;
+            border-color: #C9A84C;
             color: #0a0a0f;
             font-weight: 600;
         }
 
-        /* ── Bundle Kit Cards (hero offering — complete setups) ── */
-        .kit-section {
-            background: #0a0a0f;
-            padding: 70px 0;
-            scroll-margin-top: 140px;
+        /* ----- SECTION HEADERS ----- */
+        .section-eyebrow {
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #C9A84C;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(30px, 4.2vw, 46px);
+            color: #fff;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+        .divider-line {
+            width: 36px;
+            height: 3px;
+            background: #C9A84C;
+            border-radius: 2px;
+            margin: 14px 0 20px;
         }
 
-        .kit-card {
-            background: #131318;
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 16px;
+        /* ----- LIGHTING CARDS ----- */
+        .lighting-card {
+            background: #10102a;
+            border: 1px solid #2a2a50;
+            border-radius: 20px;
             overflow: hidden;
             height: 100%;
-            transition: all 0.35s ease;
+            transition: 0.3s;
             position: relative;
         }
+        .lighting-card:hover {
+            border-color: #C9A84C;
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px #C9A84C33;
+        }
+        .lighting-card .img-wrap {
+            background: #1a1a2e;
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        .lighting-card .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .lighting-card:hover .img-wrap img { transform: scale(1.05); }
+        .lighting-card .badge-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #C9A84C;
+            color: #0a0a0f;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+        .lighting-card .compare-check {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 2;
+        }
+        .lighting-card .compare-check input {
+            width: 18px;
+            height: 18px;
+            accent-color: #C9A84C;
+            cursor: pointer;
+        }
+        .lighting-card .body { padding: 18px; }
+        .lighting-card .brand-tag {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #C9A84C;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+        .lighting-card .name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            color: #fff;
+            letter-spacing: 0.5px;
+            margin: 4px 0 6px;
+            line-height: 1.2;
+        }
+        .lighting-card .desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.6;
+            margin-bottom: 12px;
+            min-height: 40px;
+        }
+        .lighting-card .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 14px;
+        }
+        .lighting-card .price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: #fff;
+        }
+        .lighting-card .price span {
+            font-size: 11px;
+            color: rgba(255,255,255,0.3);
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-details {
+            background: transparent;
+            border: 1px solid #C9A84C;
+            color: #C9A84C;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .btn-details:hover {
+            background: #C9A84C;
+            color: #0b0b1a;
+        }
+        .btn-details.solid {
+            background: #C9A84C;
+            color: #0b0b1a;
+        }
+        .btn-details.solid:hover { background: #fff; }
 
+        /* ----- KIT CARDS (featured bundles) ----- */
+        .kit-card {
+            background: #10102a;
+            border: 1px solid #2a2a50;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            transition: 0.3s;
+            position: relative;
+        }
         .kit-card:hover {
+            border-color: #C9A84C;
             transform: translateY(-8px);
-            border-color: rgba(47,184,172,0.35);
-            box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+            box-shadow: 0 16px 40px #C9A84C33;
         }
-
-        .kit-card.featured {
-            border-color: rgba(201,162,39,0.4);
-        }
-
-        .kit-ribbon {
+        .kit-card.featured { border-color: #C9A84C55; }
+        .kit-card .ribbon {
             position: absolute;
             top: 16px;
             right: -1px;
-            background: #C9A227;
+            background: #C9A84C;
             color: #0a0a0f;
             font-size: 10px;
             font-weight: 700;
@@ -164,256 +318,64 @@
             font-family: 'Inter', sans-serif;
             z-index: 2;
         }
-
-        .kit-img-wrap {
-            background: #1a1a20;
-            height: 210px;
+        .kit-card .img-wrap {
+            background: #1a1a2e;
+            height: 200px;
             overflow: hidden;
-            position: relative;
         }
-
-        .kit-img-wrap img {
+        .kit-card .img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: 0.5s;
         }
-
-        .kit-card:hover .kit-img-wrap img { transform: scale(1.06); }
-
-        .kit-body { padding: 24px; }
-
-        .kit-name {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 25px;
-            color: #fff;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-        }
-
-        .kit-tagline {
-            font-size: 12.5px;
-            color: #2FB8AC;
+        .kit-card:hover .img-wrap img { transform: scale(1.05); }
+        .kit-card .body { padding: 22px; }
+        .kit-card .kit-tagline {
+            font-size: 12px;
+            color: #C9A84C;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
-            margin-bottom: 14px;
         }
-
-        .kit-includes {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 18px;
-        }
-
-        .kit-includes li {
-            font-size: 13px;
-            color: rgba(255,255,255,0.5);
-            font-family: 'Inter', sans-serif;
-            padding: 5px 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        .kit-includes li i {
-            color: #2FB8AC;
-            font-size: 11px;
-            margin-top: 4px;
-        }
-
-        .kit-price-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-top: 1px solid rgba(255,255,255,0.07);
-            padding-top: 16px;
-        }
-
-        .kit-price {
+        .kit-card .kit-name {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 26px;
             color: #fff;
             letter-spacing: 0.5px;
+            margin: 4px 0 12px;
         }
-
-        .kit-price span {
-            font-size: 11px;
-            color: rgba(255,255,255,0.3);
+        .kit-card .includes {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px;
+        }
+        .kit-card .includes li {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
             font-family: 'Inter', sans-serif;
-            font-weight: 400;
+            padding: 4px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
         }
-
-        .btn-lk {
-            background: transparent;
-            border: 1px solid #2FB8AC;
-            color: #2FB8AC;
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            padding: 9px 18px;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.25s ease;
-        }
-
-        .btn-lk:hover { background: #2FB8AC; color: #0a0a0f; }
-
-        .btn-lk.solid {
-            background: #2FB8AC;
-            color: #0a0a0f;
-        }
-        .btn-lk.solid:hover { background: #fff; }
-
-        /* ── Individual product cards (same pattern as accessories page) ── */
-        .lk-card {
-            background: #131318;
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 14px;
-            overflow: hidden;
-            height: 100%;
-            transition: all 0.35s ease;
-        }
-
-        .lk-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(47,184,172,0.3);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-        }
-
-        .lk-img-wrap {
-            background: #1a1a20;
-            height: 170px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .lk-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .lk-card:hover .lk-img-wrap img { transform: scale(1.07); }
-
-        .lk-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: #C9A227;
-            color: #0a0a0f;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            padding: 4px 9px;
-            border-radius: 4px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .lk-body { padding: 18px; }
-
-        .lk-brand-tag {
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #2FB8AC;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .lk-name {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 19px;
-            color: #fff;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-            line-height: 1.2;
-        }
-
-        .lk-desc {
-            font-size: 12.5px;
-            color: rgba(255,255,255,0.4);
-            line-height: 1.6;
-            margin-bottom: 14px;
-            min-height: 38px;
-        }
-
-        .lk-price {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 21px;
-            color: #fff;
-            letter-spacing: 0.5px;
-        }
-
-        .lk-price span {
-            font-size: 11px;
-            color: rgba(255,255,255,0.3);
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-        }
-
-        .lk-card-footer {
+        .kit-card .includes li i { color: #C9A84C; font-size: 11px; margin-top: 3px; }
+        .kit-card .footer {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 16px;
         }
-
-        .compare-check {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 2;
+        .kit-card .price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 26px;
+            color: #fff;
         }
+        .kit-card .price span { font-size: 11px; color: rgba(255,255,255,0.3); font-family: 'Inter', sans-serif; }
 
-        .compare-check input {
-            width: 18px;
-            height: 18px;
-            accent-color: #C9303C;
-            cursor: pointer;
-        }
-
-        /* ── Compare bar ── */
-        #compare-bar {
-            position: fixed;
-            bottom: -100px;
-            left: 0;
-            right: 0;
-            background: #131318;
-            border-top: 1px solid rgba(47,184,172,0.3);
-            padding: 16px 0;
-            z-index: 9000;
-            transition: bottom 0.35s ease;
-            box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
-        }
-
-        #compare-bar.visible { bottom: 0; }
-
-        .compare-text {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            color: rgba(255,255,255,0.6);
-        }
-        .compare-text strong { color: #fff; }
-
-        /* ── reveal ── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* ── Setup tip box ── */
+        /* ----- TIP BOX ----- */
         .tip-box {
             background: rgba(201,162,39,0.07);
             border: 1px solid rgba(201,162,39,0.25);
@@ -423,7 +385,7 @@
             gap: 14px;
             align-items: flex-start;
         }
-        .tip-box i { color: #C9A227; font-size: 18px; margin-top: 2px; }
+        .tip-box i { color: #C9A84C; font-size: 18px; margin-top: 2px; }
         .tip-box p {
             font-size: 13px;
             color: rgba(255,255,255,0.5);
@@ -432,645 +394,691 @@
             margin: 0;
         }
 
-        footer a { transition: color 0.2s; }
-        footer a:hover { color: #2FB8AC !important; }
-        .dropdown-item:hover {
-         background-color: #2FB8AC !important;
-         color: #0a0a0f !important;
-}
+        /* ----- COMPARE BAR ----- */
+        #compare-bar {
+            position: fixed;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            background: #10102a;
+            border-top: 2px solid #C9A84C;
+            padding: 14px 0;
+            z-index: 9000;
+            transition: bottom 0.35s ease;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.6);
+        }
+        #compare-bar.visible { bottom: 0; }
+        .compare-text { font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); }
+        .compare-text strong { color: #fff; }
+
+        /* ----- FOOTER ----- */
+        footer {
+            background: #070714;
+            border-top: 2px solid #C9A84C55;
+            margin-top: auto;
+            flex-shrink: 0;
+            width: 100%;
+        }
+        #locationInfo {
+            background: #0e0e24 !important;
+            border: 1px solid #2f2f5a !important;
+            border-radius: 18px;
+            color: #ddd;
+            font-size: 0.85rem;
+            padding: 10px 14px !important;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+        }
+        #locationInfo i { color: #C9A84C; width: 20px; }
+        .list-unstyled li a { transition: 0.2s; }
+        .list-unstyled li a:hover { color: #C9A84C !important; padding-left: 6px; }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 768px) {
+            .lighting-hero { min-height: 30vh; }
+            .lighting-hero h1 { font-size: 2.5rem; }
+            .lighting-card .img-wrap { height: 140px; }
+            .kit-card .img-wrap { height: 160px; }
+            .cat-strip { top: 68px; padding: 8px 0; }
+            .cat-pill { padding: 6px 14px; font-size: 12px; }
+        }
+        @media (max-width: 576px) {
+            .lighting-hero h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- ══════════════ NAVBAR ══════════════ -->
+    <!-- ====== NAVBAR ====== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="../index.html">
-                <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
-                <span class="fw-bold fs-3">FOTOLAB</span>
+        <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="50" height="50" class="me-2">
+                <span class="fw-bold fs-3" style="color: #fff; text-shadow: 0 0 12px #C9A84C55;">FOTOLAB</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <!-- Front facing links -->
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
                     <li class="nav-item"><a class="nav-link" href="brands.html">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="lighting-kits.html">Lighting</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    
-                    <!-- Hamburger / More Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            More
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color: #131318; border: 1px solid rgba(255,255,255,0.1);">
-                          <li><button class="dropdown-item cat-pill" data-target="cat-bundles" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">Complete Kits</button></li>
-                          <li><button class="dropdown-item cat-pill" data-target="cat-strobes" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">Strobes & Flash</button></li>
-                            <li><button class="dropdown-item cat-pill" data-target="cat-continuous" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">Continuous LED</button></li>
-                           <li><button class="dropdown-item cat-pill" data-target="cat-modifiers" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">Modifiers</button></li>
-                           <li><button class="dropdown-item cat-pill" data-target="cat-backdrops" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">Backdrops & Stands</button></li>
-                            <li><button class="dropdown-item cat-pill" data-target="cat-triggers" style="color: rgba(255,255,255,0.7); width: 100%; text-align: left;">Triggers & Remotes</button></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- ══════════════ HERO ══════════════ -->
-    <header class="lk-hero">
-        <div class="container">
-            <p class="lk-eyebrow mb-2">FOTOLAB Lighting & Studio</p>
-            <h1 class="lk-title">Light It Right</h1>
-            <p class="lk-sub mt-3">
-                From a single softbox to a full three-point studio setup — strobes, continuous LEDs, modifiers, 
-                backdrops and ready-made kits for photographers and content creators. Since 1991.
-            </p>
-        </div>
-    </header>
-
-    <!-- ══════════════ COMPLETE KITS ══════════════ -->
-    <section class="kit-section" id="cat-bundles">
-        <div class="container">
-            <div class="reveal mb-5">
-                <p class="section-eyebrow">Ready-Made Setups</p>
-                <div class="divider-line"></div>
-                <h2 class="section-title">Complete Lighting Kits</h2>
-                <p style="color:rgba(255,255,255,0.45); font-family:'Inter',sans-serif; font-size:14px; max-width:600px; margin-top:8px;">
-                    Bundled, tested, and ready to shoot the same day — no guesswork on what goes with what.
-                </p>
-            </div>
-
-            <div class="row g-4">
-                <!-- Starter Kit -->
-                <div class="col-md-6 col-lg-4 reveal">
-                    <div class="kit-card">
-                        <div class="kit-img-wrap">
-                            <img src="https://picsum.photos/id/1015/420/300" alt="Starter lighting kit">
-                        </div>
-                        <div class="kit-body">
-                            <div class="kit-tagline">Beginner Friendly</div>
-                            <div class="kit-name">FOTOLAB Starter Kit</div>
-                            <ul class="kit-includes">
-                                <li><i class="fas fa-check"></i> 2x Godox SL60W LED lights</li>
-                                <li><i class="fas fa-check"></i> 2x Light stands (2m)</li>
-                                <li><i class="fas fa-check"></i> 2x 60cm Softbox modifiers</li>
-                                <li><i class="fas fa-check"></i> Carry bag</li>
-                            </ul>
-                            <div class="kit-price-row">
-                                <div>
-                                    <div class="kit-price">PKR 58,000 <span>/ kit</span></div>
-                                </div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Studio Pro Kit (featured) -->
-                <div class="col-md-6 col-lg-4 reveal">
-                    <div class="kit-card featured">
-                        <div class="kit-ribbon">Most Popular</div>
-                        <div class="kit-img-wrap">
-                            <img src="https://picsum.photos/id/1016/420/300" alt="Studio pro lighting kit">
-                        </div>
-                        <div class="kit-body">
-                            <div class="kit-tagline">3-Point Studio Setup</div>
-                            <div class="kit-name">Studio Pro Kit</div>
-                            <ul class="kit-includes">
-                                <li><i class="fas fa-check"></i> 2x Godox AD200Pro strobes</li>
-                                <li><i class="fas fa-check"></i> 80cm Octagon softbox</li>
-                                <li><i class="fas fa-check"></i> 2x Reflective umbrellas</li>
-                                <li><i class="fas fa-check"></i> Wireless trigger + 3x stands</li>
-                            </ul>
-                            <div class="kit-price-row">
-                                <div>
-                                    <div class="kit-price">PKR 1,45,000 <span>/ kit</span></div>
-                                </div>
-                                <a href="#" class="btn-lk solid">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-<!-- Content Creator Kit -->
-                <div class="col-md-6 col-lg-4 reveal">
-                    <div class="kit-card">
-                        <div class="kit-img-wrap">
-                            <img src="https://picsum.photos/id/1019/420/300" alt="Content creator lighting kit">
-                        </div>
-                        <div class="kit-body">
-                            <div class="kit-tagline">Vlogging & YouTube</div>
-                            <div class="kit-name">Content Creator Kit</div>
-                            <ul class="kit-includes">
-                                <li><i class="fas fa-check"></i> Ring light 18" with stand</li>
-                                <li><i class="fas fa-check"></i> 2x RGB LED panels</li>
-                                <li><i class="fas fa-check"></i> Phone/camera clamp mount</li>
-                                <li><i class="fas fa-check"></i> Green screen backdrop</li>
-                            </ul>
-                            <div class="kit-price-row">
-                                <div>
-                                    <div class="kit-price">PKR 39,500 <span>/ kit</span></div>
-                                </div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- ====== HERO ====== -->
+    <section class="lighting-hero">
+        <div class="overlay"></div>
+        <div class="container position-relative z-3">
+            <h1 class="display-2 fw-bold text-white" data-aos="fade-up">Lighting &amp; Studio</h1>
+            <p class="lead text-white-50 fs-4" data-aos="fade-up" data-aos-delay="150">Professional lighting solutions for every photographer</p>
         </div>
     </section>
 
-    <!-- ══════════════ STROBES & FLASH ══════════════ -->
-    <section class="kit-section" style="background:#0d0d12;" id="cat-strobes">
+    <!-- ====== CATEGORY STRIP ====== -->
+    <div class="cat-strip">
         <div class="container">
-            <div class="reveal mb-4">
-                <p class="section-eyebrow">Off-Camera Power</p>
-                <div class="divider-line"></div>
-                <h2 class="section-title">Strobes & Flash</h2>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AD200Pro Strobe"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1016/300/250" alt="Godox strobe">
-                            <span class="lk-badge">Pro</span>
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">Godox</div>
-                            <div class="lk-name">AD200Pro Pocket Strobe</div>
-                            <p class="lk-desc">200Ws battery-powered flash, TTL compatible, works on and off camera.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 47,000</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AD600Pro Studio Strobe"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1020/300/250" alt="Studio strobe">
-                            <span class="lk-badge">High Power</span>
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">Godox</div>
-                            <div class="lk-name">AD600Pro Studio Strobe</div>
-                            <p class="lk-desc">600Ws output for large groups and overpowering daylight outdoors.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 89,000</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon Speedlite 470EX-AI"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1021/300/250" alt="Speedlite flash">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">Canon</div>
-                            <div class="lk-name">Speedlite 470EX-AI</div>
-                            <p class="lk-desc">On-camera flash with auto-intelligent bounce for natural-looking light.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 38,000</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Neewer 660 Speedlight"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1022/300/250" alt="Budget speedlight">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">Neewer</div>
-                            <div class="lk-name">660 Speedlight</div>
-                            <p class="lk-desc">Budget-friendly manual flash with built-in optical trigger.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 9,500</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════ CONTINUOUS LED ══════════════ -->
-    <section class="kit-section" id="cat-continuous">
-        <div class="container">
-            <div class="reveal mb-4">
-                <p class="section-eyebrow">What You See Is What You Get</p>
-                <div class="divider-line"></div>
-                <h2 class="section-title">Continuous LED Lighting</h2>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox SL60W LED"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1015/300/250" alt="Godox LED panel">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">Godox</div>
-                            <div class="lk-name">SL60W LED Video Light</div>
-                            <p class="lk-desc">60W continuous LED with bowens mount, ideal for studio video and stills.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 24,000</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Aputure 300d Mark II"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1023/300/250" alt="Aputure LED">
-                            <span class="lk-badge">Cinema Grade</span>
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">Aputure</div>
-                            <div class="lk-name">300d Mark II LED</div>
-                            <p class="lk-desc">Daylight-balanced COB LED, app control, used on professional film sets.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 1,35,000</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Neewer RGB LED Panel"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1024/300/250" alt="RGB LED panel">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">Neewer</div>
-                            <div class="lk-name">RGB LED Panel 660</div>
-                            <p class="lk-desc">Full-color RGB panel for creative gels and mood lighting effects.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 18,500</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="18-inch Ring Light"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1025/300/250" alt="Ring light">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">FOTOLAB Studio</div>
-                            <div class="lk-name">18" Ring Light with Stand</div>
-                            <p class="lk-desc">Even, shadow-free face lighting for portraits, makeup and content creation.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 11,000</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════ MODIFIERS ══════════════ -->
-    <section class="kit-section" style="background:#0d0d12;" id="cat-modifiers">
-        <div class="container">
-            <div class="reveal mb-4">
-                <p class="section-eyebrow">Shape the Light</p>
-                <div class="divider-line"></div>
-                <h2 class="section-title">Modifiers</h2>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="80cm Octagon Softbox"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1018/300/250" alt="Softbox">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">FOTOLAB Studio</div>
-                            <div class="lk-name">80cm Octagon Softbox</div>
-                            <p class="lk-desc">Bowens-mount softbox for soft, even portrait lighting in any setup.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 9,500</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Reflective Umbrella 105cm"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1026/300/250" alt="Reflective umbrella">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">Godox</div>
-                            <div class="lk-name">Reflective Umbrella 105cm</div>
-                            <p class="lk-desc">Silver-lined umbrella for punchy, contrasty light with quick setup.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 4,200</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Beauty Dish 55cm"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1027/300/250" alt="Beauty dish">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">Godox</div>
-                            <div class="lk-name">Beauty Dish 55cm</div>
-                            <p class="lk-desc">Crisp, contrasty light favored for fashion and beauty portraits.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 13,500</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="5-in-1 Reflector"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1028/300/250" alt="Reflector">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">Neewer</div>
-                            <div class="lk-name">5-in-1 Reflector 110cm</div>
-                            <p class="lk-desc">Gold, silver, white, black and translucent surfaces in one collapsible disc.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 3,200</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<!-- ══════════════ BACKDROPS & STANDS ══════════════ -->
-    <section class="kit-section" id="cat-backdrops">
-        <div class="container">
-            <div class="reveal mb-4">
-                <p class="section-eyebrow">Set the Scene</p>
-                <div class="divider-line"></div>
-                <h2 class="section-title">Backdrops & Stands</h2>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Backdrop Stand Kit"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1019/300/250" alt="Backdrop stand">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">FOTOLAB Studio</div>
-                            <div class="lk-name">Backdrop Stand Kit</div>
-                            <p class="lk-desc">Adjustable 3m x 2m backdrop support system with carry bag.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 14,000</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Muslin Backdrop White"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1029/300/250" alt="White backdrop">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">FOTOLAB Studio</div>
-                            <div class="lk-name">Muslin Backdrop 3x6m White</div>
-                            <p class="lk-desc">Wrinkle-resistant fabric backdrop for clean studio product or portrait shots.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 7,800</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Green Screen Collapsible"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1030/300/250" alt="Green screen">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">Neewer</div>
-                            <div class="lk-name">Collapsible Green Screen 1.5x2m</div>
-                            <p class="lk-desc">Pop-up chroma key screen for easy background removal in editing.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 5,500</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Boom Arm with Sandbag"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1031/300/250" alt="Boom arm">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">FOTOLAB Studio</div>
-                            <div class="lk-name">Boom Arm + Sandbag</div>
-                            <p class="lk-desc">Extends overhead lighting reach, counterweighted for safety and stability.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 6,900</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════ TRIGGERS & REMOTES ══════════════ -->
-    <section class="kit-section" style="background:#0d0d12;" id="cat-triggers">
-        <div class="container">
-            <div class="reveal mb-4">
-                <p class="section-eyebrow">Fire From a Distance</p>
-                <div class="divider-line"></div>
-                <h2 class="section-title">Triggers & Remotes</h2>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox X2T Trigger"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1032/300/250" alt="Wireless trigger">
-                            <span class="lk-badge">Best Seller</span>
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">Godox</div>
-                            <div class="lk-name">X2T Wireless Trigger</div>
-                            <p class="lk-desc">TTL-compatible 2.4GHz trigger, controls multiple flashes remotely.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 8,500</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Wireless Remote Shutter"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1038/300/250" alt="Remote shutter">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">FOTOLAB Essentials</div>
-                            <div class="lk-name">Wireless Remote Shutter</div>
-                            <p class="lk-desc">Trigger your shutter remotely for group photos and long exposures.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 2,900</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Optical Slave Trigger"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1033/300/250" alt="Optical trigger">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">Neewer</div>
-                            <div class="lk-name">Optical Slave Trigger</div>
-                            <p class="lk-desc">Budget remote flash trigger, fires when it detects another flash pulse.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 1,800</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-3 reveal">
-                    <div class="lk-card position-relative">
-                        <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AK-R1 Remote Kit"></label>
-                        <div class="lk-img-wrap">
-                            <img src="https://picsum.photos/id/1034/300/250" alt="Light meter">
-                        </div>
-                        <div class="lk-body">
-                            <div class="lk-brand-tag">Godox</div>
-                            <div class="lk-name">AK-R1 Accessory Kit</div>
-                            <p class="lk-desc">Snoot, barn doors, color filters and reflector for small flash units.</p>
-                            <div class="lk-card-footer">
-                                <div class="lk-price">PKR 6,200</div>
-                                <a href="#" class="btn-lk">Specs <i class="fas fa-file-arrow-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Setup tip -->
-            <div class="tip-box mt-5 reveal">
-                <i class="fas fa-circle-info"></i>
-                <p>Not sure which kit fits your space? Visit our showroom and we'll set up a live demo with your camera before you buy — same-day delivery available within city limits.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════ COMPARE BAR ══════════════ -->
-    <div id="compare-bar">
-        <div class="container d-flex align-items-center justify-content-between flex-wrap gap-3">
-            <div class="compare-text"><strong id="compare-count">0</strong> items selected for comparison</div>
-            <div class="d-flex gap-2">
-                <button class="btn-lk" id="compare-clear" style="border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.5);">Clear</button>
-                <a href="compare.html" class="btn-lk solid">Compare Now <i class="fas fa-arrow-right"></i></a>
+            <div class="cat-strip-inner">
+                <button class="cat-pill active" data-target="cat-bundles"><i class="fas fa-box"></i> Complete Kits</button>
+                <button class="cat-pill" data-target="cat-strobes"><i class="fas fa-bolt"></i> Strobes &amp; Flash</button>
+                <button class="cat-pill" data-target="cat-led"><i class="fas fa-lightbulb"></i> Continuous LED</button>
+                <button class="cat-pill" data-target="cat-modifiers"><i class="fas fa-expand"></i> Modifiers</button>
+                <button class="cat-pill" data-target="cat-backdrops"><i class="fas fa-image"></i> Backdrops &amp; Stands</button>
+                <button class="cat-pill" data-target="cat-triggers"><i class="fas fa-wifi"></i> Triggers &amp; Remotes</button>
             </div>
         </div>
     </div>
 
-    <!-- ══════════════ FOOTER ══════════════ -->
-    <footer class="py-5" style="background-color: black;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">FOTOLAB</h5>
-                    <p class="text-white">Premium Photography Solutions since 1991.</p>
+    <!-- ====== MAIN CONTENT ====== -->
+    <main style="flex: 1 0 auto;">
+
+        <!-- ====== COMPLETE KITS ====== -->
+        <section class="py-5" style="background: #0b0b1a;" id="cat-bundles">
+            <div class="container">
+                <div data-aos="fade-up">
+                    <p class="section-eyebrow">Ready-Made Setups</p>
+                    <div class="divider-line"></div>
+                    <h2 class="section-title">Complete Lighting Kits</h2>
+                    <p style="color:rgba(255,255,255,0.45); font-family:'Inter',sans-serif; font-size:14px; max-width:600px; margin-top:8px;">
+                        Bundled, tested, and ready to shoot the same day — no guesswork on what goes with what.
+                    </p>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">Explore</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="products.html" class="text-white text-decoration-none">Products</a></li>
-                        <li><a href="service.html" class="text-white text-decoration-none">Services</a></li>
-                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">Contact</h5>
-                    <p class="text-white">info@fotolab.com</p>
-                    <p class="text-white">+91 98765 43210</p>
+
+                <div class="row g-4 mt-3">
+                    <!-- Kit 1: Starter -->
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="50">
+                        <div class="kit-card">
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1015/420/300" alt="Starter lighting kit">
+                            </div>
+                            <div class="body">
+                                <div class="kit-tagline">Beginner Friendly</div>
+                                <div class="kit-name">FOTOLAB Starter Kit</div>
+                                <ul class="includes">
+                                    <li><i class="fas fa-check"></i> 2x Godox SL60W LED lights</li>
+                                    <li><i class="fas fa-check"></i> 2x Light stands (2m)</li>
+                                    <li><i class="fas fa-check"></i> 2x 60cm Softbox modifiers</li>
+                                    <li><i class="fas fa-check"></i> Carry bag</li>
+                                </ul>
+                                <div class="footer">
+                                    <div class="price">PKR 58,000 <span>/ kit</span></div>
+                                    <button class="btn-details" onclick="alert('Complete Starter Kit\\nIncludes: 2x Godox SL60W, 2x Stands, 2x Softboxes, Carry Bag\\n\\nDetailed specifications available in the product brochure.')">Specs <i class="fas fa-file-arrow-down"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kit 2: Studio Pro (Featured) -->
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="150">
+                        <div class="kit-card featured">
+                            <div class="ribbon">Most Popular</div>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1016/420/300" alt="Studio pro lighting kit">
+                            </div>
+                            <div class="body">
+                                <div class="kit-tagline">3-Point Studio Setup</div>
+                                <div class="kit-name">Studio Pro Kit</div>
+                                <ul class="includes">
+                                    <li><i class="fas fa-check"></i> 2x Godox AD200Pro strobes</li>
+                                    <li><i class="fas fa-check"></i> 80cm Octagon softbox</li>
+                                    <li><i class="fas fa-check"></i> 2x Reflective umbrellas</li>
+                                    <li><i class="fas fa-check"></i> Wireless trigger + 3x stands</li>
+                                </ul>
+                                <div class="footer">
+                                    <div class="price">PKR 145,000 <span>/ kit</span></div>
+                                    <button class="btn-details solid" onclick="alert('Studio Pro Kit\\nIncludes: 2x Godox AD200Pro, 80cm Octagon Softbox, 2x Umbrellas, Wireless Trigger, 3x Stands\\n\\nDetailed specifications available in the product brochure.')">Specs <i class="fas fa-file-arrow-down"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kit 3: Content Creator -->
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="250">
+                        <div class="kit-card">
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1019/420/300" alt="Content creator lighting kit">
+                            </div>
+                            <div class="body">
+                                <div class="kit-tagline">Vlogging &amp; YouTube</div>
+                                <div class="kit-name">Content Creator Kit</div>
+                                <ul class="includes">
+                                    <li><i class="fas fa-check"></i> Ring light 18" with stand</li>
+                                    <li><i class="fas fa-check"></i> 2x RGB LED panels</li>
+                                    <li><i class="fas fa-check"></i> Phone/camera clamp mount</li>
+                                    <li><i class="fas fa-check"></i> Green screen backdrop</li>
+                                </ul>
+                                <div class="footer">
+                                    <div class="price">PKR 39,500 <span>/ kit</span></div>
+                                    <button class="btn-details" onclick="alert('Content Creator Kit\\nIncludes: 18\\" Ring Light, 2x RGB LED Panels, Clamp Mount, Green Screen\\n\\nDetailed specifications available in the product brochure.')">Specs <i class="fas fa-file-arrow-down"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <hr class="border-secondary">
-            <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
+        </section>
+
+        <!-- ====== STROBES & FLASH ====== -->
+        <section class="py-5" style="background: #0d0d1a;" id="cat-strobes">
+            <div class="container">
+                <div data-aos="fade-up">
+                    <p class="section-eyebrow">Off-Camera Power</p>
+                    <div class="divider-line"></div>
+                    <h2 class="section-title">Strobes &amp; Flash</h2>
+                </div>
+
+                <div class="row g-4 mt-3">
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="50">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AD200Pro Strobe"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1016/300/250" alt="Godox strobe">
+                                <span class="badge-tag">Pro</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">AD200Pro Pocket Strobe</div>
+                                <p class="desc">200Ws battery-powered flash, TTL compatible.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 47,000</div>
+                                    <button class="btn-details" onclick="alert('Godox AD200Pro\\nPower: 200Ws\\nFeatures: TTL, High-Speed Sync, 2.4GHz Wireless\\nBattery: Rechargeable Li-ion\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AD600Pro Studio Strobe"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1020/300/250" alt="Studio strobe">
+                                <span class="badge-tag">High Power</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">AD600Pro Studio Strobe</div>
+                                <p class="desc">600Ws output for large groups and overpowering daylight.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 89,000</div>
+                                    <button class="btn-details" onclick="alert('Godox AD600Pro\\nPower: 600Ws\\nFeatures: TTL, HSS, 2.4GHz Wireless\\nBattery: Rechargeable Li-ion\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon Speedlite 470EX-AI"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1021/300/250" alt="Speedlite flash">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Canon</div>
+                                <div class="name">Speedlite 470EX-AI</div>
+                                <p class="desc">On-camera flash with auto-intelligent bounce technology.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 38,000</div>
+                                    <button class="btn-details" onclick="alert('Canon Speedlite 470EX-AI\\nGuide Number: 47m\\nFeatures: Auto-Intelligent Bounce, TTL\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Neewer 660 Speedlight"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1022/300/250" alt="Budget speedlight">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Neewer</div>
+                                <div class="name">660 Speedlight</div>
+                                <p class="desc">Budget-friendly manual flash with optical trigger.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 9,500</div>
+                                    <button class="btn-details" onclick="alert('Neewer 660 Speedlight\\nGuide Number: 33m\\nFeatures: Manual, Optical Slave\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CONTINUOUS LED ====== -->
+        <section class="py-5" style="background: #0b0b1a;" id="cat-led">
+            <div class="container">
+                <div data-aos="fade-up">
+                    <p class="section-eyebrow">What You See Is What You Get</p>
+                    <div class="divider-line"></div>
+                    <h2 class="section-title">Continuous LED Lighting</h2>
+                </div>
+
+                <div class="row g-4 mt-3">
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="50">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox SL60W LED"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1015/300/250" alt="Godox LED panel">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">SL60W LED Video Light</div>
+                                <p class="desc">60W continuous LED with Bowens mount.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 24,000</div>
+                                    <button class="btn-details" onclick="alert('Godox SL60W\\nPower: 60W\\nMount: Bowens\\nFeatures: Variable brightness, Silent fan\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Aputure 300d Mark II"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1023/300/250" alt="Aputure LED">
+                                <span class="badge-tag">Cinema Grade</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Aputure</div>
+                                <div class="name">300d Mark II LED</div>
+                                <p class="desc">Daylight-balanced COB LED, app control.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 135,000</div>
+                                    <button class="btn-details" onclick="alert('Aputure 300d Mark II\\nPower: 300W\\nFeatures: App Control, DMX\\nCRI/TLCI: 96+\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Neewer RGB LED Panel"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1024/300/250" alt="RGB LED panel">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Neewer</div>
+                                <div class="name">RGB LED Panel 660</div>
+                                <p class="desc">Full-color RGB panel for creative lighting effects.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 18,500</div>
+                                    <button class="btn-details" onclick="alert('Neewer RGB LED Panel\\nPower: 45W\\nFeatures: RGB color, 2.4GHz remote\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="18-inch Ring Light"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1025/300/250" alt="Ring light">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">18" Ring Light with Stand</div>
+                                <p class="desc">Even, shadow-free face lighting for portraits.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 11,000</div>
+                                    <button class="btn-details" onclick="alert('18\\" Ring Light\\nPower: 55W\\nFeatures: Dimming, Color temperature control\\nIncludes: Stand, Phone mount\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== MODIFIERS ====== -->
+        <section class="py-5" style="background: #0d0d1a;" id="cat-modifiers">
+            <div class="container">
+                <div data-aos="fade-up">
+                    <p class="section-eyebrow">Shape the Light</p>
+                    <div class="divider-line"></div>
+                    <h2 class="section-title">Modifiers</h2>
+                </div>
+
+                <div class="row g-4 mt-3">
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="50">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="80cm Octagon Softbox"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1018/300/250" alt="Softbox">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">80cm Octagon Softbox</div>
+                                <p class="desc">Bowens-mount softbox for soft, even portrait lighting.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 9,500</div>
+                                    <button class="btn-details" onclick="alert('80cm Octagon Softbox\\nMount: Bowens\\nIncludes: Diffusion fabric, Grid\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Reflective Umbrella 105cm"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1026/300/250" alt="Reflective umbrella">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">Reflective Umbrella 105cm</div>
+                                <p class="desc">Silver-lined umbrella for punchy, contrasty light.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 4,200</div>
+                                    <button class="btn-details" onclick="alert('Reflective Umbrella 105cm\\nType: Silver-lined\\nShaft: Metal\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Beauty Dish 55cm"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1027/300/250" alt="Beauty dish">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">Beauty Dish 55cm</div>
+                                <p class="desc">Crisp, contrasty light favored for fashion portraits.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 13,500</div>
+                                    <button class="btn-details" onclick="alert('Beauty Dish 55cm\\nMount: Bowens\\nIncludes: Diffusion sock, Grid\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="5-in-1 Reflector"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1028/300/250" alt="Reflector">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Neewer</div>
+                                <div class="name">5-in-1 Reflector 110cm</div>
+                                <p class="desc">Gold, silver, white, black and translucent surfaces.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 3,200</div>
+                                    <button class="btn-details" onclick="alert('5-in-1 Reflector 110cm\\nSurfaces: Gold, Silver, White, Black, Translucent\\nCollapsible\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== BACKDROPS & STANDS ====== -->
+        <section class="py-5" style="background: #0b0b1a;" id="cat-backdrops">
+            <div class="container">
+                <div data-aos="fade-up">
+                    <p class="section-eyebrow">Set the Scene</p>
+                    <div class="divider-line"></div>
+                    <h2 class="section-title">Backdrops &amp; Stands</h2>
+                </div>
+
+                <div class="row g-4 mt-3">
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="50">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Backdrop Stand Kit"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1019/300/250" alt="Backdrop stand">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">Backdrop Stand Kit</div>
+                                <p class="desc">Adjustable 3m x 2m backdrop support system.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 14,000</div>
+                                    <button class="btn-details" onclick="alert('Backdrop Stand Kit\\nHeight: Adjustable 3m\\nWidth: 2m\\nIncludes: Carry bag\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Muslin Backdrop White"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1029/300/250" alt="White backdrop">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">Muslin Backdrop 3x6m White</div>
+                                <p class="desc">Wrinkle-resistant fabric for clean product shots.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 7,800</div>
+                                    <button class="btn-details" onclick="alert('Muslin Backdrop 3x6m\\nColor: White\\nMaterial: Muslin fabric\\nWrinkle-resistant\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Green Screen Collapsible"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1030/300/250" alt="Green screen">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Neewer</div>
+                                <div class="name">Collapsible Green Screen 1.5x2m</div>
+                                <p class="desc">Pop-up chroma key screen for easy background removal.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 5,500</div>
+                                    <button class="btn-details" onclick="alert('Collapsible Green Screen\\nSize: 1.5m x 2m\\nPop-up design\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Boom Arm with Sandbag"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1031/300/250" alt="Boom arm">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">Boom Arm + Sandbag</div>
+                                <p class="desc">Extends overhead lighting reach, counterweighted.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 6,900</div>
+                                    <button class="btn-details" onclick="alert('Boom Arm + Sandbag\\nExtension: Up to 2.5m\\nIncludes: Sandbag counterweight\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== TRIGGERS & REMOTES ====== -->
+        <section class="py-5" style="background: #0d0d1a;" id="cat-triggers">
+            <div class="container">
+                <div data-aos="fade-up">
+                    <p class="section-eyebrow">Fire From a Distance</p>
+                    <div class="divider-line"></div>
+                    <h2 class="section-title">Triggers &amp; Remotes</h2>
+                </div>
+
+                <div class="row g-4 mt-3">
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="50">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox X2T Trigger"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1032/300/250" alt="Wireless trigger">
+                                <span class="badge-tag">Best Seller</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">X2T Wireless Trigger</div>
+                                <p class="desc">TTL-compatible 2.4GHz trigger.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 8,500</div>
+                                    <button class="btn-details" onclick="alert('Godox X2T Trigger\\nFrequency: 2.4GHz\\nFeatures: TTL, HSS\\nRange: 100m\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Wireless Remote Shutter"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1038/300/250" alt="Remote shutter">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Essentials</div>
+                                <div class="name">Wireless Remote Shutter</div>
+                                <p class="desc">Trigger your shutter remotely for group photos.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 2,900</div>
+                                    <button class="btn-details" onclick="alert('Wireless Remote Shutter\\nRange: 30m\\nBattery: CR2032\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Optical Slave Trigger"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1033/300/250" alt="Optical trigger">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Neewer</div>
+                                <div class="name">Optical Slave Trigger</div>
+                                <p class="desc">Budget remote flash trigger, fires on flash pulse.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 1,800</div>
+                                    <button class="btn-details" onclick="alert('Optical Slave Trigger\\nType: Optical\\nCompatible: All flash units\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AK-R1 Remote Kit"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1034/300/250" alt="Accessory kit">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">AK-R1 Accessory Kit</div>
+                                <p class="desc">Snoot, barn doors, color filters for small flash units.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 6,200</div>
+                                    <button class="btn-details" onclick="alert('Godox AK-R1 Kit\\nIncludes: Snoot, Barn Doors, Color Filters, Reflector\\n\\nDetailed specs available in brochure.')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip Box -->
+                <div class="tip-box mt-5" data-aos="fade-up">
+                    <i class="fas fa-circle-info"></i>
+                    <p>Not sure which kit fits your space? Visit our showroom and we'll set up a live demo with your camera before you buy — same-day delivery available within city limits.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ====== COMPARE BAR ====== -->
+    <div id="compare-bar">
+        <div class="container d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div class="compare-text"><strong id="compare-count">0</strong> items selected for comparison</div>
+            <div class="d-flex gap-2">
+                <button class="btn-details" id="compare-clear" style="border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.5);">Clear</button>
+                <a href="compare.html" class="btn-details solid">Compare Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;">FOTOLAB</h5>
+                    <p class="text-white-50 small mb-0">Premium Photography Solutions Since 1991.</p>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;">Quick Links</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
+                        <li><a href="brands.html" class="text-white-50 text-decoration-none">Brands</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;">Contact Outlet</h5>
+                    <p class="text-white-50 small mb-1"><i class="fas fa-map-marker-alt text-amber me-1"></i> Korangi, Karachi</p>
+                    <p class="text-white-50 small mb-1"><i class="fas fa-envelope text-amber me-1"></i> info@fotolab.com</p>
+                    <p class="text-white-50 small mb-0"><i class="fas fa-phone text-amber me-1"></i> +92 300 1234567</p>
+                </div>
+                <!-- Geolocation Live Route Module -->
+                <div class="col-md-4">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;"><i class="fas fa-satellite-dish me-1"></i>Your Location Route</h5>
+                    <div id="locationInfo" class="p-2 rounded text-start" style="background: #0e0e24; border: 1px solid #2f2f5a; font-size: 0.8rem; min-height: 48px;">
+                        <span><i class="fas fa-spinner fa-pulse me-2"></i>Locating ...</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-3">
+            <p class="text-center text-white-50 mb-0 small">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
         </div>
     </footer>
 
+    <!-- ====== SCRIPTS ====== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/loader.js"></script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // ── Scroll reveal ──
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('visible');
-                    observer.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        reveals.forEach(el => observer.observe(el));
+        AOS.init({ duration: 800, once: true });
+    </script>
 
-        // ── Category strip: smooth scroll + active state ──
+    <!-- ====== CATEGORY FILTER & COMPARE ====== -->
+    <script>
+        // Category strip: smooth scroll + active state
         const catPills = document.querySelectorAll('.cat-pill');
         catPills.forEach(pill => {
             pill.addEventListener('click', () => {
@@ -1081,7 +1089,8 @@
             });
         });
 
-        const sections = document.querySelectorAll('.kit-section');
+        // Update active pill on scroll
+        const sections = document.querySelectorAll('[id^="cat-"]');
         const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1093,7 +1102,7 @@
         }, { threshold: 0.35, rootMargin: '-150px 0px -50% 0px' });
         sections.forEach(s => scrollObserver.observe(s));
 
-        // ── Compare functionality ──
+        // Compare functionality
         const compareBar = document.getElementById('compare-bar');
         const compareCount = document.getElementById('compare-count');
         const compareCheckboxes = document.querySelectorAll('.compare-cb');
@@ -1115,5 +1124,54 @@
         });
     </script>
 
+    <!-- ====== GEOLOCATION (Footer) ====== -->
+    <script>
+        (function() {
+            function updateLocationInfo(position) {
+                const lat = position.coords.latitude.toFixed(6);
+                const lng = position.coords.longitude.toFixed(6);
+                const el = document.getElementById('locationInfo');
+                if (el) {
+                    el.innerHTML = `
+                        <i class="fas fa-map-pin text-amber me-1"></i> 
+                        <span class="text-white-50">Lat: ${lat} , Lng: ${lng}</span>
+                        <span class="badge bg-amber text-dark ms-1" style="background:#C9A84C; font-size:0.7rem;">±${Math.round(position.coords.accuracy || 0)}m</span>
+                        <div class="mt-1 small text-white-50"><i class="fas fa-route text-amber me-1"></i>Live route via Geolocation API</div>
+                    `;
+                }
+            }
+            function showLocationError(error) {
+                const el = document.getElementById('locationInfo');
+                if (el) {
+                    let msg = 'Location access denied.';
+                    if (error.code === 1) msg = '❌ Permission denied.';
+                    else if (error.code === 2) msg = '⚠️ Position unavailable.';
+                    else if (error.code === 3) msg = '⏳ Timeout.';
+                    el.innerHTML = `<i class="fas fa-exclamation-triangle text-warning me-1"></i> ${msg}`;
+                }
+            }
+            function getLocation() {
+                if (!navigator.geolocation) {
+                    const el = document.getElementById('locationInfo');
+                    if (el) el.innerHTML = '<i class="fas fa-browser text-warning me-1"></i> Geolocation not supported.';
+                    return;
+                }
+                navigator.geolocation.getCurrentPosition(updateLocationInfo, showLocationError, {
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    maximumAge: 0
+                });
+            }
+            document.addEventListener('DOMContentLoaded', function() {
+                getLocation();
+                setTimeout(() => {
+                    const el = document.getElementById('locationInfo');
+                    if (el && el.innerHTML.includes('Locating')) getLocation();
+                }, 4000);
+            });
+        })();
+    </script>
+<script src="../js/main.js"></script>
+<script src="../js/loader.js"></script>
 </body>
 </html>

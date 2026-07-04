@@ -1,165 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover the trusted camera and lens brands available at FOTOLAB.">
-    <title>Brands - FOTOLAB</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover the trusted camera and lens brands available at FOTOLAB.">
+  <title>Brands – FOTOLAB</title>
+  <!-- Bootstrap 5 + Icons + Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/mobile-responsive.css">
-    <script>
-        const IMAGE_PATH = "../images/fotoloader.png";
-    </script>
+
+  <style>
+    /* ====== GLOBAL RESET & THEME ====== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0b0b1a;
+      color: #f0f0f5;
+      font-family: 'Inter', sans-serif;
+      padding-top: 76px;
+    }
+    a { text-decoration: none; }
+    .text-amber { color: #C9A84C; }
+    .bg-dark-card { background: #14142a; border: 1px solid #2d2d4a; }
+
+    /* ====== NAVBAR ====== */
+    .navbar {
+      background: #0b0b1a !important;
+      border-bottom: 2px solid #C9A84C;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+      backdrop-filter: blur(4px);
+    }
+    .navbar-brand { color: #fff !important; letter-spacing: 0.5px; }
+    .navbar-brand img { filter: drop-shadow(0 0 6px #C9A84C55); }
+    .nav-link {
+      color: #ddd !important;
+      font-weight: 500;
+      margin: 0 6px;
+      transition: 0.3s;
+      border-radius: 30px;
+      padding: 8px 18px !important;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: #C9A84C22;
+      color: #C9A84C !important;
+      box-shadow: 0 0 12px #C9A84C33;
+    }
+
+    /* ====== HERO ====== */
+    .hero {
+      background: linear-gradient(145deg, #0f0f28 0%, #1a1a3a 100%);
+      border-bottom: 2px solid #C9A84C55;
+    }
+    .hero h1 { text-shadow: 0 0 30px #C9A84C33; }
+
+    /* ====== BRAND MARQUEE (infinite scroll) ====== */
+    .brand-marquee-wrapper {
+      overflow: hidden;
+      width: 100%;
+      background: #0e0e22;
+      padding: 20px 0;
+      border-radius: 40px 40px 20px 20px;
+      border: 1px solid #2d2d50;
+      box-shadow: inset 0 0 40px #00000066, 0 12px 30px #00000099;
+    }
+    .brand-marquee-track {
+      display: flex;
+      gap: 16px;
+      animation: scrollBrands 32s linear infinite;
+      width: max-content;
+    }
+    .brand-marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes scrollBrands {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ====== BRAND CARD ====== */
+    .brand-card {
+      background: #12122a;
+      border: 1px solid #333366;
+      border-radius: 28px;
+      width: 210px;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 0 #0a0a18;
+      text-align: center;
+      padding: 18px 14px !important;
+      backdrop-filter: blur(2px);
+    }
+    .brand-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: #C9A84C;
+      box-shadow: 0 16px 30px #C9A84C33, 0 0 20px #C9A84C22;
+      background: #19193b;
+    }
+    .brand-card img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 20px;
+      background: #1a1a2e;
+      border: 1px solid #3a3a6a;
+      transition: 0.3s;
+    }
+    .brand-card:hover img { border-color: #C9A84C; }
+    .brand-card h5 {
+      color: #C9A84C;
+      font-weight: 600;
+      margin-top: 14px;
+      letter-spacing: 0.5px;
+    }
+    .brand-card p {
+      color: #b0b0d0;
+      font-size: 0.85rem;
+      margin-bottom: 0;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: #070714;
+      border-top: 2px solid #C9A84C55;
+    }
+    #locationInfo {
+      background: #0e0e24 !important;
+      border: 1px solid #2f2f5a !important;
+      border-radius: 18px;
+      color: #ddd;
+      font-size: 0.9rem;
+      padding: 12px 16px !important;
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+    }
+    #locationInfo i { color: #C9A84C; width: 22px; }
+    .list-unstyled li a { transition: 0.2s; }
+    .list-unstyled li a:hover { color: #C9A84C !important; padding-left: 6px; }
+
+    /* ====== RESPONSIVE FINE-TUNE ====== */
+    @media (max-width: 768px) {
+      .brand-card { width: 170px; padding: 12px !important; }
+      .brand-card img { height: 80px; }
+      .brand-card h5 { font-size: 1rem; }
+      .hero { height: 30vh !important; }
+    }
+    @media (max-width: 480px) {
+      .brand-card { width: 150px; }
+    }
+  </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="../index.html">
-                <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
-                <span class="fw-bold fs-3">FOTOLAB</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../pages/index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/service.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="../pages/brands.html">Brands</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/compare.html">Compare</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <header class="hero position-relative d-flex align-items-center justify-content-center text-center" style="height: 45vh; background: linear-gradient(rgba(10,10,30,0.6), rgba(10,10,30,0.6)), url('https://picsum.photos/id/1040/1920/800') center/cover no-repeat;">
-        <div class="hero-overlay"></div>
-        <div class="container position-relative z-3 text-white">
-            <h1 class="display-3 fw-bold text-white">Trusted Brands</h1>
-            <p class="lead text-white-50 mt-3">Find your next camera or lens from the brands professionals trust.</p>
-        </div>
-    </header>
-
-    <main class="container py-5">
-    <div class="brand-marquee-wrapper">
-        <div class="brand-marquee-track">
-            
-            <!-- ====== FIRST SET (Original Cards) ====== -->
-            <div class="p-2">
-                <a href="canon.html" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
-                    <img src="https://picsum.photos/id/1060/160/100" alt="Canon" class="img-fluid mb-3 rounded">
-                    <h5 class="text-info">Canon</h5>
-                    <p class="text-white-50 small">Precision optics for photographers and filmmakers.</p>
-                </a>
-            </div>
-            <div class="p-2">
-                <a href="nikon.html" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
-                    <img src="https://picsum.photos/id/1061/160/100" alt="Nikon" class="img-fluid mb-3 rounded">
-                    <h5 class="text-info">Nikon</h5>
-                    <p class="text-white-50 small">Legendary image quality and rugged performance.</p>
-                </a>
-            </div>
-            <div class="p-2">
-                <a href="sony.html" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
-                    <img src="https://picsum.photos/id/1062/160/100" alt="Sony" class="img-fluid mb-3 rounded">
-                    <h5 class="text-info">Sony</h5>
-                    <p class="text-white-50 small">Leading mirrorless technology and speed.</p>
-                </a>
-            </div>
-            <div class="p-2">
-                <a href="fujifilm.html" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
-                    <img src="https://picsum.photos/id/1063/160/100" alt="Fujifilm" class="img-fluid mb-3 rounded">
-                    <h5 class="text-info">Fujifilm</h5>
-                    <p class="text-white-50 small">Classic styling with modern performance.</p>
-                </a>
-            </div>
-
-            <!-- ====== SECOND SET (Duplicate for Infinite Loop Effect) ====== -->
-            <div class="p-2">
-                <a href="canon.html" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
-                    <img src="https://picsum.photos/id/1060/160/100" alt="Canon" class="img-fluid mb-3 rounded">
-                    <h5 class="text-info">Canon</h5>
-                    <p class="text-white-50 small">Precision optics for photographers and filmmakers.</p>
-                </a>
-            </div>
-            <div class="p-2">
-                <a href="nikon.html" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
-                    <img src="https://picsum.photos/id/1061/160/100" alt="Nikon" class="img-fluid mb-3 rounded">
-                    <h5 class="text-info">Nikon</h5>
-                    <p class="text-white-50 small">Legendary image quality and rugged performance.</p>
-                </a>
-            </div>
-            <div class="p-2">
-                <a href="sony.html" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
-                    <img src="https://picsum.photos/id/1062/160/100" alt="Sony" class="img-fluid mb-3 rounded">
-                    <h5 class="text-info">Sony</h5>
-                    <p class="text-white-50 small">Leading mirrorless technology and speed.</p>
-                </a>
-            </div>
-            <div class="p-2">
-                <a href="fujifilm.html" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
-                    <img src="https://picsum.photos/id/1063/160/100" alt="Fujifilm" class="img-fluid mb-3 rounded">
-                    <h5 class="text-info">Fujifilm</h5>
-                    <p class="text-white-50 small">Classic styling with modern performance.</p>
-                </a>
-            </div>
-
-        </div>
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="../index.html">
+        <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="50" height="50" class="me-2">
+        <span class="fw-bold fs-3" style="color: #fff; text-shadow: 0 0 12px #C9A84C55;">FOTOLAB</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link active" href="brands.html">Brands</a></li>
+          <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
     </div>
-</main>
+  </nav>
 
-    <!-- Footer -->
-    <footer class="py-5" style="background-color: black; border-top: 2px solid #C9A84C;">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <h5 class="text-amber mb-3">FOTOLAB</h5>
-                    <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
-                </div>
-                <div class="col-md-2">
-                    <h5 class="text-amber mb-3">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h5 class="text-amber mb-3">Contact Outlet</h5>
-                    <p class="text-white-50 mb-1"><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi, Karachi, Pakistan</p>
-                    <p class="text-white-50 mb-1"><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
-                    <p class="text-white-50 mb-0"><i class="fas fa-phone text-amber me-2"></i> +91 98765 43210</p>
-                </div>
-                <!-- Geolocation Live Route Module Inside Footer -->
-                <div class="col-md-4">
-                    <h5 class="text-amber mb-3"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
-                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #1A1A2E; border: 1px solid #333;">
-                        <span class="text-white-50"><i class="fas fa-spinner fa-spin me-2"></i>Location track ki ja rahi hai...</span>
-                    </div>
-                </div>
-            </div>
-            <hr class="border-secondary mt-4">
-            <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
+  <!-- ====== HERO ====== -->
+  <header class="hero position-relative d-flex align-items-center justify-content-center text-center" style="min-height: 30vh; background: linear-gradient(145deg, #0b0b20 0%, #1a1a3a 100%);">
+    <div class="container position-relative z-3 text-white py-4">
+      <h1 class="display-3 fw-bold" style="color: #fff; text-shadow: 0 0 40px #C9A84C55;">Trusted Brands</h1>
+      <p class="lead text-white-50 mt-2" style="font-weight: 300; letter-spacing: 0.5px;">Explore the finest camera & lens brands – each with a story of precision.</p>
+    </div>
+  </header>
+
+  <!-- ====== BRAND MARQUEE (infinite loop with all brands + extras) ====== -->
+  <main class="container py-5">
+    <div class="brand-marquee-wrapper">
+      <div class="brand-marquee-track">
+
+        <!-- ====== ORIGINAL SET + ADDITIONAL BRANDS (fully detailed) ====== -->
+        <!-- 1 Canon -->
+        <div class="p-2">
+          <a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
+            <img src="https://picsum.photos/id/1060/400/250" alt="Canon" class="img-fluid mb-3 rounded">
+            <h5 class="text-amber">Canon</h5>
+            <p class="text-white-50 small">Precision optics, L-series glass & superior autofocus.</p>
+          </a>
         </div>
-    </footer>
+        <!-- 2 Nikon -->
+        <div class="p-2">
+          <a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
+            <img src="https://picsum.photos/id/1061/400/250" alt="Nikon" class="img-fluid mb-3 rounded">
+            <h5 class="text-amber">Nikon</h5>
+            <p class="text-white-50 small">Legendary ruggedness, EXPEED processing & stunning clarity.</p>
+          </a>
+        </div>
+        <!-- 3 Sony -->
+        <div class="p-2">
+          <a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
+            <img src="https://picsum.photos/id/1062/400/250" alt="Sony" class="img-fluid mb-3 rounded">
+            <h5 class="text-amber">Sony</h5>
+            <p class="text-white-50 small">Alpha mirrorless, 4D focus, high-speed burst & cinematic.</p>
+          </a>
+        </div>
+        <!-- 4 Fujifilm -->
+        <div class="p-2">
+          <a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
+            <img src="https://picsum.photos/id/1063/400/250" alt="Fujifilm" class="img-fluid mb-3 rounded">
+            <h5 class="text-amber">Fujifilm</h5>
+            <p class="text-white-50 small">Film simulation, X-Trans sensor, classic tactile controls.</p>
+          </a>
+        </div>
+        <!-- 5 Panasonic (NEW) -->
+        <div class="p-2">
+          <a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
+            <img src="https://picsum.photos/id/1064/400/250" alt="Panasonic" class="img-fluid mb-3 rounded">
+            <h5 class="text-amber">Panasonic</h5>
+            <p class="text-white-50 small">Lumix GH series, 6K video, Leica partnership & vlog-ready.</p>
+          </a>
+        </div>
+        <!-- 6 Olympus (NEW) -->
+        <div class="p-2">
+          <a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
+            <img src="https://picsum.photos/id/1065/400/250" alt="Olympus" class="img-fluid mb-3 rounded">
+            <h5 class="text-amber">Olympus</h5>
+            <p class="text-white-50 small">OM-D series, weather-sealed, 5-axis IBIS & micro four thirds.</p>
+          </a>
+        </div>
+        <!-- 7 Leica (NEW) -->
+        <div class="p-2">
+          <a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
+            <img src="https://picsum.photos/id/1066/400/250" alt="Leica" class="img-fluid mb-3 rounded">
+            <h5 class="text-amber">Leica</h5>
+            <p class="text-white-50 small">Masterpiece German engineering, M-mount & timeless style.</p>
+          </a>
+        </div>
+        <!-- 8 Hasselblad (NEW) -->
+        <div class="p-2">
+          <a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
+            <img src="https://picsum.photos/id/1067/400/250" alt="Hasselblad" class="img-fluid mb-3 rounded">
+            <h5 class="text-amber">Hasselblad</h5>
+            <p class="text-white-50 small">Medium format, natural color, iconic Swedish craftsmanship.</p>
+          </a>
+        </div>
+        <!-- 9 Sigma (NEW) -->
+        <div class="p-2">
+          <a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
+            <img src="https://picsum.photos/id/1068/400/250" alt="Sigma" class="img-fluid mb-3 rounded">
+            <h5 class="text-amber">Sigma</h5>
+            <p class="text-white-50 small">Art, Sports, Contemporary lenses – exceptional sharpness.</p>
+          </a>
+        </div>
+        <!-- 10 Tamron (NEW) -->
+        <div class="p-2">
+          <a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary">
+            <img src="https://picsum.photos/id/1069/400/250" alt="Tamron" class="img-fluid mb-3 rounded">
+            <h5 class="text-amber">Tamron</h5>
+            <p class="text-white-50 small">Versatile zooms, VC image stabilization & close-up magic.</p>
+          </a>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/loader.js"></script>
-    <script src="../js/geolocation.js"></script>
-    
-    <!-- Geolocation Trigger Script -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            if (typeof getLocation === "function") {
-                getLocation();
-            }
+        <!-- ====== DUPLICATE SET (for seamless infinite loop) ====== -->
+        <div class="p-2"><a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary"><img src="https://picsum.photos/id/1060/400/250" alt="Canon" class="img-fluid mb-3 rounded"><h5 class="text-amber">Canon</h5><p class="text-white-50 small">Precision optics, L-series glass & superior autofocus.</p></a></div>
+        <div class="p-2"><a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary"><img src="https://picsum.photos/id/1061/400/250" alt="Nikon" class="img-fluid mb-3 rounded"><h5 class="text-amber">Nikon</h5><p class="text-white-50 small">Legendary ruggedness, EXPEED processing & stunning clarity.</p></a></div>
+        <div class="p-2"><a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary"><img src="https://picsum.photos/id/1062/400/250" alt="Sony" class="img-fluid mb-3 rounded"><h5 class="text-amber">Sony</h5><p class="text-white-50 small">Alpha mirrorless, 4D focus, high-speed burst & cinematic.</p></a></div>
+        <div class="p-2"><a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary"><img src="https://picsum.photos/id/1063/400/250" alt="Fujifilm" class="img-fluid mb-3 rounded"><h5 class="text-amber">Fujifilm</h5><p class="text-white-50 small">Film simulation, X-Trans sensor, classic tactile controls.</p></a></div>
+        <div class="p-2"><a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary"><img src="https://picsum.photos/id/1064/400/250" alt="Panasonic" class="img-fluid mb-3 rounded"><h5 class="text-amber">Panasonic</h5><p class="text-white-50 small">Lumix GH series, 6K video, Leica partnership & vlog-ready.</p></a></div>
+        <div class="p-2"><a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary"><img src="https://picsum.photos/id/1065/400/250" alt="Olympus" class="img-fluid mb-3 rounded"><h5 class="text-amber">Olympus</h5><p class="text-white-50 small">OM-D series, weather-sealed, 5-axis IBIS & micro four thirds.</p></a></div>
+        <div class="p-2"><a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary"><img src="https://picsum.photos/id/1066/400/250" alt="Leica" class="img-fluid mb-3 rounded"><h5 class="text-amber">Leica</h5><p class="text-white-50 small">Masterpiece German engineering, M-mount & timeless style.</p></a></div>
+        <div class="p-2"><a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary"><img src="https://picsum.photos/id/1067/400/250" alt="Hasselblad" class="img-fluid mb-3 rounded"><h5 class="text-amber">Hasselblad</h5><p class="text-white-50 small">Medium format, natural color, iconic Swedish craftsmanship.</p></a></div>
+        <div class="p-2"><a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary"><img src="https://picsum.photos/id/1068/400/250" alt="Sigma" class="img-fluid mb-3 rounded"><h5 class="text-amber">Sigma</h5><p class="text-white-50 small">Art, Sports, Contemporary lenses – exceptional sharpness.</p></a></div>
+        <div class="p-2"><a href="#" class="brand-card d-block p-4 rounded-4 shadow-sm bg-dark text-decoration-none border border-secondary"><img src="https://picsum.photos/id/1069/400/250" alt="Tamron" class="img-fluid mb-3 rounded"><h5 class="text-amber">Tamron</h5><p class="text-white-50 small">Versatile zooms, VC image stabilization & close-up magic.</p></a></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ====== FOOTER with Geolocation ====== -->
+  <footer class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-3">
+          <h5 class="text-amber mb-3">FOTOLAB</h5>
+          <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
+          <p class="text-white-50 small"><i class="fas fa-award text-amber me-2"></i>Innovation & trust</p>
+        </div>
+        <div class="col-md-2">
+          <h5 class="text-amber mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
+            <li><a href="brands.html" class="text-white-50 text-decoration-none">Brands</a></li>
+            <li><a href="about.html" class="text-white-50 text-decoration-none">About</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="text-amber mb-3">Contact Outlet</h5>
+          <p class="text-white-50 mb-1"><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi, Karachi, Pakistan</p>
+          <p class="text-white-50 mb-1"><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
+          <p class="text-white-50 mb-0"><i class="fas fa-phone text-amber me-2"></i> +91 98765 43210</p>
+        </div>
+        <!-- Geolocation Live Route Module (in footer) -->
+        <div class="col-md-4">
+          <h5 class="text-amber mb-3"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
+          <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #0e0e24; border: 1px solid #2f2f5a;">
+            <span><i class="fas fa-spinner fa-pulse me-2"></i>Locating ...</span>
+          </div>
+        </div>
+      </div>
+      <hr class="border-secondary mt-4">
+      <p class="text-center text-white-50 mb-0 small">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
+    </div>
+  </footer>
+
+  <!-- ====== SCRIPTS ====== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Geolocation script (inline + robust) -->
+  <script>
+    (function() {
+      "use strict";
+
+      function updateLocationInfo(position) {
+        const lat = position.coords.latitude.toFixed(6);
+        const lng = position.coords.longitude.toFixed(6);
+        const accuracy = position.coords.accuracy ? Math.round(position.coords.accuracy) : '?';
+        const el = document.getElementById('locationInfo');
+        if (el) {
+          el.innerHTML = `
+            <i class="fas fa-map-pin text-amber me-2"></i> 
+            <span class="text-white-50">Lat: ${lat} , Lng: ${lng}</span>
+            <span class="badge bg-amber text-dark ms-2" style="background:#C9A84C;">±${accuracy}m</span>
+            <div class="mt-1 small text-white-50"><i class="fas fa-route text-amber me-1"></i>Live route via Geolocation API</div>
+          `;
+        }
+      }
+
+      function showLocationError(error) {
+        const el = document.getElementById('locationInfo');
+        if (el) {
+          let msg = 'Location access denied. Please enable GPS.';
+          if (error.code === 1) msg = '❌ Permission denied.';
+          else if (error.code === 2) msg = '⚠️ Position unavailable.';
+          else if (error.code === 3) msg = '⏳ Timeout.';
+          el.innerHTML = `<i class="fas fa-exclamation-triangle text-warning me-2"></i> ${msg}`;
+        }
+      }
+
+      function getLocation() {
+        if (!navigator.geolocation) {
+          const el = document.getElementById('locationInfo');
+          if (el) el.innerHTML = '<i class="fas fa-browser text-warning me-2"></i> Geolocation not supported.';
+          return;
+        }
+        navigator.geolocation.getCurrentPosition(updateLocationInfo, showLocationError, {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
         });
-    </script>
+      }
+
+      // Auto-run on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        getLocation();
+        // Re-try after 4 sec if still loading
+        setTimeout(() => {
+          const el = document.getElementById('locationInfo');
+          if (el && el.innerHTML.includes('Locating')) {
+            getLocation();
+          }
+        }, 4000);
+      });
+    })();
+  </script>
+
+  <!-- extra small style for badge -->
+  <style>
+    .badge.bg-amber { background-color: #C9A84C; color: #0b0b1a; }
+    #locationInfo { transition: 0.3s; min-height: 64px; }
+    .brand-card { cursor: pointer; }
+    .brand-card img { transition: 0.3s; }
+    .brand-card:hover img { transform: scale(1.02); }
+  </style>
+<script src="../js/main.js"></script>
+<script src="../js/loader.js"></script>
 </body>
 </html>

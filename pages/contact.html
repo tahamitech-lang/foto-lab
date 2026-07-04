@@ -3,34 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact FOTOLAB for orders, support, or gear advice.">
-    <title>Contact - FOTOLAB</title>
+    <meta name="description" content="Contact FOTOLAB for orders, support, or gear advice. Visit our store in Karachi or reach us online.">
+    <title>Contact FOTOLAB | Premium Camera Store</title>
+    <!-- Bootstrap 5 + Icons + Google Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/mobile-responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      <link rel="stylesheet" href="../css/animations.css">
+
     <style>
-        /* Contact page specific */
-.border-amber-glow {
-    border-color: #0d6efd !important;
-    box-shadow: 0 0 15px rgba(13, 110, 253, 0.3);
-}
+        /* ----- GLOBAL RESET & THEME ----- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            background: #0b0b1a;
+            color: #f0f0f5;
+            font-family: 'Inter', sans-serif;
+            padding-top: 76px;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        a { text-decoration: none; }
+        .text-amber { color: #C9A84C; }
+        .bg-amber { background-color: #C9A84C; }
+        .btn-amber {
+            background: #C9A84C;
+            color: #0b0b1a;
+            font-weight: 600;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-amber:hover {
+            background: #b8973a;
+            color: #000;
+            transform: scale(1.02);
+            box-shadow: 0 0 20px #C9A84C66;
+        }
+        .btn-dark-custom {
+            background: #1a1a2e;
+            color: #fff;
+            border: 1px solid #C9A84C;
+        }
+        .btn-dark-custom:hover {
+            background: #C9A84C;
+            color: #0b0b1a;
+        }
+        .form-control {
+            background: #14142e !important;
+            border: 1px solid #2d2d5a !important;
+            color: #f0f0f5 !important;
+        }
+        .form-control:focus {
+            border-color: #C9A84C !important;
+            box-shadow: 0 0 0 0.25rem #C9A84C44 !important;
+        }
+        .form-label { color: #ddd; font-weight: 500; }
+
+        /* ----- NAVBAR ----- */
+        .navbar {
+            background: #0b0b1a !important;
+            border-bottom: 2px solid #C9A84C;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            backdrop-filter: blur(4px);
+        }
+        .navbar-brand { color: #fff !important; letter-spacing: 0.5px; }
+        .navbar-brand img { filter: drop-shadow(0 0 6px #C9A84C55); }
+        .nav-link {
+            color: #ddd !important;
+            font-weight: 500;
+            margin: 0 4px;
+            transition: 0.3s;
+            border-radius: 30px;
+            padding: 8px 16px !important;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: #C9A84C22;
+            color: #C9A84C !important;
+            box-shadow: 0 0 12px #C9A84C33;
+        }
+
+        /* ----- HERO ----- */
+        .contact-hero {
+            min-height: 35vh;
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a1a3a 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .contact-hero .overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 40%, #C9A84C22, transparent 70%);
+            pointer-events: none;
+        }
+        .contact-hero h1 {
+            text-shadow: 0 0 40px #C9A84C55;
+            letter-spacing: 2px;
+        }
+
+        /* ----- CONTACT CARDS (fixed height) ----- */
+        .contact-card {
+            background: #10102a;
+            border: 1px solid #2a2a50;
+            border-radius: 24px;
+            padding: 24px 22px;
+            transition: 0.3s;
+            height: auto;
+            min-height: auto;
+        }
+        .contact-card:hover {
+            border-color: #C9A84C;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px #C9A84C33;
+        }
+        .contact-card i { color: #C9A84C; font-size: 1.8rem; margin-bottom: 12px; }
+        .contact-card h5 { color: #fff; font-size: 1.2rem; }
+        .contact-card p { color: #b0b0d0; margin-bottom: 4px; font-size: 0.95rem; }
+        .contact-card .small-text { font-size: 0.85rem; }
+
+        /* ----- MAP & GEOLOCATION ----- */
+        #location-status {
+            background: #0e0e24;
+            border-radius: 12px;
+            padding: 8px 14px;
+            border: 1px solid #2f2f5a;
+            font-size: 0.85rem;
+            min-height: 40px;
+            display: none;
+        }
+        #location-status i { color: #C9A84C; }
+        .map-wrapper {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #2a2a50;
+        }
+
+        /* ----- MAIN CONTENT - FIXED HEIGHT ISSUES ----- */
+        main {
+            flex: 1 0 auto;
+        }
+        .main-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        /* ----- FOOTER (fixed position) ----- */
+        footer {
+            background: #070714;
+            border-top: 2px solid #C9A84C55;
+            margin-top: auto;
+            flex-shrink: 0;
+            width: 100%;
+        }
+        #locationInfo {
+            background: #0e0e24 !important;
+            border: 1px solid #2f2f5a !important;
+            border-radius: 18px;
+            color: #ddd;
+            font-size: 0.85rem;
+            padding: 10px 14px !important;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+        }
+        #locationInfo i { color: #C9A84C; width: 20px; }
+        .list-unstyled li a { transition: 0.2s; }
+        .list-unstyled li a:hover { color: #C9A84C !important; padding-left: 6px; }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 768px) {
+            .contact-hero { min-height: 30vh; }
+            .contact-hero h1 { font-size: 2.5rem; }
+            .contact-card { padding: 18px 16px; }
+        }
+        @media (max-width: 576px) {
+            .contact-hero h1 { font-size: 2rem; }
+        }
     </style>
-    <script>
-        const IMAGE_PATH = "../images/fotoloader.png";
-    </script>
 </head>
 <body>
+
+    <!-- ====== NAVBAR ====== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="../index.html">
-                <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="40" height="40" class="me-2">
-                <span class="fw-bold fs-3">FOTOLAB</span>
+        <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="50" height="50" class="me-2">
+                <span class="fw-bold fs-3" style="color: #fff; text-shadow: 0 0 12px #C9A84C55;">FOTOLAB</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -46,156 +217,246 @@
         </div>
     </nav>
 
-    <header class="hero position-relative d-flex align-items-center justify-content-center text-center" style="height: 55vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/id/1080/1920/700') center/cover no-repeat;">
-        <div class="hero-overlay"></div>
-        <div class="container position-relative z-3 text-white">
-            <h1 class="display-4 text-white fw-bold">Contact FOTOLAB</h1>
-            <p class="lead text-white-50 mt-3">Questions? Orders? Get in touch with our camera experts today.</p>
+    <!-- ====== HERO ====== -->
+    <section class="contact-hero">
+        <div class="overlay"></div>
+        <div class="container position-relative z-3">
+            <h1 class="display-2 fw-bold text-white" data-aos="fade-up">Contact Us</h1>
+            <p class="lead text-white-50 fs-4" data-aos="fade-up" data-aos-delay="150">We're here to help you capture the perfect shot.</p>
         </div>
-    </header>
+    </section>
 
-    <main class="container py-5 mt-5">
-        <div class="row g-5">
-            <div class="col-lg-6 fade-in">
-                <!-- Contact Info Card -->
-                <div class="p-4 rounded-4 py-5 bg-black border border-secondary border-opacity-10 shadow-sm mb-4">
-                    <h2 class="text-amber">Get in Touch</h2>
-                    <p class="text-white-50">Reach us by phone, email, or visit our store for in-person support.</p>
-                    <ul class="list-unstyled text-white-50">
-                        <li class="mb-3"><i class="fas fa-envelope me-2 text-amber"></i> info@fotolab.com</li>
-                        <li class="mb-3"><i class="fas fa-phone me-2 text-amber"></i> +92 300 1234567</li>
-                        <li><i class="fas fa-map-marker-alt me-2 text-amber"></i> Korangi Industrial Area, Karachi, Pakistan</li>
-                    </ul>
-                </div>
+    <!-- ====== MAIN CONTENT (fixed spacing) ====== -->
+    <main class="main-content-wrapper">
+        <div class="container">
+            <div class="row g-4">
 
-                <!-- Google Map + Location Button Section -->
-                <div class="p-4 rounded-4 bg-black border border-secondary border-opacity-10 shadow-sm">
-                    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
-                        <h4 class="text-amber mb-0"><i class="fas fa-map-marked-alt me-2"></i>Find Our Store</h4>
-                        <button id="get-location-btn" class="btn btn-amber btn-sm d-flex align-items-center gap-2">
-                            <i class="fas fa-location-crosshairs"></i> Get My Location
-                        </button>
+                <!-- ====== LEFT COLUMN ====== -->
+                <div class="col-lg-6" data-aos="fade-right">
+
+                    <!-- Contact Info Card (fixed height - auto) -->
+                    <div class="contact-card mb-4">
+                        <i class="fas fa-address-card"></i>
+                        <h5>Visit or Reach Us</h5>
+                        <p><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi Industrial Area, Karachi, Pakistan</p>
+                        <p><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
+                        <p class="mb-0"><i class="fas fa-phone text-amber me-2"></i> +92 300 1234567</p>
                     </div>
-                    
-                    <!-- Location Status Alert Holder -->
-                    <div id="location-status" class="text-white-50 small mb-2" style="display: none;"></div>
 
-                    <!-- Embedded Google Map (Karachi, Pakistan) -->
-                    <div class="ratio ratio-16x9 rounded-3 overflow-hidden border border-secondary border-opacity-20">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57922.95383569733!2d67.09110419999999!3d24.852441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33a469734d0b1%3A0x6fbbf0afef578da6!2sKorangi%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh!5e0!3m2!1sen!2spk!4v1719410000000!5m2!1sen!2spk" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                    <!-- Google Map + Geolocation -->
+                    <div class="contact-card">
+                        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                            <h5 class="mb-0"><i class="fas fa-map-marked-alt text-amber me-2"></i>Find Our Store</h5>
+                            <button id="get-location-btn" class="btn btn-amber btn-sm d-flex align-items-center gap-2">
+                                <i class="fas fa-location-crosshairs"></i> Get Directions
+                            </button>
+                        </div>
+
+                        <!-- Location Status -->
+                        <div id="location-status" class="mb-2"></div>
+
+                        <!-- Map -->
+                        <div class="map-wrapper">
+                            <div class="ratio ratio-16x9">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57922.95383569733!2d67.09110419999999!3d24.852441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33a469734d0b1%3A0x6fbbf0afef578da6!2sKorangi%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh!5e0!3m2!1sen!2spk!4v1719410000000!5m2!1sen!2spk" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                        <p class="text-white-50 small-text mt-2 mb-0"><i class="fas fa-info-circle text-amber me-1"></i> Click "Get Directions" to open Google Maps with your current location.</p>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-lg-6 fade-in">
-                <div class="p-4 rounded-4 py-5 bg-black border border-secondary border-opacity-10 shadow-sm">
-                    <h2 class="text-amber">Send a Message</h2>
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="form-label text-white">Name</label>
-                            <input type="text" class="form-control bg-black text-white border-secondary" id="name" placeholder="Your name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label text-white">Email</label>
-                            <input type="email" class="form-control bg-black text-white border-secondary" id="email" placeholder="you@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label text-white">Message</label>
-                            <textarea class="form-control bg-black text-white border-secondary" id="message" rows="5" placeholder="Tell us how we can help"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-amber">Send Message</button>
-                    </form>
+                <!-- ====== RIGHT COLUMN: Contact Form ====== -->
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="contact-card">
+                        <i class="fas fa-paper-plane"></i>
+                        <h5>Send a Message</h5>
+                        <p class="text-white-50 small-text">We'll get back to you within 24 hours.</p>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Your name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Product inquiry, support, etc.">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="4" placeholder="Tell us how we can help..." required></textarea>
+                            </div>
+                            <button type="submit" id="submitBtn" class="btn btn-amber w-100 py-2">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
                 </div>
+
             </div>
         </div>
     </main>
 
-    <footer class="py-5" style="background-color: black;">
+    <!-- ====== FOOTER (fixed - no overlap) ====== -->
+    <footer class="py-4">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">FOTOLAB</h5>
-                    <p class="text-white">Premium Photography Solutions since 1991.</p>
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;">FOTOLAB</h5>
+                    <p class="text-white-50 small mb-0">Premium Photography Solutions Since 1991.</p>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">Explore</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="products.html" class="text-white">Products</a></li>
-                        <li><a href="service.html" class="text-white">Services</a></li>
-                        <li><a href="about.html" class="text-white">About</a></li>
+                <div class="col-md-2">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;">Quick Links</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="products.html" class="text-white-50 text-decoration-none">Products</a></li>
+                        <li><a href="brands.html" class="text-white-50 text-decoration-none">Brands</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-amber">Contact</h5>
-                    <p class="text-white">info@fotolab.com</p>
-                    <p class="text-white">+92 300 1234567</p>
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;">Contact Outlet</h5>
+                    <p class="text-white-50 small mb-1"><i class="fas fa-map-marker-alt text-amber me-1"></i> Korangi, Karachi</p>
+                    <p class="text-white-50 small mb-1"><i class="fas fa-envelope text-amber me-1"></i> info@fotolab.com</p>
+                    <p class="text-white-50 small mb-0"><i class="fas fa-phone text-amber me-1"></i> +92 300 1234567</p>
+                </div>
+                <!-- Geolocation Live Route Module -->
+                <div class="col-md-4">
+                    <h5 class="text-amber mb-2" style="font-size: 1.1rem;"><i class="fas fa-satellite-dish me-1"></i>Your Location Route</h5>
+                    <div id="locationInfo" class="p-2 rounded text-start" style="background: #0e0e24; border: 1px solid #2f2f5a; font-size: 0.8rem; min-height: 48px;">
+                        <span><i class="fas fa-spinner fa-pulse me-2"></i>Locating ...</span>
+                    </div>
                 </div>
             </div>
-            <hr class="border-secondary">
-            <p class="text-center text-white-50 mb-0">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
+            <hr class="border-secondary my-3">
+            <p class="text-center text-white-50 mb-0 small">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
         </div>
     </footer>
 
+    <!-- ====== SCRIPTS ====== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/loader.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
 
-    <!-- Geolocation Handling Script for Karachi -->
+    <!-- ====== GEOLOCATION & FORM HANDLING ====== -->
+
+    <!-- 1. Get Directions Button -->
     <script>
         document.getElementById('get-location-btn').addEventListener('click', function() {
             const statusDiv = document.getElementById('location-status');
             statusDiv.style.display = 'block';
-            statusDiv.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Finding your location...';
+            statusDiv.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Finding your location...';
 
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     function(position) {
                         const lat = position.coords.latitude;
                         const lon = position.coords.longitude;
-                        statusDiv.innerHTML = '<span class="text-success"><i class="fas fa-check-circle me-1"></i> Location found! Opening route directions...</span>';
+                        statusDiv.innerHTML = '<span class="text-success"><i class="fas fa-check-circle me-2"></i> Location found! Opening route...</span>';
                         
-                        // FOTOLAB Target Destination Coordinates (Korangi, Karachi, Pakistan)
                         const destLat = 24.852441;
                         const destLon = 67.091104;
                         
-                        // Automatically open Google Maps routing direction in a new tab
                         setTimeout(() => {
                             window.open(`https://www.google.com/maps/dir/?api=1&origin=${lat},${lon}&destination=${destLat},${destLon}&travelmode=driving`, '_blank');
+                            statusDiv.style.display = 'none';
                         }, 1000);
                     },
                     function(error) {
-                        switch(error.code) {
-                            case error.PERMISSION_DENIED:
-                                statusDiv.innerHTML = '<span class="text-danger"><i class="fas fa-exclamation-triangle me-1"></i> User denied permission.</span>';
-                                break;
-                            default:
-                                statusDiv.innerHTML = '<span class="text-danger"><i class="fas fa-exclamation-triangle me-1"></i> Location unavailable.</span>';
-                        }
+                        let msg = 'Unable to get location. ';
+                        if (error.code === 1) msg = '❌ Permission denied. Please enable location access.';
+                        else if (error.code === 2) msg = '⚠️ Position unavailable.';
+                        else if (error.code === 3) msg = '⏳ Timeout.';
+                        statusDiv.innerHTML = `<span class="text-danger">${msg}</span>`;
                     }
                 );
             } else {
-                statusDiv.innerHTML = '<span class="text-danger">Geolocation is not supported by this browser.</span>';
+                statusDiv.innerHTML = '<span class="text-danger">Geolocation is not supported.</span>';
             }
         });
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Page reload hone se rokne ke liye
-    
-    const btn = document.getElementById('submitBtn');
-    btn.disabled = true; // Button ko disable kar dein taake double click na ho
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
-    
-    // 2 second ka fake wait simulation
-    setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-check me-2"></i> Sent!';
-        btn.classList.replace('btn-amber', 'btn-success'); // Button ka color green ho jayega
-    }, 2000);
-});
     </script>
+
+    <!-- 2. Contact Form Submission -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check me-2"></i> Sent!';
+                btn.classList.remove('btn-amber');
+                btn.classList.add('btn-success');
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('btn-success');
+                    btn.classList.add('btn-amber');
+                    btn.disabled = false;
+                    document.getElementById('contactForm').reset();
+                }, 2500);
+            }, 1500);
+        });
+    </script>
+
+    <!-- 3. Footer Geolocation -->
+    <script>
+        (function() {
+            function updateLocationInfo(position) {
+                const lat = position.coords.latitude.toFixed(6);
+                const lng = position.coords.longitude.toFixed(6);
+                const el = document.getElementById('locationInfo');
+                if (el) {
+                    el.innerHTML = `
+                        <i class="fas fa-map-pin text-amber me-1"></i> 
+                        <span class="text-white-50">Lat: ${lat} , Lng: ${lng}</span>
+                        <span class="badge bg-amber text-dark ms-1" style="background:#C9A84C; font-size:0.7rem;">±${Math.round(position.coords.accuracy || 0)}m</span>
+                        <div class="mt-1 small text-white-50"><i class="fas fa-route text-amber me-1"></i>Live route via Geolocation API</div>
+                    `;
+                }
+            }
+            function showLocationError(error) {
+                const el = document.getElementById('locationInfo');
+                if (el) {
+                    let msg = 'Location access denied.';
+                    if (error.code === 1) msg = '❌ Permission denied.';
+                    else if (error.code === 2) msg = '⚠️ Position unavailable.';
+                    else if (error.code === 3) msg = '⏳ Timeout.';
+                    el.innerHTML = `<i class="fas fa-exclamation-triangle text-warning me-1"></i> ${msg}`;
+                }
+            }
+            function getLocation() {
+                if (!navigator.geolocation) {
+                    const el = document.getElementById('locationInfo');
+                    if (el) el.innerHTML = '<i class="fas fa-browser text-warning me-1"></i> Geolocation not supported.';
+                    return;
+                }
+                navigator.geolocation.getCurrentPosition(updateLocationInfo, showLocationError, {
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    maximumAge: 0
+                });
+            }
+            document.addEventListener('DOMContentLoaded', function() {
+                getLocation();
+                setTimeout(() => {
+                    const el = document.getElementById('locationInfo');
+                    if (el && el.innerHTML.includes('Locating')) getLocation();
+                }, 4000);
+            });
+        })();
+    </script>
+<script src="../js/main.js"></script>
+<script src="../js/loader.js"></script>
 </body>
 </html>
