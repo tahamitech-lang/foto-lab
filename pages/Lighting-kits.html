@@ -1110,18 +1110,41 @@
 
         function updateCompareBar() {
             const checked = document.querySelectorAll('.compare-cb:checked');
-            compareCount.textContent = checked.length;
-            compareBar.classList.toggle('visible', checked.length > 0);
-            const names = Array.from(checked).map(cb => cb.dataset.name);
+            const count = checked.length;
+
+            compareCount.textContent = count;
+            compareBar.classList.toggle('visible', count > 0);
+
+            // Save selected items for compare.html
+            // (compare.html uses product compare data stored in js/compare.js)
+            const names = Array.from(checked).map(cb => cb.dataset.name || cb.value);
             sessionStorage.setItem('fotolab-compare-items', JSON.stringify(names));
         }
 
-        compareCheckboxes.forEach(cb => cb.addEventListener('change', updateCompareBar));
+        // Enforce max 2 selections (compare page supports product A vs product B)
+        compareCheckboxes.forEach(cb => {
+            cb.addEventListener('change', () => {
+                const checked = document.querySelectorAll('.compare-cb:checked');
+
+                if (checked.length > 2) {
+                    // Keep the most recently toggled checkbox ON, turn the others OFF
+                    compareCheckboxes.forEach(x => {
+                        if (x !== cb) x.checked = false;
+                    });
+                    cb.checked = true;
+                }
+
+                updateCompareBar();
+            });
+        });
 
         clearBtn.addEventListener('click', () => {
-            compareCheckboxes.forEach(cb => cb.checked = false);
+            compareCheckboxes.forEach(cb => (cb.checked = false));
             updateCompareBar();
         });
+
+        // Initial UI sync
+        updateCompareBar();
     </script>
 
     <!-- ====== GEOLOCATION (Footer) ====== -->
