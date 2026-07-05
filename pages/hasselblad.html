@@ -23,6 +23,59 @@
             --brand-accent-light: #FFF8DC;
             --brand-accent-glow: rgba(245,215,110,0.25);
         }
+        /* ── Navbar Grey Background ── */
+.navbar {
+    background-color: #2d2d2d !important;
+    border-bottom: 1px solid rgba(13, 110, 253, 0.2);
+}
+
+/* If you want the navbar links to remain visible with grey background */
+.navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--brand-accent) !important;
+}
+
+/* For mobile toggler button */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* ── Dropdown Menu Styling ── */
+.dropdown-menu {
+    background: #2d2d2d !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 8px 0 !important;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8) !important;
+}
+
+.dropdown-item {
+    color: rgba(255,255,255,0.7) !important;
+    padding: 8px 24px !important;
+    font-size: 14px !important;
+    transition: all 0.3s ease !important;
+}
+
+.dropdown-item:hover {
+    background: rgba(138,43,226,0.2) !important;
+    color: var(--brand-accent) !important;
+}
+
+.dropdown-toggle::after {
+    color: rgba(255,255,255,0.5);
+}
 
         /* ── Hero ── */
         .hasselblad-hero {
@@ -549,29 +602,44 @@
 </head>
 <body>
 
-    <!-- ══════════════ NAVBAR ══════════════ -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="50" height="50" class="me-2">
-                <span class="fw-bold fs-3" style="color: #fff; text-shadow: 0 0 12px #C9A84C55;">FOTOLAB</span>
-            </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="brands.html">Brands</a></li>
-                    <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../index.html">
+            <img src="../images/fotologo.png" alt="FOTOLAB Logo" width="50" height="50" class="me-2">
+            <span class="fw-bold fs-3" style="color: #fff; text-shadow: 0 0 12px #C9A84C55;">FOTOLAB</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <!-- Main visible links -->
+                <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="fujifilm.html">FujiFilm</a></li>
+                <li class="nav-item"><a class="nav-link" href="sony.html">Sony</a></li>
+                <li class="nav-item"><a class="nav-link" href="yashica.html">Yashica</a></li>
+                
+                <!-- More dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        More
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background: #2d2d2d; border: 1px solid rgba(255,255,255,0.1);">
+                        <li><a class="dropdown-item" href="gopro.html">GoPro</a></li>
+                        <li><a class="dropdown-item" href="canon.html">Canon</a></li>
+                        <li><a class="dropdown-item" href="leica.html">Leica</a></li>
+                        <li><a class="dropdown-item" href="nikon.html">Nikon</a></li>
+                        <li><a class="dropdown-item" href="olympus.html">Olympus</a></li>
+                        <li><a class="dropdown-item" href="panasonic.html">Panasonic</a></li>
+                        <li><a class="dropdown-item" href="sigma.html">Sigma</a></li>
+                        <li><a class="dropdown-item" href="tamron.html">Tamron</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- ══════════════ HERO ══════════════ -->
     <section class="hasselblad-hero">
