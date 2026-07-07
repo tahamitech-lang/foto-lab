@@ -1,13 +1,89 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    /* Prevent horizontal scroll */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    .container, .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+        overflow-x: hidden;
+    }
+    
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    [class*="col-"] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
     .hero h1 {
         font-size: 2.5rem;
+        word-break: break-word;
     }
+    
     .display-1 {
         font-size: 3rem;
+        word-break: break-word;
+    }
+    
+    /* Smooth scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Images and media */
+    img, video, iframe {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Tables */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    /* Fix for any overflowing elements */
+    .overflow-hidden {
+        overflow: hidden !important;
     }
 }
 
+/* Navbar Toggler */
 .navbar-toggler {
     border-color: var(--amber);
+}
+
+/* Additional fixes for smaller screens */
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .display-1 {
+        font-size: 2.5rem;
+    }
+    
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* Fix for any absolute/fixed positioned elements */
+* {
+    max-width: 100%;
 }
