@@ -25,88 +25,58 @@
         }
 
         /* ── Navbar Grey Background ── */
-.navbar {
-    background-color: #2d2d2d !important;
-    border-bottom: 1px solid rgba(255, 224, 0, 0.2);
-}
+        .navbar {
+            background-color: #2d2d2d !important;
+            border-bottom: 1px solid rgba(255, 224, 0, 0.2);
+        }
 
-/* If you want the navbar links to remain visible with grey background */
-.navbar .navbar-brand {
-    color: #fff !important;
-}
+        .navbar .navbar-brand {
+            color: #fff !important;
+        }
 
-.navbar .nav-link {
-    color: rgba(255, 255, 255, 0.7) !important;
-}
+        .navbar .nav-link {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
 
-.navbar .nav-link:hover,
-.navbar .nav-link.active {
-    background: rgba(255, 224, 0, 0.2) !important;
-    color: var(--brand-accent) !important;
-    box-shadow: 0 0 12px rgba(255, 224, 0, 0.3) !important;
-}
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            background: rgba(255, 224, 0, 0.2) !important;
+            color: var(--brand-accent) !important;
+            box-shadow: 0 0 12px rgba(255, 224, 0, 0.3) !important;
+        }
 
-/* For mobile toggler button */
-.navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.3);
-}
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
 
-.navbar-toggler-icon {
-    filter: invert(1);
-}
-        /* ── Navbar Grey Background ── */
-.navbar {
-    background-color: #2d2d2d !important;
-    border-bottom: 1px solid rgba(13, 110, 253, 0.2);
-}
+        .navbar-toggler-icon {
+            filter: invert(1);
+        }
 
-/* If you want the navbar links to remain visible with grey background */
-.navbar .navbar-brand {
-    color: #fff !important;
-}
+        /* ── Dropdown Menu Styling ── */
+        .dropdown-menu {
+            background: #2d2d2d !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 8px !important;
+            padding: 8px 0 !important;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8) !important;
+        }
 
-.navbar .nav-link {
-    color: rgba(255, 255, 255, 0.7) !important;
-}
+        .dropdown-item {
+            color: rgba(255,255,255,0.7) !important;
+            padding: 8px 24px !important;
+            font-size: 14px !important;
+            transition: all 0.3s ease !important;
+        }
 
-.navbar .nav-link:hover,
-.navbar .nav-link.active {
-    color: var(--brand-accent) !important;
-}
+        .dropdown-item:hover {
+            background: rgba(255,224,0,0.15) !important;
+            color: var(--brand-accent) !important;
+        }
 
-/* For mobile toggler button */
-.navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.navbar-toggler-icon {
-    filter: invert(1);
-}
-
-/* ── Dropdown Menu Styling ── */
-.dropdown-menu {
-    background: #2d2d2d !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 8px !important;
-    padding: 8px 0 !important;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.8) !important;
-}
-
-.dropdown-item {
-    color: rgba(255,255,255,0.7) !important;
-    padding: 8px 24px !important;
-    font-size: 14px !important;
-    transition: all 0.3s ease !important;
-}
-
-.dropdown-item:hover {
-    background: rgba(138,43,226,0.2) !important;
-    color: var(--brand-accent) !important;
-}
-
-.dropdown-toggle::after {
-    color: rgba(255,255,255,0.5);
-}
+        .dropdown-toggle::after {
+            color: rgba(255,255,255,0.5);
+        }
 
         /* ── Hero ── */
         .nikon-hero {
@@ -127,7 +97,6 @@
             pointer-events: none;
         }
 
-        /* Animated grid lines */
         .hero-grid {
             position: absolute;
             inset: 0;
@@ -304,7 +273,6 @@
             padding: 100px 0;
         }
 
-        /* Filter tabs */
         .filter-tabs {
             display: flex;
             gap: 8px;
@@ -334,7 +302,6 @@
             font-weight: 600;
         }
 
-        /* Product cards */
         .product-card {
             background: #0f0f0f;
             border: 1px solid rgba(255,255,255,0.06);
@@ -564,10 +531,121 @@
             margin-bottom: 20px;
         }
 
-        /* ── Footer inherits from main style.css ── */
-        footer a { transition: color 0.2s; }
-        footer a:hover { color: var(--brand-accent) !important; }
-    </style>
+        /* ═══════════════════════════════════════════════════════
+           FOOTER - COMPLETE YELLOW THEME
+           ═══════════════════════════════════════════════════════ */
+        .nikon-footer {
+            background: #080808;
+            border-top: 1px solid rgba(255,224,0,0.08);
+            padding: 60px 0 30px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nikon-footer .footer-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            color: var(--brand-accent);
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .nikon-footer .footer-sub {
+            font-size: 11px;
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 4px 0 0;
+        }
+
+        .nikon-footer .footer-copy {
+            font-size: 11px;
+            color: rgba(255,255,255,0.15);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .nikon-footer .social-link {
+            color: rgba(255,224,0,0.25);
+            margin: 0 6px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .nikon-footer .social-link:hover {
+            color: var(--brand-accent);
+            transform: translateY(-2px);
+        }
+
+        .nikon-footer .footer-divider {
+            border-color: rgba(255,224,0,0.06);
+            margin: 0 0 30px;
+        }
+
+        .nikon-footer .footer-link {
+            color: rgba(255,224,0,0.25);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-right: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nikon-footer .footer-link:hover {
+            color: var(--brand-accent);
+        }
+
+        .nikon-footer .footer-tagline {
+            font-size: 11px;
+            color: rgba(255,255,255,0.12);
+            letter-spacing: 1px;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .nikon-footer .footer-tagline span {
+            color: rgba(255,224,0,0.3);
+        }
+
+        .nikon-footer .prepared-by {
+            font-size: 10px;
+            color: rgba(255,224,0,0.3);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0;
+            font-weight: 300;
+            text-align: right;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .nikon-footer .footer-logo {
+                font-size: 26px;
+            }
+            .nikon-footer .footer-link {
+                margin-right: 12px;
+                font-size: 10px;
+            }
+            .nikon-footer .prepared-by {
+                text-align: center;
+                margin-top: 8px;
+            }
+            .nikon-footer .social-link {
+                font-size: 16px;
+                margin: 0 4px;
+            }
+            .about-section::after {
+                font-size: 80px;
+                right: -10px;
+            }
+            .product-img-wrap {
+                height: 160px;
+            }
+        }
+</style>
 </head>
 <body>
 
@@ -807,7 +885,7 @@
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-1" data-category="mirrorless">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1043/400/300" alt="Nikon Z8">
+                            <img src="../nikon images/Z-Series Mirrorless Nikon Z8 45.7MP.jpg" alt="Nikon Z8">
                             <span class="product-badge">The Hybrid King</span>
                         </div>
                         <div class="product-body">
@@ -834,7 +912,7 @@
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-2" data-category="mirrorless">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1044/400/300" alt="Nikon Z6 III">
+                            <img src="../nikon images/Z-Series Mirrorless Nikon Z6 III.jpg" alt="Nikon Z6 III">
                             <span class="product-badge">Latest Arrival</span>
                         </div>
                         <div class="product-body">
@@ -939,7 +1017,7 @@
                 <div class="col-sm-6 col-lg-4 product-item reveal reveal-delay-3" data-category="flagship">
                     <div class="product-card">
                         <div class="product-img-wrap">
-                            <img src="https://picsum.photos/id/1028/400/300" alt="Nikon Z9">
+                            <img src="../nikon images/Flagship System Nikon Z9.jpg" alt="Nikon Z9">
                             <span class="product-badge">The Unstoppable</span>
                         </div>
                         <div class="product-body">

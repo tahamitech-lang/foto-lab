@@ -6,55 +6,55 @@
 // Product Database
 const products = [
     // --- Cameras ---
-    { id: 1, name: "Canon EOS R5", brand: "Canon", category: "cameras", price: "$3,899", desc: "45MP full-frame mirrorless with 8K video and IBIS.", img: "https://picsum.photos/id/1060/400/300" },
-    { id: 2, name: "Nikon Z9", brand: "Nikon", category: "cameras", price: "$5,499", desc: "Flagship mirrorless with 45.7MP stacked sensor and 8K video.", img: "https://picsum.photos/id/1061/400/300" },
-    { id: 3, name: "Sony A7 IV", brand: "Sony", category: "cameras", price: "$2,499", desc: "33MP full-frame hybrid with advanced autofocus and 4K video.", img: "https://picsum.photos/id/1062/400/300" },
-    { id: 4, name: "Fujifilm X-T5", brand: "Fujifilm", category: "cameras", price: "$1,699", desc: "40MP APS-C with film simulation and 6.2K video.", img: "https://picsum.photos/id/1063/400/300" },
-    { id: 5, name: "Panasonic Lumix GH6", brand: "Panasonic", category: "cameras", price: "$2,199", desc: "Micro Four Thirds with 5.7K video and ProRes recording.", img: "https://picsum.photos/id/1064/400/300" },
+    { id: 1, name: "Canon EOS R5", brand: "Canon", category: "cameras", price: "$3,899", desc: "45MP full-frame mirrorless with 8K video and IBIS.", img: "../products image/Canon cameras Canon EOS R5.jpg" },
+    { id: 2, name: "Nikon Z9", brand: "Nikon", category: "cameras", price: "$5,499", desc: "Flagship mirrorless with 45.7MP stacked sensor and 8K video.", img: "../products image/Nikon Z9 Flagship.jpg" },
+    { id: 3, name: "Sony A7 IV", brand: "Sony", category: "cameras", price: "$2,499", desc: "33MP full-frame hybrid with advanced autofocus and 4K video.", img: "../products image/Sony cameras Sony A7.jpg" },
+    { id: 4, name: "Fujifilm X-T5", brand: "Fujifilm", category: "cameras", price: "$1,699", desc: "40MP APS-C with film simulation and 6.2K video.", img: "../products image/Fujifilm cameras Fujifilm.jpg" },
+    { id: 5, name: "Panasonic Lumix GH6", brand: "Panasonic", category: "cameras", price: "$2,199", desc: "Micro Four Thirds with 5.7K video and ProRes recording.", img: "../products image/Panasonic cameras Panasonic.jpg" },
     
     // --- Lenses ---
-    { id: 6, name: "Canon RF 85mm f/1.2 L", brand: "Canon", category: "lenses", price: "$2,399", desc: "Portrait Prime, f/1.2 Aperture, RF Mount", img: "https://picsum.photos/id/10/400/300" },
-    { id: 7, name: "Sony FE 16-35mm GM II", brand: "Sony", category: "lenses", price: "$2,299", desc: "Ultra-Wide Zoom, f/2.8, G-Master", img: "https://picsum.photos/id/11/400/300" },
-    { id: 8, name: "Nikon Z 105mm Macro", brand: "Nikon", category: "lenses", price: "$1,899", desc: "Macro Lens, 1:1 Magnification, Z Mount", img: "https://picsum.photos/id/12/400/300" },
-    { id: 9, name: "Fujifilm XF 56mm f/1.2", brand: "Fujifilm", category: "lenses", price: "$999", desc: "Fast Portrait Prime, X Mount, Sharp Bokeh", img: "https://picsum.photos/id/13/400/300" },
-    { id: 10, name: "Canon RF 100-500mm", brand: "Canon", category: "lenses", price: "$2,699", desc: "Super Telephoto Zoom, Optical IS", img: "https://picsum.photos/id/14/400/300" },
-    { id: 11, name: "Sony FE 90mm Macro", brand: "Sony", category: "lenses", price: "$1,199", desc: "Macro, 1:1, OSS, E-Mount", img: "https://picsum.photos/id/15/400/300" },
-    { id: 12, name: "Nikon Z 70-200mm f/2.8", brand: "Nikon", category: "lenses", price: "$2,699", desc: "Pro Telephoto Zoom, Z Mount", img: "https://picsum.photos/id/16/400/300" },
-    { id: 13, name: "Canon RF 15-35mm", brand: "Canon", category: "lenses", price: "$1,999", desc: "Wide Angle Zoom, f/2.8, RF Mount", img: "https://picsum.photos/id/17/400/300" },
-    { id: 14, name: "Sigma 35mm f/1.4 Art", brand: "Sigma", category: "lenses", price: "$899", desc: "Wide Prime, High Sharpness, Art Series", img: "https://picsum.photos/id/18/400/300" },
-    { id: 15, name: "Tamron 28-75mm G2", brand: "Tamron", category: "lenses", price: "$799", desc: "Standard Zoom, f/2.8, Fast AF", img: "https://picsum.photos/id/19/400/300" },
+    { id: 6, name: "Canon RF 85mm f/1.2 L", brand: "Canon", category: "lenses", price: "$2,399", desc: "Portrait Prime, f/1.2 Aperture, RF Mount", img: "../products image/Canon lenses Canon RF 85mm.jpg" },
+    { id: 7, name: "Sony FE 16-35mm GM II", brand: "Sony", category: "lenses", price: "$2,299", desc: "Ultra-Wide Zoom, f/2.8, G-Master", img: "../products image/Sony lenses Sony FE 16-35mm.jpg" },
+    { id: 8, name: "Nikon Z 105mm Macro", brand: "Nikon", category: "lenses", price: "$1,899", desc: "Macro Lens, 1:1 Magnification, Z Mount", img: "../products image/Nikon lenses Nikon Z 105mm.jpg" },
+    { id: 9, name: "Fujifilm XF 56mm f/1.2", brand: "Fujifilm", category: "lenses", price: "$999", desc: "Fast Portrait Prime, X Mount, Sharp Bokeh", img: "../products image/Fujifilm lenses Fujifilm XF 56mm.jpg" },
+    { id: 10, name: "Canon RF 100-500mm", brand: "Canon", category: "lenses", price: "$2,699", desc: "Super Telephoto Zoom, Optical IS", img: "../products image/Canon lenses Canon RF 100-500mm.jpg" },
+    { id: 11, name: "Sony FE 90mm Macro", brand: "Sony", category: "lenses", price: "$1,199", desc: "Macro, 1:1, OSS, E-Mount", img: "../products image/Sony lenses Sony FE 90mm.jpg" },
+    { id: 12, name: "Nikon Z 70-200mm f/2.8", brand: "Nikon", category: "lenses", price: "$2,699", desc: "Pro Telephoto Zoom, Z Mount", img: "../products image/Nikon lenses Nikon Z 70-200mm.jpg" },
+    { id: 13, name: "Canon RF 15-35mm", brand: "Canon", category: "lenses", price: "$1,999", desc: "Wide Angle Zoom, f/2.8, RF Mount", img: "../products image/Canon lenses Canon RF 15-35mm.jpg" },
+    { id: 14, name: "Sigma 35mm f/1.4 Art", brand: "Sigma", category: "lenses", price: "$899", desc: "Wide Prime, High Sharpness, Art Series", img: "../products image/Sigma lenses Sigma 35mm.jpg" },
+    { id: 15, name: "Tamron 28-75mm G2", brand: "Tamron", category: "lenses", price: "$799", desc: "Standard Zoom, f/2.8, Fast AF", img: "../products image/Tamron lenses Tamron 28-75mm.jpg" },
     
     // --- Pro Audio ---
-    { id: 16, name: "Rode VideoMic Pro+", brand: "Rode", category: "audio", price: "$399", desc: "Shotgun Mic, Rechargeable Battery", img: "https://picsum.photos/id/217/400/300" },
-    { id: 17, name: "Rode Wireless GO II", brand: "Rode", category: "audio", price: "$699", desc: "Wireless Mic, 200m Range", img: "https://picsum.photos/id/218/400/300" },
-    { id: 18, name: "DJI Mic 2", brand: "DJI", category: "audio", price: "$799", desc: "Wireless Mic, 250m Range", img: "https://picsum.photos/id/219/400/300" },
+    { id: 16, name: "Rode VideoMic Pro+", brand: "Rode", category: "audio", price: "$399", desc: "Shotgun Mic, Rechargeable Battery", img: "../products image/Rode audio Rode VideoMic.jpg" },
+    { id: 17, name: "Rode Wireless GO II", brand: "Rode", category: "audio", price: "$699", desc: "Wireless Mic, 200m Range", img: "../products image/Rode audio Rode Wireless.jpg" },
+    { id: 18, name: "DJI Mic 2", brand: "DJI", category: "audio", price: "$799", desc: "Wireless Mic, 250m Range", img: "../products image/DJI audio DJI Mic.jpg" },
     
     // --- Memory Cards ---
-    { id: 19, name: "SanDisk Extreme Pro 128GB", brand: "SanDisk", category: "memory", price: "$149", desc: "200MB/s Speed, SDXC UHS-I", img: "https://picsum.photos/id/221/400/300" },
-    { id: 20, name: "SanDisk Extreme Pro 256GB", brand: "SanDisk", category: "memory", price: "$229", desc: "200MB/s Speed, SDXC UHS-I", img: "https://picsum.photos/id/222/400/300" },
-    { id: 21, name: "Lexar Professional 128GB", brand: "Lexar", category: "memory", price: "$169", desc: "280MB/s Speed, SDXC UHS-II", img: "https://picsum.photos/id/223/400/300" },
-    { id: 22, name: "Lexar Professional 256GB", brand: "Lexar", category: "memory", price: "$299", desc: "300MB/s Speed, SDXC UHS-II", img: "https://picsum.photos/id/224/400/300" },
+    { id: 19, name: "SanDisk Extreme Pro 128GB", brand: "SanDisk", category: "memory", price: "$149", desc: "200MB/s Speed, SDXC UHS-I", img: "../products image/SanDisk memory SanDisk.jpg" },
+    { id: 20, name: "SanDisk Extreme Pro 256GB", brand: "SanDisk", category: "memory", price: "$229", desc: "200MB/s Speed, SDXC UHS-I", img: "../products image/SanDisk memory SanDisk Extreme Pro 256GB.jpg" },
+    { id: 21, name: "Lexar Professional 128GB", brand: "Lexar", category: "memory", price: "$169", desc: "280MB/s Speed, SDXC UHS-II", img: "../products image/Lexar memory Lexar Professional 128GB.jpg" },
+    { id: 22, name: "Lexar Professional 256GB", brand: "Lexar", category: "memory", price: "$299", desc: "300MB/s Speed, SDXC UHS-II", img: "../products image/Lexar memory Lexar Professional 256GB.jpg" },
     
     // --- Tripods ---
-    { id: 23, name: "Manfrotto MT055XPRO3", brand: "Manfrotto", category: "tripods", price: "$349", desc: "Professional aluminum tripod with horizontal column.", img: "https://picsum.photos/id/227/400/300" },
-    { id: 24, name: "Gitzo GT2545T", brand: "Gitzo", category: "tripods", price: "$899", desc: "Carbon fiber travel tripod with great stability.", img: "https://picsum.photos/id/1075/400/300" },
-    { id: 25, name: "DJI RS 4 Gimbal", brand: "DJI", category: "tripods", price: "$1,199", desc: "3kg Payload, Bluetooth Control", img: "https://picsum.photos/id/220/400/300" },
+    { id: 23, name: "Manfrotto MT055XPRO3", brand: "Manfrotto", category: "tripods", price: "$349", desc: "Professional aluminum tripod with horizontal column.", img: "../products image/Manfrotto tripods Manfrotto MT055XPRO3.jpg" },
+    { id: 24, name: "Gitzo GT2545T", brand: "Gitzo", category: "tripods", price: "$899", desc: "Carbon fiber travel tripod with great stability.", img: "../products image/Gitzo tripods Gitzo GT2545T.jpg" },
+    { id: 25, name: "DJI RS 4 Gimbal", brand: "DJI", category: "tripods", price: "$1,199", desc: "3kg Payload, Bluetooth Control", img: "../products image/DJI tripods DJI RS 4 Gimbal.jpg" },
     
     // --- Lighting ---
-    { id: 26, name: "Profoto D2 Studio Light", brand: "Profoto", category: "lighting", price: "$1,495", desc: "High-speed studio flash with 10 stops of power range.", img: "https://picsum.photos/id/1076/400/300" },
-    { id: 27, name: "Godox V1 Flash", brand: "Godox", category: "lighting", price: "$299", desc: "Compact round-head flash for on-camera and off-camera use.", img: "https://picsum.photos/id/1077/400/300" },
-    { id: 28, name: "Godox SL60W", brand: "Godox", category: "lighting", price: "$249", desc: "60W Power, 5600K Temp", img: "https://picsum.photos/id/229/400/300" },
-    { id: 29, name: "Aputure Amaran 100D", brand: "Aputure", category: "lighting", price: "$399", desc: "100W Power, Ultra Bright", img: "https://picsum.photos/id/230/400/300" },
+    { id: 26, name: "Profoto D2 Studio Light", brand: "Profoto", category: "lighting", price: "$1,495", desc: "High-speed studio flash with 10 stops of power range.", img: "../products image/Profoto lighting Profoto D2 Studio.jpg" },
+    { id: 27, name: "Godox V1 Flash", brand: "Godox", category: "lighting", price: "$299", desc: "Compact round-head flash for on-camera and off-camera use.", img: "../products image/Godox lighting Godox V1 Flash.jpg" },
+    { id: 28, name: "Godox SL60W", brand: "Godox", category: "lighting", price: "$249", desc: "60W Power, 5600K Temp", img: "../products image/Godox lighting Godox SL60W.jpg" },
+    { id: 29, name: "Aputure Amaran 100D", brand: "Aputure", category: "lighting", price: "$399", desc: "100W Power, Ultra Bright", img: "../products image/Aputure lighting Aputure Amaran.jpg" },
     
     // --- Bags & Cases ---
-    { id: 30, name: "Peak Design Everyday Backpack 30L", brand: "Peak Design", category: "bags", price: "$299", desc: "30L Capacity, Weatherproof", img: "https://picsum.photos/id/228/400/300" },
-    { id: 31, name: "Think Tank Airport Security V3", brand: "Think Tank", category: "bags", price: "$399", desc: "Rolling camera case for professional gear and travel.", img: "https://picsum.photos/id/1079/400/300" },
+    { id: 30, name: "Peak Design Everyday Backpack 30L", brand: "Peak Design", category: "bags", price: "$299", desc: "30L Capacity, Weatherproof", img: "../products image/Peak Design bags Peak Design.jpg" },
+    { id: 31, name: "Think Tank Airport Security V3", brand: "Think Tank", category: "bags", price: "$399", desc: "Rolling camera case for professional gear and travel.", img: "../products image/Think Tank bags Think Tank Airport.jpg" },
     
     // --- Accessories ---
-    { id: 32, name: "B+W 77mm UV Filter", brand: "B+W", category: "accessories", price: "$89", desc: "High-quality brass filter with MRC nano coating.", img: "https://picsum.photos/id/1080/400/300" },
-    { id: 33, name: "DJI Ronin RS 3 Pro", brand: "DJI", category: "accessories", price: "$999", desc: "Professional 3-axis gimbal for cameras and cinema rigs.", img: "https://picsum.photos/id/1081/400/300" },
-    { id: 34, name: "Canon Speedlite EL-5", brand: "Canon", category: "accessories", price: "$399", desc: "60m Guide Number, Wireless Control", img: "https://picsum.photos/id/225/400/300" },
-    { id: 35, name: "Sony HVL-F60RM2", brand: "Sony", category: "accessories", price: "$499", desc: "Wireless Flash, High Performance", img: "https://picsum.photos/id/226/400/300" }
+    { id: 32, name: "B+W 77mm UV Filter", brand: "B+W", category: "accessories", price: "$89", desc: "High-quality brass filter with MRC nano coating.", img: "../products image/B+W accessories B+W 77mm.jpg" },
+    { id: 33, name: "DJI Ronin RS 3 Pro", brand: "DJI", category: "accessories", price: "$999", desc: "Professional 3-axis gimbal for cameras and cinema rigs.", img: "../products image/DJI accessories DJI Ronin RS 3 Pro.jpg" },
+    { id: 34, name: "Canon Speedlite EL-5", brand: "Canon", category: "accessories", price: "$399", desc: "60m Guide Number, Wireless Control", img: "../products image/Canon accessories Canon.jpg" },
+    { id: 35, name: "Sony HVL-F60RM2", brand: "Sony", category: "accessories", price: "$499", desc: "Wireless Flash, High Performance", img: "../products image/Sony accessories Sony HVL.jpg" }
 ];
 
 // ===========================================

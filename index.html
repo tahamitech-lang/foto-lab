@@ -381,32 +381,67 @@
   </script>
 
   <!-- Brand showcase (homepage) -->
-  <script>
+<script>
     (function() {
       const brands = [
-        { name: 'Canon', desc: 'Precision optics & L-series glass.', img: 'https://picsum.photos/id/1060/400/250' },
-        { name: 'Nikon', desc: 'Legendary ruggedness & EXPEED processing.', img: 'https://picsum.photos/id/1061/400/250' },
-        { name: 'Sony', desc: 'Alpha mirrorless, 4D focus & speed.', img: 'https://picsum.photos/id/1062/400/250' },
-        { name: 'Fujifilm', desc: 'Film simulation & X-Trans sensor.', img: 'https://picsum.photos/id/1063/400/250' },
-        { name: 'Panasonic', desc: 'Lumix GH, 6K video & Leica partnership.', img: 'https://picsum.photos/id/1064/400/250' },
-        { name: 'Leica', desc: 'German engineering & timeless M-mount.', img: 'https://picsum.photos/id/1066/400/250' }
+        { 
+          name: 'Canon', 
+          desc: 'Precision optics & L-series glass.', 
+          img: '../images/canon company.jpg',
+          link: 'https://en.canon-me.com/'
+        },
+        { 
+          name: 'Nikon', 
+          desc: 'Legendary ruggedness & EXPEED processing.', 
+          img: '../images/nikon company.jpg',
+          link: 'https://www.nikon.com/'
+        },
+        { 
+          name: 'Sony', 
+          desc: 'Alpha mirrorless, 4D focus & speed.', 
+          img: '../images/sony company.jpg',
+          link: 'https://www.sony.com/pk/homepage'
+        },
+        { 
+          name: 'Fujifilm', 
+          desc: 'Film simulation & X-Trans sensor.', 
+          img: '../images/fujifilm company.jpg',
+          link: 'https://global.fujifilm.com/en/'
+        },
+        { 
+          name: 'Panasonic', 
+          desc: 'Lumix GH, 6K video & Leica partnership.', 
+          img: '../images/panasonic company.jpg',
+          link: 'https://www.panasonic.com/mea/en/pk.html'
+        },
+        { 
+          name: 'Leica', 
+          desc: 'German engineering & timeless M-mount.', 
+          img: '../images/leica company.jpg',
+          link: 'https://leica-camera.com/en-int?srsltid=AfmBOoqgouMq0PU266jXfgzCMQRINBH5KlJquzv-diI9rF6C-w0QIjWy'
+        }
       ];
+      
       const container = document.getElementById('brandsShowcase');
       if (container) {
         container.innerHTML = brands.map(b => `
           <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up">
-            <div class="brand-home-card">
-              <img src="${b.img}" alt="${b.name}" class="img-fluid rounded">
-              <h6>${b.name}</h6>
-              <p>${b.desc}</p>
-            </div>
+            <a href="${b.link}" target="_blank" rel="noopener noreferrer" class="brand-home-link" style="text-decoration: none; display: block;">
+              <div class="brand-home-card">
+                <img src="${b.img}" alt="${b.name}" class="img-fluid rounded">
+                <h6>${b.name}</h6>
+                <p>${b.desc}</p>
+              </div>
+            </a>
           </div>
         `).join('');
         // re-init AOS for new elements
-        AOS.refresh();
+        if (typeof AOS !== 'undefined') {
+          AOS.refresh();
+        }
       }
     })();
-  </script>
+</script>
 
 </body>
 </html>

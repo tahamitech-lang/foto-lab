@@ -19,7 +19,7 @@ const compareProducts = [
         iso: "100-102400",
         autofocus: "Dual Pixel CMOS AF II",
         weight: "670g",
-        image: "https://picsum.photos/id/1060/200/200"
+        image: "../compare image/Canon EOS R6 Mark II.jpg"
     },
     { 
         id: 2, 
@@ -32,7 +32,7 @@ const compareProducts = [
         iso: "100-51200",
         autofocus: "759-point Fast Hybrid AF",
         weight: "658g",
-        image: "https://picsum.photos/id/1062/200/200"
+        image: "../compare image/Sony A7 IV.jpg"
     },
     { 
         id: 3, 
@@ -45,7 +45,7 @@ const compareProducts = [
         iso: "100-51200",
         autofocus: "273-point Hybrid AF",
         weight: "705g",
-        image: "https://picsum.photos/id/1061/200/200"
+        image: "../compare image/Nikon Z6 II.jpg"
     },
     { 
         id: 4, 
@@ -58,7 +58,7 @@ const compareProducts = [
         iso: "125-12800",
         autofocus: "Phase Detect AF",
         weight: "607g",
-        image: "https://picsum.photos/id/1063/200/200"
+        image: "../compare image/Fujifilm X-T5.jpg"
     },
     { 
         id: 5, 
@@ -71,7 +71,7 @@ const compareProducts = [
         iso: "100-51200",
         autofocus: "Dual Pixel CMOS AF II",
         weight: "738g",
-        image: "https://picsum.photos/id/1065/200/200"
+        image: "../compare image/Canon EOS R5,jpg"
     },
     { 
         id: 6, 
@@ -84,7 +84,7 @@ const compareProducts = [
         iso: "100-32000",
         autofocus: "AI Tracking AF",
         weight: "723g",
-        image: "https://picsum.photos/id/1067/200/200"
+        image: "../compare image/Sony A7R V.jpg"
     },
     { 
         id: 7, 
@@ -97,7 +97,7 @@ const compareProducts = [
         iso: "64-25600",
         autofocus: "493-point AF",
         weight: "910g",
-        image: "https://picsum.photos/id/1011/200/200"
+        image: "../compare image/Nikon Z8.jpg"
     },
     { 
         id: 8, 
@@ -110,7 +110,7 @@ const compareProducts = [
         iso: "125-12800",
         autofocus: "Hybrid AF",
         weight: "660g",
-        image: "https://picsum.photos/id/1005/200/200"
+        image: "../compare image/Fujifilm X-H2.jpg"
     },
     // ===== LENSES =====
     { 
@@ -124,7 +124,7 @@ const compareProducts = [
         stabilization: "Yes",
         price: "₨ 420,000",
         weight: "900g",
-        image: "https://picsum.photos/id/1068/200/200"
+        image: "../compare image/Canon RF 24-70mm.jpg"
     },
     { 
         id: 10, 
@@ -137,7 +137,7 @@ const compareProducts = [
         stabilization: "Yes",
         price: "₨ 620,000",
         weight: "1070g",
-        image: "https://picsum.photos/id/1069/200/200"
+        image: "../compare image/Canon RF 70-200mm.jpg"
     },
     { 
         id: 11, 
@@ -150,7 +150,7 @@ const compareProducts = [
         stabilization: "No",
         price: "₨ 290,000",
         weight: "950g",
-        image: "https://picsum.photos/id/1070/200/200"
+        image: "../compare image/Canon RF 50mm.jpg"
     },
     { 
         id: 12, 
@@ -163,7 +163,7 @@ const compareProducts = [
         stabilization: "No",
         price: "₨ 500,000",
         weight: "695g",
-        image: "https://picsum.photos/id/1071/200/200"
+        image: "../compare image/Sony FE 24-70mm.jpg"
     },
     { 
         id: 13, 
@@ -176,7 +176,7 @@ const compareProducts = [
         stabilization: "Yes",
         price: "₨ 650,000",
         weight: "1045g",
-        image: "https://picsum.photos/id/1072/200/200"
+        image: "../compare image/Sony FE 70-200mm.jpg"
     },
     { 
         id: 14, 
@@ -189,7 +189,7 @@ const compareProducts = [
         stabilization: "No",
         price: "₨ 350,000",
         weight: "778g",
-        image: "https://picsum.photos/id/1073/200/200"
+        image: "../compare image/Sony FE 50mm.jpg"
     },
     { 
         id: 15, 
@@ -202,7 +202,7 @@ const compareProducts = [
         stabilization: "No",
         price: "₨ 470,000",
         weight: "805g",
-        image: "https://picsum.photos/id/1074/200/200"
+        image: "../compare image/Nikon Z 24-70mm.jpg"
     },
     { 
         id: 16, 
@@ -215,7 +215,7 @@ const compareProducts = [
         stabilization: "No",
         price: "₨ 250,000",
         weight: "655g",
-        image: "https://picsum.photos/id/1075/200/200"
+        image: "../compare image/Fujifilm XF 16-55mm.jpg"
     },
     // ===== AUDIO =====
     { 
@@ -229,7 +229,7 @@ const compareProducts = [
         frequencyResponse: "20Hz-20kHz",
         price: "₨ 85,000",
         weight: "122g",
-        image: "https://picsum.photos/id/1080/200/200"
+        image: "../compare image/Rode VideoMic Pro+.jpg"
     },
     { 
         id: 18, 
@@ -242,7 +242,7 @@ const compareProducts = [
         range: "200m",
         price: "₨ 95,000",
         weight: "32g",
-        image: "https://picsum.photos/id/1081/200/200"
+        image: "../compare image/Rode Wireless GO II.jpg"
     },
     { 
         id: 19, 
@@ -255,7 +255,7 @@ const compareProducts = [
         range: "250m",
         price: "₨ 120,000",
         weight: "28g",
-        image: "https://picsum.photos/id/1082/200/200"
+        image: "../compare image/DJI Mic 2.jpg"
     },
     // ===== TRIPODS & GIMBALS =====
     { 
@@ -269,7 +269,7 @@ const compareProducts = [
         connectivity: "Bluetooth",
         price: "₨ 180,000",
         weight: "1240g",
-        image: "https://picsum.photos/id/1041/200/200"
+        image: "../compare image/DJI RS 4 Gimbal.jpg"
     },
     { 
         id: 21, 
@@ -282,7 +282,7 @@ const compareProducts = [
         loadCapacity: "8kg",
         price: "₨ 45,000",
         weight: "1490g",
-        image: "https://picsum.photos/id/1040/200/200"
+        image: "../compare image/Manfrotto Befree Tripod.jpg"
     },
     // ===== MEMORY CARDS =====
     { 
@@ -296,7 +296,7 @@ const compareProducts = [
         warranty: "Lifetime",
         price: "₨ 12,000",
         weight: "2g",
-        image: "https://picsum.photos/id/1070/200/200"
+        image: "../compare image/SanDisk Extreme Pro 128GB.jpg"
     },
     { 
         id: 23, 
@@ -309,7 +309,7 @@ const compareProducts = [
         warranty: "Lifetime",
         price: "₨ 22,000",
         weight: "2g",
-        image: "https://picsum.photos/id/1071/200/200"
+        image: "../compare image/SanDisk Extreme Pro 256GB.jpg"
     },
     { 
         id: 24, 
@@ -322,7 +322,7 @@ const compareProducts = [
         warranty: "Lifetime",
         price: "₨ 15,000",
         weight: "2g",
-        image: "https://picsum.photos/id/1072/200/200"
+        image: "../compare image/Lexar Professional 128GB.jpg"
     },
     { 
         id: 25, 
@@ -335,7 +335,7 @@ const compareProducts = [
         warranty: "Lifetime",
         price: "₨ 28,000",
         weight: "2g",
-        image: "https://picsum.photos/id/1073/200/200"
+        image: "../compare image/Lexar Professional 256GB.jpg"
     },
     // ===== FLASHES =====
     { 
@@ -349,7 +349,7 @@ const compareProducts = [
         battery: "Rechargeable",
         price: "₨ 95,000",
         weight: "491g",
-        image: "https://picsum.photos/id/1074/200/200"
+        image: "../compare image/Canon Speedlite EL-5.jpg"
     },
     { 
         id: 27, 
@@ -362,7 +362,7 @@ const compareProducts = [
         battery: "AA Batteries",
         price: "₨ 110,000",
         weight: "439g",
-        image: "https://picsum.photos/id/1075/200/200"
+        image: "../compare image/Sony HVL-F60RM2.jpg"
     },
     // ===== LIGHTING =====
     { 
@@ -376,7 +376,7 @@ const compareProducts = [
         brightness: "High Output",
         price: "₨ 35,000",
         weight: "1610g",
-        image: "https://picsum.photos/id/1015/200/200"
+        image: "../compare image/Godox SL60W.jpg"
     },
     { 
         id: 29, 
@@ -389,7 +389,7 @@ const compareProducts = [
         brightness: "Ultra Bright",
         price: "₨ 65,000",
         weight: "1400g",
-        image: "https://picsum.photos/id/1023/200/200"
+        image: "../compare image/Aputure Amaran 100D.jpg"
     },
     // ===== BAGS =====
     { 
@@ -403,7 +403,7 @@ const compareProducts = [
         color: "Black",
         price: "₨ 55,000",
         weight: "1800g",
-        image: "https://picsum.photos/id/1026/200/200"
+        image: "../compare image/Peak Design Camera Bag.jpg"
     }
 ];
 
