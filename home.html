@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FOTOLAB - Premium Camera Store since 1991. Digital Cameras, SLR, Lenses and Accessories.">
+  <title>FOTOLAB | Premium Camera Equipment</title>
+  <!-- Bootstrap 5 + Icons + Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/animations.css">
+  <style>
+    /* ----- GLOBAL RESET & THEME ----- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0b0b1a;
+      color: #f0f0f5;
+      font-family: 'Inter', sans-serif;
+      padding-top: 76px;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; }
+    .text-amber { color: #C9A84C; }
+    .bg-amber { background-color: #C9A84C; }
+    .btn-amber {
+      background: #C9A84C;
+      color: #0b0b1a;
+      font-weight: 600;
+      border: none;
+      transition: 0.3s;
+    }
+    .btn-amber:hover {
+      background: #b8973a;
+      color: #000;
+      transform: scale(1.02);
+      box-shadow: 0 0 20px #C9A84C66;
+    }
+    .btn-dark-custom {
+      background: #1a1a2e;
+      color: #fff;
+      border: 1px solid #C9A84C;
+    }
+    .btn-dark-custom:hover {
+      background: #C9A84C;
+      color: #0b0b1a;
+    }
+
+    /* ----- NAVBAR ----- */
+    .navbar {
+      background: #0b0b1a !important;
+      border-bottom: 2px solid #C9A84C;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+      backdrop-filter: blur(4px);
+    }
+    .navbar-brand { color: #fff !important; letter-spacing: 0.5px; }
+    .navbar-brand img { filter: drop-shadow(0 0 6px #C9A84C55); }
+    .nav-link {
+      color: #ddd !important;
+      font-weight: 500;
+      margin: 0 4px;
+      transition: 0.3s;
+      border-radius: 30px;
+      padding: 8px 16px !important;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: #C9A84C22;
+      color: #C9A84C !important;
+      box-shadow: 0 0 12px #C9A84C33;
+    }
+
+    /* ----- HERO ----- */
+    .hero {
+      min-height: 85vh;
+      background: linear-gradient(145deg, #0a0a1a 0%, #1a1a3a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 40%, #C9A84C22, transparent 70%);
+      pointer-events: none;
+    }
+    .hero h1 {
+      text-shadow: 0 0 40px #C9A84C55;
+      letter-spacing: 2px;
+    }
+    .scroll-indicator {
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(-12px);} }
+
+    /* animated lens aperture (SVG) */
+    .lens-aperture svg {
+      filter: drop-shadow(0 0 30px #C9A84C44);
+      animation: pulseGlow 3s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      0% { filter: drop-shadow(0 0 20px #C9A84C33); }
+      100% { filter: drop-shadow(0 0 50px #C9A84C88); }
+    }
+
+    /* ----- CATEGORY CARDS ----- */
+    .category-card {
+      background: #14142e;
+      border: 1px solid #2d2d5a;
+      border-radius: 28px;
+      transition: 0.3s;
+      height: 100%;
+    }
+    .category-card:hover {
+      transform: translateY(-10px);
+      border-color: #C9A84C;
+      box-shadow: 0 12px 30px #C9A84C33;
+      background: #1a1a3a;
+    }
+    .category-card i { transition: 0.3s; }
+    .category-card:hover i { transform: scale(1.1); }
+
+    /* ----- BRAND CARDS (homepage) ----- */
+    .brand-home-card {
+      background: #10102a;
+      border: 1px solid #2a2a50;
+      border-radius: 20px;
+      padding: 20px 12px;
+      text-align: center;
+      transition: 0.25s;
+      height: 100%;
+    }
+    .brand-home-card:hover {
+      border-color: #C9A84C;
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px #C9A84C33;
+    }
+    .brand-home-card img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 16px;
+      background: #1a1a2e;
+      border: 1px solid #333366;
+    }
+    .brand-home-card h6 { color: #C9A84C; margin-top: 12px; font-weight: 600; }
+    .brand-home-card p { color: #b0b0d0; font-size: 0.8rem; margin-bottom: 0; }
+
+    /* ----- FOOTER & GEOLOCATION ----- */
+    footer {
+      background: #070714;
+      border-top: 2px solid #C9A84C55;
+    }
+    #locationInfo {
+      background: #0e0e24 !important;
+      border: 1px solid #2f2f5a !important;
+      border-radius: 18px;
+      color: #ddd;
+      font-size: 0.9rem;
+      padding: 12px 16px !important;
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+    }
+    #locationInfo i { color: #C9A84C; width: 22px; }
+    .list-unstyled li a { transition: 0.2s; }
+    .list-unstyled li a:hover { color: #C9A84C !important; padding-left: 6px; }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 768px) {
+      .hero { min-height: 70vh; }
+      .hero h1 { font-size: 2.8rem; }
+      .brand-home-card img { height: 70px; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.2rem; }
+    }
+
+    /* animation delay helpers */
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.5s; }
+  </style>
+</head>
+<body>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/fotologo.png" alt="FOTOLAB Logo" width="50" height="50" class="me-2">
+        <span class="fw-bold fs-3" style="color: #fff; text-shadow: 0 0 12px #C9A84C55;">FOTOLAB</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/service.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/brands.html">Brands</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/compare.html">Compare</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====== HERO ====== -->
+  <header class="hero position-relative d-flex align-items-center justify-content-center text-center">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative z-3">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <!-- Animated Lens SVG -->
+          <div class="lens-aperture mb-4 mx-auto">
+            <svg width="160" height="160" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="90" fill="none" stroke="#C9A84C" stroke-width="8"/>
+              <circle cx="100" cy="100" r="70" fill="none" stroke="#0F3460" stroke-width="12"/>
+              <circle cx="100" cy="100" r="45" fill="#1A1A2E"/>
+              <g id="apertureBlades">
+                <polygon points="100,30 110,60 140,70 115,90 120,120 100,105 80,120 85,90 60,70 90,60" fill="#C9A84C55" stroke="#C9A84C" stroke-width="2"/>
+              </g>
+            </svg>
+          </div>
+          <h1 class="display-1 fw-bold text-white mb-3 animate-fade-up" data-aos="fade-up">CAPTURE THE MOMENT</h1>
+          <p class="lead text-white-50 fs-3 mb-5 animate-fade-up" data-aos="fade-up" data-aos-delay="150">Premium Cameras &amp; Gear Since 1991</p>
+          <a href="pages/products.html" class="btn btn-amber px-5 py-3 fs-5 animate-fade-up" data-aos="fade-up" data-aos-delay="300">SHOP NOW</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator position-absolute bottom-0 start-50 translate-middle-x mb-4">
+      <i class="fas fa-chevron-down fa-2x text-white"></i>
+    </div>
+  </header>
+
+  <!-- ====== INTRODUCTION ====== -->
+  <section class="py-5" style="background: #0b0b1a;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h2 class="display-5 fw-bold text-amber">FOTOLAB</h2>
+          <p class="lead text-light">Established in 1991, FOTOLAB has been at the forefront of photographic innovation, offering the finest digital cameras, SLR systems, handycams, and professional accessories to enthusiasts and professionals alike.</p>
+          <a href="pages/about.html" class="btn btn-amber mt-3">Learn our story</a>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="ratio ratio-16x9 shadow rounded overflow-hidden">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/bpG6efowrPY" title="FOTOLAB Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PRODUCT CATEGORIES ====== -->
+  <section class="py-5" style="background: linear-gradient(145deg, #0f0f28, #1a1a3a);">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="display-5 text-white">Explore Our Products</h2>
+        <p class="text-white-50">Shop the latest cameras, lenses, lighting, and accessories.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="50">
+          <div class="category-card text-center p-4">
+            <i class="fas fa-camera fa-4x text-amber mb-3"></i>
+            <h5 class="text-white">Mirrorless</h5>
+            <p class="text-white-50">Lightweight cameras for creators.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="150">
+          <div class="category-card text-center p-4">
+            <i class="fas fa-video fa-4x text-amber mb-3"></i>
+            <h5 class="text-white">DSLR</h5>
+            <p class="text-white-50">Dependable optics and control.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="250">
+          <div class="category-card text-center p-4">
+            <i class="fas fa-camera-retro fa-4x text-amber mb-3"></i>
+            <h5 class="text-white">Lenses</h5>
+            <p class="text-white-50">Premium glass for every shoot.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="350">
+          <div class="category-card text-center p-4">
+            <i class="fas fa-lightbulb fa-4x text-amber mb-3"></i>
+            <h5 class="text-white">Lighting</h5>
+            <p class="text-white-50">Studio and on-location kits.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== WHY CHOOSE US (3 columns) ====== -->
+  <section class="py-5" style="background: #0a0a1a;">
+    <div class="container">
+      <div class="row text-center g-4">
+        <div class="col-md-4" data-aos="zoom-in">
+          <i class="fas fa-shield-alt fa-3x text-amber mb-3"></i>
+          <h4 class="text-white">Expert Service</h4>
+          <p class="text-white-50">Professional advice &amp; support.</p>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="150">
+          <i class="fas fa-vector-square fa-3x text-amber mb-3 d-block mx-auto"></i>
+          <h4 class="text-white">Custom UI Design</h4>
+          <p class="text-white-50">Modern &amp; intuitive interfaces.</p>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+          <i class="fas fa-layer-group fa-3x text-amber mb-3 d-block mx-auto"></i>
+          <h4 class="text-white">High-Quality Mockups</h4>
+          <p class="text-white-50">Visualize your gear in style.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== BRANDS SHOWCASE (homepage) ====== -->
+  <section class="py-5" style="background: #0f0f28;">
+    <div class="container">
+      <h2 class="text-center mb-5 text-white" data-aos="fade-up">Trusted Brands</h2>
+      <div class="row g-4 justify-content-center" id="brandsShowcase">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CTA ====== -->
+  <section class="py-5 text-center bg-amber text-dark" data-aos="fade-up">
+    <div class="container">
+      <h2>Ready to Upgrade Your Gear?</h2>
+      <a href="pages/contact.html" class="btn btn-dark-custom btn-lg mt-3">GET IN TOUCH</a>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-3">
+          <h5 class="text-amber mb-3">FOTOLAB</h5>
+          <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
+        </div>
+        <div class="col-md-2">
+          <h5 class="text-amber mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="pages/products.html" class="text-white-50 text-decoration-none">Products</a></li>
+            <li><a href="pages/brands.html" class="text-white-50 text-decoration-none">Brands</a></li>
+            <li><a href="pages/about.html" class="text-white-50 text-decoration-none">About</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="text-amber mb-3">Contact Outlet</h5>
+          <p class="text-white-50 mb-1"><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi, Karachi, Pakistan</p>
+          <p class="text-white-50 mb-1"><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
+          <p class="text-white-50 mb-0"><i class="fas fa-phone text-amber me-2"></i> +91 98765 43210</p>
+        </div>
+        <!-- Geolocation Live Route Module -->
+        <div class="col-md-4">
+          <h5 class="text-amber mb-3"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
+          <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #0e0e24; border: 1px solid #2f2f5a;">
+            <span><i class="fas fa-spinner fa-pulse me-2"></i>Locating ...</span>
+          </div>
+        </div>
+      </div>
+      <hr class="border-secondary mt-4">
+      <p class="text-center text-white-50 mb-0 small">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
+    </div>
+  </footer>
+
+  <!-- ====== SCRIPTS ====== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/geolocation.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/loader.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
+
+  <!-- Brand showcase (homepage) -->
+<script>
+    (function() {
+      const brands = [
+        { 
+          name: 'Canon', 
+          desc: 'Precision optics & L-series glass.', 
+          img: '../images/canon company.jpg',
+          link: 'https://en.canon-me.com/'
+        },
+        { 
+          name: 'Nikon', 
+          desc: 'Legendary ruggedness & EXPEED processing.', 
+          img: '../images/nikon company.jpg',
+          link: 'https://www.nikon.com/'
+        },
+        { 
+          name: 'Sony', 
+          desc: 'Alpha mirrorless, 4D focus & speed.', 
+          img: '../images/sony company.jpg',
+          link: 'https://www.sony.com/pk/homepage'
+        },
+        { 
+          name: 'Fujifilm', 
+          desc: 'Film simulation & X-Trans sensor.', 
+          img: '../images/fujifilm company.jpg',
+          link: 'https://global.fujifilm.com/en/'
+        },
+        { 
+          name: 'Panasonic', 
+          desc: 'Lumix GH, 6K video & Leica partnership.', 
+          img: '../images/panasonic company.jpg',
+          link: 'https://www.panasonic.com/mea/en/pk.html'
+        },
+        { 
+          name: 'Leica', 
+          desc: 'German engineering & timeless M-mount.', 
+          img: '../images/leica company.jpg',
+          link: 'https://leica-camera.com/en-int?srsltid=AfmBOoqgouMq0PU266jXfgzCMQRINBH5KlJquzv-diI9rF6C-w0QIjWy'
+        }
+      ];
+      
+      const container = document.getElementById('brandsShowcase');
+      if (container) {
+        container.innerHTML = brands.map(b => `
+          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up">
+            <a href="${b.link}" target="_blank" rel="noopener noreferrer" class="brand-home-link" style="text-decoration: none; display: block;">
+              <div class="brand-home-card">
+                <img src="${b.img}" alt="${b.name}" class="img-fluid rounded">
+                <h6>${b.name}</h6>
+                <p>${b.desc}</p>
+              </div>
+            </a>
+          </div>
+        `).join('');
+        // re-init AOS for new elements
+        if (typeof AOS !== 'undefined') {
+          AOS.refresh();
+        }
+      }
+    })();
+</script>
+
+</body>
+</html>

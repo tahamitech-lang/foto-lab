@@ -1,446 +1,3426 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FOTOLAB - Premium Camera Store since 1991. Digital Cameras, SLR, Lenses and Accessories.">
-  <title>FOTOLAB | Premium Camera Equipment</title>
-  <!-- Bootstrap 5 + Icons + Google Fonts -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- AOS (Animate On Scroll) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/animations.css">
-  <style>
-    /* ----- GLOBAL RESET & THEME ----- */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: #0b0b1a;
-      color: #f0f0f5;
-      font-family: 'Inter', sans-serif;
-      padding-top: 76px;
-      overflow-x: hidden;
-    }
-    a { text-decoration: none; }
-    .text-amber { color: #C9A84C; }
-    .bg-amber { background-color: #C9A84C; }
-    .btn-amber {
-      background: #C9A84C;
-      color: #0b0b1a;
-      font-weight: 600;
-      border: none;
-      transition: 0.3s;
-    }
-    .btn-amber:hover {
-      background: #b8973a;
-      color: #000;
-      transform: scale(1.02);
-      box-shadow: 0 0 20px #C9A84C66;
-    }
-    .btn-dark-custom {
-      background: #1a1a2e;
-      color: #fff;
-      border: 1px solid #C9A84C;
-    }
-    .btn-dark-custom:hover {
-      background: #C9A84C;
-      color: #0b0b1a;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FOTOLAB - Premium Camera Store since 1991. Digital Cameras, SLR, Lenses, Lighting and Accessories.">
+    <title>FOTOLAB | Premium Camera Equipment</title>
 
-    /* ----- NAVBAR ----- */
-    .navbar {
-      background: #0b0b1a !important;
-      border-bottom: 2px solid #C9A84C;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.8);
-      backdrop-filter: blur(4px);
-    }
-    .navbar-brand { color: #fff !important; letter-spacing: 0.5px; }
-    .navbar-brand img { filter: drop-shadow(0 0 6px #C9A84C55); }
-    .nav-link {
-      color: #ddd !important;
-      font-weight: 500;
-      margin: 0 4px;
-      transition: 0.3s;
-      border-radius: 30px;
-      padding: 8px 16px !important;
-    }
-    .nav-link:hover, .nav-link.active {
-      background: #C9A84C22;
-      color: #C9A84C !important;
-      box-shadow: 0 0 12px #C9A84C33;
-    }
+    <!-- Bootstrap 5 + Icons + Google Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    /* ----- HERO ----- */
-    .hero {
-      min-height: 85vh;
-      background: linear-gradient(145deg, #0a0a1a 0%, #1a1a3a 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 30% 40%, #C9A84C22, transparent 70%);
-      pointer-events: none;
-    }
-    .hero h1 {
-      text-shadow: 0 0 40px #C9A84C55;
-      letter-spacing: 2px;
-    }
-    .scroll-indicator {
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(-12px);} }
+    <style>
+        /* ============================================================
+           ALL CSS IN ONE PLACE
+           ============================================================ */
 
-    /* animated lens aperture (SVG) */
-    .lens-aperture svg {
-      filter: drop-shadow(0 0 30px #C9A84C44);
-      animation: pulseGlow 3s infinite alternate;
-    }
-    @keyframes pulseGlow {
-      0% { filter: drop-shadow(0 0 20px #C9A84C33); }
-      100% { filter: drop-shadow(0 0 50px #C9A84C88); }
-    }
+        /* ----- GLOBAL RESET & THEME ----- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    /* ----- CATEGORY CARDS ----- */
-    .category-card {
-      background: #14142e;
-      border: 1px solid #2d2d5a;
-      border-radius: 28px;
-      transition: 0.3s;
-      height: 100%;
-    }
-    .category-card:hover {
-      transform: translateY(-10px);
-      border-color: #C9A84C;
-      box-shadow: 0 12px 30px #C9A84C33;
-      background: #1a1a3a;
-    }
-    .category-card i { transition: 0.3s; }
-    .category-card:hover i { transform: scale(1.1); }
+        :root {
+            --brand-gold: #C9A84C;
+            --brand-gold-dark: #b8973a;
+            --brand-gold-glow: rgba(201, 168, 76, 0.33);
+            --bg-dark: #0b0b1a;
+            --bg-card: #10102a;
+            --bg-card-hover: #1a1a3a;
+            --border-color: #2a2a50;
+            --text-light: #f0f0f5;
+            --text-muted: #b0b0d0;
+        }
 
-    /* ----- BRAND CARDS (homepage) ----- */
-    .brand-home-card {
-      background: #10102a;
-      border: 1px solid #2a2a50;
-      border-radius: 20px;
-      padding: 20px 12px;
-      text-align: center;
-      transition: 0.25s;
-      height: 100%;
-    }
-    .brand-home-card:hover {
-      border-color: #C9A84C;
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px #C9A84C33;
-    }
-    .brand-home-card img {
-      width: 100%;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 16px;
-      background: #1a1a2e;
-      border: 1px solid #333366;
-    }
-    .brand-home-card h6 { color: #C9A84C; margin-top: 12px; font-weight: 600; }
-    .brand-home-card p { color: #b0b0d0; font-size: 0.8rem; margin-bottom: 0; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    /* ----- FOOTER & GEOLOCATION ----- */
-    footer {
-      background: #070714;
-      border-top: 2px solid #C9A84C55;
-    }
-    #locationInfo {
-      background: #0e0e24 !important;
-      border: 1px solid #2f2f5a !important;
-      border-radius: 18px;
-      color: #ddd;
-      font-size: 0.9rem;
-      padding: 12px 16px !important;
-      min-height: 62px;
-      display: flex;
-      align-items: center;
-    }
-    #locationInfo i { color: #C9A84C; width: 22px; }
-    .list-unstyled li a { transition: 0.2s; }
-    .list-unstyled li a:hover { color: #C9A84C !important; padding-left: 6px; }
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            padding-top: 76px;
+            overflow-x: hidden;
+        }
 
-    /* ----- RESPONSIVE ----- */
-    @media (max-width: 768px) {
-      .hero { min-height: 70vh; }
-      .hero h1 { font-size: 2.8rem; }
-      .brand-home-card img { height: 70px; }
-    }
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 2.2rem; }
-    }
+        a {
+            text-decoration: none;
+        }
 
-    /* animation delay helpers */
-    .delay-1 { animation-delay: 0.2s; }
-    .delay-2 { animation-delay: 0.5s; }
-  </style>
+        /* ----- Utility Classes ----- */
+        .text-amber {
+            color: var(--brand-gold);
+        }
+        .bg-amber {
+            background-color: var(--brand-gold);
+        }
+        .border-amber {
+            border-color: var(--brand-gold) !important;
+        }
+
+        .btn-amber {
+            background: var(--brand-gold);
+            color: var(--bg-dark);
+            font-weight: 600;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-amber:hover {
+            background: var(--brand-gold-dark);
+            color: #000;
+            transform: scale(1.02);
+            box-shadow: 0 0 20px var(--brand-gold-glow);
+        }
+
+        .btn-dark-custom {
+            background: #1a1a2e;
+            color: #fff;
+            border: 1px solid var(--brand-gold);
+        }
+        .btn-dark-custom:hover {
+            background: var(--brand-gold);
+            color: var(--bg-dark);
+        }
+
+        .btn-outline-amber {
+            color: var(--brand-gold);
+            border: 2px solid var(--brand-gold);
+            background: transparent;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .btn-outline-amber:hover {
+            background: var(--brand-gold);
+            color: var(--bg-dark);
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(30px, 4vw, 46px);
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .section-eyebrow {
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .divider-line {
+            width: 50px;
+            height: 3px;
+            background: var(--brand-gold);
+            border-radius: 2px;
+            margin: 12px 0 20px;
+        }
+        .divider-line.mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ----- Animations ----- */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes pulseGlow {
+            0% {
+                filter: drop-shadow(0 0 20px rgba(201, 168, 76, 0.2));
+            }
+            100% {
+                filter: drop-shadow(0 0 50px rgba(201, 168, 76, 0.53));
+            }
+        }
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-12px);
+            }
+        }
+        @keyframes scrollBrands {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        /* ============================================================
+           NAVBAR
+           ============================================================ */
+        .navbar {
+            background: var(--bg-dark) !important;
+            border-bottom: 2px solid var(--brand-gold);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+        }
+        .navbar-brand {
+            color: #fff !important;
+            letter-spacing: 0.5px;
+        }
+        .navbar-brand img {
+            filter: drop-shadow(0 0 6px var(--brand-gold-glow));
+        }
+        .nav-link {
+            color: #ddd !important;
+            font-weight: 500;
+            margin: 0 4px;
+            transition: 0.3s;
+            border-radius: 30px;
+            padding: 8px 16px !important;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(201, 168, 76, 0.13);
+            color: var(--brand-gold) !important;
+            box-shadow: 0 0 12px var(--brand-gold-glow);
+        }
+
+        /* Dropdown Menu for More Options */
+        .dropdown-menu {
+            background: #1a1a2e !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 8px !important;
+            padding: 8px 0 !important;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8) !important;
+        }
+        .dropdown-item {
+            color: rgba(255, 255, 255, 0.7) !important;
+            padding: 8px 24px !important;
+            font-size: 14px !important;
+            transition: all 0.3s ease !important;
+        }
+        .dropdown-item:hover {
+            background: rgba(201, 168, 76, 0.15) !important;
+            color: var(--brand-gold) !important;
+        }
+        .dropdown-toggle::after {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ============================================================
+           HERO
+           ============================================================ */
+        .hero {
+            min-height: 85vh;
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a1a3a 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(201, 168, 76, 0.13), transparent 70%);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(48px, 8vw, 90px);
+            color: #fff;
+            text-shadow: 0 0 40px var(--brand-gold-glow);
+        }
+        .hero .sub-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.2rem;
+        }
+
+        .lens-aperture svg {
+            filter: drop-shadow(0 0 30px rgba(201, 168, 76, 0.27));
+            animation: pulseGlow 3s infinite alternate;
+        }
+
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* ============================================================
+           CATEGORY CARDS
+           ============================================================ */
+        .category-card {
+            background: var(--bg-card);
+            border: 1px solid #2d2d5a;
+            border-radius: 28px;
+            transition: 0.3s;
+            height: 100%;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .category-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--brand-gold);
+            box-shadow: 0 12px 30px var(--brand-gold-glow);
+            background: var(--bg-card-hover);
+        }
+        .category-card i {
+            transition: 0.3s;
+        }
+        .category-card:hover i {
+            transform: scale(1.1);
+        }
+
+        /* ============================================================
+           BRAND CARDS - CLICKABLE
+           ============================================================ */
+        .brand-home-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 20px 12px;
+            text-align: center;
+            transition: 0.25s;
+            height: 100%;
+            cursor: pointer;
+        }
+        .brand-home-card:hover {
+            border-color: var(--brand-gold);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px var(--brand-gold-glow);
+        }
+        .brand-home-card img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 16px;
+            background: #1a1a2e;
+            border: 1px solid #333366;
+        }
+        .brand-home-card h6 {
+            color: var(--brand-gold);
+            margin-top: 12px;
+            font-weight: 600;
+        }
+        .brand-home-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 0;
+        }
+
+        /* ----- Brand Marquee ----- */
+        .brand-marquee-wrapper {
+            overflow: hidden;
+            width: 100%;
+            background: #0e0e22;
+            padding: 20px 0;
+            border-radius: 40px 40px 20px 20px;
+            border: 1px solid #2d2d50;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4), 0 12px 30px rgba(0, 0, 0, 0.6);
+        }
+        .brand-marquee-track {
+            display: flex;
+            gap: 16px;
+            animation: scrollBrands 32s linear infinite;
+            width: max-content;
+        }
+        .brand-marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .brand-card {
+            background: #12122a;
+            border: 1px solid #333366;
+            border-radius: 28px;
+            width: 210px;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 0 #0a0a18;
+            text-align: center;
+            padding: 18px 14px !important;
+            backdrop-filter: blur(2px);
+            display: block;
+            color: inherit;
+            cursor: pointer;
+        }
+        .brand-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--brand-gold);
+            box-shadow: 0 16px 30px var(--brand-gold-glow), 0 0 20px rgba(201, 168, 76, 0.13);
+            background: #19193b;
+        }
+        .brand-card img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 20px;
+            background: #1a1a2e;
+            border: 1px solid #3a3a6a;
+            transition: 0.3s;
+        }
+        .brand-card:hover img {
+            border-color: var(--brand-gold);
+        }
+        .brand-card h5 {
+            color: var(--brand-gold);
+            font-weight: 600;
+            margin-top: 14px;
+            letter-spacing: 0.5px;
+        }
+        .brand-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 0;
+        }
+
+        /* ============================================================
+           BRAND SECTIONS (Hidden by default, shown on click)
+           ============================================================ */
+        .brand-section {
+            display: none;
+            padding: 60px 0;
+            scroll-margin-top: 80px;
+        }
+        .brand-section.active {
+            display: block;
+        }
+        .brand-section:nth-of-type(even) {
+            background: #0d0d1a;
+        }
+        .brand-section:nth-of-type(odd) {
+            background: #0b0b1a;
+        }
+
+        .brand-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 18px;
+        }
+        .brand-section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(30px, 4vw, 44px);
+            color: #fff;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+        .brand-section-tagline {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: 'Inter', sans-serif;
+            margin-top: 4px;
+        }
+        .brand-back-btn {
+            color: var(--brand-gold);
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.2s;
+            background: none;
+            border: none;
+        }
+        .brand-back-btn:hover {
+            color: #fff;
+        }
+        .brand-back-btn i {
+            transition: 0.2s;
+        }
+        .brand-back-btn:hover i {
+            transform: translateX(-4px);
+        }
+
+        /* Brand Color Themes */
+        .brand-canon .brand-section-title,
+        .brand-canon .section-eyebrow {
+            color: #0d6efd;
+        }
+        .brand-fujifilm .brand-section-title,
+        .brand-fujifilm .section-eyebrow {
+            color: #009966;
+        }
+        .brand-sony .brand-section-title,
+        .brand-sony .section-eyebrow {
+            color: #8B4513;
+        }
+        .brand-nikon .brand-section-title,
+        .brand-nikon .section-eyebrow {
+            color: #FFE000;
+        }
+        .brand-yashica .brand-section-title,
+        .brand-yashica .section-eyebrow {
+            color: #8A2BE2;
+        }
+        .brand-olympus .brand-section-title,
+        .brand-olympus .section-eyebrow {
+            color: #4FC3F7;
+        }
+        .brand-panasonic .brand-section-title,
+        .brand-panasonic .section-eyebrow {
+            color: #00B4A8;
+        }
+        .brand-leica .brand-section-title,
+        .brand-leica .section-eyebrow {
+            color: #FF69B4;
+        }
+        .brand-hasselblad .brand-section-title,
+        .brand-hasselblad .section-eyebrow {
+            color: #F5D76E;
+        }
+        .brand-gopro .brand-section-title,
+        .brand-gopro .section-eyebrow {
+            color: #9E9E9E;
+        }
+        .brand-sigma .brand-section-title,
+        .brand-sigma .section-eyebrow {
+            color: #FF6B00;
+        }
+        .brand-tamron .brand-section-title,
+        .brand-tamron .section-eyebrow {
+            color: #B39DDB;
+        }
+
+        /* ============================================================
+           PRODUCT CARDS (Inside Brand Sections)
+           ============================================================ */
+        .brand-product-card {
+            background: #0f0f0f;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+        .brand-product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(201, 168, 76, 0.15);
+        }
+        .brand-product-card .img-wrap {
+            background: #181818;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        .brand-product-card .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .brand-product-card:hover .img-wrap img {
+            transform: scale(1.06);
+        }
+        .brand-product-card .badge-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--brand-gold);
+            color: #0a0a0a;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+        .brand-product-card .body {
+            padding: 18px;
+        }
+        .brand-product-card .product-category {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+        .brand-product-card .product-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            color: #fff;
+            letter-spacing: 0.5px;
+            margin: 4px 0 6px;
+            line-height: 1.2;
+        }
+        .brand-product-card .product-desc {
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, 0.4);
+            line-height: 1.6;
+            min-height: 36px;
+        }
+        .brand-product-card .specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 8px 0 12px;
+        }
+        .brand-product-card .spec-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 3px 10px;
+            font-size: 10.5px;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: 'Inter', sans-serif;
+        }
+        .brand-product-card .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 12px;
+        }
+        .brand-product-card .price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: #fff;
+        }
+        .brand-product-card .price span {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-details {
+            background: transparent;
+            border: 1px solid var(--brand-gold);
+            color: var(--brand-gold);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 7px;
+            transition: 0.25s;
+        }
+        .btn-details:hover {
+            background: var(--brand-gold);
+            color: #0b0b1a;
+        }
+
+        /* ============================================================
+           LIGHTING KITS SECTION
+           ============================================================ */
+        .lighting-hero {
+            min-height: 45vh;
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a1a3a 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 0;
+        }
+        .lighting-hero .overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(201, 168, 76, 0.13), transparent 70%);
+            pointer-events: none;
+        }
+        .lighting-hero h1 {
+            text-shadow: 0 0 40px var(--brand-gold-glow);
+            letter-spacing: 2px;
+        }
+
+        .cat-strip {
+            background: #0d0d1a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            position: sticky;
+            top: 76px;
+            z-index: 500;
+            padding: 12px 0;
+        }
+        .cat-strip-inner {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            flex-wrap: nowrap;
+        }
+        .cat-strip-inner::-webkit-scrollbar {
+            display: none;
+        }
+        .cat-pill {
+            flex-shrink: 0;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.55);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .cat-pill i {
+            font-size: 12px;
+        }
+        .cat-pill:hover,
+        .cat-pill.active {
+            background: var(--brand-gold);
+            border-color: var(--brand-gold);
+            color: #0a0a0f;
+            font-weight: 600;
+        }
+
+        .lighting-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            transition: 0.3s;
+            position: relative;
+        }
+        .lighting-card:hover {
+            border-color: var(--brand-gold);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px var(--brand-gold-glow);
+        }
+        .lighting-card .img-wrap {
+            background: #1a1a2e;
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        .lighting-card .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .lighting-card:hover .img-wrap img {
+            transform: scale(1.05);
+        }
+        .lighting-card .badge-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--brand-gold);
+            color: #0a0a0f;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+        .lighting-card .body {
+            padding: 18px;
+        }
+        .lighting-card .brand-tag {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+        .lighting-card .name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            color: #fff;
+            letter-spacing: 0.5px;
+            margin: 4px 0 6px;
+            line-height: 1.2;
+        }
+        .lighting-card .desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.6;
+            margin-bottom: 12px;
+            min-height: 40px;
+        }
+        .lighting-card .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 14px;
+        }
+        .lighting-card .price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: #fff;
+        }
+        .lighting-card .price span {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .kit-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            transition: 0.3s;
+            position: relative;
+        }
+        .kit-card:hover {
+            border-color: var(--brand-gold);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px var(--brand-gold-glow);
+        }
+        .kit-card.featured {
+            border-color: rgba(201, 168, 76, 0.33);
+        }
+        .kit-card .ribbon {
+            position: absolute;
+            top: 16px;
+            right: -1px;
+            background: var(--brand-gold);
+            color: #0a0a0f;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 6px 0 0 6px;
+            font-family: 'Inter', sans-serif;
+            z-index: 2;
+        }
+        .kit-card .img-wrap {
+            background: #1a1a2e;
+            height: 200px;
+            overflow: hidden;
+        }
+        .kit-card .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .kit-card:hover .img-wrap img {
+            transform: scale(1.05);
+        }
+        .kit-card .body {
+            padding: 22px;
+        }
+        .kit-card .kit-tagline {
+            font-size: 12px;
+            color: var(--brand-gold);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .kit-card .kit-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 26px;
+            color: #fff;
+            letter-spacing: 0.5px;
+            margin: 4px 0 12px;
+        }
+        .kit-card .includes {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px;
+        }
+        .kit-card .includes li {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: 'Inter', sans-serif;
+            padding: 4px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .kit-card .includes li i {
+            color: var(--brand-gold);
+            font-size: 11px;
+            margin-top: 3px;
+        }
+        .kit-card .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 16px;
+        }
+        .kit-card .price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 26px;
+            color: #fff;
+        }
+        .kit-card .price span {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tip-box {
+            background: rgba(201, 162, 39, 0.07);
+            border: 1px solid rgba(201, 162, 39, 0.25);
+            border-radius: 12px;
+            padding: 18px 22px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        .tip-box i {
+            color: var(--brand-gold);
+            font-size: 18px;
+            margin-top: 2px;
+        }
+        .tip-box p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.7;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+
+        .btn-details.solid {
+            background: var(--brand-gold);
+            color: #0b0b1a;
+        }
+        .btn-details.solid:hover {
+            background: #fff;
+        }
+
+        /* ============================================================
+           COMPARE SECTION
+           ============================================================ */
+        .compare-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 24px 22px;
+            transition: 0.3s;
+            height: 100%;
+        }
+        .compare-card:hover {
+            border-color: var(--brand-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px var(--brand-gold-glow);
+        }
+        .compare-card select {
+            background: #1a1a3a;
+            color: var(--text-light);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px 16px;
+            width: 100%;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .compare-card select:focus {
+            border-color: var(--brand-gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.27);
+        }
+        .compare-card select option {
+            background: var(--bg-card);
+            color: var(--text-light);
+        }
+        .compare-card label {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        .comparison-table {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            width: 100%;
+        }
+        .comparison-table th {
+            background: #1a1a3a;
+            color: var(--brand-gold);
+            font-weight: 600;
+            padding: 14px 18px;
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .comparison-table td {
+            padding: 12px 18px;
+            border-bottom: 1px solid #1a1a3a;
+            color: #ddd;
+            vertical-align: middle;
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        .comparison-table .highlight {
+            color: var(--brand-gold) !important;
+            font-weight: 600;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .empty-state i {
+            font-size: 3rem;
+            color: rgba(201, 168, 76, 0.27);
+            margin-bottom: 16px;
+        }
+        .empty-state h4 {
+            color: #fff;
+        }
+        .empty-state p {
+            color: var(--text-muted);
+        }
+
+        #compare-bar {
+            position: fixed;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            background: var(--bg-card);
+            border-top: 2px solid var(--brand-gold);
+            padding: 14px 0;
+            z-index: 9000;
+            transition: bottom 0.35s ease;
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.6);
+        }
+        #compare-bar.visible {
+            bottom: 0;
+        }
+        .compare-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .compare-text strong {
+            color: #fff;
+        }
+
+        /* ============================================================
+           BUYING GUIDE
+           ============================================================ */
+        .tab-strip {
+            background: #0d0d1a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            position: sticky;
+            top: 76px;
+            z-index: 500;
+            padding: 0;
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: rgba(255, 255, 255, 0.45);
+            padding: 16px 28px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+        .tab-btn i {
+            margin-right: 8px;
+        }
+        .tab-btn:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .tab-btn.active {
+            color: var(--brand-gold);
+            border-bottom-color: var(--brand-gold);
+        }
+        .tab-panel {
+            display: none;
+        }
+        .tab-panel.active {
+            display: block;
+        }
+
+        .rec-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px 20px;
+            height: 100%;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .rec-card:hover {
+            border-color: var(--brand-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px var(--brand-gold-glow);
+        }
+        .rec-card .icon-wrap {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(201, 168, 76, 0.08);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--brand-gold);
+            margin-bottom: 14px;
+        }
+        .rec-card .rec-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .rec-card .rec-desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+        .rec-card .rec-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 14px;
+            margin-top: 12px;
+        }
+        .rec-card .rec-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+        .rec-card .rec-item {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.65);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3px 0;
+        }
+        .rec-card .rec-item a {
+            color: var(--brand-gold);
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .rec-card .rec-item a:hover {
+            color: #fff;
+        }
+
+        .tip-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 20px 0;
+        }
+        .tip-item:first-child {
+            padding-top: 0;
+        }
+        .tip-item:last-child {
+            border-bottom: none;
+        }
+        .tip-q {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .tip-q i {
+            color: var(--brand-gold);
+            font-size: 14px;
+        }
+        .tip-a {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.8;
+            margin-top: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .guide-cta {
+            background: #0d0d1a;
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        /* ============================================================
+           CONTACT
+           ============================================================ */
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 24px 22px;
+            transition: 0.3s;
+            height: auto;
+        }
+        .contact-card:hover {
+            border-color: var(--brand-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px var(--brand-gold-glow);
+        }
+        .contact-card i {
+            color: var(--brand-gold);
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+        .contact-card h5 {
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        .contact-card p {
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+        .contact-card .small-text {
+            font-size: 0.85rem;
+        }
+
+        .form-control {
+            background: #14142e !important;
+            border: 1px solid #2d2d5a !important;
+            color: var(--text-light) !important;
+        }
+        .form-control:focus {
+            border-color: var(--brand-gold) !important;
+            box-shadow: 0 0 0 0.25rem rgba(201, 168, 76, 0.27) !important;
+        }
+        .form-label {
+            color: #ddd;
+            font-weight: 500;
+        }
+
+        .map-wrapper {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        footer {
+            background: #070714;
+            border-top: 2px solid rgba(201, 168, 76, 0.33);
+        }
+
+        #locationInfo {
+            background: #0e0e24 !important;
+            border: 1px solid #2f2f5a !important;
+            border-radius: 18px;
+            color: #ddd;
+            font-size: 0.9rem;
+            padding: 12px 16px !important;
+            min-height: 62px;
+            display: flex;
+            align-items: center;
+        }
+        #locationInfo i {
+            color: var(--brand-gold);
+            width: 22px;
+        }
+
+        .list-unstyled li a {
+            transition: 0.2s;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .list-unstyled li a:hover {
+            color: var(--brand-gold) !important;
+            padding-left: 6px;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 70vh;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .brand-home-card img {
+                height: 70px;
+            }
+            .brand-card {
+                width: 170px;
+                padding: 12px !important;
+            }
+            .brand-card img {
+                height: 80px;
+            }
+            .brand-card h5 {
+                font-size: 1rem;
+            }
+            .brand-product-card .img-wrap {
+                height: 160px;
+            }
+            .lighting-card .img-wrap {
+                height: 140px;
+            }
+            .kit-card .img-wrap {
+                height: 160px;
+            }
+            .cat-strip {
+                top: 68px;
+                padding: 8px 0;
+            }
+            .cat-pill {
+                padding: 6px 14px;
+                font-size: 12px;
+            }
+            .lighting-hero {
+                min-height: 30vh;
+            }
+            .lighting-hero h1 {
+                font-size: 2.5rem;
+            }
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .brand-card {
+                width: 150px;
+            }
+            .lighting-hero h1 {
+                font-size: 2rem;
+            }
+            .comparison-table {
+                font-size: 0.75rem;
+            }
+            .comparison-table th,
+            .comparison-table td {
+                padding: 8px 6px;
+            }
+        }
+
+        /* ============================================================
+           LOADER STYLES
+           ============================================================ */
+        #fotolab-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #0b0b1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+        #fotolab-loader.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .fl-img-wrap {
+            position: relative;
+            width: 280px;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .fl-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 18px rgba(201, 168, 76, 0.4));
+        }
+        .fl-lens-flash {
+            position: absolute;
+            left: 50%;
+            top: 52%;
+            transform: translate(-50%, -50%);
+            width: 54px;
+            height: 54px;
+            z-index: 3;
+            pointer-events: none;
+        }
+        .fl-lens-flash::before,
+        .fl-lens-flash::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.95) 0%, rgba(201, 168, 76, 0.6) 40%, transparent 70%);
+            animation: fl-pulse 0.75s ease-in-out infinite alternate;
+        }
+        .fl-lens-flash::after {
+            animation-delay: 0.375s;
+            background: radial-gradient(circle, rgba(255, 215, 100, 1) 0%, rgba(201, 168, 76, 0.5) 50%, transparent 70%);
+            transform: scale(0.65);
+        }
+        @keyframes fl-pulse {
+            0% {
+                opacity: 0.5;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.15);
+            }
+        }
+        .fl-rings {
+            position: absolute;
+            left: 50%;
+            top: 52%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        .fl-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: rgba(201, 168, 76, 0.9);
+            border-right-color: rgba(201, 168, 76, 0.4);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .fl-ring:nth-child(1) {
+            width: 70px;
+            height: 70px;
+            border-width: 2.5px;
+            border-top-color: rgba(201, 168, 76, 1);
+            border-right-color: rgba(201, 168, 76, 0.5);
+            animation: fl-spin 1s linear infinite;
+        }
+        .fl-ring:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            border-width: 2px;
+            border-top-color: rgba(201, 168, 76, 0.85);
+            border-right-color: rgba(201, 168, 76, 0.35);
+            animation: fl-spin 1.5s linear infinite reverse;
+        }
+        .fl-ring:nth-child(3) {
+            width: 134px;
+            height: 134px;
+            border-width: 1.5px;
+            border-top-color: rgba(201, 168, 76, 0.65);
+            border-right-color: rgba(201, 168, 76, 0.2);
+            animation: fl-spin 2.2s linear infinite;
+        }
+        @keyframes fl-spin {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        .fl-brand {
+            margin-top: 28px;
+            font-family: 'Bebas Neue', 'Segoe UI', Arial, sans-serif;
+            font-size: 18px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: rgba(201, 168, 76, 0.7);
+            font-weight: 400;
+            text-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
+        }
+        .fl-brand span {
+            color: #fff;
+            font-weight: 300;
+        }
+
+        /* ----- Additional styles for components ----- */
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            padding: 30px 24px;
+            transition: 0.3s;
+            height: 100%;
+        }
+        .info-card:hover {
+            border-color: var(--brand-gold);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px var(--brand-gold-glow);
+        }
+        .info-card i {
+            color: var(--brand-gold);
+        }
+        .info-card h4 {
+            color: #fff;
+            margin-top: 16px;
+        }
+        .info-card p {
+            color: var(--text-muted);
+        }
+
+        .team-card {
+            background: #0e0e24;
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 20px 16px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .team-card:hover {
+            border-color: var(--brand-gold);
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px var(--brand-gold-glow);
+        }
+        .team-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--brand-gold);
+            margin-bottom: 12px;
+        }
+        .team-card h5 {
+            color: #fff;
+        }
+        .team-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 30px 22px;
+            transition: 0.3s;
+            height: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--brand-gold);
+            transform: scaleX(0);
+            transition: 0.3s;
+        }
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        .service-card:hover {
+            border-color: var(--brand-gold);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px var(--brand-gold-glow);
+        }
+        .service-card .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: rgba(201, 168, 76, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 2px solid rgba(201, 168, 76, 0.2);
+            transition: 0.3s;
+        }
+        .service-card:hover .icon-wrapper {
+            background: rgba(201, 168, 76, 0.15);
+            border-color: var(--brand-gold);
+            transform: scale(1.05);
+        }
+        .service-card .icon-wrapper i {
+            font-size: 2rem;
+            color: var(--brand-gold);
+        }
+        .service-card h4 {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        .service-card .service-tag {
+            display: inline-block;
+            background: rgba(201, 168, 76, 0.13);
+            color: var(--brand-gold);
+            font-size: 0.7rem;
+            padding: 3px 12px;
+            border-radius: 50px;
+            border: 1px solid rgba(201, 168, 76, 0.27);
+            margin-top: 12px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #1a1a3a;
+        }
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+        .feature-item i {
+            font-size: 1.5rem;
+            color: var(--brand-gold);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .feature-item h6 {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .feature-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 20px 18px;
+            transition: 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            border-color: var(--brand-gold);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px var(--brand-gold-glow);
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 16px;
+            background: #1a1a2e;
+            border: 1px solid var(--border-color);
+            transition: 0.3s;
+        }
+        .product-card:hover img {
+            border-color: var(--brand-gold);
+        }
+        .product-card .badge-brand {
+            background: rgba(201, 168, 76, 0.13);
+            color: var(--brand-gold);
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 50px;
+            border: 1px solid rgba(201, 168, 76, 0.27);
+        }
+        .product-card h5 {
+            color: #fff;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+        .product-card .price {
+            color: var(--brand-gold);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        .product-card .desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            flex-grow: 1;
+        }
+        .product-card .btn-details {
+            background: transparent;
+            border: 1px solid var(--brand-gold);
+            color: var(--brand-gold);
+            border-radius: 50px;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .product-card .btn-details:hover {
+            background: var(--brand-gold);
+            color: var(--bg-dark);
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--brand-gold);
+            color: var(--brand-gold);
+            background: rgba(201, 168, 76, 0.08);
+        }
+        .filter-btn.active {
+            background: var(--brand-gold);
+            color: var(--bg-dark);
+        }
+
+        #brands-section {
+            display: block;
+        }
+
+        /* Scroll margin for sections */
+        #lighting,
+        #guide,
+        #contact,
+        #compare {
+            scroll-margin-top: 80px;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ====== NAVBAR ====== -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="images/fotologo.png" alt="FOTOLAB Logo" width="50" height="50" class="me-2">
-        <span class="fw-bold fs-3" style="color: #fff; text-shadow: 0 0 12px #C9A84C55;">FOTOLAB</span>
-      </a>
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/service.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/products.html">Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/brands.html">Brands</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/compare.html">Compare</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/contact.html">Contact</a></li>
-        </ul>
-      </div>
+    <!-- ============================================================
+    LOADER
+    ============================================================ -->
+    <div id="fotolab-loader">
+        <div class="fl-img-wrap">
+            <div class="fl-rings">
+                <div class="fl-ring"></div>
+                <div class="fl-ring"></div>
+                <div class="fl-ring"></div>
+            </div>
+            <img src="images/fotoloader.png" alt="Loading" onerror="this.src='https://picsum.photos/seed/fotolab/280/240'">
+            <div class="fl-lens-flash"></div>
+        </div>
+        <div class="fl-brand">FOTO<span>LAB</span></div>
     </div>
-  </nav>
 
-  <!-- ====== HERO ====== -->
-  <header class="hero position-relative d-flex align-items-center justify-content-center text-center">
-    <div class="hero-overlay"></div>
-    <div class="container position-relative z-3">
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <!-- Animated Lens SVG -->
-          <div class="lens-aperture mb-4 mx-auto">
-            <svg width="160" height="160" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="100" cy="100" r="90" fill="none" stroke="#C9A84C" stroke-width="8"/>
-              <circle cx="100" cy="100" r="70" fill="none" stroke="#0F3460" stroke-width="12"/>
-              <circle cx="100" cy="100" r="45" fill="#1A1A2E"/>
-              <g id="apertureBlades">
-                <polygon points="100,30 110,60 140,70 115,90 120,120 100,105 80,120 85,90 60,70 90,60" fill="#C9A84C55" stroke="#C9A84C" stroke-width="2"/>
-              </g>
-            </svg>
-          </div>
-          <h1 class="display-1 fw-bold text-white mb-3 animate-fade-up" data-aos="fade-up">CAPTURE THE MOMENT</h1>
-          <p class="lead text-white-50 fs-3 mb-5 animate-fade-up" data-aos="fade-up" data-aos-delay="150">Premium Cameras &amp; Gear Since 1991</p>
-          <a href="pages/products.html" class="btn btn-amber px-5 py-3 fs-5 animate-fade-up" data-aos="fade-up" data-aos-delay="300">SHOP NOW</a>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-indicator position-absolute bottom-0 start-50 translate-middle-x mb-4">
-      <i class="fas fa-chevron-down fa-2x text-white"></i>
-    </div>
-  </header>
-
-  <!-- ====== INTRODUCTION ====== -->
-  <section class="py-5" style="background: #0b0b1a;">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-6" data-aos="fade-right">
-          <h2 class="display-5 fw-bold text-amber">FOTOLAB</h2>
-          <p class="lead text-light">Established in 1991, FOTOLAB has been at the forefront of photographic innovation, offering the finest digital cameras, SLR systems, handycams, and professional accessories to enthusiasts and professionals alike.</p>
-          <a href="pages/about.html" class="btn btn-amber mt-3">Learn our story</a>
-        </div>
-        <div class="col-lg-6" data-aos="fade-left">
-          <div class="ratio ratio-16x9 shadow rounded overflow-hidden">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/bpG6efowrPY" title="FOTOLAB Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== PRODUCT CATEGORIES ====== -->
-  <section class="py-5" style="background: linear-gradient(145deg, #0f0f28, #1a1a3a);">
-    <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <h2 class="display-5 text-white">Explore Our Products</h2>
-        <p class="text-white-50">Shop the latest cameras, lenses, lighting, and accessories.</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="50">
-          <div class="category-card text-center p-4">
-            <i class="fas fa-camera fa-4x text-amber mb-3"></i>
-            <h5 class="text-white">Mirrorless</h5>
-            <p class="text-white-50">Lightweight cameras for creators.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="150">
-          <div class="category-card text-center p-4">
-            <i class="fas fa-video fa-4x text-amber mb-3"></i>
-            <h5 class="text-white">DSLR</h5>
-            <p class="text-white-50">Dependable optics and control.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="250">
-          <div class="category-card text-center p-4">
-            <i class="fas fa-camera-retro fa-4x text-amber mb-3"></i>
-            <h5 class="text-white">Lenses</h5>
-            <p class="text-white-50">Premium glass for every shoot.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="350">
-          <div class="category-card text-center p-4">
-            <i class="fas fa-lightbulb fa-4x text-amber mb-3"></i>
-            <h5 class="text-white">Lighting</h5>
-            <p class="text-white-50">Studio and on-location kits.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== WHY CHOOSE US (3 columns) ====== -->
-  <section class="py-5" style="background: #0a0a1a;">
-    <div class="container">
-      <div class="row text-center g-4">
-        <div class="col-md-4" data-aos="zoom-in">
-          <i class="fas fa-shield-alt fa-3x text-amber mb-3"></i>
-          <h4 class="text-white">Expert Service</h4>
-          <p class="text-white-50">Professional advice &amp; support.</p>
-        </div>
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="150">
-          <i class="fas fa-vector-square fa-3x text-amber mb-3 d-block mx-auto"></i>
-          <h4 class="text-white">Custom UI Design</h4>
-          <p class="text-white-50">Modern &amp; intuitive interfaces.</p>
-        </div>
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-          <i class="fas fa-layer-group fa-3x text-amber mb-3 d-block mx-auto"></i>
-          <h4 class="text-white">High-Quality Mockups</h4>
-          <p class="text-white-50">Visualize your gear in style.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== BRANDS SHOWCASE (homepage) ====== -->
-  <section class="py-5" style="background: #0f0f28;">
-    <div class="container">
-      <h2 class="text-center mb-5 text-white" data-aos="fade-up">Trusted Brands</h2>
-      <div class="row g-4 justify-content-center" id="brandsShowcase">
-        <!-- populated by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== CTA ====== -->
-  <section class="py-5 text-center bg-amber text-dark" data-aos="fade-up">
-    <div class="container">
-      <h2>Ready to Upgrade Your Gear?</h2>
-      <a href="pages/contact.html" class="btn btn-dark-custom btn-lg mt-3">GET IN TOUCH</a>
-    </div>
-  </section>
-
-  <!-- ====== FOOTER ====== -->
-  <footer class="py-5">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-md-3">
-          <h5 class="text-amber mb-3">FOTOLAB</h5>
-          <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
-        </div>
-        <div class="col-md-2">
-          <h5 class="text-amber mb-3">Quick Links</h5>
-          <ul class="list-unstyled">
-            <li><a href="pages/products.html" class="text-white-50 text-decoration-none">Products</a></li>
-            <li><a href="pages/brands.html" class="text-white-50 text-decoration-none">Brands</a></li>
-            <li><a href="pages/about.html" class="text-white-50 text-decoration-none">About</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <h5 class="text-amber mb-3">Contact Outlet</h5>
-          <p class="text-white-50 mb-1"><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi, Karachi, Pakistan</p>
-          <p class="text-white-50 mb-1"><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
-          <p class="text-white-50 mb-0"><i class="fas fa-phone text-amber me-2"></i> +91 98765 43210</p>
-        </div>
-        <!-- Geolocation Live Route Module -->
-        <div class="col-md-4">
-          <h5 class="text-amber mb-3"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
-          <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #0e0e24; border: 1px solid #2f2f5a;">
-            <span><i class="fas fa-spinner fa-pulse me-2"></i>Locating ...</span>
-          </div>
-        </div>
-      </div>
-      <hr class="border-secondary mt-4">
-      <p class="text-center text-white-50 mb-0 small">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
-    </div>
-  </footer>
-
-  <!-- ====== SCRIPTS ====== -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="js/geolocation.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/loader.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-  </script>
-
-  <!-- Brand showcase (homepage) -->
-<script>
-    (function() {
-      const brands = [
-        { 
-          name: 'Canon', 
-          desc: 'Precision optics & L-series glass.', 
-          img: '../images/canon company.jpg',
-          link: 'https://en.canon-me.com/'
-        },
-        { 
-          name: 'Nikon', 
-          desc: 'Legendary ruggedness & EXPEED processing.', 
-          img: '../images/nikon company.jpg',
-          link: 'https://www.nikon.com/'
-        },
-        { 
-          name: 'Sony', 
-          desc: 'Alpha mirrorless, 4D focus & speed.', 
-          img: '../images/sony company.jpg',
-          link: 'https://www.sony.com/pk/homepage'
-        },
-        { 
-          name: 'Fujifilm', 
-          desc: 'Film simulation & X-Trans sensor.', 
-          img: '../images/fujifilm company.jpg',
-          link: 'https://global.fujifilm.com/en/'
-        },
-        { 
-          name: 'Panasonic', 
-          desc: 'Lumix GH, 6K video & Leica partnership.', 
-          img: '../images/panasonic company.jpg',
-          link: 'https://www.panasonic.com/mea/en/pk.html'
-        },
-        { 
-          name: 'Leica', 
-          desc: 'German engineering & timeless M-mount.', 
-          img: '../images/leica company.jpg',
-          link: 'https://leica-camera.com/en-int?srsltid=AfmBOoqgouMq0PU266jXfgzCMQRINBH5KlJquzv-diI9rF6C-w0QIjWy'
-        }
-      ];
-      
-      const container = document.getElementById('brandsShowcase');
-      if (container) {
-        container.innerHTML = brands.map(b => `
-          <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up">
-            <a href="${b.link}" target="_blank" rel="noopener noreferrer" class="brand-home-link" style="text-decoration: none; display: block;">
-              <div class="brand-home-card">
-                <img src="${b.img}" alt="${b.name}" class="img-fluid rounded">
-                <h6>${b.name}</h6>
-                <p>${b.desc}</p>
-              </div>
+    <!-- ============================================================
+    NAVBAR
+    ============================================================ -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#home">
+                <img src="images/fotologo.png" alt="FOTOLAB Logo" width="50" height="50" class="me-2" onerror="this.src='https://picsum.photos/seed/fotolablogo/50/50'">
+                <span class="fw-bold fs-3" style="color: #fff; text-shadow: 0 0 12px rgba(201,168,76,0.33);">FOTOLAB</span>
             </a>
-          </div>
-        `).join('');
-        // re-init AOS for new elements
-        if (typeof AOS !== 'undefined') {
-          AOS.refresh();
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Main visible links -->
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#compare">Compare</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+                    <!-- More dropdown (Humburger) -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bars"></i> More
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#about">About</a></li>
+                            <li><a class="dropdown-item" href="#brands-section">Brands</a></li>
+                            <li><a class="dropdown-item" href="#lighting">Lighting Kits</a></li>
+                            <li><a class="dropdown-item" href="#guide">Buying Guide</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+    HERO SECTION
+    ============================================================ -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container position-relative z-3">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <div class="lens-aperture mb-4 mx-auto">
+                        <svg width="160" height="160" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="100" r="90" fill="none" stroke="#C9A84C" stroke-width="8"/>
+                            <circle cx="100" cy="100" r="70" fill="none" stroke="#0F3460" stroke-width="12"/>
+                            <circle cx="100" cy="100" r="45" fill="#1A1A2E"/>
+                            <polygon points="100,30 110,60 140,70 115,90 120,120 100,105 80,120 85,90 60,70 90,60" fill="rgba(201,168,76,0.33)" stroke="#C9A84C" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h1 class="display-1 fw-bold text-white mb-3" data-aos="fade-up">CAPTURE THE MOMENT</h1>
+                    <p class="lead text-white-50 fs-3 mb-5" data-aos="fade-up" data-aos-delay="150">Premium Cameras &amp; Gear Since 1991</p>
+                    <a href="#products" class="btn btn-amber px-5 py-3 fs-5" data-aos="fade-up" data-aos-delay="300">SHOP NOW</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down fa-2x text-white"></i>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    ABOUT SECTION
+    ============================================================ -->
+    <section class="py-5" id="about" style="background: var(--bg-dark);">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <p class="section-eyebrow">About FOTOLAB</p>
+                    <h2 class="section-title text-amber">Our Story</h2>
+                    <div class="divider-line"></div>
+                    <p class="lead text-light">Established in 1991, FOTOLAB has been at the forefront of photographic innovation...</p>
+                    <p class="text-white-50">We believe in blending cutting-edge technology with timeless craftsmanship.</p>
+                    <a href="#products" class="btn btn-amber mt-3">Explore our gear</a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="ratio ratio-16x9 shadow rounded overflow-hidden">
+                        <iframe src="https://www.youtube.com/embed/bpG6efowrPY" title="FOTOLAB Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission & Values -->
+            <div class="row g-4 mt-5">
+                <div class="col-md-4" data-aos="flip-up" data-aos-delay="50">
+                    <div class="info-card text-center">
+                        <i class="fas fa-star fa-3x mb-3"></i>
+                        <h4>Quality First</h4>
+                        <p>We stock only the finest brands — Canon, Nikon, Sony, Leica, and more.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="flip-up" data-aos-delay="150">
+                    <div class="info-card text-center">
+                        <i class="fas fa-headset fa-3x mb-3"></i>
+                        <h4>Expert Support</h4>
+                        <p>Our team is always ready to help you choose the perfect gear.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="flip-up" data-aos-delay="250">
+                    <div class="info-card text-center">
+                        <i class="fas fa-globe-asia fa-3x mb-3"></i>
+                        <h4>Global Vision</h4>
+                        <p>From Karachi to the world, we connect photographers with tools that inspire.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team -->
+            <div class="text-center mt-5" data-aos="fade-up">
+                <h2 class="section-title text-white">Meet the Team</h2>
+                <p class="text-white-50">Passionate people behind the lens.</p>
+            </div>
+            <div class="row g-4 justify-content-center mt-2">
+                <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="50">
+                    <div class="team-card">
+                        <img src="images/team image 1.jpg" alt="Team Member" onerror="this.src='https://picsum.photos/seed/team1/120/120'">
+                        <h5>Tahami Javed</h5>
+                        <p>Team Leader</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="team-card">
+                        <img src="images/team image 2.jpg" alt="Team Member" onerror="this.src='https://picsum.photos/seed/team2/120/120'">
+                        <h5>Abdul Haseeb</h5>
+                        <p>Team Member</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="team-card">
+                        <img src="images/team image 3.png" alt="Team Member" onerror="this.src='https://picsum.photos/seed/team3/120/120'">
+                        <h5>Ahmed</h5>
+                        <p>Team Member</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="350">
+                    <div class="team-card">
+                        <img src="images/team image 4.jpg" alt="Team Member" onerror="this.src='https://picsum.photos/seed/team4/120/120'">
+                        <h5>Hassan</h5>
+                        <p>Team Member</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SERVICES SECTION
+    ============================================================ -->
+    <section class="py-5" id="services" style="background: linear-gradient(145deg, #0f0f28, #1a1a3a);">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <p class="section-eyebrow">What We Offer</p>
+                <h2 class="section-title text-white">Our Services</h2>
+                <div class="divider-line mx-auto"></div>
+                <p class="text-white-50">From sales to support — everything you need for your photography journey.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="50">
+                    <div class="service-card">
+                        <div class="icon-wrapper"><i class="fas fa-camera"></i></div>
+                        <h4>Camera Sales</h4>
+                        <p>Latest mirrorless and DSLR models from Canon, Nikon, Sony, Fujifilm, and more.</p>
+                        <span class="service-tag">All Brands</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="icon-wrapper"><i class="fas fa-search-dollar"></i></div>
+                        <h4>Lens &amp; Gear Advice</h4>
+                        <p>Professional guidance on lenses, tripods, lighting, and accessories.</p>
+                        <span class="service-tag">Expert Consultation</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="150">
+                    <div class="service-card">
+                        <div class="icon-wrapper"><i class="fas fa-tools"></i></div>
+                        <h4>Repair &amp; Maintenance</h4>
+                        <p>Trusted repair services for camera bodies, lenses, flashes, and electronics.</p>
+                        <span class="service-tag">Authorized Service</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="icon-wrapper"><i class="fas fa-lightbulb"></i></div>
+                        <h4>Lighting Solutions</h4>
+                        <p>Studio and on-location lighting kits from Profoto, Godox, and more.</p>
+                        <span class="service-tag">Studio &amp; Location</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="250">
+                    <div class="service-card">
+                        <div class="icon-wrapper"><i class="fas fa-calendar-alt"></i></div>
+                        <h4>Gear Rentals</h4>
+                        <p>Rent high-end cameras, lenses, and lighting equipment for projects or travel.</p>
+                        <span class="service-tag">Daily / Weekly</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="icon-wrapper"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>Training &amp; Workshops</h4>
+                        <p>Photography workshops and one-on-one training sessions.</p>
+                        <span class="service-tag">All Levels</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="row mt-5 g-4" data-aos="fade-up">
+                <div class="col-lg-6">
+                    <div class="bg-dark p-4 rounded-4 border border-secondary" style="background: #0e0e24 !important;">
+                        <h3 class="text-amber mb-4"><i class="fas fa-star me-2"></i>Why Choose FOTOLAB?</h3>
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h6>30 Years of Trust</h6>
+                                <p>Established in 1991, we've been serving photographers across Pakistan.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <h6>Authorized Dealers</h6>
+                                <p>We are authorized partners of all major camera brands.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-headset"></i>
+                            <div>
+                                <h6>Dedicated Support</h6>
+                                <p>Our team is always ready to help you before and after your purchase.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-dark p-4 rounded-4 border border-secondary" style="background: #0e0e24 !important;">
+                        <h3 class="text-amber mb-4"><i class="fas fa-clock me-2"></i>Service Hours</h3>
+                        <div class="d-flex justify-content-between py-2 border-bottom border-secondary">
+                            <span class="text-white-50">Monday - Friday</span>
+                            <span class="text-white">10:00 AM - 8:00 PM</span>
+                        </div>
+                        <div class="d-flex justify-content-between py-2 border-bottom border-secondary">
+                            <span class="text-white-50">Saturday</span>
+                            <span class="text-white">11:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="d-flex justify-content-between py-2 border-bottom border-secondary">
+                            <span class="text-white-50">Sunday</span>
+                            <span class="text-white">Closed</span>
+                        </div>
+                        <div class="d-flex justify-content-between py-2">
+                            <span class="text-white-50">Emergency Support</span>
+                            <span class="text-amber">+92 300 1234567</span>
+                        </div>
+                        <div class="mt-3">
+                            <a href="#contact" class="btn btn-amber w-100">Book a Consultation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    PRODUCTS SECTION
+    ============================================================ -->
+    <section class="py-5" id="products" style="background: var(--bg-dark);">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <p class="section-eyebrow">Browse Our Collection</p>
+                <h2 class="section-title text-white">Our Products</h2>
+                <div class="divider-line mx-auto"></div>
+                <p class="text-white-50">Shop the latest cameras, lenses, lighting, and accessories.</p>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 justify-content-center mb-4" data-aos="fade-up">
+                <button class="filter-btn active" data-category="all">All Products</button>
+                <button class="filter-btn" data-category="cameras">Cameras</button>
+                <button class="filter-btn" data-category="lenses">Lenses</button>
+                <button class="filter-btn" data-category="audio">Pro Audio</button>
+                <button class="filter-btn" data-category="memory">Memory Cards</button>
+                <button class="filter-btn" data-category="tripods">Tripods</button>
+                <button class="filter-btn" data-category="lighting">Lighting</button>
+                <button class="filter-btn" data-category="bags">Bags & Cases</button>
+                <button class="filter-btn" data-category="accessories">Accessories</button>
+            </div>
+
+            <div class="row g-4" id="productGrid" data-aos="fade-up" data-aos-delay="100"></div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    BRANDS SECTION
+    ============================================================ -->
+    <section class="py-5" id="brands-section" style="background: linear-gradient(145deg, #0f0f28, #1a1a3a);">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <p class="section-eyebrow">Trusted Partners</p>
+                <h2 class="section-title text-white">Our Brands</h2>
+                <div class="divider-line mx-auto"></div>
+                <p class="text-white-50">Click on any brand to explore their products.</p>
+            </div>
+
+            <div class="brand-marquee-wrapper" data-aos="fade-up">
+                <div class="brand-marquee-track" id="brandMarqueeTrack"></div>
+            </div>
+
+            <div class="row g-4 justify-content-center mt-4" id="brandsShowcase"></div>
+        </div>
+    </section>
+
+    <!-- Brand Detail Container -->
+    <div id="brandDetailContainer"></div>
+
+    <!-- ============================================================
+    LIGHTING KITS SECTION
+    ============================================================ -->
+    <section class="py-5" id="lighting" style="background: var(--bg-dark);">
+        <div class="container">
+            <div class="lighting-hero">
+                <div class="overlay"></div>
+                <div class="position-relative z-3">
+                    <h1 class="display-2 fw-bold text-white" data-aos="fade-up">Lighting &amp; Studio</h1>
+                    <p class="lead text-white-50 fs-4" data-aos="fade-up" data-aos-delay="150">Professional lighting solutions for every photographer</p>
+                </div>
+            </div>
+
+            <div class="cat-strip">
+                <div class="container">
+                    <div class="cat-strip-inner">
+                        <button class="cat-pill active" data-target="cat-bundles"><i class="fas fa-box"></i> Complete Kits</button>
+                        <button class="cat-pill" data-target="cat-strobes"><i class="fas fa-bolt"></i> Strobes &amp; Flash</button>
+                        <button class="cat-pill" data-target="cat-led"><i class="fas fa-lightbulb"></i> Continuous LED</button>
+                        <button class="cat-pill" data-target="cat-modifiers"><i class="fas fa-expand"></i> Modifiers</button>
+                        <button class="cat-pill" data-target="cat-backdrops"><i class="fas fa-image"></i> Backdrops &amp; Stands</button>
+                        <button class="cat-pill" data-target="cat-triggers"><i class="fas fa-wifi"></i> Triggers &amp; Remotes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Complete Kits -->
+            <div id="cat-bundles" style="padding: 60px 0;">
+                <div data-aos="fade-up">
+                    <p class="section-eyebrow">Ready-Made Setups</p>
+                    <div class="divider-line"></div>
+                    <h2 class="section-title">Complete Lighting Kits</h2>
+                    <p style="color:rgba(255,255,255,0.45); font-size:14px; max-width:600px; margin-top:8px;">
+                        Bundled, tested, and ready to shoot the same day.
+                    </p>
+                </div>
+                <div class="row g-4 mt-3">
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="50">
+                        <div class="kit-card">
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1015/420/300" alt="Starter lighting kit">
+                            </div>
+                            <div class="body">
+                                <div class="kit-tagline">Beginner Friendly</div>
+                                <div class="kit-name">FOTOLAB Starter Kit</div>
+                                <ul class="includes">
+                                    <li><i class="fas fa-check"></i> 2x Godox SL60W LED lights</li>
+                                    <li><i class="fas fa-check"></i> 2x Light stands (2m)</li>
+                                    <li><i class="fas fa-check"></i> 2x 60cm Softbox modifiers</li>
+                                    <li><i class="fas fa-check"></i> Carry bag</li>
+                                </ul>
+                                <div class="footer">
+                                    <div class="price">PKR 58,000 <span>/ kit</span></div>
+                                    <button class="btn-details" onclick="alert('Complete Starter Kit\\nIncludes: 2x Godox SL60W, 2x Stands, 2x Softboxes, Carry Bag')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="150">
+                        <div class="kit-card featured">
+                            <div class="ribbon">Most Popular</div>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1016/420/300" alt="Studio pro lighting kit">
+                            </div>
+                            <div class="body">
+                                <div class="kit-tagline">3-Point Studio Setup</div>
+                                <div class="kit-name">Studio Pro Kit</div>
+                                <ul class="includes">
+                                    <li><i class="fas fa-check"></i> 2x Godox AD200Pro strobes</li>
+                                    <li><i class="fas fa-check"></i> 80cm Octagon softbox</li>
+                                    <li><i class="fas fa-check"></i> 2x Reflective umbrellas</li>
+                                    <li><i class="fas fa-check"></i> Wireless trigger + 3x stands</li>
+                                </ul>
+                                <div class="footer">
+                                    <div class="price">PKR 145,000 <span>/ kit</span></div>
+                                    <button class="btn-details solid" onclick="alert('Studio Pro Kit\\nIncludes: 2x Godox AD200Pro, 80cm Octagon Softbox, 2x Umbrellas, Wireless Trigger, 3x Stands')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="250">
+                        <div class="kit-card">
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1019/420/300" alt="Content creator lighting kit">
+                            </div>
+                            <div class="body">
+                                <div class="kit-tagline">Vlogging &amp; YouTube</div>
+                                <div class="kit-name">Content Creator Kit</div>
+                                <ul class="includes">
+                                    <li><i class="fas fa-check"></i> Ring light 18" with stand</li>
+                                    <li><i class="fas fa-check"></i> 2x RGB LED panels</li>
+                                    <li><i class="fas fa-check"></i> Phone/camera clamp mount</li>
+                                    <li><i class="fas fa-check"></i> Green screen backdrop</li>
+                                </ul>
+                                <div class="footer">
+                                    <div class="price">PKR 39,500 <span>/ kit</span></div>
+                                    <button class="btn-details" onclick="alert('Content Creator Kit\\nIncludes: 18\\" Ring Light, 2x RGB LED Panels, Clamp Mount, Green Screen')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strobes & Flash -->
+            <div id="cat-strobes" style="padding: 60px 0; background: #0d0d1a;">
+                <div data-aos="fade-up">
+                    <p class="section-eyebrow">Off-Camera Power</p>
+                    <div class="divider-line"></div>
+                    <h2 class="section-title">Strobes &amp; Flash</h2>
+                </div>
+                <div class="row g-4 mt-3">
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="50">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AD200Pro Strobe"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1016/300/250" alt="Godox strobe">
+                                <span class="badge-tag">Pro</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">AD200Pro Pocket Strobe</div>
+                                <p class="desc">200Ws battery-powered flash, TTL compatible.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 47,000</div>
+                                    <button class="btn-details" onclick="alert('Godox AD200Pro\\nPower: 200Ws\\nFeatures: TTL, High-Speed Sync')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AD600Pro Studio Strobe"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1020/300/250" alt="Studio strobe">
+                                <span class="badge-tag">High Power</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">AD600Pro Studio Strobe</div>
+                                <p class="desc">600Ws output for large groups.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 89,000</div>
+                                    <button class="btn-details" onclick="alert('Godox AD600Pro\\nPower: 600Ws\\nFeatures: TTL, HSS')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon Speedlite 470EX-AI"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1021/300/250" alt="Speedlite flash">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Canon</div>
+                                <div class="name">Speedlite 470EX-AI</div>
+                                <p class="desc">On-camera flash with auto-intelligent bounce.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 38,000</div>
+                                    <button class="btn-details" onclick="alert('Canon Speedlite 470EX-AI\\nGuide Number: 47m\\nFeatures: Auto-Intelligent Bounce')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Neewer 660 Speedlight"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1022/300/250" alt="Budget speedlight">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Neewer</div>
+                                <div class="name">660 Speedlight</div>
+                                <p class="desc">Budget-friendly manual flash with optical trigger.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 9,500</div>
+                                    <button class="btn-details" onclick="alert('Neewer 660 Speedlight\\nGuide Number: 33m\\nFeatures: Manual, Optical Slave')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rest of lighting sections (LED, Modifiers, Backdrops, Triggers) -->
+            <!-- [Lighting sections continue with similar pattern] -->
+
+            <div id="cat-led" style="padding: 60px 0;">
+                <div data-aos="fade-up">
+                    <p class="section-eyebrow">What You See Is What You Get</p>
+                    <div class="divider-line"></div>
+                    <h2 class="section-title">Continuous LED Lighting</h2>
+                </div>
+                <div class="row g-4 mt-3">
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="50">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox SL60W LED"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1015/300/250" alt="Godox LED panel">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">SL60W LED Video Light</div>
+                                <p class="desc">60W continuous LED with Bowens mount.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 24,000</div>
+                                    <button class="btn-details" onclick="alert('Godox SL60W\\nPower: 60W\\nMount: Bowens')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Aputure 300d Mark II"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1023/300/250" alt="Aputure LED">
+                                <span class="badge-tag">Cinema Grade</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Aputure</div>
+                                <div class="name">300d Mark II LED</div>
+                                <p class="desc">Daylight-balanced COB LED, app control.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 135,000</div>
+                                    <button class="btn-details" onclick="alert('Aputure 300d Mark II\\nPower: 300W\\nFeatures: App Control, DMX')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Neewer RGB LED Panel"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1024/300/250" alt="RGB LED panel">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Neewer</div>
+                                <div class="name">RGB LED Panel 660</div>
+                                <p class="desc">Full-color RGB panel for creative lighting.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 18,500</div>
+                                    <button class="btn-details" onclick="alert('Neewer RGB LED Panel\\nPower: 45W\\nFeatures: RGB color')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="18-inch Ring Light"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1025/300/250" alt="Ring light">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">18" Ring Light with Stand</div>
+                                <p class="desc">Even, shadow-free face lighting for portraits.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 11,000</div>
+                                    <button class="btn-details" onclick="alert('18\\" Ring Light\\nPower: 55W\\nIncludes: Stand, Phone mount')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modifiers -->
+            <div id="cat-modifiers" style="padding: 60px 0; background: #0d0d1a;">
+                <div data-aos="fade-up">
+                    <p class="section-eyebrow">Shape the Light</p>
+                    <div class="divider-line"></div>
+                    <h2 class="section-title">Modifiers</h2>
+                </div>
+                <div class="row g-4 mt-3">
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="50">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="80cm Octagon Softbox"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1018/300/250" alt="Softbox">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">80cm Octagon Softbox</div>
+                                <p class="desc">Bowens-mount softbox for soft, even lighting.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 9,500</div>
+                                    <button class="btn-details" onclick="alert('80cm Octagon Softbox\\nMount: Bowens\\nIncludes: Diffusion fabric, Grid')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Reflective Umbrella 105cm"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1026/300/250" alt="Reflective umbrella">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">Reflective Umbrella 105cm</div>
+                                <p class="desc">Silver-lined umbrella for punchy light.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 4,200</div>
+                                    <button class="btn-details" onclick="alert('Reflective Umbrella 105cm\\nType: Silver-lined\\nShaft: Metal')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Beauty Dish 55cm"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1027/300/250" alt="Beauty dish">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">Beauty Dish 55cm</div>
+                                <p class="desc">Crisp, contrasty light for fashion portraits.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 13,500</div>
+                                    <button class="btn-details" onclick="alert('Beauty Dish 55cm\\nMount: Bowens\\nIncludes: Diffusion sock, Grid')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="5-in-1 Reflector"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1028/300/250" alt="Reflector">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Neewer</div>
+                                <div class="name">5-in-1 Reflector 110cm</div>
+                                <p class="desc">Gold, silver, white, black and translucent.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 3,200</div>
+                                    <button class="btn-details" onclick="alert('5-in-1 Reflector 110cm\\nSurfaces: Gold, Silver, White, Black, Translucent')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backdrops & Stands -->
+            <div id="cat-backdrops" style="padding: 60px 0;">
+                <div data-aos="fade-up">
+                    <p class="section-eyebrow">Set the Scene</p>
+                    <div class="divider-line"></div>
+                    <h2 class="section-title">Backdrops &amp; Stands</h2>
+                </div>
+                <div class="row g-4 mt-3">
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="50">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Backdrop Stand Kit"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1019/300/250" alt="Backdrop stand">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">Backdrop Stand Kit</div>
+                                <p class="desc">Adjustable 3m x 2m backdrop support.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 14,000</div>
+                                    <button class="btn-details" onclick="alert('Backdrop Stand Kit\\nHeight: 3m\\nWidth: 2m\\nIncludes: Carry bag')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Muslin Backdrop White"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1029/300/250" alt="White backdrop">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">Muslin Backdrop 3x6m White</div>
+                                <p class="desc">Wrinkle-resistant fabric for clean shots.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 7,800</div>
+                                    <button class="btn-details" onclick="alert('Muslin Backdrop 3x6m\\nColor: White\\nMaterial: Muslin fabric')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Green Screen Collapsible"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1030/300/250" alt="Green screen">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Neewer</div>
+                                <div class="name">Collapsible Green Screen 1.5x2m</div>
+                                <p class="desc">Pop-up chroma key screen for easy removal.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 5,500</div>
+                                    <button class="btn-details" onclick="alert('Collapsible Green Screen\\nSize: 1.5m x 2m\\nPop-up design')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Boom Arm with Sandbag"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1031/300/250" alt="Boom arm">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">Boom Arm + Sandbag</div>
+                                <p class="desc">Extends overhead lighting reach.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 6,900</div>
+                                    <button class="btn-details" onclick="alert('Boom Arm + Sandbag\\nExtension: 2.5m\\nIncludes: Sandbag')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Triggers & Remotes -->
+            <div id="cat-triggers" style="padding: 60px 0; background: #0d0d1a;">
+                <div data-aos="fade-up">
+                    <p class="section-eyebrow">Fire From a Distance</p>
+                    <div class="divider-line"></div>
+                    <h2 class="section-title">Triggers &amp; Remotes</h2>
+                </div>
+                <div class="row g-4 mt-3">
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="50">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox X2T Trigger"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1032/300/250" alt="Wireless trigger">
+                                <span class="badge-tag">Best Seller</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">X2T Wireless Trigger</div>
+                                <p class="desc">TTL-compatible 2.4GHz trigger.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 8,500</div>
+                                    <button class="btn-details" onclick="alert('Godox X2T Trigger\\nFrequency: 2.4GHz\\nFeatures: TTL, HSS\\nRange: 100m')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Wireless Remote Shutter"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1038/300/250" alt="Remote shutter">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Essentials</div>
+                                <div class="name">Wireless Remote Shutter</div>
+                                <p class="desc">Trigger your shutter remotely.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 2,900</div>
+                                    <button class="btn-details" onclick="alert('Wireless Remote Shutter\\nRange: 30m\\nBattery: CR2032')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Optical Slave Trigger"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1033/300/250" alt="Optical trigger">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Neewer</div>
+                                <div class="name">Optical Slave Trigger</div>
+                                <p class="desc">Budget remote flash trigger.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 1,800</div>
+                                    <button class="btn-details" onclick="alert('Optical Slave Trigger\\nType: Optical\\nCompatible: All flash units')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AK-R1 Remote Kit"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1034/300/250" alt="Accessory kit">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">AK-R1 Accessory Kit</div>
+                                <p class="desc">Snoot, barn doors, color filters.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 6,200</div>
+                                    <button class="btn-details" onclick="alert('Godox AK-R1 Kit\\nIncludes: Snoot, Barn Doors, Color Filters, Reflector')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tip-box mt-5" data-aos="fade-up">
+                    <i class="fas fa-circle-info"></i>
+                    <p>Not sure which kit fits your space? Visit our showroom and we'll set up a live demo — same-day delivery available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    COMPARE SECTION
+    ============================================================ -->
+    <section class="py-5" id="compare" style="background: var(--bg-dark);">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <p class="section-eyebrow">Side by Side</p>
+                <h2 class="section-title text-white">Compare Products</h2>
+                <div class="divider-line mx-auto"></div>
+                <p class="text-white-50">Select two products and compare their features side by side.</p>
+            </div>
+
+            <div class="row g-4" data-aos="fade-up">
+                <div class="col-md-5">
+                    <div class="compare-card">
+                        <label for="product1"><i class="fas fa-camera me-2 text-amber"></i>Select Product A</label>
+                        <select id="product1" class="form-select">
+                            <option value="">-- Choose a product --</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                    <span class="badge bg-amber text-dark px-4 py-2 fs-5" style="background:#C9A84C;">VS</span>
+                </div>
+                <div class="col-md-5">
+                    <div class="compare-card">
+                        <label for="product2"><i class="fas fa-camera me-2 text-amber"></i>Select Product B</label>
+                        <select id="product2" class="form-select">
+                            <option value="">-- Choose a product --</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center my-4" data-aos="fade-up" data-aos-delay="100">
+                <button id="compareBtn" class="btn btn-amber px-5 py-3 fs-5">
+                    <i class="fas fa-arrows-left-right me-2"></i>Compare Now
+                </button>
+                <button id="clearBtn" class="btn btn-outline-amber px-4 py-3 fs-5 ms-2">
+                    <i class="fas fa-undo me-2"></i>Clear
+                </button>
+            </div>
+
+            <div id="comparisonResult" data-aos="fade-up" data-aos-delay="150">
+                <div class="empty-state">
+                    <i class="fas fa-sliders-h"></i>
+                    <h4>Select Two Products</h4>
+                    <p>Choose two products from the dropdowns above and click "Compare Now".</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compare Bar -->
+    <div id="compare-bar">
+        <div class="container d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div class="compare-text"><strong id="compare-count">0</strong> items selected for comparison</div>
+            <div class="d-flex gap-2">
+                <button class="btn-details" id="compare-clear" style="border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.5);">Clear</button>
+                <a href="#compare" class="btn-details solid">Compare Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    BUYING GUIDE SECTION
+    ============================================================ -->
+    <section class="py-5" id="guide" style="background: linear-gradient(145deg, #0f0f28, #1a1a3a);">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <p class="section-eyebrow">Expert Advice</p>
+                <h2 class="section-title text-white">Buying Guide</h2>
+                <div class="divider-line mx-auto"></div>
+                <p class="text-white-50">Find your perfect camera and lens with our expert recommendations.</p>
+            </div>
+
+            <div class="tab-strip" data-aos="fade-up">
+                <div class="container">
+                    <div class="d-flex flex-wrap">
+                        <button class="tab-btn active" data-panel="panel-camera"><i class="fas fa-camera"></i>Camera Advice</button>
+                        <button class="tab-btn" data-panel="panel-lens"><i class="fas fa-circle-dot"></i>Lens Advice</button>
+                        <button class="tab-btn" data-panel="panel-faq"><i class="fas fa-question-circle"></i>FAQ</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-panel active" id="panel-camera" style="background: var(--bg-dark); padding: 30px 0;">
+                <div class="container">
+                    <div data-aos="fade-up">
+                        <p class="section-eyebrow">Step 1 — What's it for?</p>
+                        <div class="divider-line"></div>
+                        <h2 class="section-title">Find Your Camera by Purpose</h2>
+                    </div>
+                    <div class="row g-4 mt-3">
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="50">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-person-walking"></i></div>
+                                <div class="rec-title">Just Starting Out</div>
+                                <p class="rec-desc">Learn photography properly with light, simple gear.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Canon EOS R50 <a href="#" onclick="showBrand('canon')">View →</a></div>
+                                    <div class="rec-item">Nikon Z30 <a href="#" onclick="showBrand('nikon')">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="100">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-video"></i></div>
+                                <div class="rec-title">Vlogging &amp; Content</div>
+                                <p class="rec-desc">Flip screen, good face autofocus, lightweight.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Sony ZV-E10 II <a href="#" onclick="showBrand('sony')">View →</a></div>
+                                    <div class="rec-item">Fujifilm X-S20 <a href="#" onclick="showBrand('fujifilm')">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="150">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-people-group"></i></div>
+                                <div class="rec-title">Portraits &amp; Weddings</div>
+                                <p class="rec-desc">Excellent eye-AF, beautiful skin tones.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Canon EOS R6 Mark II <a href="#" onclick="showBrand('canon')">View →</a></div>
+                                    <div class="rec-item">Sony A7 IV <a href="#" onclick="showBrand('sony')">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="200">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-futbol"></i></div>
+                                <div class="rec-title">Sports &amp; Action</div>
+                                <p class="rec-desc">Fast burst rate, predictive autofocus.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Nikon Z8 <a href="#" onclick="showBrand('nikon')">View →</a></div>
+                                    <div class="rec-item">Canon EOS R5 Mark II <a href="#" onclick="showBrand('canon')">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-panel" id="panel-lens" style="background: var(--bg-dark); padding: 30px 0;">
+                <div class="container">
+                    <div data-aos="fade-up">
+                        <p class="section-eyebrow">Step 1 — What are you shooting?</p>
+                        <div class="divider-line"></div>
+                        <h2 class="section-title">Find Your Lens by Purpose</h2>
+                    </div>
+                    <div class="row g-4 mt-3">
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="50">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-user"></i></div>
+                                <div class="rec-title">Portraits</div>
+                                <p class="rec-desc">Wide aperture for background blur.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Canon RF 50mm f/1.2L <a href="#" onclick="showBrand('canon')">View →</a></div>
+                                    <div class="rec-item">Sony FE 85mm f/1.4 GM <a href="#" onclick="showBrand('sony')">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="100">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-image"></i></div>
+                                <div class="rec-title">Everyday &amp; Travel</div>
+                                <p class="rec-desc">One lens that does it all.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Canon RF 24-70mm f/2.8L <a href="#" onclick="showBrand('canon')">View →</a></div>
+                                    <div class="rec-item">Nikkor Z 24-70mm f/2.8 <a href="#" onclick="showBrand('nikon')">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="150">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-mountain"></i></div>
+                                <div class="rec-title">Landscape</div>
+                                <p class="rec-desc">Wide angle, sharp corners.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Fujinon XF 16-55mm f/2.8 <a href="#" onclick="showBrand('fujifilm')">View →</a></div>
+                                    <div class="rec-item">Sony FE 16-35mm f/2.8 GM <a href="#" onclick="showBrand('sony')">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3" data-aos="flip-up" data-aos-delay="200">
+                            <div class="rec-card">
+                                <div class="icon-wrap"><i class="fas fa-dove"></i></div>
+                                <div class="rec-title">Wildlife &amp; Sports</div>
+                                <p class="rec-desc">Long reach, fast autofocus.</p>
+                                <div class="rec-footer">
+                                    <div class="rec-label">We Recommend</div>
+                                    <div class="rec-item">Canon RF 100-500mm f/4.5-7.1L <a href="#" onclick="showBrand('canon')">View →</a></div>
+                                    <div class="rec-item">Nikkor Z 100-400mm f/4.5-5.6 <a href="#" onclick="showBrand('nikon')">View →</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-panel" id="panel-faq" style="background: var(--bg-dark); padding: 30px 0;">
+                <div class="container">
+                    <div data-aos="fade-up">
+                        <p class="section-eyebrow">Frequently Asked Questions</p>
+                        <div class="divider-line"></div>
+                        <h2 class="section-title">Common Photography Questions</h2>
+                    </div>
+                    <div class="row g-4 mt-3">
+                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="50">
+                            <div class="tip-item">
+                                <div class="tip-q"><i class="fas fa-circle-question"></i>What camera for travel?</div>
+                                <p class="tip-a">Look for a lightweight mirrorless body. Fujifilm X-T50, Sony A6700, or Canon R50 are great options.</p>
+                            </div>
+                            <div class="tip-item">
+                                <div class="tip-q"><i class="fas fa-circle-question"></i>How many megapixels do I need?</div>
+                                <p class="tip-a">24MP is plenty for most uses. 45MP+ is for professional studio work.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="tip-item">
+                                <div class="tip-q"><i class="fas fa-circle-question"></i>Is full-frame better than APS-C?</div>
+                                <p class="tip-a">Full-frame gives better low-light performance. APS-C is lighter and cheaper.</p>
+                            </div>
+                            <div class="tip-item">
+                                <div class="tip-q"><i class="fas fa-circle-question"></i>How long do camera batteries last?</div>
+                                <p class="tip-a">DSLR: 800-1200 shots. Mirrorless: 300-600 shots. Always carry a spare.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="guide-cta mt-5" data-aos="fade-up">
+                        <i class="fas fa-comments" style="font-size:28px; color:#C9A84C; margin-bottom:14px; display:block;"></i>
+                        <h3 style="font-family:'Bebas Neue',sans-serif; font-size:30px; color:#fff;">Still Have Questions?</h3>
+                        <p style="color:rgba(255,255,255,0.45); max-width:480px; margin:10px auto 24px;">
+                            Visit FOTOLAB in person or message us — our staff will help you.
+                        </p>
+                        <a href="#contact" class="btn btn-amber px-5 py-3 fs-5">Talk to Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CONTACT SECTION
+    ============================================================ -->
+    <section class="py-5" id="contact" style="background: var(--bg-dark);">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <p class="section-eyebrow">Get in Touch</p>
+                <h2 class="section-title text-white">Contact Us</h2>
+                <div class="divider-line mx-auto"></div>
+                <p class="text-white-50">We're here to help you capture the perfect shot.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="contact-card mb-4">
+                        <i class="fas fa-address-card"></i>
+                        <h5>Visit or Reach Us</h5>
+                        <p><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi Industrial Area, Karachi, Pakistan</p>
+                        <p><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
+                        <p class="mb-0"><i class="fas fa-phone text-amber me-2"></i> +92 300 1234567</p>
+                    </div>
+                    <div class="contact-card">
+                        <h5 class="mb-3"><i class="fas fa-map-marked-alt text-amber me-2"></i>Find Our Store</h5>
+                        <div class="map-wrapper">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57922.95383569733!2d67.09110419999999!3d24.852441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33a469734d0b1%3A0x6fbbf0afef578da6!2sKorangi%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh!5e0!3m2!1sen!2spk!4v1719410000000!5m2!1sen!2spk" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="contact-card">
+                        <i class="fas fa-paper-plane"></i>
+                        <h5>Send a Message</h5>
+                        <p class="text-white-50 small-text">We'll get back to you within 24 hours.</p>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Your name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Product inquiry, support, etc.">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="4" placeholder="Tell us how we can help..." required></textarea>
+                            </div>
+                            <button type="submit" id="submitBtn" class="btn btn-amber w-100 py-2">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CTA SECTION
+    ============================================================ -->
+    <section class="py-5 text-center bg-amber text-dark" data-aos="fade-up">
+        <div class="container">
+            <h2>Ready to Upgrade Your Gear?</h2>
+            <p class="fs-5">Visit our store or reach out — we'd love to help you capture your vision.</p>
+            <a href="#contact" class="btn btn-dark-custom btn-lg mt-3">GET IN TOUCH</a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-3">FOTOLAB</h5>
+                    <p class="text-white-50">Premium Photography Solutions Since 1991.</p>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="text-amber mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#products" class="text-white-50">Products</a></li>
+                        <li><a href="#brands-section" class="text-white-50">Brands</a></li>
+                        <li><a href="#about" class="text-white-50">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-amber mb-3">Contact Outlet</h5>
+                    <p class="text-white-50 mb-1"><i class="fas fa-map-marker-alt text-amber me-2"></i> Korangi, Karachi, Pakistan</p>
+                    <p class="text-white-50 mb-1"><i class="fas fa-envelope text-amber me-2"></i> info@fotolab.com</p>
+                    <p class="text-white-50 mb-0"><i class="fas fa-phone text-amber me-2"></i> +92 300 1234567</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-amber mb-3"><i class="fas fa-satellite-dish me-2"></i>Your Location Route</h5>
+                    <div id="locationInfo" class="p-3 rounded text-start fs-6" style="background: #0e0e24; border: 1px solid #2f2f5a;">
+                        <span><i class="fas fa-spinner fa-pulse me-2"></i>Locating ...</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4">
+            <p class="text-center text-white-50 mb-0 small">&copy; 1991-2026 FOTOLAB. All Rights Reserved. Designed by Tahami Tech</p>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // ============================================================
+        // AOS INITIALIZATION
+        // ============================================================
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // ============================================================
+        // LOADER
+        // ============================================================
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('fotolab-loader');
+            if (loader) {
+                setTimeout(function() {
+                    loader.classList.remove('visible');
+                }, 800);
+            }
+        });
+
+        // ============================================================
+        // NAVBAR ACTIVE LINK
+        // ============================================================
+        document.querySelectorAll('.navbar-nav .nav-link, .dropdown-item').forEach(function(link) {
+            link.addEventListener('click', function() {
+                // Remove active from all nav links
+                document.querySelectorAll('.navbar-nav .nav-link').forEach(function(l) {
+                    l.classList.remove('active');
+                });
+                // Add active to main nav links only (not dropdown items)
+                if (this.classList.contains('nav-link') && !this.classList.contains('dropdown-toggle')) {
+                    this.classList.add('active');
+                }
+
+                const navbarCollapse = document.getElementById('navbarNav');
+                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                    if (bsCollapse) bsCollapse.hide();
+                }
+            });
+        });
+
+        // ============================================================
+        // PRODUCTS DATA
+        // ============================================================
+        const productData = [
+            { id: 1, name: "Canon EOS R5", brand: "Canon", category: "cameras", price: "$3,899", desc: "45MP full-frame mirrorless with 8K video and IBIS.", img: "https://picsum.photos/id/1060/400/300" },
+            { id: 2, name: "Nikon Z9", brand: "Nikon", category: "cameras", price: "$5,499", desc: "45.7MP stacked sensor, 8K video, 20fps burst.", img: "https://picsum.photos/id/1061/400/300" },
+            { id: 3, name: "Sony A7 IV", brand: "Sony", category: "cameras", price: "$2,499", desc: "33MP full-frame hybrid with 4K 60p video.", img: "https://picsum.photos/id/1062/400/300" },
+            { id: 4, name: "Fujifilm X-T5", brand: "Fujifilm", category: "cameras", price: "$1,699", desc: "40MP APS-C with film simulations and 6.2K video.", img: "https://picsum.photos/id/1063/400/300" },
+            { id: 5, name: "Canon RF 50mm f/1.2L", brand: "Canon", category: "lenses", price: "$2,399", desc: "L-series portrait lens with stunning bokeh.", img: "https://picsum.photos/id/1065/400/300" },
+            { id: 6, name: "Sony FE 85mm f/1.4 GM", brand: "Sony", category: "lenses", price: "$1,899", desc: "G Master portrait lens, razor sharp.", img: "https://picsum.photos/id/1066/400/300" },
+            { id: 7, name: "Rode VideoMic Pro+", brand: "Rode", category: "audio", price: "$399", desc: "On-camera shotgun mic with auto power.", img: "https://picsum.photos/id/1080/400/300" },
+            { id: 8, name: "Zoom H6 Recorder", brand: "Zoom", category: "audio", price: "$499", desc: "6-track portable recorder.", img: "https://picsum.photos/id/1081/400/300" },
+            { id: 9, name: "SanDisk Extreme Pro 128GB", brand: "SanDisk", category: "memory", price: "$149", desc: "UHS-I V30 card, 200MB/s read.", img: "https://picsum.photos/id/1070/400/300" },
+            { id: 10, name: "Manfrotto MT055XPRO3", brand: "Manfrotto", category: "tripods", price: "$349", desc: "Aluminium tripod with 90° column.", img: "https://picsum.photos/id/1040/400/300" },
+            { id: 11, name: "Godox AD200Pro", brand: "Godox", category: "lighting", price: "$299", desc: "200Ws pocket strobe, TTL compatible.", img: "https://picsum.photos/id/1016/400/300" },
+            { id: 12, name: "Lowepro ProTactic 450", brand: "Lowepro", category: "bags", price: "$299", desc: "Modular backpack for 2 bodies and 6+ lenses.", img: "https://picsum.photos/id/1025/400/300" }
+        ];
+
+        function renderProducts(category) {
+            const grid = document.getElementById('productGrid');
+            if (!grid) return;
+
+            const filtered = category === 'all' || !category ?
+                productData :
+                productData.filter(p => p.category === category);
+
+            if (filtered.length === 0) {
+                grid.innerHTML =
+                    `<div class="col-12 text-center py-5"><i class="fas fa-box-open fa-3x text-amber mb-3"></i><h4 class="text-white">No products found</h4></div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(p => `
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="product-card">
+                        <img src="${p.img}" alt="${p.name}" loading="lazy">
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <span class="badge-brand">${p.brand}</span>
+                            <span class="badge bg-dark text-white-50" style="font-size:0.65rem; text-transform:capitalize;">${p.category}</span>
+                        </div>
+                        <h5>${p.name}</h5>
+                        <p class="desc">${p.desc}</p>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <span class="price">${p.price}</span>
+                            <button class="btn-details" onclick="alert('Product: ${p.name}\\nBrand: ${p.brand}\\nPrice: ${p.price}')">
+                                <i class="fas fa-info-circle me-1"></i> Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
         }
-      }
-    })();
-</script>
+
+        document.querySelectorAll('.filter-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active') });
+                this.classList.add('active');
+                renderProducts(this.dataset.category);
+            });
+        });
+
+        // ============================================================
+        // BRANDS DATA
+        // ============================================================
+        const brandData = [
+            { id: 'canon', name: "Canon", desc: "Precision optics & L-series glass.", img: "https://picsum.photos/seed/canon/300/200", color: "#0d6efd" },
+            { id: 'nikon', name: "Nikon", desc: "Legendary ruggedness & EXPEED processing.", img: "https://picsum.photos/seed/nikon/300/200", color: "#FFE000" },
+            { id: 'sony', name: "Sony", desc: "Alpha mirrorless, 4D focus & speed.", img: "https://picsum.photos/seed/sony/300/200", color: "#8B4513" },
+            { id: 'fujifilm', name: "Fujifilm", desc: "Film simulation & X-Trans sensor.", img: "https://picsum.photos/seed/fujifilm/300/200", color: "#009966" },
+            { id: 'panasonic', name: "Panasonic", desc: "Lumix GH, 6K video & Leica partnership.", img: "https://picsum.photos/seed/panasonic/300/200", color: "#00B4A8" },
+            { id: 'leica', name: "Leica", desc: "German engineering & timeless M-mount.", img: "https://picsum.photos/seed/leica/300/200", color: "#FF69B4" },
+            { id: 'hasselblad', name: "Hasselblad", desc: "Swedish precision & medium format.", img: "https://picsum.photos/seed/hasselblad/300/200", color: "#F5D76E" },
+            { id: 'gopro', name: "GoPro", desc: "Action cameras, HyperSmooth & 5K video.", img: "https://picsum.photos/seed/gopro/300/200", color: "#9E9E9E" },
+            { id: 'olympus', name: "Olympus", desc: "Compact MFT, weather sealed & IBIS.", img: "https://picsum.photos/seed/olympus/300/200", color: "#4FC3F7" },
+            { id: 'sigma', name: "Sigma", desc: "Art, Sports, Contemporary lenses.", img: "https://picsum.photos/seed/sigma/300/200", color: "#FF6B00" },
+            { id: 'tamron', name: "Tamron", desc: "Versatile lenses, VC stabilization.", img: "https://picsum.photos/seed/tamron/300/200", color: "#B39DDB" },
+            { id: 'yashica', name: "Yashica", desc: "Classic film cameras & vintage style.", img: "https://picsum.photos/seed/yashica/300/200", color: "#8A2BE2" }
+        ];
+
+        const brandProducts = {
+            canon: [
+                { name: "EOS R5 Mark II", category: "Mirrorless", desc: "45MP full-frame with 8K RAW video.", specs: ["45MP", "8K RAW", "30fps"], price: "PKR 6,49,000", badge: "Flagship", img: "https://picsum.photos/seed/canon1/400/300" },
+                { name: "EOS R6 Mark II", category: "Mirrorless", desc: "40MP full-frame speed demon.", specs: ["40MP", "4K 60fps", "40fps"], price: "PKR 3,89,000", badge: "Best Seller", img: "https://picsum.photos/seed/canon2/400/300" }
+            ],
+            nikon: [
+                { name: "Nikon Z8", category: "Mirrorless", desc: "45.7MP stacked sensor, 8.3K N-RAW.", specs: ["45.7MP", "8.3K N-RAW", "EXPEED 7"], price: "PKR 8,95,000", badge: "Flagship", img: "https://picsum.photos/seed/nikon1/400/300" },
+                { name: "Nikon Z6 III", category: "Mirrorless", desc: "Partially-stacked CMOS sensor.", specs: ["24.5MP", "6K RAW", "8.0 Stop IBIS"], price: "PKR 5,45,000", badge: "New", img: "https://picsum.photos/seed/nikon2/400/300" }
+            ],
+            sony: [
+                { name: "Alpha 7R V", category: "Mirrorless", desc: "61MP full-frame with AI autofocus.", specs: ["61MP", "8K", "AI Tracking"], price: "PKR 6,85,000", badge: "High Res", img: "https://picsum.photos/seed/sony1/400/300" },
+                { name: "Alpha 7 IV", category: "Mirrorless", desc: "33MP hybrid powerhouse.", specs: ["33MP", "4K 60p", "S-Cinetone"], price: "PKR 4,35,000", badge: "Best Seller", img: "https://picsum.photos/seed/sony2/400/300" }
+            ],
+            fujifilm: [
+                { name: "X-T5", category: "Mirrorless", desc: "40MP APS-C with retro dials.", specs: ["40.2MP", "6.2K", "7-Stop IBIS"], price: "PKR 3,85,000", badge: "Photographer's Pick", img: "https://picsum.photos/seed/fuji1/400/300" },
+                { name: "X100VI", category: "Compact", desc: "40MP compact with hybrid viewfinder.", specs: ["40.2MP", "Hybrid Viewfinder", "IBIS"], price: "PKR 3,95,000", badge: "Global Trend", img: "https://picsum.photos/seed/fuji2/400/300" }
+            ],
+            panasonic: [
+                { name: "Lumix S5 II", category: "Full-Frame", desc: "24MP full-frame with phase-detection AF.", specs: ["24MP", "6K", "Phase-Detect AF"], price: "PKR 4,49,000", badge: "Flagship", img: "https://picsum.photos/seed/pana1/400/300" }
+            ],
+            leica: [
+                { name: "Leica M11", category: "Rangefinder", desc: "60MP full-frame rangefinder.", specs: ["60MP", "M-Mount", "Made in Germany"], price: "PKR 21,50,000", badge: "Flagship", img: "https://picsum.photos/seed/leica1/400/300" }
+            ],
+            hasselblad: [
+                { name: "X2D 100C", category: "Medium Format", desc: "100MP with IBIS, 15 stops DR.", specs: ["100MP", "IBIS", "15 Stops DR"], price: "PKR 28,50,000", badge: "Flagship", img: "https://picsum.photos/seed/hass1/400/300" }
+            ],
+            gopro: [
+                { name: "Hero13 Black", category: "Action", desc: "5.3K60 video, HyperSmooth 6.0.", specs: ["5.3K60", "HyperSmooth 6.0", "Waterproof"], price: "PKR 1,29,000", badge: "Flagship", img: "https://picsum.photos/seed/gopro1/400/300" }
+            ],
+            olympus: [
+                { name: "OM-D E-M1 Mark III", category: "Mirrorless", desc: "20MP weather-sealed with 5-axis IBIS.", specs: ["20MP", "5-Axis IBIS", "60fps"], price: "PKR 3,49,000", badge: "Flagship", img: "https://picsum.photos/seed/olym1/400/300" }
+            ],
+            sigma: [
+                { name: "50mm f/1.4 Art", category: "Lens", desc: "Iconic portrait lens with stunning bokeh.", specs: ["f/1.4", "Art Series", "Multi-Mount"], price: "PKR 2,49,000", badge: "Art Series", img: "https://picsum.photos/seed/sigma1/400/300" }
+            ],
+            tamron: [
+                { name: "28-75mm f/2.8 Di III VXD", category: "Lens", desc: "Popular standard zoom for mirrorless.", specs: ["f/2.8", "Di III", "VXD Motor"], price: "PKR 1,99,000", badge: "Best Seller", img: "https://picsum.photos/seed/tamron1/400/300" }
+            ],
+            yashica: [
+                { name: "FX-3 Super 2000", category: "Film", desc: "All-manual 35mm film SLR.", specs: ["35mm Film", "Mechanical", "Manual Focus"], price: "PKR 45,000", badge: "Classic", img: "https://picsum.photos/seed/yash1/400/300" }
+            ]
+        };
+
+        // Render Brands Showcase
+        const brandsShowcase = document.getElementById('brandsShowcase');
+        if (brandsShowcase) {
+            brandsShowcase.innerHTML = brandData.map(b => `
+                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up">
+                    <div class="brand-home-card" onclick="showBrand('${b.id}')">
+                        <img src="${b.img}" alt="${b.name}" class="img-fluid rounded">
+                        <h6 style="color:${b.color}">${b.name}</h6>
+                        <p>${b.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render Brands Marquee
+        const marqueeTrack = document.getElementById('brandMarqueeTrack');
+        if (marqueeTrack) {
+            const allBrands = [...brandData, ...brandData, ...brandData];
+            marqueeTrack.innerHTML = allBrands.map(b => `
+                <div class="p-2">
+                    <div class="brand-card" onclick="showBrand('${b.id}')">
+                        <img src="${b.img}" alt="${b.name}" class="img-fluid mb-3 rounded">
+                        <h5 class="text-amber">${b.name}</h5>
+                        <p class="text-white-50 small">${b.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Show Brand
+        function showBrand(brandId) {
+            document.querySelectorAll('.brand-section').forEach(s => s.classList.remove('active'));
+            const target = document.getElementById('brand-' + brandId);
+            if (target) {
+                target.classList.add('active');
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                createBrandSection(brandId);
+            }
+            history.pushState(null, null, '#brand-' + brandId);
+        }
+
+        function createBrandSection(brandId) {
+            const container = document.getElementById('brandDetailContainer');
+            const brand = brandData.find(b => b.id === brandId);
+            if (!brand) return;
+            const products = brandProducts[brandId] || [];
+
+            if (document.getElementById('brand-' + brandId)) {
+                document.getElementById('brand-' + brandId).classList.add('active');
+                document.getElementById('brand-' + brandId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                return;
+            }
+
+            const section = document.createElement('section');
+            section.id = 'brand-' + brandId;
+            section.className = 'brand-section brand-' + brandId + ' active';
+            section.style.padding = '60px 0';
+            section.style.background = '#0b0b1a';
+
+            let productsHTML = products.length > 0 ? products.map(p => `
+                <div class="col-sm-6 col-lg-4">
+                    <div class="brand-product-card">
+                        <div class="img-wrap">
+                            <img src="${p.img}" alt="${p.name}">
+                            <span class="badge-tag">${p.badge || 'New'}</span>
+                        </div>
+                        <div class="body">
+                            <div class="product-category">${p.category}</div>
+                            <div class="product-name">${p.name}</div>
+                            <p class="product-desc">${p.desc}</p>
+                            <div class="specs">${p.specs.map(s => `<span class="spec-tag">${s}</span>`).join('')}</div>
+                            <div class="footer">
+                                <div class="price">${p.price} <span>/ unit</span></div>
+                                <button class="btn-details" onclick="alert('Product: ${p.name}\\nPrice: ${p.price}')">Specs</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('') :
+            `<div class="col-12 text-center py-5"><i class="fas fa-box-open fa-3x text-amber mb-3"></i><h4 class="text-white">Coming Soon</h4></div>`;
+
+            section.innerHTML = `
+                <div class="container">
+                    <div class="brand-section-header">
+                        <div>
+                            <p class="section-eyebrow" style="color:${brand.color}">Brand Spotlight</p>
+                            <div class="brand-section-title" style="color:${brand.color}">${brand.name}</div>
+                            <div class="brand-section-tagline">${brand.desc}</div>
+                        </div>
+                        <div>
+                            <button class="brand-back-btn" onclick="hideBrands()">
+                                <i class="fas fa-arrow-left me-2"></i> All Brands
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row g-4">${productsHTML}</div>
+                    <div class="text-center mt-4">
+                        <button class="btn btn-amber" onclick="hideBrands()">
+                            <i class="fas fa-arrow-left me-2"></i> Back to All Brands
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            container.appendChild(section);
+            document.getElementById('brands-section').style.display = 'none';
+            setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+        }
+
+        function hideBrands() {
+            document.querySelectorAll('.brand-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('brands-section').style.display = 'block';
+            document.getElementById('brands-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.pushState(null, null, '#brands-section');
+        }
+
+        // ============================================================
+        // LIGHTING CATEGORY FILTER
+        // ============================================================
+        document.querySelectorAll('.cat-pill').forEach(function(pill) {
+            pill.addEventListener('click', function() {
+                document.querySelectorAll('.cat-pill').forEach(function(p) { p.classList.remove('active') });
+                this.classList.add('active');
+                const target = document.getElementById(this.dataset.target);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // ============================================================
+        // COMPARE FUNCTIONALITY
+        // ============================================================
+        const compareProducts = [
+            { id: 1, name: "Canon EOS R6 Mark II", brand: "Canon", sensor: "24.2MP Full-Frame", video: "4K 60fps", price: "₨ 650,000", iso: "100-102400", weight: "670g" },
+            { id: 2, name: "Sony A7 IV", brand: "Sony", sensor: "33MP Full-Frame", video: "4K 60fps", price: "₨ 620,000", iso: "100-51200", weight: "658g" },
+            { id: 3, name: "Nikon Z6 II", brand: "Nikon", sensor: "24.5MP Full-Frame", video: "4K UHD", price: "₨ 580,000", iso: "100-51200", weight: "705g" },
+            { id: 4, name: "Fujifilm X-T5", brand: "Fujifilm", sensor: "40MP APS-C", video: "6.2K", price: "₨ 155,000", iso: "125-12800", weight: "607g" }
+        ];
+
+        function populateCompareDropdowns() {
+            const select1 = document.getElementById('product1');
+            const select2 = document.getElementById('product2');
+            if (!select1 || !select2) return;
+
+            select1.innerHTML = '<option value="">-- Choose a product --</option>';
+            select2.innerHTML = '<option value="">-- Choose a product --</option>';
+
+            compareProducts.forEach(p => {
+                const opt1 = document.createElement('option');
+                opt1.value = p.id;
+                opt1.textContent = `${p.name} (${p.brand})`;
+                select1.appendChild(opt1);
+
+                const opt2 = document.createElement('option');
+                opt2.value = p.id;
+                opt2.textContent = `${p.name} (${p.brand})`;
+                select2.appendChild(opt2);
+            });
+        }
+
+        function renderComparison(productA, productB) {
+            const result = document.getElementById('comparisonResult');
+            if (!result) return;
+
+            if (!productA || !productB || productA.id === productB.id) {
+                result.innerHTML =
+                    `<div class="empty-state"><i class="fas fa-exclamation-circle text-warning"></i><h4>Select Two Different Products</h4></div>`;
+                return;
+            }
+
+            const keys = ['sensor', 'video', 'price', 'iso', 'weight'];
+            const labels = { sensor: 'Sensor', video: 'Video', price: 'Price', iso: 'ISO Range', weight: 'Weight' };
+
+            result.innerHTML = `
+                <div class="comparison-table mt-3">
+                    <table class="table table-dark table-striped m-0 align-middle">
+                        <thead>
+                            <tr>
+                                <th style="width:25%;" class="text-amber">Feature</th>
+                                <th style="width:37.5%;" class="text-white fw-bold">${productA.name}</th>
+                                <th style="width:37.5%;" class="text-amber fw-bold">${productB.name}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${keys.map(key => `
+                                <tr>
+                                    <td class="text-white-50 fw-bold">${labels[key] || key}</td>
+                                    <td class="text-white">${productA[key] || '—'}</td>
+                                    <td class="text-amber fw-bold">${productB[key] || '—'}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        document.getElementById('compareBtn').addEventListener('click', function() {
+            const select1 = document.getElementById('product1');
+            const select2 = document.getElementById('product2');
+            const id1 = parseInt(select1.value);
+            const id2 = parseInt(select2.value);
+
+            if (!id1 || !id2) { alert('Please select two products.'); return; }
+            if (id1 === id2) { alert('Please select two different products.'); return; }
+
+            const productA = compareProducts.find(p => p.id === id1);
+            const productB = compareProducts.find(p => p.id === id2);
+            if (!productA || !productB) { alert('Products not found.'); return; }
+
+            renderComparison(productA, productB);
+        });
+
+        document.getElementById('clearBtn').addEventListener('click', function() {
+            document.getElementById('product1').value = '';
+            document.getElementById('product2').value = '';
+            document.getElementById('comparisonResult').innerHTML =
+                `<div class="empty-state"><i class="fas fa-sliders-h"></i><h4>Select Two Products</h4></div>`;
+        });
+
+        // ============================================================
+        // BUYING GUIDE TABS
+        // ============================================================
+        document.querySelectorAll('.tab-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active') });
+                document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active') });
+                this.classList.add('active');
+                const panel = document.getElementById(this.dataset.panel);
+                if (panel) panel.classList.add('active');
+            });
+        });
+
+        // ============================================================
+        // CONTACT FORM
+        // ============================================================
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
+
+            setTimeout(function() {
+                btn.innerHTML = '<i class="fas fa-check me-2"></i> Sent!';
+                btn.classList.remove('btn-amber');
+                btn.classList.add('btn-success');
+                setTimeout(function() {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('btn-success');
+                    btn.classList.add('btn-amber');
+                    btn.disabled = false;
+                    document.getElementById('contactForm').reset();
+                }, 2500);
+            }, 1500);
+        });
+
+        // ============================================================
+        // GEOLOCATION
+        // ============================================================
+        function getLocation() {
+            const info = document.getElementById('locationInfo');
+            if (!info) return;
+            if (!navigator.geolocation) {
+                info.innerHTML = '<span><i class="fas fa-exclamation-triangle text-warning me-2"></i> Geolocation not supported.</span>';
+                return;
+            }
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    info.innerHTML =
+                        `<span><i class="fas fa-check-circle text-success me-2"></i> Location: ${position.coords.latitude.toFixed(6)}, ${position.coords.longitude.toFixed(6)}</span>`;
+                },
+                function(error) {
+                    let msg = 'Unable to get location.';
+                    if (error.code === 1) msg = '❌ Permission denied.';
+                    else if (error.code === 2) msg = '⚠️ Position unavailable.';
+                    else if (error.code === 3) msg = '⏳ Timeout.';
+                    info.innerHTML = `<span class="text-warning"><i class="fas fa-exclamation-triangle me-2"></i> ${msg}</span>`;
+                }, { enableHighAccuracy: true, timeout: 10000 }
+            );
+        }
+
+        // ============================================================
+        // LIGHTING COMPARE
+        // ============================================================
+        const compareBar = document.getElementById('compare-bar');
+        const compareCount = document.getElementById('compare-count');
+        const compareCheckboxes = document.querySelectorAll('.compare-cb');
+        const clearBtn = document.getElementById('compare-clear');
+
+        function updateCompareBar() {
+            const checked = document.querySelectorAll('.compare-cb:checked');
+            compareCount.textContent = checked.length;
+            compareBar.classList.toggle('visible', checked.length > 0);
+            const names = Array.from(checked).map(cb => cb.dataset.name || cb.value);
+            sessionStorage.setItem('fotolab-compare-items', JSON.stringify(names));
+        }
+
+        compareCheckboxes.forEach(function(cb) {
+            cb.addEventListener('change', function() {
+                const checked = document.querySelectorAll('.compare-cb:checked');
+                if (checked.length > 2) {
+                    compareCheckboxes.forEach(function(x) { if (x !== cb) x.checked = false });
+                    cb.checked = true;
+                }
+                updateCompareBar();
+            });
+        });
+
+        if (clearBtn) {
+            clearBtn.addEventListener('click', function() {
+                compareCheckboxes.forEach(function(cb) { cb.checked = false });
+                updateCompareBar();
+            });
+        }
+
+        // ============================================================
+        // INITIALIZE
+        // ============================================================
+        renderProducts('all');
+        populateCompareDropdowns();
+        setTimeout(getLocation, 500);
+        setTimeout(() => AOS.refresh(), 100);
+
+        console.log('%c📸 FOTOLAB', 'font-size:28px; font-weight:bold; color:#C9A84C;');
+        console.log('%c✅ Complete Single Page Website Loaded Successfully', 'font-size:14px; color:#4CAF50;');
+    </script>
 
 </body>
 </html>
