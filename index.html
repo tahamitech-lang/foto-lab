@@ -1714,10 +1714,647 @@
         #compare {
             scroll-margin-top: 80px;
         }
+        /* ============================================================
+   SCROLL TO TOP BUTTON - Fixed Bottom Right
+   ============================================================ */
+#scrollToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: var(--brand-gold, #C9A84C);
+    color: var(--bg-dark, #0b0b1a);
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+#scrollToTop:hover {
+    background: var(--brand-gold-dark, #b8973a);
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 8px 35px rgba(201, 168, 76, 0.6);
+}
+
+#scrollToTop:active {
+    transform: scale(0.92);
+}
+
+#scrollToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+#scrollToTop i {
+    animation: scrollTopBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollTopBounce {
+    0%, 100% { 
+        transform: translateY(0); 
+    }
+    50% { 
+        transform: translateY(-5px); 
+    }
+}
+
+/* Scroll to Top - Tooltip on hover */
+#scrollToTop .tooltip-text {
+    position: absolute;
+    right: 65px;
+    background: rgba(11, 11, 26, 0.9);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+#scrollToTop .tooltip-text::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 6px solid rgba(11, 11, 26, 0.9);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+}
+
+#scrollToTop:hover .tooltip-text {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive for mobile */
+@media (max-width: 576px) {
+    #scrollToTop {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+        bottom: 20px;
+        right: 20px;
+    }
+    #scrollToTop .tooltip-text {
+        display: none;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    #scrollToTop {
+        background: var(--brand-gold, #C9A84C);
+        color: var(--bg-dark, #0b0b1a);
+    }
+}
+
+/* ============================================================
+   PROFESSIONAL FADE & SLIDER ANIMATIONS
+   ============================================================ */
+
+/* ----- FADE IN ANIMATIONS ----- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ----- SLIDER/REVEAL ANIMATIONS ----- */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ----- STAGGERED ANIMATION CLASSES ----- */
+.anim-fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+.anim-fade-up {
+    opacity: 0;
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.anim-fade-down {
+    opacity: 0;
+    animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.anim-fade-left {
+    opacity: 0;
+    animation: fadeInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.anim-fade-right {
+    opacity: 0;
+    animation: fadeInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.anim-fade-scale {
+    opacity: 0;
+    animation: fadeInScale 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.anim-slide-up {
+    opacity: 0;
+    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.anim-slide-down {
+    opacity: 0;
+    animation: slideDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.anim-slide-left {
+    opacity: 0;
+    animation: slideLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.anim-slide-right {
+    opacity: 0;
+    animation: slideRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.anim-slide-up-fade {
+    opacity: 0;
+    animation: slideUpFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ----- STAGGERED DELAYS ----- */
+.anim-delay-1 {
+    animation-delay: 0.1s;
+}
+.anim-delay-2 {
+    animation-delay: 0.2s;
+}
+.anim-delay-3 {
+    animation-delay: 0.3s;
+}
+.anim-delay-4 {
+    animation-delay: 0.4s;
+}
+.anim-delay-5 {
+    animation-delay: 0.5s;
+}
+.anim-delay-6 {
+    animation-delay: 0.6s;
+}
+.anim-delay-7 {
+    animation-delay: 0.7s;
+}
+.anim-delay-8 {
+    animation-delay: 0.8s;
+}
+.anim-delay-9 {
+    animation-delay: 0.9s;
+}
+.anim-delay-10 {
+    animation-delay: 1s;
+}
+
+/* ----- SCROLL REVEAL (Intersection Observer) ----- */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.reveal-rotate {
+    opacity: 0;
+    transform: rotateY(20deg) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-rotate.visible {
+    opacity: 1;
+    transform: rotateY(0) scale(1);
+}
+
+/* ----- STAGGERED CHILDREN ----- */
+.stagger-children > * {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stagger-children.visible > *:nth-child(1) {
+    transition-delay: 0.05s;
+}
+.stagger-children.visible > *:nth-child(2) {
+    transition-delay: 0.12s;
+}
+.stagger-children.visible > *:nth-child(3) {
+    transition-delay: 0.19s;
+}
+.stagger-children.visible > *:nth-child(4) {
+    transition-delay: 0.26s;
+}
+.stagger-children.visible > *:nth-child(5) {
+    transition-delay: 0.33s;
+}
+.stagger-children.visible > *:nth-child(6) {
+    transition-delay: 0.4s;
+}
+.stagger-children.visible > *:nth-child(7) {
+    transition-delay: 0.47s;
+}
+.stagger-children.visible > *:nth-child(8) {
+    transition-delay: 0.54s;
+}
+
+.stagger-children.visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ----- GLOW TEXT ANIMATION ----- */
+.glow-text {
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%,
+    100% {
+        text-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 40px rgba(201, 168, 76, 0.6), 0 0 60px rgba(201, 168, 76, 0.2);
+    }
+}
+
+/* ----- FLOATING ANIMATION ----- */
+.floating {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* ----- SLIDE IN FROM BOTTOM WITH DELAY (For cards) ----- */
+.card-slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-slide-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ----- HERO TEXT REVEAL (Split Animation) ----- */
+.hero-text-reveal {
+    overflow: hidden;
+}
+
+.hero-text-reveal .line {
+    display: block;
+    transform: translateY(100%);
+    animation: textReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-text-reveal .line:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.hero-text-reveal .line:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.hero-text-reveal .line:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+@keyframes textReveal {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* ----- ZOOM IN ON HOVER ----- */
+.hover-zoom {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-zoom:hover {
+    transform: scale(1.05);
+}
+
+/* ----- SMOOTH APPEAR ON LOAD ----- */
+.appear-on-load {
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.appear-on-load.appear-1 {
+    animation-delay: 0.1s;
+}
+.appear-on-load.appear-2 {
+    animation-delay: 0.3s;
+}
+.appear-on-load.appear-3 {
+    animation-delay: 0.5s;
+}
+.appear-on-load.appear-4 {
+    animation-delay: 0.7s;
+}
+.appear-on-load.appear-5 {
+    animation-delay: 0.9s;
+}
+
+/* ============================================================
+   SCROLL TO TOP BUTTON - Fixed Bottom Right
+   ============================================================ */
+#scrollToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: var(--brand-gold, #C9A84C);
+    color: var(--bg-dark, #0b0b1a);
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+#scrollToTop:hover {
+    background: var(--brand-gold-dark, #b8973a);
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 8px 35px rgba(201, 168, 76, 0.6);
+}
+
+#scrollToTop:active {
+    transform: scale(0.92);
+}
+
+#scrollToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+#scrollToTop i {
+    animation: scrollTopBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollTopBounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Scroll to Top - Tooltip on hover */
+#scrollToTop .tooltip-text {
+    position: absolute;
+    right: 65px;
+    background: rgba(11, 11, 26, 0.9);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+#scrollToTop .tooltip-text::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 6px solid rgba(11, 11, 26, 0.9);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+}
+
+#scrollToTop:hover .tooltip-text {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive for mobile */
+@media (max-width: 576px) {
+    #scrollToTop {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+        bottom: 20px;
+        right: 20px;
+    }
+    #scrollToTop .tooltip-text {
+        display: none;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    #scrollToTop {
+        background: var(--brand-gold, #C9A84C);
+        color: var(--bg-dark, #0b0b1a);
+    }
+}
     </style>
 </head>
 <body>
-
+    <!-- ============================================================
+SCROLL TO TOP BUTTON - Bottom Right
+============================================================ -->
+<button id="scrollToTop" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+    <span class="tooltip-text">Back to Top</span>
+</button>
     <!-- ============================================================
     LOADER
     ============================================================ -->
@@ -2054,7 +2691,7 @@
     <div id="brandDetailContainer"></div>
 
     <!-- ============================================================
-    LIGHTING KITS SECTION
+    LIGHTING KITS SECTION - 10 Products Per Category
     ============================================================ -->
     <section class="py-5" id="lighting" style="background: var(--bg-dark);">
         <div class="container">
@@ -2069,17 +2706,19 @@
             <div class="cat-strip">
                 <div class="container">
                     <div class="cat-strip-inner">
-                        <button class="cat-pill active" data-target="cat-bundles"><i class="fas fa-box"></i> Complete Kits</button>
-                        <button class="cat-pill" data-target="cat-strobes"><i class="fas fa-bolt"></i> Strobes &amp; Flash</button>
-                        <button class="cat-pill" data-target="cat-led"><i class="fas fa-lightbulb"></i> Continuous LED</button>
-                        <button class="cat-pill" data-target="cat-modifiers"><i class="fas fa-expand"></i> Modifiers</button>
-                        <button class="cat-pill" data-target="cat-backdrops"><i class="fas fa-image"></i> Backdrops &amp; Stands</button>
-                        <button class="cat-pill" data-target="cat-triggers"><i class="fas fa-wifi"></i> Triggers &amp; Remotes</button>
+                        <button class="cat-pill active" data-target="cat-bundles"><i class="fas fa-box"></i> Complete Kits (10)</button>
+                        <button class="cat-pill" data-target="cat-strobes"><i class="fas fa-bolt"></i> Strobes &amp; Flash (10)</button>
+                        <button class="cat-pill" data-target="cat-led"><i class="fas fa-lightbulb"></i> Continuous LED (10)</button>
+                        <button class="cat-pill" data-target="cat-modifiers"><i class="fas fa-expand"></i> Modifiers (10)</button>
+                        <button class="cat-pill" data-target="cat-backdrops"><i class="fas fa-image"></i> Backdrops &amp; Stands (10)</button>
+                        <button class="cat-pill" data-target="cat-triggers"><i class="fas fa-wifi"></i> Triggers &amp; Remotes (10)</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Complete Kits -->
+            <!-- ============================================================
+            COMPLETE KITS (10 Products)
+            ============================================================ -->
             <div id="cat-bundles" style="padding: 60px 0;">
                 <div data-aos="fade-up">
                     <p class="section-eyebrow">Ready-Made Setups</p>
@@ -2090,6 +2729,7 @@
                     </p>
                 </div>
                 <div class="row g-4 mt-3">
+                    <!-- Kit 1 -->
                     <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="50">
                         <div class="kit-card">
                             <div class="img-wrap">
@@ -2112,7 +2752,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="150">
+                    <!-- Kit 2 -->
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="100">
                         <div class="kit-card featured">
                             <div class="ribbon">Most Popular</div>
                             <div class="img-wrap">
@@ -2135,7 +2776,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="250">
+                    <!-- Kit 3 -->
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="150">
                         <div class="kit-card">
                             <div class="img-wrap">
                                 <img src="https://picsum.photos/id/1019/420/300" alt="Content creator lighting kit">
@@ -2156,10 +2798,173 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Kit 4 -->
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="200">
+                        <div class="kit-card">
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1020/420/300" alt="Portrait lighting kit">
+                            </div>
+                            <div class="body">
+                                <div class="kit-tagline">Portrait Specialist</div>
+                                <div class="kit-name">Portrait Pro Kit</div>
+                                <ul class="includes">
+                                    <li><i class="fas fa-check"></i> 1x Godox AD600Pro strobe</li>
+                                    <li><i class="fas fa-check"></i> 120cm Octagon softbox</li>
+                                    <li><i class="fas fa-check"></i> 5-in-1 Reflector 110cm</li>
+                                    <li><i class="fas fa-check"></i> Heavy-duty light stand</li>
+                                </ul>
+                                <div class="footer">
+                                    <div class="price">PKR 189,000 <span>/ kit</span></div>
+                                    <button class="btn-details" onclick="alert('Portrait Pro Kit\\nIncludes: 1x Godox AD600Pro, 120cm Octagon Softbox, 5-in-1 Reflector, Heavy-duty Stand')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kit 5 -->
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="250">
+                        <div class="kit-card">
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1021/420/300" alt="Product photography kit">
+                            </div>
+                            <div class="body">
+                                <div class="kit-tagline">Product Photography</div>
+                                <div class="kit-name">Product Shoot Kit</div>
+                                <ul class="includes">
+                                    <li><i class="fas fa-check"></i> 2x Aputure Amaran 100D</li>
+                                    <li><i class="fas fa-check"></i> 2x 60cm Softboxes</li>
+                                    <li><i class="fas fa-check"></i> Product turntable</li>
+                                    <li><i class="fas fa-check"></i> White/Black backdrop</li>
+                                </ul>
+                                <div class="footer">
+                                    <div class="price">PKR 99,000 <span>/ kit</span></div>
+                                    <button class="btn-details" onclick="alert('Product Shoot Kit\\nIncludes: 2x Aputure Amaran 100D, 2x 60cm Softboxes, Turntable, Backdrop')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kit 6 -->
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="300">
+                        <div class="kit-card">
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1022/420/300" alt="Event lighting kit">
+                            </div>
+                            <div class="body">
+                                <div class="kit-tagline">Event &amp; Wedding</div>
+                                <div class="kit-name">Event Pro Kit</div>
+                                <ul class="includes">
+                                    <li><i class="fas fa-check"></i> 4x Godox V1 flashes</li>
+                                    <li><i class="fas fa-check"></i> 4x Wireless triggers</li>
+                                    <li><i class="fas fa-check"></i> 4x Light stands</li>
+                                    <li><i class="fas fa-check"></i> 4x Gel color filters</li>
+                                </ul>
+                                <div class="footer">
+                                    <div class="price">PKR 165,000 <span>/ kit</span></div>
+                                    <button class="btn-details" onclick="alert('Event Pro Kit\\nIncludes: 4x Godox V1, 4x Triggers, 4x Stands, 4x Gel Filters')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kit 7 -->
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="350">
+                        <div class="kit-card">
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1023/420/300" alt="Outdoor lighting kit">
+                            </div>
+                            <div class="body">
+                                <div class="kit-tagline">Location Lighting</div>
+                                <div class="kit-name">Outdoor Pro Kit</div>
+                                <ul class="includes">
+                                    <li><i class="fas fa-check"></i> 2x Godox AD200Pro strobes</li>
+                                    <li><i class="fas fa-check"></i> 2x Battery packs</li>
+                                    <li><i class="fas fa-check"></i> 2x Compact stands</li>
+                                    <li><i class="fas fa-check"></i> Carry backpack</li>
+                                </ul>
+                                <div class="footer">
+                                    <div class="price">PKR 129,000 <span>/ kit</span></div>
+                                    <button class="btn-details" onclick="alert('Outdoor Pro Kit\\nIncludes: 2x Godox AD200Pro, 2x Battery Packs, 2x Compact Stands, Backpack')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kit 8 -->
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="400">
+                        <div class="kit-card">
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1024/420/300" alt="Studio lighting kit">
+                            </div>
+                            <div class="body">
+                                <div class="kit-tagline">Complete Studio</div>
+                                <div class="kit-name">Studio Master Kit</div>
+                                <ul class="includes">
+                                    <li><i class="fas fa-check"></i> 3x Profoto D2 strobes</li>
+                                    <li><i class="fas fa-check"></i> 3x Octagon softboxes</li>
+                                    <li><i class="fas fa-check"></i> 3x Heavy-duty stands</li>
+                                    <li><i class="fas fa-check"></i> 3x Wireless triggers</li>
+                                </ul>
+                                <div class="footer">
+                                    <div class="price">PKR 450,000 <span>/ kit</span></div>
+                                    <button class="btn-details solid" onclick="alert('Studio Master Kit\\nIncludes: 3x Profoto D2, 3x Octagon Softboxes, 3x Stands, 3x Triggers')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kit 9 -->
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="450">
+                        <div class="kit-card">
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1025/420/300" alt="Travel lighting kit">
+                            </div>
+                            <div class="body">
+                                <div class="kit-tagline">Travel Friendly</div>
+                                <div class="kit-name">Travel Light Kit</div>
+                                <ul class="includes">
+                                    <li><i class="fas fa-check"></i> 2x Neewer RGB panels</li>
+                                    <li><i class="fas fa-check"></i> 2x Compact stands</li>
+                                    <li><i class="fas fa-check"></i> 2x Battery packs</li>
+                                    <li><i class="fas fa-check"></i> Travel case</li>
+                                </ul>
+                                <div class="footer">
+                                    <div class="price">PKR 59,000 <span>/ kit</span></div>
+                                    <button class="btn-details" onclick="alert('Travel Light Kit\\nIncludes: 2x Neewer RGB Panels, 2x Compact Stands, 2x Battery Packs, Travel Case')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kit 10 -->
+                    <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="500">
+                        <div class="kit-card">
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1026/420/300" alt="YouTube lighting kit">
+                            </div>
+                            <div class="body">
+                                <div class="kit-tagline">YouTube Studio</div>
+                                <div class="kit-name">YouTube Pro Kit</div>
+                                <ul class="includes">
+                                    <li><i class="fas fa-check"></i> 2x Aputure 300d LED lights</li>
+                                    <li><i class="fas fa-check"></i> 2x 120cm Softboxes</li>
+                                    <li><i class="fas fa-check"></i> Green screen with stand</li>
+                                    <li><i class="fas fa-check"></i> Teleprompter</li>
+                                </ul>
+                                <div class="footer">
+                                    <div class="price">PKR 220,000 <span>/ kit</span></div>
+                                    <button class="btn-details" onclick="alert('YouTube Pro Kit\\nIncludes: 2x Aputure 300d, 2x 120cm Softboxes, Green Screen, Teleprompter')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Strobes & Flash -->
+            <!-- ============================================================
+            STROBES & FLASH (10 Products)
+            ============================================================ -->
             <div id="cat-strobes" style="padding: 60px 0; background: #0d0d1a;">
                 <div data-aos="fade-up">
                     <p class="section-eyebrow">Off-Camera Power</p>
@@ -2185,6 +2990,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AD600Pro Studio Strobe"></label>
@@ -2195,7 +3001,7 @@
                             <div class="body">
                                 <div class="brand-tag">Godox</div>
                                 <div class="name">AD600Pro Studio Strobe</div>
-                                <p class="desc">600Ws output for large groups.</p>
+                                <p class="desc">600Ws output for large groups and outdoor shoots.</p>
                                 <div class="footer">
                                     <div class="price">PKR 89,000</div>
                                     <button class="btn-details" onclick="alert('Godox AD600Pro\\nPower: 600Ws\\nFeatures: TTL, HSS')">Specs</button>
@@ -2203,28 +3009,88 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
                         <div class="lighting-card">
-                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon Speedlite 470EX-AI"></label>
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon Speedlite EL-5"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1021/300/250" alt="Speedlite flash">
+                                <img src="https://picsum.photos/id/1021/300/250" alt="Canon speedlite">
+                                <span class="badge-tag">Canon</span>
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Canon</div>
-                                <div class="name">Speedlite 470EX-AI</div>
-                                <p class="desc">On-camera flash with auto-intelligent bounce.</p>
+                                <div class="name">Speedlite EL-5 Flash</div>
+                                <p class="desc">60m guide number with wireless control.</p>
                                 <div class="footer">
-                                    <div class="price">PKR 38,000</div>
-                                    <button class="btn-details" onclick="alert('Canon Speedlite 470EX-AI\\nGuide Number: 47m\\nFeatures: Auto-Intelligent Bounce')">Specs</button>
+                                    <div class="price">PKR 95,000</div>
+                                    <button class="btn-details" onclick="alert('Canon Speedlite EL-5\\nGuide Number: 60m\\nFeatures: Wireless Control, Rechargeable')">Specs</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Sony HVL-F60RM2 Flash"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1022/300/250" alt="Sony flash">
+                                <span class="badge-tag">Sony</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Sony</div>
+                                <div class="name">HVL-F60RM2 Flash</div>
+                                <p class="desc">60m guide number with wireless control.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 110,000</div>
+                                    <button class="btn-details" onclick="alert('Sony HVL-F60RM2\\nGuide Number: 60m\\nFeatures: Wireless Control, AA Batteries')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Profoto D2 Studio Light"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1023/300/250" alt="Profoto strobe">
+                                <span class="badge-tag">Profoto</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Profoto</div>
+                                <div class="name">D2 Studio Light</div>
+                                <p class="desc">High-speed studio flash with 10-stop power range.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 149,500</div>
+                                    <button class="btn-details" onclick="alert('Profoto D2\\nPower: 500Ws\\nFeatures: 10-stop Range, High-Speed Sync')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox V1 Flash"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1024/300/250" alt="Godox V1 flash">
+                                <span class="badge-tag">Best Seller</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">V1 Round-Head Flash</div>
+                                <p class="desc">Compact round-head flash for on/off-camera use.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 29,900</div>
+                                    <button class="btn-details" onclick="alert('Godox V1\\nFeatures: Round Head, TTL, 2.4GHz Wireless\\nBattery: Rechargeable Li-ion')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="350">
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Neewer 660 Speedlight"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1022/300/250" alt="Budget speedlight">
+                                <img src="https://picsum.photos/id/1025/300/250" alt="Neewer speedlight">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Neewer</div>
@@ -2232,7 +3098,63 @@
                                 <p class="desc">Budget-friendly manual flash with optical trigger.</p>
                                 <div class="footer">
                                     <div class="price">PKR 9,500</div>
-                                    <button class="btn-details" onclick="alert('Neewer 660 Speedlight\\nGuide Number: 33m\\nFeatures: Manual, Optical Slave')">Specs</button>
+                                    <button class="btn-details" onclick="alert('Neewer 660\\nGuide Number: 33m\\nFeatures: Manual, Optical Slave')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon Speedlite 470EX-AI"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1026/300/250" alt="Canon speedlite">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Canon</div>
+                                <div class="name">Speedlite 470EX-AI</div>
+                                <p class="desc">On-camera flash with auto-intelligent bounce.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 38,000</div>
+                                    <button class="btn-details" onclick="alert('Canon 470EX-AI\\nGuide Number: 47m\\nFeatures: Auto-Intelligent Bounce')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="450">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AD100Pro Flash"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1027/300/250" alt="Godox AD100Pro">
+                                <span class="badge-tag">Compact</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">AD100Pro Pocket Flash</div>
+                                <p class="desc">100Ws compact strobe for on-the-go photography.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 35,000</div>
+                                    <button class="btn-details" onclick="alert('Godox AD100Pro\\nPower: 100Ws\\nFeatures: TTL, High-Speed Sync\\nWeight: 400g')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Profoto B10 Plus"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1028/300/250" alt="Profoto B10">
+                                <span class="badge-tag">Profoto</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Profoto</div>
+                                <div class="name">B10 Plus Studio Light</div>
+                                <p class="desc">500Ws battery-powered studio light with TTL.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 325,000</div>
+                                    <button class="btn-details" onclick="alert('Profoto B10 Plus\\nPower: 500Ws\\nFeatures: TTL, Battery Powered\\nWeight: 1.9kg')">Specs</button>
                                 </div>
                             </div>
                         </div>
@@ -2240,9 +3162,9 @@
                 </div>
             </div>
 
-            <!-- Rest of lighting sections (LED, Modifiers, Backdrops, Triggers) -->
-            <!-- [Lighting sections continue with similar pattern] -->
-
+            <!-- ============================================================
+            CONTINUOUS LED (10 Products)
+            ============================================================ -->
             <div id="cat-led" style="padding: 60px 0;">
                 <div data-aos="fade-up">
                     <p class="section-eyebrow">What You See Is What You Get</p>
@@ -2254,7 +3176,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox SL60W LED"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1015/300/250" alt="Godox LED panel">
+                                <img src="https://picsum.photos/id/1015/300/250" alt="Godox SL60W">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Godox</div>
@@ -2262,11 +3184,12 @@
                                 <p class="desc">60W continuous LED with Bowens mount.</p>
                                 <div class="footer">
                                     <div class="price">PKR 24,000</div>
-                                    <button class="btn-details" onclick="alert('Godox SL60W\\nPower: 60W\\nMount: Bowens')">Specs</button>
+                                    <button class="btn-details" onclick="alert('Godox SL60W\\nPower: 60W\\nMount: Bowens\\nFeatures: Silent Fan')">Specs</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Aputure 300d Mark II"></label>
@@ -2277,14 +3200,15 @@
                             <div class="body">
                                 <div class="brand-tag">Aputure</div>
                                 <div class="name">300d Mark II LED</div>
-                                <p class="desc">Daylight-balanced COB LED, app control.</p>
+                                <p class="desc">Daylight-balanced COB LED with app control.</p>
                                 <div class="footer">
                                     <div class="price">PKR 135,000</div>
-                                    <button class="btn-details" onclick="alert('Aputure 300d Mark II\\nPower: 300W\\nFeatures: App Control, DMX')">Specs</button>
+                                    <button class="btn-details" onclick="alert('Aputure 300d Mark II\\nPower: 300W\\nFeatures: App Control, DMX\\nCRI/TLCI: 96+')">Specs</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Neewer RGB LED Panel"></label>
@@ -2297,24 +3221,136 @@
                                 <p class="desc">Full-color RGB panel for creative lighting.</p>
                                 <div class="footer">
                                     <div class="price">PKR 18,500</div>
-                                    <button class="btn-details" onclick="alert('Neewer RGB LED Panel\\nPower: 45W\\nFeatures: RGB color')">Specs</button>
+                                    <button class="btn-details" onclick="alert('Neewer RGB Panel\\nPower: 45W\\nFeatures: RGB color, 2.4GHz remote')">Specs</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
                         <div class="lighting-card">
-                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="18-inch Ring Light"></label>
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox SL150W LED"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1025/300/250" alt="Ring light">
+                                <img src="https://picsum.photos/id/1029/300/250" alt="Godox SL150W">
+                                <span class="badge-tag">High Power</span>
                             </div>
                             <div class="body">
-                                <div class="brand-tag">FOTOLAB Studio</div>
-                                <div class="name">18" Ring Light with Stand</div>
-                                <p class="desc">Even, shadow-free face lighting for portraits.</p>
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">SL150W LED Video Light</div>
+                                <p class="desc">150W continuous LED with Bowens mount.</p>
                                 <div class="footer">
-                                    <div class="price">PKR 11,000</div>
-                                    <button class="btn-details" onclick="alert('18\\" Ring Light\\nPower: 55W\\nIncludes: Stand, Phone mount')">Specs</button>
+                                    <div class="price">PKR 45,000</div>
+                                    <button class="btn-details" onclick="alert('Godox SL150W\\nPower: 150W\\nMount: Bowens\\nFeatures: Silent Fan')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Aputure LS 600c Pro"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1030/300/250" alt="Aputure LS600c">
+                                <span class="badge-tag">Full Color</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Aputure</div>
+                                <div class="name">LS 600c Pro RGB LED</div>
+                                <p class="desc">600W full-color RGB LED light for professionals.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 220,000</div>
+                                    <button class="btn-details" onclick="alert('Aputure LS 600c Pro\\nPower: 600W\\nFeatures: Full RGB, App Control, DMX\\nCRI/TLCI: 95+')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox M600Bi LED"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1031/300/250" alt="Godox M600Bi">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">M600Bi Bi-Color LED</div>
+                                <p class="desc">600W bi-color LED video light with silent fan.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 130,000</div>
+                                    <button class="btn-details" onclick="alert('Godox M600Bi\\nPower: 600W\\nFeatures: Bi-Color, Silent Fan\\nCRI/TLCI: 96+')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="350">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Aputure Amaran 100D"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1032/300/250" alt="Aputure Amaran">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Aputure</div>
+                                <div class="name">Amaran 100D LED</div>
+                                <p class="desc">100W LED video light with ultra-bright output.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 40,000</div>
+                                    <button class="btn-details" onclick="alert('Aputure Amaran 100D\\nPower: 100W\\nFeatures: Compact, Silent Fan\\nCRI/TLCI: 95+')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox UL150 Silent LED"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1033/300/250" alt="Godox UL150">
+                                <span class="badge-tag">Silent</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">UL150 Silent LED</div>
+                                <p class="desc">150W silent LED with Bowens mount.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 55,000</div>
+                                    <button class="btn-details" onclick="alert('Godox UL150\\nPower: 150W\\nFeatures: Silent Operation, Bowens Mount')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="450">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox FV150 LED"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1034/300/250" alt="Godox FV150">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">FV150 Bi-Color LED</div>
+                                <p class="desc">150W bi-color LED with built-in effects.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 50,000</div>
+                                    <button class="btn-details" onclick="alert('Godox FV150\\nPower: 150W\\nFeatures: Bi-Color, Built-in Effects\\nCRI/TLCI: 96+')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Nanlite Forza 60 LED"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1035/300/250" alt="Nanlite Forza 60">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Nanlite</div>
+                                <div class="name">Forza 60 LED</div>
+                                <p class="desc">60W compact LED with Bowens mount.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 38,000</div>
+                                    <button class="btn-details" onclick="alert('Nanlite Forza 60\\nPower: 60W\\nFeatures: Compact, Bowens Mount\\nCRI/TLCI: 96+')">Specs</button>
                                 </div>
                             </div>
                         </div>
@@ -2322,7 +3358,9 @@
                 </div>
             </div>
 
-            <!-- Modifiers -->
+            <!-- ============================================================
+            MODIFIERS (10 Products)
+            ============================================================ -->
             <div id="cat-modifiers" style="padding: 60px 0; background: #0d0d1a;">
                 <div data-aos="fade-up">
                     <p class="section-eyebrow">Shape the Light</p>
@@ -2347,7 +3385,26 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="120cm Octagon Softbox"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1036/300/250" alt="Large softbox">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">120cm Octagon Softbox</div>
+                                <p class="desc">Large softbox for portrait and studio work.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 15,000</div>
+                                    <button class="btn-details" onclick="alert('120cm Octagon Softbox\\nMount: Bowens\\nIncludes: Diffusion fabric, Grid')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Reflective Umbrella 105cm"></label>
                             <div class="img-wrap">
@@ -2364,7 +3421,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Beauty Dish 55cm"></label>
                             <div class="img-wrap">
@@ -2381,7 +3439,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="250">
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="5-in-1 Reflector"></label>
                             <div class="img-wrap">
@@ -2398,10 +3457,102 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Strip Softbox 30x120cm"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1037/300/250" alt="Strip softbox">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">Strip Softbox 30x120cm</div>
+                                <p class="desc">Strip softbox for rim and hair lighting.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 11,000</div>
+                                    <button class="btn-details" onclick="alert('Strip Softbox 30x120cm\\nMount: Bowens\\nIncludes: Diffusion fabric, Grid')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="350">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Grid Spot Kit"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1038/300/250" alt="Grid spot">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">Grid Spot Kit</div>
+                                <p class="desc">Grid spots for directional light control.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 6,500</div>
+                                    <button class="btn-details" onclick="alert('Grid Spot Kit\\nIncludes: 20°, 40°, 60° Grids\\nMount: Bowens')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Snoot Kit"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1039/300/250" alt="Snoot">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">Snoot Kit</div>
+                                <p class="desc">Snoot for focused light and creative effects.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 4,800</div>
+                                    <button class="btn-details" onclick="alert('Snoot Kit\\nIncludes: Snoot, Barn Doors, Honeycomb Grid\\nMount: Bowens')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="450">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Beauty Dish 80cm"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1040/300/250" alt="Large beauty dish">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">Beauty Dish 80cm</div>
+                                <p class="desc">Large beauty dish for fashion and commercial work.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 18,000</div>
+                                    <button class="btn-details" onclick="alert('Beauty Dish 80cm\\nMount: Bowens\\nIncludes: Diffusion sock, Grid')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Color Gel Filter Set"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1041/300/250" alt="Gel filters">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Neewer</div>
+                                <div class="name">Color Gel Filter Set</div>
+                                <p class="desc">10-piece color gel set for creative lighting.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 2,500</div>
+                                    <button class="btn-details" onclick="alert('Color Gel Filter Set\\nIncludes: 10 Colors\\nCompatible: Bowens mount lights')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Backdrops & Stands -->
+            <!-- ============================================================
+            BACKDROPS & STANDS (10 Products)
+            ============================================================ -->
             <div id="cat-backdrops" style="padding: 60px 0;">
                 <div data-aos="fade-up">
                     <p class="section-eyebrow">Set the Scene</p>
@@ -2426,6 +3577,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Muslin Backdrop White"></label>
@@ -2443,7 +3595,26 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Muslin Backdrop Black"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1042/300/250" alt="Black backdrop">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">Muslin Backdrop 3x6m Black</div>
+                                <p class="desc">Wrinkle-resistant black fabric for dramatic shots.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 7,800</div>
+                                    <button class="btn-details" onclick="alert('Muslin Backdrop 3x6m\\nColor: Black\\nMaterial: Muslin fabric')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Green Screen Collapsible"></label>
                             <div class="img-wrap">
@@ -2460,7 +3631,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="250">
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Boom Arm with Sandbag"></label>
                             <div class="img-wrap">
@@ -2477,10 +3649,104 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Heavy Duty Light Stand"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1043/300/250" alt="Heavy stand">
+                                <span class="badge-tag">Pro</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Manfrotto</div>
+                                <div class="name">Heavy Duty Light Stand</div>
+                                <p class="desc">Supports up to 15kg, 3m height.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 25,000</div>
+                                    <button class="btn-details" onclick="alert('Heavy Duty Light Stand\\nHeight: 3m\\nCapacity: 15kg\\nMaterial: Aluminium')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="350">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Compact Light Stand"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1044/300/250" alt="Compact stand">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">Compact Light Stand 2m</div>
+                                <p class="desc">Compact stand for travel and location shoots.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 7,500</div>
+                                    <button class="btn-details" onclick="alert('Compact Light Stand\\nHeight: 2m\\nCapacity: 5kg\\nFolded: 60cm')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="C-Stand with Grip"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1045/300/250" alt="C-stand">
+                                <span class="badge-tag">Studio</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Manfrotto</div>
+                                <div class="name">C-Stand with Grip Head</div>
+                                <p class="desc">Professional studio stand with grip head.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 35,000</div>
+                                    <button class="btn-details" onclick="alert('C-Stand\\nHeight: 3.5m\\nCapacity: 20kg\\nIncludes: Grip Head, Sandbag')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="450">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Vinyl Backdrop 2.7x3m"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1046/300/250" alt="Vinyl backdrop">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Neewer</div>
+                                <div class="name">Vinyl Backdrop 2.7x3m</div>
+                                <p class="desc">Durable vinyl backdrop in multiple colors.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 12,000</div>
+                                    <button class="btn-details" onclick="alert('Vinyl Backdrop\\nSize: 2.7m x 3m\\nColors: Black, White, Grey, Green, Blue')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Paper Backdrop Roll 2.7x11m"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1047/300/250" alt="Paper backdrop">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB Studio</div>
+                                <div class="name">Paper Backdrop Roll 2.7x11m</div>
+                                <p class="desc">Seamless paper backdrop roll for studio work.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 18,000</div>
+                                    <button class="btn-details" onclick="alert('Paper Backdrop Roll\\nSize: 2.7m x 11m\\nColors: White, Black, Grey, Blue, Green')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Triggers & Remotes -->
+            <!-- ============================================================
+            TRIGGERS & REMOTES (10 Products)
+            ============================================================ -->
             <div id="cat-triggers" style="padding: 60px 0; background: #0d0d1a;">
                 <div data-aos="fade-up">
                     <p class="section-eyebrow">Fire From a Distance</p>
@@ -2501,12 +3767,32 @@
                                 <p class="desc">TTL-compatible 2.4GHz trigger.</p>
                                 <div class="footer">
                                     <div class="price">PKR 8,500</div>
-                                    <button class="btn-details" onclick="alert('Godox X2T Trigger\\nFrequency: 2.4GHz\\nFeatures: TTL, HSS\\nRange: 100m')">Specs</button>
+                                    <button class="btn-details" onclick="alert('Godox X2T\\nFrequency: 2.4GHz\\nFeatures: TTL, HSS\\nRange: 100m')">Specs</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox XPro Trigger"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1048/300/250" alt="XPro trigger">
+                                <span class="badge-tag">Pro</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">XPro Wireless Trigger</div>
+                                <p class="desc">Professional TTL trigger with large LCD.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 12,000</div>
+                                    <button class="btn-details" onclick="alert('Godox XPro\\nFrequency: 2.4GHz\\nFeatures: TTL, HSS, Large LCD\\nRange: 100m')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Wireless Remote Shutter"></label>
                             <div class="img-wrap">
@@ -2523,7 +3809,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Optical Slave Trigger"></label>
                             <div class="img-wrap">
@@ -2540,7 +3827,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="250">
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AK-R1 Remote Kit"></label>
                             <div class="img-wrap">
@@ -2552,12 +3840,104 @@
                                 <p class="desc">Snoot, barn doors, color filters.</p>
                                 <div class="footer">
                                     <div class="price">PKR 6,200</div>
-                                    <button class="btn-details" onclick="alert('Godox AK-R1 Kit\\nIncludes: Snoot, Barn Doors, Color Filters, Reflector')">Specs</button>
+                                    <button class="btn-details" onclick="alert('Godox AK-R1\\nIncludes: Snoot, Barn Doors, Color Filters, Reflector')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Profoto Air Remote"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1049/300/250" alt="Profoto remote">
+                                <span class="badge-tag">Profoto</span>
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Profoto</div>
+                                <div class="name">Air Remote TTL</div>
+                                <p class="desc">Wireless trigger for Profoto lights.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 45,000</div>
+                                    <button class="btn-details" onclick="alert('Profoto Air Remote\\nFeatures: TTL, HSS\\nRange: 300m\\nCompatible: Profoto lights')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="350">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="PocketWizard Plus III"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1050/300/250" alt="PocketWizard">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">PocketWizard</div>
+                                <div class="name">Plus III Transceiver</div>
+                                <p class="desc">Reliable radio trigger for studio strobes.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 38,000</div>
+                                    <button class="btn-details" onclick="alert('PocketWizard Plus III\\nRange: 500m\\nFeatures: 32 Channels\\nCompatible: All strobes')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox R2 Pro Trigger"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1051/300/250" alt="R2 Pro trigger">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Godox</div>
+                                <div class="name">R2 Pro Wireless Trigger</div>
+                                <p class="desc">Advanced trigger with large touch screen.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 15,000</div>
+                                    <button class="btn-details" onclick="alert('Godox R2 Pro\\nFeatures: Touch Screen, TTL, HSS\\nRange: 100m\\nCompatible: Godox lights')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="450">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Bluetooth Remote Shutter"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1052/300/250" alt="Bluetooth shutter">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">FOTOLAB</div>
+                                <div class="name">Bluetooth Remote Shutter</div>
+                                <p class="desc">Smartphone-compatible remote shutter.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 3,500</div>
+                                    <button class="btn-details" onclick="alert('Bluetooth Remote Shutter\\nRange: 10m\\nCompatible: iOS/Android\\nBattery: CR2032')">Specs</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="lighting-card">
+                            <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Flash Sync Cord"></label>
+                            <div class="img-wrap">
+                                <img src="https://picsum.photos/id/1053/300/250" alt="Sync cord">
+                            </div>
+                            <div class="body">
+                                <div class="brand-tag">Neewer</div>
+                                <div class="name">Flash Sync Cord 5m</div>
+                                <p class="desc">Wired sync cord for reliable flash triggering.</p>
+                                <div class="footer">
+                                    <div class="price">PKR 2,200</div>
+                                    <button class="btn-details" onclick="alert('Flash Sync Cord\\nLength: 5m\\nConnector: PC Sync\\nCompatible: All flashes')">Specs</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="tip-box mt-5" data-aos="fade-up">
                     <i class="fas fa-circle-info"></i>
                     <p>Not sure which kit fits your space? Visit our showroom and we'll set up a live demo — same-day delivery available.</p>
@@ -2931,6 +4311,52 @@
 
     <script>
         // ============================================================
+// SCROLL TO TOP BUTTON - Show/Hide on Scroll
+// ============================================================
+const scrollBtn = document.getElementById('scrollToTop');
+
+// Show button after scrolling 300px
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+        scrollBtn.classList.add('show');
+    } else {
+        scrollBtn.classList.remove('show');
+    }
+});
+
+// Smooth scroll to top on click
+scrollBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Keyboard shortcut: Press 'T' to go to top
+document.addEventListener('keydown', function(e) {
+    if (e.key === 't' && !e.ctrlKey && !e.metaKey && !e.altKey && !e.shiftKey) {
+        const tag = document.activeElement.tagName;
+        if (tag !== 'INPUT' && tag !== 'TEXTAREA' && tag !== 'SELECT') {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+});
+
+// Progress ring animation (optional)
+let progressRing = document.querySelector('.scroll-progress');
+if (progressRing) {
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        progressRing.style.strokeDashoffset = 314 - (314 * progress / 100);
+    });
+}
+
+console.log('%c⬆ Scroll to Top Button Loaded', 'font-size:12px; color:#C9A84C;');
+console.log('%c💡 Press "T" key to scroll to top', 'font-size:12px; color:#888;');
+        // ============================================================
         // AOS INITIALIZATION
         // ============================================================
         AOS.init({
@@ -2976,19 +4402,132 @@
         // PRODUCTS DATA
         // ============================================================
         const productData = [
-            { id: 1, name: "Canon EOS R5", brand: "Canon", category: "cameras", price: "$3,899", desc: "45MP full-frame mirrorless with 8K video and IBIS.", img: "https://picsum.photos/id/1060/400/300" },
-            { id: 2, name: "Nikon Z9", brand: "Nikon", category: "cameras", price: "$5,499", desc: "45.7MP stacked sensor, 8K video, 20fps burst.", img: "https://picsum.photos/id/1061/400/300" },
-            { id: 3, name: "Sony A7 IV", brand: "Sony", category: "cameras", price: "$2,499", desc: "33MP full-frame hybrid with 4K 60p video.", img: "https://picsum.photos/id/1062/400/300" },
-            { id: 4, name: "Fujifilm X-T5", brand: "Fujifilm", category: "cameras", price: "$1,699", desc: "40MP APS-C with film simulations and 6.2K video.", img: "https://picsum.photos/id/1063/400/300" },
-            { id: 5, name: "Canon RF 50mm f/1.2L", brand: "Canon", category: "lenses", price: "$2,399", desc: "L-series portrait lens with stunning bokeh.", img: "https://picsum.photos/id/1065/400/300" },
-            { id: 6, name: "Sony FE 85mm f/1.4 GM", brand: "Sony", category: "lenses", price: "$1,899", desc: "G Master portrait lens, razor sharp.", img: "https://picsum.photos/id/1066/400/300" },
-            { id: 7, name: "Rode VideoMic Pro+", brand: "Rode", category: "audio", price: "$399", desc: "On-camera shotgun mic with auto power.", img: "https://picsum.photos/id/1080/400/300" },
-            { id: 8, name: "Zoom H6 Recorder", brand: "Zoom", category: "audio", price: "$499", desc: "6-track portable recorder.", img: "https://picsum.photos/id/1081/400/300" },
-            { id: 9, name: "SanDisk Extreme Pro 128GB", brand: "SanDisk", category: "memory", price: "$149", desc: "UHS-I V30 card, 200MB/s read.", img: "https://picsum.photos/id/1070/400/300" },
-            { id: 10, name: "Manfrotto MT055XPRO3", brand: "Manfrotto", category: "tripods", price: "$349", desc: "Aluminium tripod with 90° column.", img: "https://picsum.photos/id/1040/400/300" },
-            { id: 11, name: "Godox AD200Pro", brand: "Godox", category: "lighting", price: "$299", desc: "200Ws pocket strobe, TTL compatible.", img: "https://picsum.photos/id/1016/400/300" },
-            { id: 12, name: "Lowepro ProTactic 450", brand: "Lowepro", category: "bags", price: "$299", desc: "Modular backpack for 2 bodies and 6+ lenses.", img: "https://picsum.photos/id/1025/400/300" }
-        ];
+    // ============================================================
+    // CAMERAS (10 Products)
+    // ============================================================
+    { id: 1, name: "Canon EOS R5", brand: "Canon", category: "cameras", price: "$3,899", desc: "45MP full-frame mirrorless with 8K video and IBIS.", img: "https://picsum.photos/id/1060/400/300" },
+    { id: 2, name: "Nikon Z9", brand: "Nikon", category: "cameras", price: "$5,499", desc: "45.7MP stacked sensor, 8K video, 20fps burst.", img: "https://picsum.photos/id/1061/400/300" },
+    { id: 3, name: "Sony A7 IV", brand: "Sony", category: "cameras", price: "$2,499", desc: "33MP full-frame hybrid with 4K 60p video.", img: "https://picsum.photos/id/1062/400/300" },
+    { id: 4, name: "Fujifilm X-T5", brand: "Fujifilm", category: "cameras", price: "$1,699", desc: "40MP APS-C with film simulations and 6.2K video.", img: "https://picsum.photos/id/1063/400/300" },
+    { id: 5, name: "Panasonic Lumix S5 II", brand: "Panasonic", category: "cameras", price: "$1,999", desc: "24MP full-frame with phase-detect AF and 6K video.", img: "https://picsum.photos/id/1064/400/300" },
+    { id: 6, name: "Nikon Z8", brand: "Nikon", category: "cameras", price: "$3,999", desc: "45.7MP stacked sensor, 8.3K N-RAW video.", img: "https://picsum.photos/id/1067/400/300" },
+    { id: 7, name: "Sony A7R V", brand: "Sony", category: "cameras", price: "$3,899", desc: "61MP full-frame with AI autofocus and 8K video.", img: "https://picsum.photos/id/1068/400/300" },
+    { id: 8, name: "Canon EOS R6 Mark II", brand: "Canon", category: "cameras", price: "$2,499", desc: "40MP full-frame speed demon with 4K 60fps.", img: "https://picsum.photos/id/1069/400/300" },
+    { id: 9, name: "Fujifilm X-H2S", brand: "Fujifilm", category: "cameras", price: "$2,499", desc: "26.1MP stacked CMOS with 40fps burst and 4K 120p.", img: "https://picsum.photos/id/1071/400/300" },
+    { id: 10, name: "Olympus OM-D E-M1 III", brand: "Olympus", category: "cameras", price: "$1,699", desc: "20MP weather-sealed with 5-axis IBIS and 60fps.", img: "https://picsum.photos/id/1072/400/300" },
+
+    // ============================================================
+    // LENSES (10 Products)
+    // ============================================================
+    { id: 11, name: "Canon RF 50mm f/1.2L", brand: "Canon", category: "lenses", price: "$2,399", desc: "L-series portrait lens with stunning bokeh.", img: "https://picsum.photos/id/1065/400/300" },
+    { id: 12, name: "Sony FE 85mm f/1.4 GM", brand: "Sony", category: "lenses", price: "$1,899", desc: "G Master portrait lens, razor sharp with creamy bokeh.", img: "https://picsum.photos/id/1066/400/300" },
+    { id: 13, name: "Nikon Z 24-70mm f/2.8 S", brand: "Nikon", category: "lenses", price: "$2,399", desc: "Professional standard zoom with OLED display.", img: "https://picsum.photos/id/1073/400/300" },
+    { id: 14, name: "Canon RF 24-70mm f/2.8L", brand: "Canon", category: "lenses", price: "$2,599", desc: "Professional standard zoom with IS and weather sealing.", img: "https://picsum.photos/id/1074/400/300" },
+    { id: 15, name: "Sigma 35mm f/1.4 Art", brand: "Sigma", category: "lenses", price: "$899", desc: "Wide prime with high sharpness and beautiful bokeh.", img: "https://picsum.photos/id/1075/400/300" },
+    { id: 16, name: "Tamron 28-75mm f/2.8 G2", brand: "Tamron", category: "lenses", price: "$799", desc: "Standard zoom with fast AF and constant f/2.8.", img: "https://picsum.photos/id/1076/400/300" },
+    { id: 17, name: "Fujifilm XF 56mm f/1.2", brand: "Fujifilm", category: "lenses", price: "$999", desc: "Fast portrait prime with weather sealing.", img: "https://picsum.photos/id/1077/400/300" },
+    { id: 18, name: "Sony FE 24-70mm f/2.8 GM II", brand: "Sony", category: "lenses", price: "$2,299", desc: "Duniya ka sabse halka f/2.8 standard zoom.", img: "https://picsum.photos/id/1078/400/300" },
+    { id: 19, name: "Nikon Z 85mm f/1.2 S", brand: "Nikon", category: "lenses", price: "$2,799", desc: "Ultimate portrait lens with multi-focus system.", img: "https://picsum.photos/id/1079/400/300" },
+    { id: 20, name: "Sigma 50mm f/1.4 Art", brand: "Sigma", category: "lenses", price: "$849", desc: "Iconic portrait lens with stunning bokeh and sharpness.", img: "https://picsum.photos/id/1082/400/300" },
+
+    // ============================================================
+    // PRO AUDIO (10 Products)
+    // ============================================================
+    { id: 21, name: "Rode VideoMic Pro+", brand: "Rode", category: "audio", price: "$399", desc: "On-camera shotgun mic with auto power and safety channel.", img: "https://picsum.photos/id/1080/400/300" },
+    { id: 22, name: "Zoom H6 Recorder", brand: "Zoom", category: "audio", price: "$499", desc: "6-track portable recorder with interchangeable capsules.", img: "https://picsum.photos/id/1081/400/300" },
+    { id: 23, name: "Rode Wireless GO II", brand: "Rode", category: "audio", price: "$699", desc: "Dual-channel wireless mic with onboard recording.", img: "https://picsum.photos/id/1083/400/300" },
+    { id: 24, name: "DJI Mic 2", brand: "DJI", category: "audio", price: "$799", desc: "Wireless mic with 250m range and 18-hour battery.", img: "https://picsum.photos/id/1084/400/300" },
+    { id: 25, name: "Boya BY-M1 Lavalier", brand: "Boya", category: "audio", price: "$29", desc: "Budget-friendly clip-on omnidirectional microphone.", img: "https://picsum.photos/id/1085/400/300" },
+    { id: 26, name: "Sennheiser MKH 416", brand: "Sennheiser", category: "audio", price: "$1,199", desc: "Professional shotgun mic for broadcast and film.", img: "https://picsum.photos/id/1086/400/300" },
+    { id: 27, name: "Tascam DR-40X", brand: "Tascam", category: "audio", price: "$199", desc: "4-track portable recorder with XLR inputs.", img: "https://picsum.photos/id/1087/400/300" },
+    { id: 28, name: "Shure SM7B", brand: "Shure", category: "audio", price: "$399", desc: "Dynamic microphone for vocals and broadcasting.", img: "https://picsum.photos/id/1088/400/300" },
+    { id: 29, name: "Audio-Technica AT4053B", brand: "Audio-Technica", category: "audio", price: "$799", desc: "Hypercardioid condenser microphone for film.", img: "https://picsum.photos/id/1089/400/300" },
+    { id: 30, name: "Zoom F6", brand: "Zoom", category: "audio", price: "$899", desc: "6-track field recorder with 32-bit float technology.", img: "https://picsum.photos/id/1090/400/300" },
+
+    // ============================================================
+    // MEMORY CARDS (10 Products)
+    // ============================================================
+    { id: 31, name: "SanDisk Extreme Pro 128GB", brand: "SanDisk", category: "memory", price: "$149", desc: "UHS-I V30 card, 200MB/s read speed.", img: "https://picsum.photos/id/1070/400/300" },
+    { id: 32, name: "SanDisk Extreme Pro 256GB", brand: "SanDisk", category: "memory", price: "$229", desc: "UHS-I V30 card, 200MB/s read speed.", img: "https://picsum.photos/id/1091/400/300" },
+    { id: 33, name: "Lexar Professional 128GB", brand: "Lexar", category: "memory", price: "$169", desc: "UHS-II card with 280MB/s read speed.", img: "https://picsum.photos/id/1092/400/300" },
+    { id: 34, name: "Lexar Professional 256GB", brand: "Lexar", category: "memory", price: "$299", desc: "UHS-II card with 300MB/s read speed.", img: "https://picsum.photos/id/1093/400/300" },
+    { id: 35, name: "Sony Tough 128GB", brand: "Sony", category: "memory", price: "$199", desc: "Rugged UHS-II card with 300MB/s speed.", img: "https://picsum.photos/id/1094/400/300" },
+    { id: 36, name: "Sony Tough 256GB", brand: "Sony", category: "memory", price: "$349", desc: "Rugged UHS-II card with 300MB/s speed.", img: "https://picsum.photos/id/1095/400/300" },
+    { id: 37, name: "ProGrade Digital 128GB", brand: "ProGrade", category: "memory", price: "$189", desc: "UHS-II card with 300MB/s read speed.", img: "https://picsum.photos/id/1096/400/300" },
+    { id: 38, name: "ProGrade Digital 256GB", brand: "ProGrade", category: "memory", price: "$329", desc: "UHS-II card with 300MB/s read speed.", img: "https://picsum.photos/id/1097/400/300" },
+    { id: 39, name: "Kingston Canvas React 128GB", brand: "Kingston", category: "memory", price: "$89", desc: "UHS-II card with 285MB/s read speed.", img: "https://picsum.photos/id/1098/400/300" },
+    { id: 40, name: "Kingston Canvas React 256GB", brand: "Kingston", category: "memory", price: "$159", desc: "UHS-II card with 285MB/s read speed.", img: "https://picsum.photos/id/1099/400/300" },
+
+    // ============================================================
+    // TRIPODS (10 Products)
+    // ============================================================
+    { id: 41, name: "Manfrotto MT055XPRO3", brand: "Manfrotto", category: "tripods", price: "$349", desc: "Aluminium tripod with 90° column, supports 9kg.", img: "https://picsum.photos/id/1040/400/300" },
+    { id: 42, name: "Gitzo GT2545T", brand: "Gitzo", category: "tripods", price: "$899", desc: "Carbon fiber travel tripod with great stability.", img: "https://picsum.photos/id/1100/400/300" },
+    { id: 43, name: "DJI RS 4 Gimbal", brand: "DJI", category: "tripods", price: "$1,199", desc: "3-axis gimbal with 3kg payload and Bluetooth control.", img: "https://picsum.photos/id/1101/400/300" },
+    { id: 44, name: "Manfrotto Befree Advanced", brand: "Manfrotto", category: "tripods", price: "$249", desc: "Compact travel tripod with aluminium legs.", img: "https://picsum.photos/id/1102/400/300" },
+    { id: 45, name: "Joby GorillaPod 5K", brand: "Joby", category: "tripods", price: "$89", desc: "Flexible-leg tripod that wraps around any surface.", img: "https://picsum.photos/id/1103/400/300" },
+    { id: 46, name: "Peak Design Travel Tripod", brand: "Peak Design", category: "tripods", price: "$599", desc: "Ultra-compact carbon fiber travel tripod.", img: "https://picsum.photos/id/1104/400/300" },
+    { id: 47, name: "Manfrotto 290 Xtra", brand: "Manfrotto", category: "tripods", price: "$189", desc: "Aluminium tripod with 4-section legs.", img: "https://picsum.photos/id/1105/400/300" },
+    { id: 48, name: "Gitzo GT3533LS", brand: "Gitzo", category: "tripods", price: "$1,199", desc: "Systematic carbon fiber tripod for heavy gear.", img: "https://picsum.photos/id/1106/400/300" },
+    { id: 49, name: "DJI RS 3 Mini", brand: "DJI", category: "tripods", price: "$699", desc: "Compact gimbal for lightweight cameras.", img: "https://picsum.photos/id/1107/400/300" },
+    { id: 50, name: "Manfrotto Monopod 680B", brand: "Manfrotto", category: "tripods", price: "$129", desc: "Lightweight 5-section monopod for sports.", img: "https://picsum.photos/id/1108/400/300" },
+
+    // ============================================================
+    // LIGHTING (10 Products)
+    // ============================================================
+    { id: 51, name: "Godox AD200Pro", brand: "Godox", category: "lighting", price: "$299", desc: "200Ws pocket strobe, TTL compatible, battery-powered.", img: "https://picsum.photos/id/1016/400/300" },
+    { id: 52, name: "Godox SL60W", brand: "Godox", category: "lighting", price: "$249", desc: "60W continuous LED with Bowens mount.", img: "https://picsum.photos/id/1015/400/300" },
+    { id: 53, name: "Aputure Amaran 100D", brand: "Aputure", category: "lighting", price: "$399", desc: "100W LED video light with ultra-bright output.", img: "https://picsum.photos/id/1109/400/300" },
+    { id: 54, name: "Profoto D2 Studio Light", brand: "Profoto", category: "lighting", price: "$1,495", desc: "High-speed studio flash with 10-stop power range.", img: "https://picsum.photos/id/1110/400/300" },
+    { id: 55, name: "Godox V1 Flash", brand: "Godox", category: "lighting", price: "$299", desc: "Compact round-head flash for on/off-camera use.", img: "https://picsum.photos/id/1111/400/300" },
+    { id: 56, name: "Aputure 300d Mark II", brand: "Aputure", category: "lighting", price: "$899", desc: "300W COB LED with app control and DMX.", img: "https://picsum.photos/id/1112/400/300" },
+    { id: 57, name: "Godox AD600Pro", brand: "Godox", category: "lighting", price: "$899", desc: "600Ws studio strobe with TTL and HSS.", img: "https://picsum.photos/id/1113/400/300" },
+    { id: 58, name: "Neewer RGB LED Panel", brand: "Neewer", category: "lighting", price: "$189", desc: "Full-color RGB panel for creative lighting effects.", img: "https://picsum.photos/id/1114/400/300" },
+    { id: 59, name: "Aputure LS 600c Pro", brand: "Aputure", category: "lighting", price: "$2,199", desc: "600W full-color RGB LED light for professionals.", img: "https://picsum.photos/id/1115/400/300" },
+    { id: 60, name: "Godox M600Bi", brand: "Godox", category: "lighting", price: "$1,299", desc: "600W bi-color LED video light with silent fan.", img: "https://picsum.photos/id/1116/400/300" },
+
+    // ============================================================
+    // BAGS & CASES (10 Products)
+    // ============================================================
+    { id: 61, name: "Lowepro ProTactic 450", brand: "Lowepro", category: "bags", price: "$299", desc: "Modular backpack for 2 bodies and 6+ lenses.", img: "https://picsum.photos/id/1025/400/300" },
+    { id: 62, name: "Peak Design Everyday Backpack", brand: "Peak Design", category: "bags", price: "$299", desc: "30L weatherproof backpack with FlexFold dividers.", img: "https://picsum.photos/id/1117/400/300" },
+    { id: 63, name: "Think Tank Airport Security V3", brand: "Think Tank", category: "bags", price: "$399", desc: "Rolling camera case for professional gear and travel.", img: "https://picsum.photos/id/1118/400/300" },
+    { id: 64, name: "Peak Design Everyday Sling", brand: "Peak Design", category: "bags", price: "$149", desc: "10L sling bag with quick-access design.", img: "https://picsum.photos/id/1119/400/300" },
+    { id: 65, name: "Lowepro Flipside 400 AW", brand: "Lowepro", category: "bags", price: "$199", desc: "Backpack with rear access for security.", img: "https://picsum.photos/id/1120/400/300" },
+    { id: 66, name: "Pelican 1510 Case", brand: "Pelican", category: "bags", price: "$279", desc: "Watertight and crushproof hard case, carry-on approved.", img: "https://picsum.photos/id/1121/400/300" },
+    { id: 67, name: "Manfrotto Pro Light Backpack", brand: "Manfrotto", category: "bags", price: "$249", desc: "Professional backpack with camera insert.", img: "https://picsum.photos/id/1122/400/300" },
+    { id: 68, name: "Think Tank Photo Speed Demon", brand: "Think Tank", category: "bags", price: "$159", desc: "Belt-mounted holster for camera and lens.", img: "https://picsum.photos/id/1123/400/300" },
+    { id: 69, name: "Lowepro Adventura 170", brand: "Lowepro", category: "bags", price: "$89", desc: "Compact shoulder bag for entry-level cameras.", img: "https://picsum.photos/id/1124/400/300" },
+    { id: 70, name: "Peak Design Camera Cube", brand: "Peak Design", category: "bags", price: "$119", desc: "Modular camera insert for any backpack.", img: "https://picsum.photos/id/1125/400/300" },
+
+    // ============================================================
+    // ACCESSORIES (10 Products)
+    // ============================================================
+    { id: 71, name: "B+W 77mm UV Filter", brand: "B+W", category: "accessories", price: "$89", desc: "High-quality brass filter with MRC nano coating.", img: "https://picsum.photos/id/1126/400/300" },
+    { id: 72, name: "Canon Speedlite EL-5", brand: "Canon", category: "accessories", price: "$399", desc: "60m guide number with wireless control.", img: "https://picsum.photos/id/1127/400/300" },
+    { id: 73, name: "Sony HVL-F60RM2", brand: "Sony", category: "accessories", price: "$499", desc: "Wireless flash with high performance.", img: "https://picsum.photos/id/1128/400/300" },
+    { id: 74, name: "DJI Ronin RS 3 Pro", brand: "DJI", category: "accessories", price: "$999", desc: "Professional 3-axis gimbal for cinema rigs.", img: "https://picsum.photos/id/1129/400/300" },
+    { id: 75, name: "Hoya UV Filter 77mm", brand: "Hoya", category: "accessories", price: "$59", desc: "Multi-coated UV filter for lens protection.", img: "https://picsum.photos/id/1130/400/300" },
+    { id: 76, name: "Canon LP-E6NH Battery", brand: "Canon", category: "accessories", price: "$139", desc: "Genuine battery for EOS R5/R6 series cameras.", img: "https://picsum.photos/id/1131/400/300" },
+    { id: 77, name: "Sony NP-FZ100 Battery", brand: "Sony", category: "accessories", price: "$149", desc: "Genuine battery for Sony A7 series cameras.", img: "https://picsum.photos/id/1132/400/300" },
+    { id: 78, name: "VSGO Cleaning Kit", brand: "VSGO", category: "accessories", price: "$49", desc: "Complete sensor and lens cleaning kit.", img: "https://picsum.photos/id/1133/400/300" },
+    { id: 79, name: "Wireless Remote Shutter", brand: "FOTOLAB", category: "accessories", price: "$29", desc: "Trigger your shutter remotely for long exposures.", img: "https://picsum.photos/id/1134/400/300" },
+    { id: 80, name: "Godox X2T Trigger", brand: "Godox", category: "accessories", price: "$89", desc: "TTL-compatible 2.4GHz wireless trigger for flashes.", img: "https://picsum.photos/id/1135/400/300" },
+
+    // ============================================================
+    // DRONES (10 Products - New Category)
+    // ============================================================
+    { id: 81, name: "DJI Mavic 3 Pro", brand: "DJI", category: "drones", price: "$2,199", desc: "Triple-camera drone with 4/3 CMOS sensor.", img: "https://picsum.photos/id/1136/400/300" },
+    { id: 82, name: "DJI Mini 4 Pro", brand: "DJI", category: "drones", price: "$759", desc: "Lightweight drone with 4K video and obstacle sensing.", img: "https://picsum.photos/id/1137/400/300" },
+    { id: 83, name: "DJI Air 3", brand: "DJI", category: "drones", price: "$1,099", desc: "Dual-camera drone with 4K 60fps and 46-minute flight.", img: "https://picsum.photos/id/1138/400/300" },
+    { id: 84, name: "DJI Avata 2", brand: "DJI", category: "drones", price: "$999", desc: "FPV drone with 4K video and immersive flying.", img: "https://picsum.photos/id/1139/400/300" },
+    { id: 85, name: "Autel EVO Lite+", brand: "Autel", category: "drones", price: "$1,199", desc: "1-inch sensor drone with 6K video and 40-min flight.", img: "https://picsum.photos/id/1140/400/300" },
+    { id: 86, name: "DJI Phantom 4 Pro V2", brand: "DJI", category: "drones", price: "$1,599", desc: "Professional drone with 1-inch sensor and 4K video.", img: "https://picsum.photos/id/1141/400/300" },
+    { id: 87, name: "DJI Mini 3 Pro", brand: "DJI", category: "drones", price: "$699", desc: "Lightweight drone with 4K video and obstacle sensing.", img: "https://picsum.photos/id/1142/400/300" },
+    { id: 88, name: "Autel Evo Nano+", brand: "Autel", category: "drones", price: "$699", desc: "Compact drone with 4K video and 28-min flight.", img: "https://picsum.photos/id/1143/400/300" },
+    { id: 89, name: "DJI Mavic 3 Classic", brand: "DJI", category: "drones", price: "$1,499", desc: "4/3 CMOS sensor drone with Hasselblad camera.", img: "https://picsum.photos/id/1144/400/300" },
+    { id: 90, name: "DJI Mini 4K", brand: "DJI", category: "drones", price: "$299", desc: "Entry-level 4K drone with 31-minute flight time.", img: "https://picsum.photos/id/1145/400/300" }
+];
 
         function renderProducts(category) {
             const grid = document.getElementById('productGrid');
@@ -3051,48 +4590,155 @@
             { id: 'yashica', name: "Yashica", desc: "Classic film cameras & vintage style.", img: "https://picsum.photos/seed/yashica/300/200", color: "#8A2BE2" }
         ];
 
-        const brandProducts = {
-            canon: [
-                { name: "EOS R5 Mark II", category: "Mirrorless", desc: "45MP full-frame with 8K RAW video.", specs: ["45MP", "8K RAW", "30fps"], price: "PKR 6,49,000", badge: "Flagship", img: "https://picsum.photos/seed/canon1/400/300" },
-                { name: "EOS R6 Mark II", category: "Mirrorless", desc: "40MP full-frame speed demon.", specs: ["40MP", "4K 60fps", "40fps"], price: "PKR 3,89,000", badge: "Best Seller", img: "https://picsum.photos/seed/canon2/400/300" }
-            ],
-            nikon: [
-                { name: "Nikon Z8", category: "Mirrorless", desc: "45.7MP stacked sensor, 8.3K N-RAW.", specs: ["45.7MP", "8.3K N-RAW", "EXPEED 7"], price: "PKR 8,95,000", badge: "Flagship", img: "https://picsum.photos/seed/nikon1/400/300" },
-                { name: "Nikon Z6 III", category: "Mirrorless", desc: "Partially-stacked CMOS sensor.", specs: ["24.5MP", "6K RAW", "8.0 Stop IBIS"], price: "PKR 5,45,000", badge: "New", img: "https://picsum.photos/seed/nikon2/400/300" }
-            ],
-            sony: [
-                { name: "Alpha 7R V", category: "Mirrorless", desc: "61MP full-frame with AI autofocus.", specs: ["61MP", "8K", "AI Tracking"], price: "PKR 6,85,000", badge: "High Res", img: "https://picsum.photos/seed/sony1/400/300" },
-                { name: "Alpha 7 IV", category: "Mirrorless", desc: "33MP hybrid powerhouse.", specs: ["33MP", "4K 60p", "S-Cinetone"], price: "PKR 4,35,000", badge: "Best Seller", img: "https://picsum.photos/seed/sony2/400/300" }
-            ],
-            fujifilm: [
-                { name: "X-T5", category: "Mirrorless", desc: "40MP APS-C with retro dials.", specs: ["40.2MP", "6.2K", "7-Stop IBIS"], price: "PKR 3,85,000", badge: "Photographer's Pick", img: "https://picsum.photos/seed/fuji1/400/300" },
-                { name: "X100VI", category: "Compact", desc: "40MP compact with hybrid viewfinder.", specs: ["40.2MP", "Hybrid Viewfinder", "IBIS"], price: "PKR 3,95,000", badge: "Global Trend", img: "https://picsum.photos/seed/fuji2/400/300" }
-            ],
-            panasonic: [
-                { name: "Lumix S5 II", category: "Full-Frame", desc: "24MP full-frame with phase-detection AF.", specs: ["24MP", "6K", "Phase-Detect AF"], price: "PKR 4,49,000", badge: "Flagship", img: "https://picsum.photos/seed/pana1/400/300" }
-            ],
-            leica: [
-                { name: "Leica M11", category: "Rangefinder", desc: "60MP full-frame rangefinder.", specs: ["60MP", "M-Mount", "Made in Germany"], price: "PKR 21,50,000", badge: "Flagship", img: "https://picsum.photos/seed/leica1/400/300" }
-            ],
-            hasselblad: [
-                { name: "X2D 100C", category: "Medium Format", desc: "100MP with IBIS, 15 stops DR.", specs: ["100MP", "IBIS", "15 Stops DR"], price: "PKR 28,50,000", badge: "Flagship", img: "https://picsum.photos/seed/hass1/400/300" }
-            ],
-            gopro: [
-                { name: "Hero13 Black", category: "Action", desc: "5.3K60 video, HyperSmooth 6.0.", specs: ["5.3K60", "HyperSmooth 6.0", "Waterproof"], price: "PKR 1,29,000", badge: "Flagship", img: "https://picsum.photos/seed/gopro1/400/300" }
-            ],
-            olympus: [
-                { name: "OM-D E-M1 Mark III", category: "Mirrorless", desc: "20MP weather-sealed with 5-axis IBIS.", specs: ["20MP", "5-Axis IBIS", "60fps"], price: "PKR 3,49,000", badge: "Flagship", img: "https://picsum.photos/seed/olym1/400/300" }
-            ],
-            sigma: [
-                { name: "50mm f/1.4 Art", category: "Lens", desc: "Iconic portrait lens with stunning bokeh.", specs: ["f/1.4", "Art Series", "Multi-Mount"], price: "PKR 2,49,000", badge: "Art Series", img: "https://picsum.photos/seed/sigma1/400/300" }
-            ],
-            tamron: [
-                { name: "28-75mm f/2.8 Di III VXD", category: "Lens", desc: "Popular standard zoom for mirrorless.", specs: ["f/2.8", "Di III", "VXD Motor"], price: "PKR 1,99,000", badge: "Best Seller", img: "https://picsum.photos/seed/tamron1/400/300" }
-            ],
-            yashica: [
-                { name: "FX-3 Super 2000", category: "Film", desc: "All-manual 35mm film SLR.", specs: ["35mm Film", "Mechanical", "Manual Focus"], price: "PKR 45,000", badge: "Classic", img: "https://picsum.photos/seed/yash1/400/300" }
-            ]
-        };
+        // ============================================================
+// BRAND PRODUCTS DATA - 10 Products Per Brand
+// ============================================================
+const brandProducts = {
+    canon: [
+        { name: "EOS R5 Mark II", category: "Mirrorless", desc: "45MP full-frame with 8K RAW video and AI-powered AF.", specs: ["45MP", "8K RAW", "30fps", "IBIS"], price: "PKR 6,49,000", badge: "Flagship", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo1d-LC0_hWWkIr9ug-DBk1FleScxN9xJRp0kvi4iSrg&s=10" },
+        { name: "EOS R6 Mark II", category: "Mirrorless", desc: "40MP full-frame speed demon with 4K 60fps.", specs: ["40MP", "4K 60fps", "40fps", "IBIS"], price: "PKR 3,89,000", badge: "Best Seller", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEEnD5tqrJFyd6tswvydcf_dvcLkg3hsE0bBADRSswcw&s=10" },
+        { name: "EOS R50", category: "Mirrorless", desc: "Compact APS-C mirrorless for creators and beginners.", specs: ["24MP APS-C", "4K", "Vari-angle LCD"], price: "PKR 1,29,000", badge: "Compact", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIcrDLxXVCP9xHv30UauA4fOtEsv93VfssRyqe628Pw&s=10" },
+        { name: "EOS 90D", category: "DSLR", desc: "32.5MP APS-C DSLR with 45-point AF system.", specs: ["32.5MP", "4K", "10fps", "EF Mount"], price: "PKR 2,49,000", badge: "DSLR", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUzwqjhoISOc4q94QNYylUmcyg5RNN_Jktlu77iwfJ3Q&s=10" },
+        { name: "EOS 5D Mark IV", category: "DSLR", desc: "30.4MP full-frame workhorse with weather sealing.", specs: ["30.4MP FF", "4K", "Weather Sealed"], price: "PKR 3,19,000", badge: "Pro Classic", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzrv0DkzB3A4-Fyr_UIrhpQNXyzx1yWnh9cf4LJrhuGw&s=10" },
+        { name: "RF 50mm f/1.2L USM", category: "Lens", desc: "Stunning bokeh, razor-sharp wide open, silent AF.", specs: ["f/1.2", "L-Series", "Nano USM"], price: "PKR 3,89,000", badge: "L-Series", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8-fLvwtIcLmfrq8JHSK-fQaL1JMEM1RpZj8Z4qbVAXg&s=10" },
+        { name: "RF 24-70mm f/2.8L IS", category: "Lens", desc: "Professional standard zoom with IS and weather sealing.", specs: ["f/2.8", "IS System", "Weather Sealed"], price: "PKR 4,49,000", badge: "L-Series", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz9rzX1NsbPHgnkNv7WXYD1OpgoYkgcI5lP714jFXerA&s=10" },
+        { name: "RF 70-200mm f/2.8L IS", category: "Lens", desc: "Professional telephoto zoom with stunning sharpness.", specs: ["70-200mm", "f/2.8", "IS System"], price: "PKR 5,99,000", badge: "L-Series", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwt8yTBFrWDjag6JWYKGx4iHWidYmTJwlzf_XUgNnXLg&s=10" },
+        { name: "EOS C70 Cinema", category: "Video", desc: "Cinema EOS in compact body with 4K 120fps.", specs: ["4K 120fps", "Canon Log 3", "15+ Stops DR"], price: "PKR 5,49,000", badge: "Cinema", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo7bJCjU9dMjpseJTh9IHmLhFoU4LznObtCRLnDJq7DA&s=10" },
+        { name: "PowerShot V10", category: "Compact", desc: "Vlog-first compact with selfie 4K and built-in stand.", specs: ["4K Selfie", "Built-in Stand", "Stereo Mic"], price: "PKR 89,000", badge: "Vlog", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmUYOpGo8a6SrhGvM2Xh-5IvVtihXUke2_pVkEvYu8jw&s=10" }
+    ],
+    nikon: [
+        { name: "Nikon Z8", category: "Mirrorless", desc: "45.7MP stacked sensor with 8.3K N-RAW internal video.", specs: ["45.7MP", "8.3K N-RAW", "EXPEED 7"], price: "PKR 8,95,000", badge: "Flagship", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRELSLwI2LW9tAePJJNwlv8_uPP-GvOFiAL2rGln77PtQ&s=10" },
+        { name: "Nikon Z6 III", category: "Mirrorless", desc: "Partially-stacked CMOS sensor with 6K RAW video.", specs: ["24.5MP", "6K RAW", "8.0 Stop IBIS"], price: "PKR 5,45,000", badge: "New", img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk8BDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIAIoA9gMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABAUCAwcGAQj/xABCEAABAwIDBQQHBgQDCQAAAAABAAIDBBEFEiExQVFhcQYTIjIHFEKBkaHBIzNSseHwYnKy0RZ0wxUkNDVDY2SCs//EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABoRAQACAwEAAAAAAAAAAAAAAAABEQIxQSH/2gAMAwEAAhEDEQA/AOnIiICIiAiIgIiICIiAiIgIiICIoWK4pS4VSGoqnkDY1rRdzzwA3oJqLlWO9pK3FXODZnQQ28MLS8N/9rDxH5Ktdi2KxsZHT4pPFGzQBs5aAOgQdnui5CzHsbjDG0uIVkjjpne7MB7jdWDO2WL0DGitrIZ5CReMxC4HUWQdORVPZ3HabHKN00NhJG7LIzgdo9ytkBERAREQEREBERAREQEREBERAREQEREBVuNY5Q4JAyWue4d4bMYwXc5VHafGqnDK3uWFwbJCTC1oBzO2EuO0W0K8TVTSVrIZq2cSOjGS5c5xOnmudAOQCD1Z9I+G5yBRVRHHwj6q3wntbhGJhwbOKd7dSychl+hOhXLow2eo7uOGEFo9hxJeepsAvoifM6UxiVjGjKZHm3X3IO0xzxSC8cjHDi1wKzuuCMw2d5EvdC9tBG7KR79qktOKU9u6q6+K25sz7D5oO4yPayNznkNa0XJOwBeE/wB47S1VViLGh1M1wipg7QCO9s3Um5vwAXi5MZxeSN1JVYrVGnlGSVkhuMp230uryPtDQw0wpqesyRhuXKAQLEW/IIJNRhsvcOlbCHsa0OOQEkA3tp0F+iqKmmLHZZIJGEi/iaRpx1Vh/iXQhldC4F4eQQNSCCPyCzPaauJe9hgc4iwc0HTbz4knqgqpZfV8HeyFjWvNj3gHi1P9rKjaWCa89yHaXvv4q7q2l1I9h1ORt+dgD9FTU7I5a4RSNBaBYbdvPUKj1voqqe7xitptAJ4Q4Dm0n6OK6jdcLp3zUFRHJTS91K27bs8JA5kbbr02E9pMVpK6Fk+INqY5JgHtlNw1h57rKDp6LFrg9gcxwc0i4INwVkgIiICIiAiIgIiICIiAiIgIiIC1VM7KamlqJSQyJhe48ABcraq/tBYdnsSubD1WT+koOU11TW9oKl9WfvKj2Qb5Gbmj96laa01bx6szv3NbtzMykjmSouHxTNd4Hu0BGVrwDe43HXZfYvte6d2YSzVAI2B6C09ahZQthmaxoYCBvOup6m6oMSxF07e5iuyLfxd1/sohkkaCHErSAXuPDeeCCS2vnZO17Z5fKB5jbRWcWKT2zGTdfUD+yp2RGRwEcZeRwF1Ojonkfa/ZMGuUG5KDfBQTYg4zyyNggJvmdqT0C2yYfRsFoYKqY7M5IAJQyODQy7bN2Zr2CjyT1EYuA4N/hOio01VIIXt8pDmh3gdmtyPNRzDc3bYlTopqiWRrs7y8aam9+qn09LDMSJwc++2ighUlTLERBV5tfK529G0TO+MwnLXX2XsrGY07LUtfmmpb+GRoHeR9CqjvTqC65bp1ColyUz3SB4m05uFlZw4PFUwGWWtga1o8jSXE/voqJkzDmD94sLqx7MuY6rnYLZcpKC87P4rJhmJUDaOVzqCSQxyU40FzsIvpe9ju3711BpB1G9cOE8kMrSwi0Ty6M7bEn9F13s/jEWNYf6zFG6Msd3cjXbnWB04ixCgtUREBERAREQEREBERAREQEREBRsSpxV4bVUxOksLmfEEKSsZCGscTuBKDg0VVKIGSOja67QdhUeoq2P8ANE73Ot+Sn0cIdh8Lt+QfktUlIyRxB0A83JBUPmZfwxXO7M4lTaOgmnaH1N4ozsYNCVKifR0tu6LXPGuYMMhHvuAPmtvrskoJZ3nXu2n8kGwAQxhkDGNaBuK0Pkk1uwn+XVYyTSOPiykk7xkP1WcIc9wYHEOPsuG3p+l0GLHsd7ViNoOhC2gX0+H7/f1WyWleGtfJH4TYhw1GuzVYjwN2gjdfeqNlN3UB8TC4E6W+im1EkT4e8jAsNjwq5zha9r9d6xZI3O5rz4S1w142QRq6Yu3+HkozI5HEC3iLcw5tK2NvmBaLlpFg43F18pZRHX07iRkLrFo2NF/1UGdM6FkjjK0OZbRpG337lMwywmc5gAu07L2A4c/eoVeI21srYnXa15H7+al4YftCLeyQqMSb8+K6T6NyTgVQf/J/02Lmx0sulejb/kM/+Z/02KD1qIiAiIgIiICIiAiIgIiICIiAtVX/AMJMf+278ltUfEJWQ4fUyyGzGROc48AAg4f60IaGKNungbcjpoBzUKRxkHjsGNOjBsH9+qx1dla63gAGh371nS00uI10dLAPE74NA2koNYkucrGkr46d7DY3HQBekkwqKnYYKcEMb95Ja73ngtAw2nja97qcEM87nWIb1c7S/IBLamKUYrS4We4kcHBSIJxYAAFpN8jtQeY581lPPhTgRJS673ROFx8hdQ5KdrW9/QymaEeZpFnM6j6qsvTYfWSGmmyQmpYxt3xl4zgX1Nj5tN/xvtUaqEOklO7NDILhVdDVOa9kkbyyVh8Lgt9RIGyGSNuSKU3e0bGO4jkUHwyOY/Kdh2FYk3WMgLo/4m6+9GEOaCNhQfO5kDXTktZGwg3LvMeA52UObw11hp4gpck2SOSMmwezcd/D98FAc69QXH2R9FBNo5c2IuNzkkl1G43KmYVtBH4PoqpguM1yCSTcK2wofaED8BQfHLpfo40wCbnUn/5sXM7k3u21ua6b6OtOz0n+YP8AQxB6tERAREQEREBERAREQEREBERAVB24ndB2UrC02LwGX6lX6832/jMnZOpA9lzXH4oOON8q9L2Pp2xwVlYbZ9ImngLZj8dPgvNs1BV/glUIsKqIr6iS/wARZGsNr9oaWtbexOpPM/ovM4zUmrnfFGSKeF2SOMbCeJ5kqU7E8sgJOm35KgFUYa1xdraTNb33WVz2j1IkjdawDTpsWlkj4JQ+M+IbeB5FZ1VQZZjm2X0WqS2azRbeUi+sN5yxzsfFpHMMzR+E7x8VYC0sdneV4sVVm/qLOLZDYqxpz9l0N1sISbDNq4XadN4/QhYsOVrhe+VyF2Sd7dviB+RC0ukyl/Nyg11TruC0NF9Brc6lfXXe662xsa0bRdBsa3wqzwv70/ylVwVjhhAe7X2SgwcLuJ1XUfR+zu+zmw2dM4gnfoB9F4jstgMmO4kM4IoYTeZ/4v4BzPyC63FEyGNscTQyNgs1oFgAgzREQEREBERAREQEREBERAREQFAx2jOIYLWUjRd0kRDeu0fNT18KD8+N8xBBHIiy2U0xilcwnR/hK9B28wc4RjpqYmWpawl7TbQO9ofVecnjzDO3380Hyd5IcN7D8lFktPY5ssgFhwcFtecwBJs4bFGOW+vhPA7P0RZ9fcsubK6B5PIXUpuGVUjBI+PumHZn0Lug2rOicQ8ffADcxwP5qdU4iyKMtYMkh0LnuzPty4KsqmpjyBlM03LTcnmVNi0jcB0WiCnc49/ICLnwg7epUjye7xFFR5nD1pxG4WXo+xnZJ+PzmqrmuZhrb6g5TK7g3kN5/VZ9ieyX+33vr8QbI2ga6zQLtMx4X4DeV1yCGKngZDBGyOKMZWMa2waOACg8XP6MsJf9xWVkPLM135hV0/otfmPq+MADcJILn4ghdJRByab0Z42w3iqaCUfzvYf6T+akYT6PcYFUPXqmCng9sxSF7yOA0sOq6iiCNQUNLh9HHS0cTY4WDQDfzPEqSiICIiAiIgIiICIiAiIgIiICIiAiIgr8bwmmxrDpKKrHhdq1w2sduIXGsSw+owbEZaCrteM6OGwjcV3VVOO4BQ45Td1VtLXtB7uVnmZ05cig4rLT5mGSPZvUcU+Y2dpxsvT4v2OxfCXOcyP1mnH/AFIWk/Fu0fPqqLM55IsHkHW20Hmg+RYPDJ5nuHQBTIsPoqUB1s7xsLjc/Ba2vJ0EBHvX1zyCGeFpcLBo8Rd7hqSg+zOG21uSmdncAn7RYn6uLtpIyDVSjcPwDmfkrTA+xeI4nIySrD6Gk2lzx9q8cGt9nqfgul4bh1LhdGykoYWxQs2Bu88TxKDbTQRUtOyCnjbHFGMrGNGgC2oiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiD5ZQq3BsLxB2atw6lneNA+SJpcPftU5EFH/g/s8Tc4ZGeWd1vhdT6HCMMw4k0FBTU5OhMcQaT71NRAsiIgIiICIiAiIgIiICIiAiIgIiICIiD//Z" },
+        { name: "Nikon Z f", category: "Mirrorless", desc: "Retro-style mirrorless with brass mechanical dials.", specs: ["24.5MP", "Retro Dials", "Pixel Shift"], price: "PKR 4,35,000", badge: "Retro", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4YaQWhLH_mkLgPynhMmYMiIcumDwO9-sTtdB-MxWzw&s=10" },
+        { name: "Nikon Z30", category: "Mirrorless", desc: "Vlogging-focused APS-C body with flip screen.", specs: ["20.9MP", "4K", "Flip Screen"], price: "PKR 1,15,000", badge: "Vlog", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbg_OGKyJYmMiHvYBpl5AzL_ecUUOaCYiSzQOYt8hp8Q&s=10" },
+        { name: "Nikon D7500", category: "DSLR", desc: "20.9MP APS-C DSLR with weather sealing.", specs: ["20.9MP", "8fps", "Weather Sealed"], price: "PKR 1,99,000", badge: "DSLR", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4PqeyG70PgOgYtiwyE_S1JtkPOruk1ZOT9f8lxJrQDA&s" },
+        { name: "NIKKOR Z 85mm f/1.2 S", category: "Lens", desc: "Ultimate flagship portrait lens with multi-focus system.", specs: ["f/1.2", "S-Line", "Dual Linear Motors"], price: "PKR 6,15,000", badge: "S-Line", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0fjF0YicbUZMeciZrNVoc6WhCI_z5tXhJz2QBUtJ7_Q&s=10" },
+        { name: "NIKKOR Z 24-70mm f/2.8 S", category: "Lens", desc: "Professional standard zoom with OLED display.", specs: ["f/2.8", "S-Line", "OLED Display"], price: "PKR 4,65,000", badge: "S-Line", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5IeMUuLj3v8YepVuS9ZftDdVNfbEl9Prxaqm9MDGb9w&s=10" },
+        { name: "NIKKOR Z 70-200mm f/2.8 S", category: "Lens", desc: "Professional telephoto zoom with VR stabilization.", specs: ["70-200mm", "f/2.8", "VR"], price: "PKR 5,49,000", badge: "S-Line", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfWkhP2RNLaw4fhiHxaKVd7ikHI76nWl6EdC71_lgRgQ&s=10" },
+        { name: "Nikon Z9", category: "Flagship", desc: "Full-size flagship with 8K 60p recording.", specs: ["45.7MP", "8K/60p", "Dual CFexpress"], price: "PKR 12,90,000", badge: "Flagship", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvidOVL-t6HRhsTsCmFFOSoIR5dQxc0YWq6IObn9hyfQ&s=10" },
+        { name: "NIKKOR Z 50mm f/1.8 S", category: "Lens", desc: "Compact full-frame prime with stunning sharpness.", specs: ["f/1.8", "S-Line", "Compact"], price: "PKR 1,99,000", badge: "S-Line", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt2nWZ9dDhVaxqUsAgdmWCJtWR6mJTWHkklnMNap9a8w&s=10" }
+    ],
+    sony: [
+        { name: "Alpha 7R V", category: "Mirrorless", desc: "61MP full-frame with AI autofocus and 8K video.", specs: ["61MP", "8K", "AI Tracking"], price: "PKR 6,85,000", badge: "High Res", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0mTb5iQ5JhH0Zn0OAZGCpXJHOhTulpOqLplxW5hXqoQ&s" },
+        { name: "Alpha 7 IV", category: "Mirrorless", desc: "33MP hybrid powerhouse with 4K 60p and S-Cinetone.", specs: ["33MP", "4K 60p", "S-Cinetone"], price: "PKR 4,35,000", badge: "Best Seller", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9Qw_zEkp5jWatyoNAtJTkj2wBZr8ZZ7_jq1nGcKhxbg&s=10" },
+        { name: "Alpha 6700", category: "Mirrorless", desc: "Flagship APS-C with AI recognition and 4K 120p.", specs: ["26MP APS-C", "4K 120p", "AI Autofocus"], price: "PKR 2,95,000", badge: "APS-C", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8zoja0Dh6zMLo7j1UJuKcGTolF2vn8vcdWOSHt-UOLA&s=10" },
+        { name: "ZV-E10", category: "Vlog", desc: "Interchangeable lens vlogging camera with product showcase.", specs: ["4K Vlog", "Product Showcase", "Flip LCD"], price: "PKR 1,65,000", badge: "Vlog King", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTljCZAPSif-lwa1ZyboQa3Vffr7u3-l2OY33z64_2ASA&s=10" },
+        { name: "ZV-E1", category: "Vlog", desc: "Full-frame vlog camera with AI autofocus and 4K 120p.", specs: ["Full-Frame", "4K 120p", "AI AF"], price: "PKR 3,45,000", badge: "Full-Frame Vlog", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Zj9vtnC_SjudWJT3DopZS3gwxYfUf13yHCM8sOvnkw&s=10" },
+        { name: "FE 50mm f/1.2 GM", category: "Lens", desc: "Premium portrait lens with stunning bokeh and sharpness.", specs: ["f/1.2", "G-Master", "XD Motor"], price: "PKR 4,65,000", badge: "G-Master", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk8iWkWNgWo-yX2I5fxTjniTTKc5LIDDgDw_m9v6vKoQ&s=10" },
+        { name: "FE 24-70mm f/2.8 GM II", category: "Lens", desc: "Duniya ka sabse halka f/2.8 standard zoom.", specs: ["f/2.8", "G-Master II", "Weather Sealed"], price: "PKR 5,15,000", badge: "G-Master II", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9jwZ1njIXjd19u6TdA_Cw2T2K93ZJDfmYmWU3wXGXYQ&s" },
+        { name: "FE 70-200mm f/2.8 GM OSS", category: "Lens", desc: "Professional telephoto zoom with optical stabilization.", specs: ["70-200mm", "f/2.8", "OSS"], price: "PKR 6,50,000", badge: "G-Master", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKS3r32hoJNgRBL4RX99XwDa1z7-wNNtJ-ePC4rXV5_Q&s=10" },
+        { name: "FX30 Cinema", category: "Video", desc: "Indie filmmaker's choice with dual base ISO and S-Log3.", specs: ["4K Super35", "Dual Base ISO", "XAVC S-I"], price: "PKR 3,99,000", badge: "Cinema Line", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd8qu3c7D331tMSxBbhn17NqsHwTm-M--5MuYUtO1MsA&s=10" },
+        { name: "FE 85mm f/1.4 GM", category: "Lens", desc: "G Master portrait lens with razor sharp bokeh.", specs: ["f/1.4", "G-Master", "XD Motor"], price: "PKR 3,99,000", badge: "G-Master", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIfInD50kqA8Q2gQ3kw8sf8LzE-EqNvZWIYxcwScK8TA&s=10" }
+    ],
+    fujifilm: [
+        { name: "X-T5", category: "Mirrorless", desc: "40MP APS-C with retro dials and 6.2K video.", specs: ["40.2MP", "6.2K", "7-Stop IBIS"], price: "PKR 3,85,000", badge: "Photographer's Pick", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMF4UCp4PO9oulO5aDFFMi5EqBQXyFhqu0o3yTIOU09w&s=10" },
+        { name: "X100VI", category: "Compact", desc: "40MP compact with hybrid viewfinder and film simulations.", specs: ["40.2MP", "Hybrid Viewfinder", "IBIS"], price: "PKR 3,95,000", badge: "Global Trend", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdDh0tIUsQnPLHkVaZY8W5XGU1CjjgzPyqMTVmaT-9A&s" },
+        { name: "X-H2S", category: "Mirrorless", desc: "Stacked CMOS with 40fps burst and 4K 120p ProRES.", specs: ["26.1MP Stacked", "4K 120p", "40fps"], price: "PKR 5,10,000", badge: "Speed & Video", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyAdEADHwhJ5dSZBJaZqwUywiGvdLoU9fQz8uhG4BhFA&s=10" },
+        { name: "X-T50", category: "Mirrorless", desc: "40MP compact with dedicated Film Simulation dial.", specs: ["40.2MP", "Simulation Dial", "IBIS"], price: "PKR 2,90,000", badge: "New Arrival", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzTA-2K3cMQHSWC-3Uh6fHnKWCJkygYmOqWG4vq-Lcxg&s=10" },
+        { name: "X-S20", category: "Mirrorless", desc: "Vlog-friendly grip with 6.2K video and IBIS.", specs: ["26MP", "6.2K", "Vlog-friendly"], price: "PKR 2,19,000", badge: "Vlog", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc9K3bc9K6JfDoKmJK2dbaL9UwGX4N6bCYwBjIJ-5QKw&s" },
+        { name: "GFX 100S II", category: "Medium Format", desc: "102MP medium format with 8-stop IBIS.", specs: ["102MP", "8-Stop IBIS", "Medium Format"], price: "PKR 12,50,000", badge: "102MP", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHBP49nliZ1-H0ssSku_yVCxmXo-Q9mWUV7ISPftSDA&s=10" },
+        { name: "XF 56mm f/1.2 R WR", category: "Lens", desc: "Ultimate portrait glass with weather sealing.", specs: ["f/1.2", "Weather Sealed", "Bokeh Master"], price: "PKR 2,35,000", badge: "Bokeh Master", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN41aCWzJP9b3delKgb5vwh6m82llnJXlTaZNB-Ojk3g&s=10" },
+        { name: "XF 16-55mm f/2.8", category: "Lens", desc: "Flagship Red Badge zoom with prime-like sharpness.", specs: ["f/2.8", "Red Badge", "Pro Resolution"], price: "PKR 2,65,000", badge: "Red Badge", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQFfIoRctss1vmTjq4deyVxTXWu3rqozZMhQ0I7mHXNw&s=10" },
+        { name: "XF 50-140mm f/2.8", category: "Lens", desc: "Professional telephoto zoom with OIS and weather sealing.", specs: ["50-140mm", "f/2.8", "OIS"], price: "PKR 3,49,000", badge: "Red Badge", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2pV9ME4QUwIKgomQ2E-IwSuLK3xeng0gD5Ncl8HMlQA&s" },
+        { name: "X-Pro3", category: "Rangefinder", desc: "Classic rangefinder style with hidden LCD and film sims.", specs: ["26MP", "Hybrid Viewfinder", "Film Sims"], price: "PKR 3,29,000", badge: "Rangefinder", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdr8SyARcCwubpY3odoCKkAkSd9YAwBEtnhKnKSakdsg&s=10" }
+    ],
+    panasonic: [
+        { name: "Lumix S5 II", category: "Full-Frame", desc: "24MP full-frame with phase-detection AF and 6K video.", specs: ["24MP", "6K", "Phase-Detect AF"], price: "PKR 4,49,000", badge: "Flagship", img: "https://picsum.photos/seed/pana1/400/300" },
+        { name: "Lumix S5 IIX", category: "Full-Frame", desc: "Pro variant with ProRes recording and RAW output.", specs: ["24MP", "ProRes", "RAW Output"], price: "PKR 5,19,000", badge: "Cinema", img: "https://picsum.photos/seed/pana2/400/300" },
+        { name: "Lumix GH6", category: "Micro Four Thirds", desc: "25.2MP with 5.7K video and dual native ISO.", specs: ["25.2MP", "5.7K", "Dual Native ISO"], price: "PKR 3,49,000", badge: "Best Seller", img: "https://picsum.photos/seed/pana3/400/300" },
+        { name: "Lumix GH5 II", category: "Micro Four Thirds", desc: "20.3MP with unlimited 4K 60fps recording.", specs: ["20.3MP", "4K 60fps", "V-Log L"], price: "PKR 2,19,000", badge: "Content Creator", img: "https://picsum.photos/seed/pana4/400/300" },
+        { name: "Lumix G100", category: "Vlog", desc: "Vlogging-first with OZO Audio and 4K video.", specs: ["20MP", "4K", "OZO Audio"], price: "PKR 99,000", badge: "Vlog", img: "https://picsum.photos/seed/pana5/400/300" },
+        { name: "Lumix S 50mm f/1.8", category: "Lens", desc: "Compact full-frame prime with beautiful bokeh.", specs: ["f/1.8", "L-Mount", "Weather Sealed"], price: "PKR 1,99,000", badge: "L-Mount", img: "https://picsum.photos/seed/pana6/400/300" },
+        { name: "Lumix S 24-105mm f/4", category: "Lens", desc: "Versatile standard zoom with constant f/4 aperture.", specs: ["f/4", "L-Mount", "OIS"], price: "PKR 3,29,000", badge: "L-Mount", img: "https://picsum.photos/seed/pana7/400/300" },
+        { name: "Lumix S 70-200mm f/4", category: "Lens", desc: "Compact telephoto zoom with constant f/4 aperture.", specs: ["70-200mm", "f/4", "L-Mount"], price: "PKR 3,99,000", badge: "L-Mount", img: "https://picsum.photos/seed/pana8/400/300" },
+        { name: "Lumix GH5S", category: "Video", desc: "10.2MP low-light beast with dual native ISO.", specs: ["10.2MP", "4K 60fps", "Dual Native ISO"], price: "PKR 3,99,000", badge: "Cinema", img: "https://picsum.photos/seed/pana9/400/300" },
+        { name: "Lumix FZ300", category: "Compact", desc: "24x optical zoom bridge camera with f/2.8 constant.", specs: ["12.1MP", "24x Zoom", "f/2.8"], price: "PKR 79,000", badge: "Bridge", img: "https://picsum.photos/seed/pana10/400/300" }
+    ],
+    leica: [
+        { name: "Leica M11", category: "Rangefinder", desc: "60MP full-frame rangefinder with iconic M-Mount.", specs: ["60MP", "M-Mount", "Made in Germany"], price: "PKR 21,50,000", badge: "Flagship", img: "https://picsum.photos/seed/leica1/400/300" },
+        { name: "Leica Q3", category: "Compact", desc: "60MP compact with 28mm f/1.7 lens and 8K video.", specs: ["60MP", "28mm f/1.7", "8K"], price: "PKR 13,50,000", badge: "Best Seller", img: "https://picsum.photos/seed/leica2/400/300" },
+        { name: "Leica SL3", category: "Mirrorless", desc: "60MP professional mirrorless with L-Mount and 8K.", specs: ["60MP", "L-Mount", "8K", "Weather Sealed"], price: "PKR 18,50,000", badge: "Pro Mirrorless", img: "https://picsum.photos/seed/leica3/400/300" },
+        { name: "Leica M6 Reissue", category: "Rangefinder", desc: "Iconic film rangefinder re-released with modern improvements.", specs: ["35mm Film", "M-Mount", "Rangefinder"], price: "PKR 8,99,000", badge: "Classic", img: "https://picsum.photos/seed/leica4/400/300" },
+        { name: "Leica Summilux-M 35mm f/1.4", category: "Lens", desc: "Legendary fast wide-angle lens with stunning bokeh.", specs: ["f/1.4", "M-Mount", "Made in Germany"], price: "PKR 7,50,000", badge: "Legendary", img: "https://picsum.photos/seed/leica5/400/300" },
+        { name: "Leica Summilux-M 50mm f/1.4", category: "Lens", desc: "The quintessential Leica lens for portraits.", specs: ["f/1.4", "M-Mount", "Made in Germany"], price: "PKR 5,99,000", badge: "Classic", img: "https://picsum.photos/seed/leica6/400/300" },
+        { name: "Leica APO-Summicron-SL 50mm f/2", category: "Lens", desc: "APO corrected lens with stunning color accuracy.", specs: ["f/2", "L-Mount", "APO Design"], price: "PKR 9,99,000", badge: "APO", img: "https://picsum.photos/seed/leica7/400/300" },
+        { name: "Leica D-Lux 8", category: "Compact", desc: "Premium compact with 4/3 sensor and Leica optics.", specs: ["4/3 Sensor", "Leica Lens", "Compact"], price: "PKR 4,99,000", badge: "Compact", img: "https://picsum.photos/seed/leica8/400/300" },
+        { name: "Leica APO-Telyt-R 280mm", category: "Lens", desc: "Ultra-telephoto lens for wildlife and sports.", specs: ["280mm", "APO", "R-Mount"], price: "PKR 12,50,000", badge: "Telephoto", img: "https://picsum.photos/seed/leica9/400/300" },
+        { name: "Leica Sofort 2", category: "Instant", desc: "Instant camera with Leica design and film simulations.", specs: ["Instant Print", "Leica Design", "Film Sims"], price: "PKR 2,99,000", badge: "Instant", img: "https://picsum.photos/seed/leica10/400/300" }
+    ],
+    hasselblad: [
+        { name: "X2D 100C", category: "Medium Format", desc: "100MP with IBIS, 15 stops DR, and HNCS color.", specs: ["100MP", "IBIS", "15 Stops DR"], price: "PKR 28,50,000", badge: "Flagship", img: "https://picsum.photos/seed/hass1/400/300" },
+        { name: "X1D II 50C", category: "Medium Format", desc: "50MP compact medium format with HNCS color.", specs: ["50MP", "HNCS", "Compact MF"], price: "PKR 15,50,000", badge: "Compact MF", img: "https://picsum.photos/seed/hass2/400/300" },
+        { name: "H6D-100c", category: "H-System", desc: "100MP professional studio camera with modular design.", specs: ["100MP", "HNCS", "Modular"], price: "PKR 35,00,000", badge: "Studio Pro", img: "https://picsum.photos/seed/hass3/400/300" },
+        { name: "XCD 45mm f/4 P", category: "Lens", desc: "Compact medium format lens with stunning sharpness.", specs: ["45mm", "f/4", "HNCS"], price: "PKR 4,99,000", badge: "XCD Lens", img: "https://picsum.photos/seed/hass4/400/300" },
+        { name: "XCD 90mm f/2.5 V", category: "Lens", desc: "Fast portrait lens with stunning bokeh for medium format.", specs: ["90mm", "f/2.5", "V-Series"], price: "PKR 6,99,000", badge: "Portrait", img: "https://picsum.photos/seed/hass5/400/300" },
+        { name: "XCD 28mm f/4", category: "Lens", desc: "Wide-angle lens for landscape and architecture.", specs: ["28mm", "f/4", "HNCS"], price: "PKR 5,49,000", badge: "Wide Angle", img: "https://picsum.photos/seed/hass6/400/300" },
+        { name: "500C/M Vintage", category: "Film", desc: "Iconic vintage medium format film camera restored.", specs: ["6x6 Format", "Vintage", "Restored"], price: "PKR 8,50,000", badge: "Classic", img: "https://picsum.photos/seed/hass7/400/300" },
+        { name: "907X 50C", category: "Medium Format", desc: "Modular medium format camera with unique design.", specs: ["50MP", "Modular", "HNCS"], price: "PKR 18,50,000", badge: "Modular", img: "https://picsum.photos/seed/hass8/400/300" },
+        { name: "CFV II 50C Digital Back", category: "Accessory", desc: "Digital back for vintage Hasselblad V cameras.", specs: ["50MP", "V-Mount", "HNCS"], price: "PKR 14,50,000", badge: "Digital Back", img: "https://picsum.photos/seed/hass9/400/300" },
+        { name: "HC 80mm f/2.8", category: "Lens", desc: "Standard lens for H-System with stunning sharpness.", specs: ["80mm", "f/2.8", "H-Mount"], price: "PKR 4,49,000", badge: "H-System", img: "https://picsum.photos/seed/hass10/400/300" }
+    ],
+    gopro: [
+        { name: "Hero13 Black", category: "Action", desc: "5.3K60 video, HyperSmooth 6.0, waterproof to 33ft.", specs: ["5.3K60", "HyperSmooth 6.0", "Waterproof"], price: "PKR 1,29,000", badge: "Flagship", img: "https://picsum.photos/seed/gopro1/400/300" },
+        { name: "Hero12 Black", category: "Action", desc: "5.3K HDR video with HyperSmooth 6.0 stabilization.", specs: ["5.3K", "HDR", "HyperSmooth 6.0"], price: "PKR 99,000", badge: "Best Seller", img: "https://picsum.photos/seed/gopro2/400/300" },
+        { name: "Hero11 Black", category: "Action", desc: "5.3K video with HyperSmooth 5.0 and larger sensor.", specs: ["5.3K", "HyperSmooth 5.0", "Larger Sensor"], price: "PKR 79,000", badge: "Action", img: "https://picsum.photos/seed/gopro3/400/300" },
+        { name: "GoPro Max", category: "360°", desc: "Dual-lens 360° capture with 5.6K video.", specs: ["5.6K 360°", "360 Audio", "Waterproof"], price: "PKR 1,09,000", badge: "360°", img: "https://picsum.photos/seed/gopro4/400/300" },
+        { name: "Volta Battery Grip", category: "Accessory", desc: "Built-in battery extends run time with remote control.", specs: ["Extends Battery", "Tripod Mount", "Remote Control"], price: "PKR 25,000", badge: "Accessory", img: "https://picsum.photos/seed/gopro5/400/300" },
+        { name: "Head Strap Mount", category: "Accessory", desc: "Hands-free head mount for POV shooting.", specs: ["Hands-Free", "Adjustable", "Secure Fit"], price: "PKR 4,500", badge: "Accessory", img: "https://picsum.photos/seed/gopro6/400/300" },
+        { name: "Dual Battery Charger", category: "Accessory", desc: "Charge two batteries simultaneously with fast charging.", specs: ["Dual Charging", "Fast Charge", "LED Indicator"], price: "PKR 8,000", badge: "Accessory", img: "https://picsum.photos/seed/gopro7/400/300" },
+        { name: "GoPro Media Mod", category: "Accessory", desc: "Media mod with directional mic and HDMI output.", specs: ["Directional Mic", "HDMI", "Cold Shoe"], price: "PKR 18,000", badge: "Media Mod", img: "https://picsum.photos/seed/gopro8/400/300" },
+        { name: "GoPro Floaty", category: "Accessory", desc: "Floatation device for water sports and diving.", specs: ["Floating", "Bright Color", "Secure Mount"], price: "PKR 5,500", badge: "Float", img: "https://picsum.photos/seed/gopro9/400/300" },
+        { name: "GoPro Chest Mount", category: "Accessory", desc: "Chest harness for immersive POV perspective.", specs: ["POV", "Adjustable", "Comfortable"], price: "PKR 6,500", badge: "Chest Mount", img: "https://picsum.photos/seed/gopro10/400/300" }
+    ],
+    olympus: [
+        { name: "OM-D E-M1 Mark III", category: "Mirrorless", desc: "20MP weather-sealed with 5-axis IBIS and 60fps.", specs: ["20MP", "5-Axis IBIS", "60fps"], price: "PKR 3,49,000", badge: "Flagship", img: "https://picsum.photos/seed/olym1/400/300" },
+        { name: "OM-D E-M5 Mark III", category: "Mirrorless", desc: "20MP lightweight weather-sealed with IBIS.", specs: ["20MP", "5-Axis IBIS", "Weather Sealed"], price: "PKR 2,19,000", badge: "Best Seller", img: "https://picsum.photos/seed/olym2/400/300" },
+        { name: "PEN E-P7", category: "Compact", desc: "Retro-style compact with 20MP sensor and IBIS.", specs: ["20MP", "Retro Design", "IBIS"], price: "PKR 1,69,000", badge: "Style Icon", img: "https://picsum.photos/seed/olym3/400/300" },
+        { name: "TOUGH TG-6", category: "Rugged", desc: "Waterproof, shockproof, freezeproof compact camera.", specs: ["Waterproof", "Shockproof", "12MP"], price: "PKR 99,000", badge: "Rugged", img: "https://picsum.photos/seed/olym4/400/300" },
+        { name: "M.Zuiko 12-40mm f/2.8 Pro", category: "Lens", desc: "Professional standard zoom with weather sealing.", specs: ["f/2.8", "Weather Sealed", "Pro Series"], price: "PKR 2,65,000", badge: "Pro Lens", img: "https://picsum.photos/seed/olym5/400/300" },
+        { name: "M.Zuiko 40-150mm f/2.8 Pro", category: "Lens", desc: "Professional telephoto zoom with stunning bokeh.", specs: ["40-150mm", "f/2.8", "Pro Series"], price: "PKR 3,49,000", badge: "Telephoto Pro", img: "https://picsum.photos/seed/olym6/400/300" },
+        { name: "M.Zuiko 45mm f/1.8", category: "Lens", desc: "Affordable portrait lens with beautiful bokeh.", specs: ["f/1.8", "Compact", "Great Bokeh"], price: "PKR 69,000", badge: "Portrait", img: "https://picsum.photos/seed/olym7/400/300" },
+        { name: "M.Zuiko 17mm f/1.8", category: "Lens", desc: "Classic street photography lens with fast aperture.", specs: ["17mm", "f/1.8", "Compact"], price: "PKR 79,000", badge: "Street", img: "https://picsum.photos/seed/olym8/400/300" },
+        { name: "OM-D E-M10 Mark IV", category: "Mirrorless", desc: "Entry-level OMD with 20MP and 5-axis IBIS.", specs: ["20MP", "5-Axis IBIS", "Compact"], price: "PKR 1,49,000", badge: "Entry Level", img: "https://picsum.photos/seed/olym9/400/300" },
+        { name: "M.Zuiko 12mm f/2", category: "Lens", desc: "Ultra-wide angle lens for landscape and architecture.", specs: ["12mm", "f/2", "Compact"], price: "PKR 1,19,000", badge: "Wide Angle", img: "https://picsum.photos/seed/olym10/400/300" }
+    ],
+    sigma: [
+        { name: "50mm f/1.4 Art", category: "Lens", desc: "Iconic portrait lens with stunning bokeh and sharpness.", specs: ["f/1.4", "Art Series", "Multi-Mount"], price: "PKR 2,49,000", badge: "Art Series", img: "https://picsum.photos/seed/sigma1/400/300" },
+        { name: "24-70mm f/2.8 Art", category: "Lens", desc: "Professional standard zoom with constant f/2.8.", specs: ["f/2.8", "Art Series", "Weather Sealed"], price: "PKR 3,99,000", badge: "Art Series", img: "https://picsum.photos/seed/sigma2/400/300" },
+        { name: "85mm f/1.4 Art", category: "Lens", desc: "Ultimate portrait lens with creamy bokeh and sharpness.", specs: ["f/1.4", "Art Series", "Portrait"], price: "PKR 3,49,000", badge: "Art Series", img: "https://picsum.photos/seed/sigma3/400/300" },
+        { name: "150-600mm f/5-6.3 Sports", category: "Lens", desc: "Super-telephoto zoom for wildlife and sports.", specs: ["150-600mm", "Sports Series", "Weather Sealed"], price: "PKR 4,49,000", badge: "Sports Series", img: "https://picsum.photos/seed/sigma4/400/300" },
+        { name: "100-400mm f/5-6.3 Contemporary", category: "Lens", desc: "Compact telephoto zoom for travel and wildlife.", specs: ["100-400mm", "Contemporary", "Compact"], price: "PKR 2,99,000", badge: "Contemporary", img: "https://picsum.photos/seed/sigma5/400/300" },
+        { name: "28-70mm f/2.8 Contemporary", category: "Lens", desc: "Ultra-compact standard zoom with constant f/2.8.", specs: ["f/2.8", "Contemporary", "Compact"], price: "PKR 2,19,000", badge: "Contemporary", img: "https://picsum.photos/seed/sigma6/400/300" },
+        { name: "Sigma fp", category: "Camera", desc: "Duniya ka sabse chhota full-frame mirrorless camera.", specs: ["24.6MP", "Full-Frame", "Modular"], price: "PKR 3,49,000", badge: "Camera", img: "https://picsum.photos/seed/sigma7/400/300" },
+        { name: "35mm f/1.4 Art", category: "Lens", desc: "Wide prime with high sharpness and beautiful bokeh.", specs: ["f/1.4", "Art Series", "Multi-Mount"], price: "PKR 2,29,000", badge: "Art Series", img: "https://picsum.photos/seed/sigma8/400/300" },
+        { name: "105mm f/1.4 Art", category: "Lens", desc: "Legendary portrait lens with unmatched bokeh.", specs: ["f/1.4", "Art Series", "Portrait"], price: "PKR 4,99,000", badge: "Art Series", img: "https://picsum.photos/seed/sigma9/400/300" },
+        { name: "14-24mm f/2.8 Art", category: "Lens", desc: "Ultra-wide zoom for landscape and architecture.", specs: ["14-24mm", "f/2.8", "Art Series"], price: "PKR 3,79,000", badge: "Art Series", img: "https://picsum.photos/seed/sigma10/400/300" }
+    ],
+    tamron: [
+        { name: "28-75mm f/2.8 Di III VXD", category: "Lens", desc: "Popular standard zoom for mirrorless with fast AF.", specs: ["f/2.8", "Di III", "VXD Motor"], price: "PKR 1,99,000", badge: "Best Seller", img: "https://picsum.photos/seed/tamron1/400/300" },
+        { name: "18-300mm f/3.5-6.3 Di III-A VC", category: "Lens", desc: "Ultra-zoom lens for APS-C mirrorless cameras.", specs: ["18-300mm", "VC", "16.6x Zoom"], price: "PKR 2,19,000", badge: "Ultra-Zoom", img: "https://picsum.photos/seed/tamron2/400/300" },
+        { name: "17-70mm f/2.8 Di III-A VC", category: "Lens", desc: "APS-C mirrorless zoom with constant f/2.8.", specs: ["f/2.8", "Di III-A", "VC"], price: "PKR 1,79,000", badge: "APS-C", img: "https://picsum.photos/seed/tamron3/400/300" },
+        { name: "70-180mm f/2.8 Di III VXD", category: "Lens", desc: "Ultra-compact telephoto zoom with constant f/2.8.", specs: ["f/2.8", "Di III", "VXD Motor"], price: "PKR 2,49,000", badge: "Telephoto", img: "https://picsum.photos/seed/tamron4/400/300" },
+        { name: "35-150mm f/2-2.8 Di III VXD", category: "Lens", desc: "Duniya ka pehla f/2-2.8 zoom lens.", specs: ["f/2-2.8", "Di III", "VXD Motor"], price: "PKR 3,99,000", badge: "Flagship", img: "https://picsum.photos/seed/tamron5/400/300" },
+        { name: "24-70mm f/2.8 VC Di", category: "Lens", desc: "Professional standard zoom for DSLR cameras.", specs: ["f/2.8", "Di", "VC"], price: "PKR 2,29,000", badge: "Pro", img: "https://picsum.photos/seed/tamron6/400/300" },
+        { name: "150-600mm f/5-6.3 VC Di", category: "Lens", desc: "Super-telephoto zoom for wildlife and sports.", specs: ["150-600mm", "Di", "VC"], price: "PKR 3,49,000", badge: "Wildlife", img: "https://picsum.photos/seed/tamron7/400/300" },
+        { name: "18-400mm f/3.5-6.3 Di II VC", category: "Lens", desc: "Ultra-zoom lens for DSLR with 22.2x zoom.", specs: ["18-400mm", "Di II", "VC"], price: "PKR 2,79,000", badge: "Ultra-Zoom", img: "https://picsum.photos/seed/tamron8/400/300" },
+        { name: "70-210mm f/4 Di III", category: "Lens", desc: "Lightweight telephoto zoom for mirrorless cameras.", specs: ["70-210mm", "f/4", "Di III"], price: "PKR 1,69,000", badge: "Compact", img: "https://picsum.photos/seed/tamron9/400/300" },
+        { name: "20mm f/2.8 Di III", category: "Lens", desc: "Compact wide-angle prime for mirrorless cameras.", specs: ["20mm", "f/2.8", "Di III"], price: "PKR 99,000", badge: "Wide Angle", img: "https://picsum.photos/seed/tamron10/400/300" }
+    ],
+    yashica: [
+        { name: "FX-3 Super 2000", category: "Film", desc: "All-manual 35mm film SLR with fully mechanical shutter.", specs: ["35mm Film", "Mechanical", "Manual Focus"], price: "PKR 45,000", badge: "Classic", img: "https://picsum.photos/seed/yash1/400/300" },
+        { name: "Electro 35", category: "Rangefinder", desc: "Classic 1960s rangefinder with auto-exposure.", specs: ["35mm Film", "Auto Exposure", "Restored"], price: "PKR 32,000", badge: "Vintage", img: "https://picsum.photos/seed/yash2/400/300" },
+        { name: "T5 Compact", category: "Film", desc: "Pocket-sized point-and-shoot with Carl Zeiss lens.", specs: ["35mm Film", "Zeiss Lens", "Pocket Size"], price: "PKR 28,000", badge: "Compact", img: "https://picsum.photos/seed/yash3/400/300" },
+        { name: "Y35 DigiFilm", category: "DigiFilm", desc: "Unique digi-film system with interchangeable film modules.", specs: ["14MP", "Film Modules", "Retro Body"], price: "PKR 39,500", badge: "DigiFilm", img: "https://picsum.photos/seed/yash4/400/300" },
+        { name: "Film Module Set", category: "Accessory", desc: "4 different film modules for Y35 camera.", specs: ["4 Modules", "Color Profiles", "Easy Swap"], price: "PKR 12,000", badge: "Accessory", img: "https://picsum.photos/seed/yash5/400/300" },
+        { name: "50mm f/1.9 Prime", category: "Lens", desc: "Classic Yashica prime lens for FX mount.", specs: ["f/1.9", "FX Mount", "Manual Focus"], price: "PKR 18,000", badge: "Lens", img: "https://picsum.photos/seed/yash6/400/300" },
+        { name: "Classic Neck Strap", category: "Accessory", desc: "Vintage-style camera neck strap with Yashica branding.", specs: ["Vintage Design", "Leather Look", "Comfortable"], price: "PKR 3,500", badge: "Accessory", img: "https://picsum.photos/seed/yash7/400/300" },
+        { name: "Yashica Mat 124G", category: "Film", desc: "Classic Twin Lens Reflex (TLR) film camera.", specs: ["6x6 Format", "TLR", "Film Camera"], price: "PKR 55,000", badge: "TLR", img: "https://picsum.photos/seed/yash8/400/300" },
+        { name: "35mm f/2.8", category: "Lens", desc: "Wide-angle prime lens for FX mount cameras.", specs: ["35mm", "f/2.8", "FX Mount"], price: "PKR 22,000", badge: "Lens", img: "https://picsum.photos/seed/yash9/400/300" },
+        { name: "Yashica Minister D", category: "Rangefinder", desc: "Classic rangefinder with built-in light meter.", specs: ["35mm Film", "Rangefinder", "Light Meter"], price: "PKR 25,000", badge: "Rangefinder", img: "https://picsum.photos/seed/yash10/400/300" }
+    ]
+};
 
         // Render Brands Showcase
         const brandsShowcase = document.getElementById('brandsShowcase');
