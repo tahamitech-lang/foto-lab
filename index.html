@@ -3,31 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FOTOLAB - Premium Camera Store since 1991. Digital Cameras, SLR, Lenses, Lighting and Accessories.">
+    <meta name="description" content="FOTOLAB - Premium Camera Store since 1991.">
     <title>FOTOLAB | Premium Camera Equipment</title>
 
-    <!-- Bootstrap 5 + Icons + Google Fonts -->
+    <!-- Bootstrap + Icons + Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* ============================================================
-           ALL CSS IN ONE PLACE
-           ============================================================ */
-
-        /* ----- GLOBAL RESET & THEME ----- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        /* ===== ALL CSS ===== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
             --brand-gold: #C9A84C;
             --brand-gold-dark: #b8973a;
-            --brand-gold-glow: rgba(201, 168, 76, 0.33);
+            --brand-gold-glow: rgba(201,168,76,0.33);
             --bg-dark: #0b0b1a;
             --bg-card: #10102a;
             --bg-card-hover: #1a1a3a;
@@ -36,9 +28,7 @@
             --text-muted: #b0b0d0;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             background: var(--bg-dark);
@@ -48,20 +38,12 @@
             overflow-x: hidden;
         }
 
-        a {
-            text-decoration: none;
-        }
+        a { text-decoration: none; }
 
-        /* ----- Utility Classes ----- */
-        .text-amber {
-            color: var(--brand-gold);
-        }
-        .bg-amber {
-            background-color: var(--brand-gold);
-        }
-        .border-amber {
-            border-color: var(--brand-gold) !important;
-        }
+        /* ===== UTILITY ===== */
+        .text-amber { color: var(--brand-gold); }
+        .bg-amber { background-color: var(--brand-gold); }
+        .border-amber { border-color: var(--brand-gold) !important; }
 
         .btn-amber {
             background: var(--brand-gold);
@@ -75,28 +57,6 @@
             color: #000;
             transform: scale(1.02);
             box-shadow: 0 0 20px var(--brand-gold-glow);
-        }
-
-        .btn-dark-custom {
-            background: #1a1a2e;
-            color: #fff;
-            border: 1px solid var(--brand-gold);
-        }
-        .btn-dark-custom:hover {
-            background: var(--brand-gold);
-            color: var(--bg-dark);
-        }
-
-        .btn-outline-amber {
-            color: var(--brand-gold);
-            border: 2px solid var(--brand-gold);
-            background: transparent;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-        .btn-outline-amber:hover {
-            background: var(--brand-gold);
-            color: var(--bg-dark);
         }
 
         .section-title {
@@ -122,42 +82,23 @@
             border-radius: 2px;
             margin: 12px 0 20px;
         }
-        .divider-line.mx-auto {
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .divider-line.mx-auto { margin-left: auto; margin-right: auto; }
 
-        /* ----- Animations ----- */
+        /* ===== ANIMATIONS ===== */
         @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
         @keyframes pulseGlow {
-            0% {
-                filter: drop-shadow(0 0 20px rgba(201, 168, 76, 0.2));
-            }
-            100% {
-                filter: drop-shadow(0 0 50px rgba(201, 168, 76, 0.53));
-            }
+            0% { filter: drop-shadow(0 0 20px rgba(201,168,76,0.2)); }
+            100% { filter: drop-shadow(0 0 50px rgba(201,168,76,0.53)); }
         }
         @keyframes bounce {
-            0%,
-            100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            50% {
-                transform: translateX(-50%) translateY(-12px);
-            }
+            0%,100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-12px); }
         }
         @keyframes scrollBrands {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .animate-fade-up {
@@ -166,22 +107,15 @@
             animation: fadeUp 0.8s ease forwards;
         }
 
-        /* ============================================================
-           NAVBAR
-           ============================================================ */
+        /* ===== NAVBAR ===== */
         .navbar {
             background: var(--bg-dark) !important;
             border-bottom: 2px solid var(--brand-gold);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
             backdrop-filter: blur(4px);
         }
-        .navbar-brand {
-            color: #fff !important;
-            letter-spacing: 0.5px;
-        }
-        .navbar-brand img {
-            filter: drop-shadow(0 0 6px var(--brand-gold-glow));
-        }
+        .navbar-brand { color: #fff !important; letter-spacing: 0.5px; }
+        .navbar-brand img { filter: drop-shadow(0 0 6px var(--brand-gold-glow)); }
         .nav-link {
             color: #ddd !important;
             font-weight: 500;
@@ -190,38 +124,31 @@
             border-radius: 30px;
             padding: 8px 16px !important;
         }
-        .nav-link:hover,
-        .nav-link.active {
-            background: rgba(201, 168, 76, 0.13);
+        .nav-link:hover, .nav-link.active {
+            background: rgba(201,168,76,0.13);
             color: var(--brand-gold) !important;
             box-shadow: 0 0 12px var(--brand-gold-glow);
         }
 
-        /* Dropdown Menu for More Options */
         .dropdown-menu {
             background: #1a1a2e !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255,255,255,0.1) !important;
             border-radius: 8px !important;
             padding: 8px 0 !important;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8) !important;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8) !important;
         }
         .dropdown-item {
-            color: rgba(255, 255, 255, 0.7) !important;
+            color: rgba(255,255,255,0.7) !important;
             padding: 8px 24px !important;
             font-size: 14px !important;
             transition: all 0.3s ease !important;
         }
         .dropdown-item:hover {
-            background: rgba(201, 168, 76, 0.15) !important;
+            background: rgba(201,168,76,0.15) !important;
             color: var(--brand-gold) !important;
         }
-        .dropdown-toggle::after {
-            color: rgba(255, 255, 255, 0.5);
-        }
 
-        /* ============================================================
-           HERO
-           ============================================================ */
+        /* ===== HERO ===== */
         .hero {
             min-height: 85vh;
             background: linear-gradient(145deg, #0a0a1a 0%, #1a1a3a 100%);
@@ -233,7 +160,7 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(201, 168, 76, 0.13), transparent 70%);
+            background: radial-gradient(circle at 30% 40%, rgba(201,168,76,0.13), transparent 70%);
             pointer-events: none;
         }
         .hero h1 {
@@ -242,16 +169,10 @@
             color: #fff;
             text-shadow: 0 0 40px var(--brand-gold-glow);
         }
-        .hero .sub-text {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 1.2rem;
-        }
-
         .lens-aperture svg {
-            filter: drop-shadow(0 0 30px rgba(201, 168, 76, 0.27));
+            filter: drop-shadow(0 0 30px rgba(201,168,76,0.27));
             animation: pulseGlow 3s infinite alternate;
         }
-
         .scroll-indicator {
             animation: bounce 2s infinite;
             position: absolute;
@@ -260,9 +181,7 @@
             transform: translateX(-50%);
         }
 
-        /* ============================================================
-           CATEGORY CARDS
-           ============================================================ */
+        /* ===== CATEGORY CARDS ===== */
         .category-card {
             background: var(--bg-card);
             border: 1px solid #2d2d5a;
@@ -278,16 +197,10 @@
             box-shadow: 0 12px 30px var(--brand-gold-glow);
             background: var(--bg-card-hover);
         }
-        .category-card i {
-            transition: 0.3s;
-        }
-        .category-card:hover i {
-            transform: scale(1.1);
-        }
+        .category-card i { transition: 0.3s; }
+        .category-card:hover i { transform: scale(1.1); }
 
-        /* ============================================================
-           BRAND CARDS - CLICKABLE
-           ============================================================ */
+        /* ===== BRAND CARDS ===== */
         .brand-home-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -311,18 +224,10 @@
             background: #1a1a2e;
             border: 1px solid #333366;
         }
-        .brand-home-card h6 {
-            color: var(--brand-gold);
-            margin-top: 12px;
-            font-weight: 600;
-        }
-        .brand-home-card p {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            margin-bottom: 0;
-        }
+        .brand-home-card h6 { color: var(--brand-gold); margin-top: 12px; font-weight: 600; }
+        .brand-home-card p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0; }
 
-        /* ----- Brand Marquee ----- */
+        /* Brand Marquee */
         .brand-marquee-wrapper {
             overflow: hidden;
             width: 100%;
@@ -330,7 +235,7 @@
             padding: 20px 0;
             border-radius: 40px 40px 20px 20px;
             border: 1px solid #2d2d50;
-            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4), 0 12px 30px rgba(0, 0, 0, 0.6);
+            box-shadow: inset 0 0 40px rgba(0,0,0,0.4), 0 12px 30px rgba(0,0,0,0.6);
         }
         .brand-marquee-track {
             display: flex;
@@ -338,9 +243,7 @@
             animation: scrollBrands 32s linear infinite;
             width: max-content;
         }
-        .brand-marquee-track:hover {
-            animation-play-state: paused;
-        }
+        .brand-marquee-track:hover { animation-play-state: paused; }
 
         .brand-card {
             background: #12122a;
@@ -359,7 +262,7 @@
         .brand-card:hover {
             transform: translateY(-8px) scale(1.02);
             border-color: var(--brand-gold);
-            box-shadow: 0 16px 30px var(--brand-gold-glow), 0 0 20px rgba(201, 168, 76, 0.13);
+            box-shadow: 0 16px 30px var(--brand-gold-glow), 0 0 20px rgba(201,168,76,0.13);
             background: #19193b;
         }
         .brand-card img {
@@ -371,38 +274,19 @@
             border: 1px solid #3a3a6a;
             transition: 0.3s;
         }
-        .brand-card:hover img {
-            border-color: var(--brand-gold);
-        }
-        .brand-card h5 {
-            color: var(--brand-gold);
-            font-weight: 600;
-            margin-top: 14px;
-            letter-spacing: 0.5px;
-        }
-        .brand-card p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 0;
-        }
+        .brand-card:hover img { border-color: var(--brand-gold); }
+        .brand-card h5 { color: var(--brand-gold); font-weight: 600; margin-top: 14px; letter-spacing: 0.5px; }
+        .brand-card p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0; }
 
-        /* ============================================================
-           BRAND SECTIONS (Hidden by default, shown on click)
-           ============================================================ */
+        /* ===== BRAND SECTIONS ===== */
         .brand-section {
             display: none;
             padding: 60px 0;
             scroll-margin-top: 80px;
         }
-        .brand-section.active {
-            display: block;
-        }
-        .brand-section:nth-of-type(even) {
-            background: #0d0d1a;
-        }
-        .brand-section:nth-of-type(odd) {
-            background: #0b0b1a;
-        }
+        .brand-section.active { display: block; }
+        .brand-section:nth-of-type(even) { background: #0d0d1a; }
+        .brand-section:nth-of-type(odd) { background: #0b0b1a; }
 
         .brand-section-header {
             display: flex;
@@ -411,7 +295,7 @@
             flex-wrap: wrap;
             gap: 16px;
             margin-bottom: 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             padding-bottom: 18px;
         }
         .brand-section-title {
@@ -423,7 +307,7 @@
         }
         .brand-section-tagline {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255,255,255,0.4);
             font-family: 'Inter', sans-serif;
             margin-top: 4px;
         }
@@ -439,72 +323,28 @@
             background: none;
             border: none;
         }
-        .brand-back-btn:hover {
-            color: #fff;
-        }
-        .brand-back-btn i {
-            transition: 0.2s;
-        }
-        .brand-back-btn:hover i {
-            transform: translateX(-4px);
-        }
+        .brand-back-btn:hover { color: #fff; }
+        .brand-back-btn i { transition: 0.2s; }
+        .brand-back-btn:hover i { transform: translateX(-4px); }
 
         /* Brand Color Themes */
-        .brand-canon .brand-section-title,
-        .brand-canon .section-eyebrow {
-            color: #0d6efd;
-        }
-        .brand-fujifilm .brand-section-title,
-        .brand-fujifilm .section-eyebrow {
-            color: #009966;
-        }
-        .brand-sony .brand-section-title,
-        .brand-sony .section-eyebrow {
-            color: #8B4513;
-        }
-        .brand-nikon .brand-section-title,
-        .brand-nikon .section-eyebrow {
-            color: #FFE000;
-        }
-        .brand-yashica .brand-section-title,
-        .brand-yashica .section-eyebrow {
-            color: #8A2BE2;
-        }
-        .brand-olympus .brand-section-title,
-        .brand-olympus .section-eyebrow {
-            color: #4FC3F7;
-        }
-        .brand-panasonic .brand-section-title,
-        .brand-panasonic .section-eyebrow {
-            color: #00B4A8;
-        }
-        .brand-leica .brand-section-title,
-        .brand-leica .section-eyebrow {
-            color: #FF69B4;
-        }
-        .brand-hasselblad .brand-section-title,
-        .brand-hasselblad .section-eyebrow {
-            color: #F5D76E;
-        }
-        .brand-gopro .brand-section-title,
-        .brand-gopro .section-eyebrow {
-            color: #9E9E9E;
-        }
-        .brand-sigma .brand-section-title,
-        .brand-sigma .section-eyebrow {
-            color: #FF6B00;
-        }
-        .brand-tamron .brand-section-title,
-        .brand-tamron .section-eyebrow {
-            color: #B39DDB;
-        }
+        .brand-canon .brand-section-title, .brand-canon .section-eyebrow { color: #0d6efd; }
+        .brand-fujifilm .brand-section-title, .brand-fujifilm .section-eyebrow { color: #009966; }
+        .brand-sony .brand-section-title, .brand-sony .section-eyebrow { color: #8B4513; }
+        .brand-nikon .brand-section-title, .brand-nikon .section-eyebrow { color: #FFE000; }
+        .brand-yashica .brand-section-title, .brand-yashica .section-eyebrow { color: #8A2BE2; }
+        .brand-olympus .brand-section-title, .brand-olympus .section-eyebrow { color: #4FC3F7; }
+        .brand-panasonic .brand-section-title, .brand-panasonic .section-eyebrow { color: #00B4A8; }
+        .brand-leica .brand-section-title, .brand-leica .section-eyebrow { color: #FF69B4; }
+        .brand-hasselblad .brand-section-title, .brand-hasselblad .section-eyebrow { color: #F5D76E; }
+        .brand-gopro .brand-section-title, .brand-gopro .section-eyebrow { color: #9E9E9E; }
+        .brand-sigma .brand-section-title, .brand-sigma .section-eyebrow { color: #FF6B00; }
+        .brand-tamron .brand-section-title, .brand-tamron .section-eyebrow { color: #B39DDB; }
 
-        /* ============================================================
-           PRODUCT CARDS (Inside Brand Sections)
-           ============================================================ */
+        /* ===== PRODUCT CARDS (Brand Sections) ===== */
         .brand-product-card {
             background: #0f0f0f;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255,255,255,0.06);
             border-radius: 16px;
             overflow: hidden;
             transition: all 0.4s ease;
@@ -512,7 +352,7 @@
         }
         .brand-product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 24px 60px rgba(201, 168, 76, 0.15);
+            box-shadow: 0 24px 60px rgba(201,168,76,0.15);
         }
         .brand-product-card .img-wrap {
             background: #181818;
@@ -526,9 +366,7 @@
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        .brand-product-card:hover .img-wrap img {
-            transform: scale(1.06);
-        }
+        .brand-product-card:hover .img-wrap img { transform: scale(1.06); }
         .brand-product-card .badge-tag {
             position: absolute;
             top: 12px;
@@ -543,9 +381,7 @@
             border-radius: 4px;
             font-family: 'Inter', sans-serif;
         }
-        .brand-product-card .body {
-            padding: 18px;
-        }
+        .brand-product-card .body { padding: 18px; }
         .brand-product-card .product-category {
             font-size: 10px;
             letter-spacing: 2px;
@@ -564,7 +400,7 @@
         }
         .brand-product-card .product-desc {
             font-size: 12.5px;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255,255,255,0.4);
             line-height: 1.6;
             min-height: 36px;
         }
@@ -575,19 +411,19 @@
             margin: 8px 0 12px;
         }
         .brand-product-card .spec-tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 6px;
             padding: 3px 10px;
             font-size: 10.5px;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255,255,255,0.4);
             font-family: 'Inter', sans-serif;
         }
         .brand-product-card .footer {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid rgba(255,255,255,0.06);
             padding-top: 12px;
         }
         .brand-product-card .price {
@@ -597,7 +433,7 @@
         }
         .brand-product-card .price span {
             font-size: 11px;
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255,255,255,0.3);
             font-family: 'Inter', sans-serif;
         }
         .btn-details {
@@ -613,14 +449,9 @@
             border-radius: 7px;
             transition: 0.25s;
         }
-        .btn-details:hover {
-            background: var(--brand-gold);
-            color: #0b0b1a;
-        }
+        .btn-details:hover { background: var(--brand-gold); color: #0b0b1a; }
 
-        /* ============================================================
-           LIGHTING KITS SECTION
-           ============================================================ */
+        /* ===== LIGHTING KITS ===== */
         .lighting-hero {
             min-height: 45vh;
             background: linear-gradient(145deg, #0a0a1a 0%, #1a1a3a 100%);
@@ -635,7 +466,7 @@
         .lighting-hero .overlay {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(201, 168, 76, 0.13), transparent 70%);
+            background: radial-gradient(circle at 30% 40%, rgba(201,168,76,0.13), transparent 70%);
             pointer-events: none;
         }
         .lighting-hero h1 {
@@ -645,7 +476,7 @@
 
         .cat-strip {
             background: #0d0d1a;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             position: sticky;
             top: 76px;
             z-index: 500;
@@ -658,14 +489,12 @@
             scrollbar-width: none;
             flex-wrap: nowrap;
         }
-        .cat-strip-inner::-webkit-scrollbar {
-            display: none;
-        }
+        .cat-strip-inner::-webkit-scrollbar { display: none; }
         .cat-pill {
             flex-shrink: 0;
             background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.55);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.55);
             padding: 8px 18px;
             border-radius: 100px;
             font-size: 13px;
@@ -678,11 +507,8 @@
             align-items: center;
             gap: 7px;
         }
-        .cat-pill i {
-            font-size: 12px;
-        }
-        .cat-pill:hover,
-        .cat-pill.active {
+        .cat-pill i { font-size: 12px; }
+        .cat-pill:hover, .cat-pill.active {
             background: var(--brand-gold);
             border-color: var(--brand-gold);
             color: #0a0a0f;
@@ -715,9 +541,7 @@
             object-fit: cover;
             transition: 0.5s;
         }
-        .lighting-card:hover .img-wrap img {
-            transform: scale(1.05);
-        }
+        .lighting-card:hover .img-wrap img { transform: scale(1.05); }
         .lighting-card .badge-tag {
             position: absolute;
             top: 12px;
@@ -732,9 +556,7 @@
             border-radius: 4px;
             font-family: 'Inter', sans-serif;
         }
-        .lighting-card .body {
-            padding: 18px;
-        }
+        .lighting-card .body { padding: 18px; }
         .lighting-card .brand-tag {
             font-size: 10px;
             letter-spacing: 2px;
@@ -753,7 +575,7 @@
         }
         .lighting-card .desc {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.45);
+            color: rgba(255,255,255,0.45);
             line-height: 1.6;
             margin-bottom: 12px;
             min-height: 40px;
@@ -762,7 +584,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid rgba(255,255,255,0.06);
             padding-top: 14px;
         }
         .lighting-card .price {
@@ -772,7 +594,7 @@
         }
         .lighting-card .price span {
             font-size: 11px;
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255,255,255,0.3);
             font-family: 'Inter', sans-serif;
         }
 
@@ -790,9 +612,7 @@
             transform: translateY(-8px);
             box-shadow: 0 16px 40px var(--brand-gold-glow);
         }
-        .kit-card.featured {
-            border-color: rgba(201, 168, 76, 0.33);
-        }
+        .kit-card.featured { border-color: rgba(201,168,76,0.33); }
         .kit-card .ribbon {
             position: absolute;
             top: 16px;
@@ -819,12 +639,8 @@
             object-fit: cover;
             transition: 0.5s;
         }
-        .kit-card:hover .img-wrap img {
-            transform: scale(1.05);
-        }
-        .kit-card .body {
-            padding: 22px;
-        }
+        .kit-card:hover .img-wrap img { transform: scale(1.05); }
+        .kit-card .body { padding: 22px; }
         .kit-card .kit-tagline {
             font-size: 12px;
             color: var(--brand-gold);
@@ -847,23 +663,19 @@
         }
         .kit-card .includes li {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255,255,255,0.5);
             font-family: 'Inter', sans-serif;
             padding: 4px 0;
             display: flex;
             align-items: flex-start;
             gap: 8px;
         }
-        .kit-card .includes li i {
-            color: var(--brand-gold);
-            font-size: 11px;
-            margin-top: 3px;
-        }
+        .kit-card .includes li i { color: var(--brand-gold); font-size: 11px; margin-top: 3px; }
         .kit-card .footer {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid rgba(255,255,255,0.06);
             padding-top: 16px;
         }
         .kit-card .price {
@@ -871,45 +683,30 @@
             font-size: 26px;
             color: #fff;
         }
-        .kit-card .price span {
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.3);
-            font-family: 'Inter', sans-serif;
-        }
+        .kit-card .price span { font-size: 11px; color: rgba(255,255,255,0.3); font-family: 'Inter', sans-serif; }
 
         .tip-box {
-            background: rgba(201, 162, 39, 0.07);
-            border: 1px solid rgba(201, 162, 39, 0.25);
+            background: rgba(201,162,39,0.07);
+            border: 1px solid rgba(201,162,39,0.25);
             border-radius: 12px;
             padding: 18px 22px;
             display: flex;
             gap: 14px;
             align-items: flex-start;
         }
-        .tip-box i {
-            color: var(--brand-gold);
-            font-size: 18px;
-            margin-top: 2px;
-        }
+        .tip-box i { color: var(--brand-gold); font-size: 18px; margin-top: 2px; }
         .tip-box p {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255,255,255,0.5);
             line-height: 1.7;
             font-family: 'Inter', sans-serif;
             margin: 0;
         }
 
-        .btn-details.solid {
-            background: var(--brand-gold);
-            color: #0b0b1a;
-        }
-        .btn-details.solid:hover {
-            background: #fff;
-        }
+        .btn-details.solid { background: var(--brand-gold); color: #0b0b1a; }
+        .btn-details.solid:hover { background: #fff; }
 
-        /* ============================================================
-           COMPARE SECTION
-           ============================================================ */
+        /* ===== COMPARE ===== */
         .compare-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -937,12 +734,9 @@
         .compare-card select:focus {
             border-color: var(--brand-gold);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.27);
+            box-shadow: 0 0 0 3px rgba(201,168,76,0.27);
         }
-        .compare-card select option {
-            background: var(--bg-card);
-            color: var(--text-light);
-        }
+        .compare-card select option { background: var(--bg-card); color: var(--text-light); }
         .compare-card label {
             color: var(--text-muted);
             font-weight: 500;
@@ -971,29 +765,16 @@
             color: #ddd;
             vertical-align: middle;
         }
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-        .comparison-table .highlight {
-            color: var(--brand-gold) !important;
-            font-weight: 600;
-        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table .highlight { color: var(--brand-gold) !important; font-weight: 600; }
 
         .empty-state {
             text-align: center;
             padding: 40px 20px;
         }
-        .empty-state i {
-            font-size: 3rem;
-            color: rgba(201, 168, 76, 0.27);
-            margin-bottom: 16px;
-        }
-        .empty-state h4 {
-            color: #fff;
-        }
-        .empty-state p {
-            color: var(--text-muted);
-        }
+        .empty-state i { font-size: 3rem; color: rgba(201,168,76,0.27); margin-bottom: 16px; }
+        .empty-state h4 { color: #fff; }
+        .empty-state p { color: var(--text-muted); }
 
         #compare-bar {
             position: fixed;
@@ -1005,26 +786,16 @@
             padding: 14px 0;
             z-index: 9000;
             transition: bottom 0.35s ease;
-            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.6);
         }
-        #compare-bar.visible {
-            bottom: 0;
-        }
-        .compare-text {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.6);
-        }
-        .compare-text strong {
-            color: #fff;
-        }
+        #compare-bar.visible { bottom: 0; }
+        .compare-text { font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); }
+        .compare-text strong { color: #fff; }
 
-        /* ============================================================
-           BUYING GUIDE
-           ============================================================ */
+        /* ===== BUYING GUIDE ===== */
         .tab-strip {
             background: #0d0d1a;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             position: sticky;
             top: 76px;
             z-index: 500;
@@ -1034,7 +805,7 @@
             background: transparent;
             border: none;
             border-bottom: 3px solid transparent;
-            color: rgba(255, 255, 255, 0.45);
+            color: rgba(255,255,255,0.45);
             padding: 16px 28px;
             font-size: 14px;
             font-family: 'Inter', sans-serif;
@@ -1043,22 +814,11 @@
             cursor: pointer;
             transition: 0.25s;
         }
-        .tab-btn i {
-            margin-right: 8px;
-        }
-        .tab-btn:hover {
-            color: rgba(255, 255, 255, 0.8);
-        }
-        .tab-btn.active {
-            color: var(--brand-gold);
-            border-bottom-color: var(--brand-gold);
-        }
-        .tab-panel {
-            display: none;
-        }
-        .tab-panel.active {
-            display: block;
-        }
+        .tab-btn i { margin-right: 8px; }
+        .tab-btn:hover { color: rgba(255,255,255,0.8); }
+        .tab-btn.active { color: var(--brand-gold); border-bottom-color: var(--brand-gold); }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
 
         .rec-card {
             background: var(--bg-card);
@@ -1079,8 +839,8 @@
             width: 50px;
             height: 50px;
             border-radius: 12px;
-            background: rgba(201, 168, 76, 0.08);
-            border: 1px solid rgba(201, 168, 76, 0.2);
+            background: rgba(201,168,76,0.08);
+            border: 1px solid rgba(201,168,76,0.2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1097,12 +857,12 @@
         }
         .rec-card .rec-desc {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.45);
+            color: rgba(255,255,255,0.45);
             line-height: 1.7;
             flex-grow: 1;
         }
         .rec-card .rec-footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid rgba(255,255,255,0.06);
             padding-top: 14px;
             margin-top: 12px;
         }
@@ -1116,7 +876,7 @@
         }
         .rec-card .rec-item {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.65);
+            color: rgba(255,255,255,0.65);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1127,20 +887,14 @@
             font-size: 12px;
             font-weight: 600;
         }
-        .rec-card .rec-item a:hover {
-            color: #fff;
-        }
+        .rec-card .rec-item a:hover { color: #fff; }
 
         .tip-item {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             padding: 20px 0;
         }
-        .tip-item:first-child {
-            padding-top: 0;
-        }
-        .tip-item:last-child {
-            border-bottom: none;
-        }
+        .tip-item:first-child { padding-top: 0; }
+        .tip-item:last-child { border-bottom: none; }
         .tip-q {
             font-family: 'Inter', sans-serif;
             font-size: 15px;
@@ -1150,13 +904,10 @@
             align-items: center;
             gap: 10px;
         }
-        .tip-q i {
-            color: var(--brand-gold);
-            font-size: 14px;
-        }
+        .tip-q i { color: var(--brand-gold); font-size: 14px; }
         .tip-a {
             font-size: 13.5px;
-            color: rgba(255, 255, 255, 0.45);
+            color: rgba(255,255,255,0.45);
             line-height: 1.8;
             margin-top: 8px;
             font-family: 'Inter', sans-serif;
@@ -1164,15 +915,13 @@
 
         .guide-cta {
             background: #0d0d1a;
-            border: 1px solid rgba(201, 168, 76, 0.2);
+            border: 1px solid rgba(201,168,76,0.2);
             border-radius: 16px;
             padding: 40px;
             text-align: center;
         }
 
-        /* ============================================================
-           CONTACT
-           ============================================================ */
+        /* ===== CONTACT ===== */
         .contact-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -1186,23 +935,10 @@
             transform: translateY(-4px);
             box-shadow: 0 10px 25px var(--brand-gold-glow);
         }
-        .contact-card i {
-            color: var(--brand-gold);
-            font-size: 1.8rem;
-            margin-bottom: 12px;
-        }
-        .contact-card h5 {
-            color: #fff;
-            font-size: 1.2rem;
-        }
-        .contact-card p {
-            color: var(--text-muted);
-            margin-bottom: 4px;
-            font-size: 0.95rem;
-        }
-        .contact-card .small-text {
-            font-size: 0.85rem;
-        }
+        .contact-card i { color: var(--brand-gold); font-size: 1.8rem; margin-bottom: 12px; }
+        .contact-card h5 { color: #fff; font-size: 1.2rem; }
+        .contact-card p { color: var(--text-muted); margin-bottom: 4px; font-size: 0.95rem; }
+        .contact-card .small-text { font-size: 0.85rem; }
 
         .form-control {
             background: #14142e !important;
@@ -1211,12 +947,9 @@
         }
         .form-control:focus {
             border-color: var(--brand-gold) !important;
-            box-shadow: 0 0 0 0.25rem rgba(201, 168, 76, 0.27) !important;
+            box-shadow: 0 0 0 0.25rem rgba(201,168,76,0.27) !important;
         }
-        .form-label {
-            color: #ddd;
-            font-weight: 500;
-        }
+        .form-label { color: #ddd; font-weight: 500; }
 
         .map-wrapper {
             border-radius: 16px;
@@ -1224,399 +957,7 @@
             border: 1px solid var(--border-color);
         }
 
-        /* ============================================================
-           FOOTER
-           ============================================================ */
-        footer {
-            background: #070714;
-            border-top: 2px solid rgba(201, 168, 76, 0.33);
-        }
-
-        #locationInfo {
-            background: #0e0e24 !important;
-            border: 1px solid #2f2f5a !important;
-            border-radius: 18px;
-            color: #ddd;
-            font-size: 0.9rem;
-            padding: 12px 16px !important;
-            min-height: 62px;
-            display: flex;
-            align-items: center;
-        }
-        #locationInfo i {
-            color: var(--brand-gold);
-            width: 22px;
-        }
-
-        .list-unstyled li a {
-            transition: 0.2s;
-            color: rgba(255, 255, 255, 0.5);
-        }
-        .list-unstyled li a:hover {
-            color: var(--brand-gold) !important;
-            padding-left: 6px;
-        }
-
-        /* ============================================================
-           RESPONSIVE
-           ============================================================ */
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 70vh;
-            }
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            .brand-home-card img {
-                height: 70px;
-            }
-            .brand-card {
-                width: 170px;
-                padding: 12px !important;
-            }
-            .brand-card img {
-                height: 80px;
-            }
-            .brand-card h5 {
-                font-size: 1rem;
-            }
-            .brand-product-card .img-wrap {
-                height: 160px;
-            }
-            .lighting-card .img-wrap {
-                height: 140px;
-            }
-            .kit-card .img-wrap {
-                height: 160px;
-            }
-            .cat-strip {
-                top: 68px;
-                padding: 8px 0;
-            }
-            .cat-pill {
-                padding: 6px 14px;
-                font-size: 12px;
-            }
-            .lighting-hero {
-                min-height: 30vh;
-            }
-            .lighting-hero h1 {
-                font-size: 2.5rem;
-            }
-            .comparison-table th,
-            .comparison-table td {
-                padding: 10px 12px;
-                font-size: 0.85rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .brand-card {
-                width: 150px;
-            }
-            .lighting-hero h1 {
-                font-size: 2rem;
-            }
-            .comparison-table {
-                font-size: 0.75rem;
-            }
-            .comparison-table th,
-            .comparison-table td {
-                padding: 8px 6px;
-            }
-        }
-
-        /* ============================================================
-           LOADER STYLES
-           ============================================================ */
-        #fotolab-loader {
-            position: fixed;
-            inset: 0;
-            z-index: 99999;
-            background: #0b0b1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s ease;
-        }
-        #fotolab-loader.visible {
-            opacity: 1;
-            pointer-events: all;
-        }
-        .fl-img-wrap {
-            position: relative;
-            width: 280px;
-            height: 240px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .fl-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            position: relative;
-            z-index: 2;
-            filter: drop-shadow(0 0 18px rgba(201, 168, 76, 0.4));
-        }
-        .fl-lens-flash {
-            position: absolute;
-            left: 50%;
-            top: 52%;
-            transform: translate(-50%, -50%);
-            width: 54px;
-            height: 54px;
-            z-index: 3;
-            pointer-events: none;
-        }
-        .fl-lens-flash::before,
-        .fl-lens-flash::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(201, 168, 76, 0.95) 0%, rgba(201, 168, 76, 0.6) 40%, transparent 70%);
-            animation: fl-pulse 0.75s ease-in-out infinite alternate;
-        }
-        .fl-lens-flash::after {
-            animation-delay: 0.375s;
-            background: radial-gradient(circle, rgba(255, 215, 100, 1) 0%, rgba(201, 168, 76, 0.5) 50%, transparent 70%);
-            transform: scale(0.65);
-        }
-        @keyframes fl-pulse {
-            0% {
-                opacity: 0.5;
-                transform: scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1.15);
-            }
-        }
-        .fl-rings {
-            position: absolute;
-            left: 50%;
-            top: 52%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            pointer-events: none;
-        }
-        .fl-ring {
-            position: absolute;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            border-top-color: rgba(201, 168, 76, 0.9);
-            border-right-color: rgba(201, 168, 76, 0.4);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .fl-ring:nth-child(1) {
-            width: 70px;
-            height: 70px;
-            border-width: 2.5px;
-            border-top-color: rgba(201, 168, 76, 1);
-            border-right-color: rgba(201, 168, 76, 0.5);
-            animation: fl-spin 1s linear infinite;
-        }
-        .fl-ring:nth-child(2) {
-            width: 100px;
-            height: 100px;
-            border-width: 2px;
-            border-top-color: rgba(201, 168, 76, 0.85);
-            border-right-color: rgba(201, 168, 76, 0.35);
-            animation: fl-spin 1.5s linear infinite reverse;
-        }
-        .fl-ring:nth-child(3) {
-            width: 134px;
-            height: 134px;
-            border-width: 1.5px;
-            border-top-color: rgba(201, 168, 76, 0.65);
-            border-right-color: rgba(201, 168, 76, 0.2);
-            animation: fl-spin 2.2s linear infinite;
-        }
-        @keyframes fl-spin {
-            from {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
-            to {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
-        }
-        .fl-brand {
-            margin-top: 28px;
-            font-family: 'Bebas Neue', 'Segoe UI', Arial, sans-serif;
-            font-size: 18px;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            color: rgba(201, 168, 76, 0.7);
-            font-weight: 400;
-            text-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
-        }
-        .fl-brand span {
-            color: #fff;
-            font-weight: 300;
-        }
-
-        /* ----- Additional styles for components ----- */
-        .info-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 28px;
-            padding: 30px 24px;
-            transition: 0.3s;
-            height: 100%;
-        }
-        .info-card:hover {
-            border-color: var(--brand-gold);
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px var(--brand-gold-glow);
-        }
-        .info-card i {
-            color: var(--brand-gold);
-        }
-        .info-card h4 {
-            color: #fff;
-            margin-top: 16px;
-        }
-        .info-card p {
-            color: var(--text-muted);
-        }
-
-        .team-card {
-            background: #0e0e24;
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 20px 16px;
-            text-align: center;
-            transition: 0.3s;
-        }
-        .team-card:hover {
-            border-color: var(--brand-gold);
-            transform: scale(1.02);
-            box-shadow: 0 8px 25px var(--brand-gold-glow);
-        }
-        .team-card img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid var(--brand-gold);
-            margin-bottom: 12px;
-        }
-        .team-card h5 {
-            color: #fff;
-        }
-        .team-card p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .service-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 30px 22px;
-            transition: 0.3s;
-            height: 100%;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--brand-gold);
-            transform: scaleX(0);
-            transition: 0.3s;
-        }
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-        .service-card:hover {
-            border-color: var(--brand-gold);
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px var(--brand-gold-glow);
-        }
-        .service-card .icon-wrapper {
-            width: 70px;
-            height: 70px;
-            background: rgba(201, 168, 76, 0.08);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-            border: 2px solid rgba(201, 168, 76, 0.2);
-            transition: 0.3s;
-        }
-        .service-card:hover .icon-wrapper {
-            background: rgba(201, 168, 76, 0.15);
-            border-color: var(--brand-gold);
-            transform: scale(1.05);
-        }
-        .service-card .icon-wrapper i {
-            font-size: 2rem;
-            color: var(--brand-gold);
-        }
-        .service-card h4 {
-            color: #fff;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .service-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 0;
-        }
-        .service-card .service-tag {
-            display: inline-block;
-            background: rgba(201, 168, 76, 0.13);
-            color: var(--brand-gold);
-            font-size: 0.7rem;
-            padding: 3px 12px;
-            border-radius: 50px;
-            border: 1px solid rgba(201, 168, 76, 0.27);
-            margin-top: 12px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 16px 0;
-            border-bottom: 1px solid #1a1a3a;
-        }
-        .feature-item:last-child {
-            border-bottom: none;
-        }
-        .feature-item i {
-            font-size: 1.5rem;
-            color: var(--brand-gold);
-            margin-top: 2px;
-            flex-shrink: 0;
-        }
-        .feature-item h6 {
-            color: #fff;
-            font-weight: 600;
-            margin-bottom: 2px;
-        }
-        .feature-item p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 0;
-        }
-
+        /* ===== PRODUCT CARD (Main Products) ===== */
         .product-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -1641,32 +982,18 @@
             border: 1px solid var(--border-color);
             transition: 0.3s;
         }
-        .product-card:hover img {
-            border-color: var(--brand-gold);
-        }
+        .product-card:hover img { border-color: var(--brand-gold); }
         .product-card .badge-brand {
-            background: rgba(201, 168, 76, 0.13);
+            background: rgba(201,168,76,0.13);
             color: var(--brand-gold);
             font-size: 0.7rem;
             padding: 4px 12px;
             border-radius: 50px;
-            border: 1px solid rgba(201, 168, 76, 0.27);
+            border: 1px solid rgba(201,168,76,0.27);
         }
-        .product-card h5 {
-            color: #fff;
-            font-weight: 600;
-            margin-top: 12px;
-        }
-        .product-card .price {
-            color: var(--brand-gold);
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-        .product-card .desc {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            flex-grow: 1;
-        }
+        .product-card h5 { color: #fff; font-weight: 600; margin-top: 12px; }
+        .product-card .price { color: var(--brand-gold); font-weight: 600; font-size: 1.2rem; }
+        .product-card .desc { color: var(--text-muted); font-size: 0.85rem; flex-grow: 1; }
         .product-card .btn-details {
             background: transparent;
             border: 1px solid var(--brand-gold);
@@ -1677,10 +1004,7 @@
             transition: 0.3s;
             width: 100%;
         }
-        .product-card .btn-details:hover {
-            background: var(--brand-gold);
-            color: var(--bg-dark);
-        }
+        .product-card .btn-details:hover { background: var(--brand-gold); color: var(--bg-dark); }
 
         .filter-btn {
             background: transparent;
@@ -1692,669 +1016,359 @@
             transition: 0.3s;
             cursor: pointer;
         }
-        .filter-btn:hover,
-        .filter-btn.active {
+        .filter-btn:hover, .filter-btn.active {
             border-color: var(--brand-gold);
             color: var(--brand-gold);
-            background: rgba(201, 168, 76, 0.08);
+            background: rgba(201,168,76,0.08);
         }
-        .filter-btn.active {
-            background: var(--brand-gold);
-            color: var(--bg-dark);
+        .filter-btn.active { background: var(--brand-gold); color: var(--bg-dark); }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #070714;
+            border-top: 2px solid rgba(201,168,76,0.33);
         }
 
-        #brands-section {
-            display: block;
+        #locationInfo {
+            background: #0e0e24 !important;
+            border: 1px solid #2f2f5a !important;
+            border-radius: 18px;
+            color: #ddd;
+            font-size: 0.9rem;
+            padding: 12px 16px !important;
+            min-height: 62px;
+            display: flex;
+            align-items: center;
         }
+        #locationInfo i { color: var(--brand-gold); width: 22px; }
+
+        .list-unstyled li a {
+            transition: 0.2s;
+            color: rgba(255,255,255,0.5);
+        }
+        .list-unstyled li a:hover { color: var(--brand-gold) !important; padding-left: 6px; }
+
+        /* ===== SCROLL TO TOP ===== */
+        #scrollToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--brand-gold, #C9A84C);
+            color: var(--bg-dark, #0b0b1a);
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+            transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #scrollToTop:hover {
+            background: var(--brand-gold-dark, #b8973a);
+            transform: translateY(-3px) scale(1.08);
+            box-shadow: 0 8px 35px rgba(201,168,76,0.6);
+        }
+        #scrollToTop.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+        #scrollToTop i { animation: scrollTopBounce 2s ease-in-out infinite; }
+
+        @keyframes scrollTopBounce {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @media (max-width: 576px) {
+            #scrollToTop {
+                width: 48px; height: 48px; font-size: 18px;
+                bottom: 20px; right: 20px;
+            }
+        }
+
+        /* ===== LOADER ===== */
+        #fotolab-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #0b0b1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+        #fotolab-loader.visible { opacity: 1; pointer-events: all; }
+        .fl-img-wrap {
+            position: relative;
+            width: 280px;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .fl-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 18px rgba(201,168,76,0.4));
+        }
+        .fl-lens-flash {
+            position: absolute;
+            left: 50%;
+            top: 52%;
+            transform: translate(-50%, -50%);
+            width: 54px;
+            height: 54px;
+            z-index: 3;
+            pointer-events: none;
+        }
+        .fl-lens-flash::before, .fl-lens-flash::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(201,168,76,0.95) 0%, rgba(201,168,76,0.6) 40%, transparent 70%);
+            animation: fl-pulse 0.75s ease-in-out infinite alternate;
+        }
+        .fl-lens-flash::after {
+            animation-delay: 0.375s;
+            background: radial-gradient(circle, rgba(255,215,100,1) 0%, rgba(201,168,76,0.5) 50%, transparent 70%);
+            transform: scale(0.65);
+        }
+        @keyframes fl-pulse {
+            0% { opacity: 0.5; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.15); }
+        }
+        .fl-rings {
+            position: absolute;
+            left: 50%;
+            top: 52%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        .fl-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: rgba(201,168,76,0.9);
+            border-right-color: rgba(201,168,76,0.4);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .fl-ring:nth-child(1) {
+            width: 70px; height: 70px;
+            border-width: 2.5px;
+            border-top-color: rgba(201,168,76,1);
+            border-right-color: rgba(201,168,76,0.5);
+            animation: fl-spin 1s linear infinite;
+        }
+        .fl-ring:nth-child(2) {
+            width: 100px; height: 100px;
+            border-width: 2px;
+            border-top-color: rgba(201,168,76,0.85);
+            border-right-color: rgba(201,168,76,0.35);
+            animation: fl-spin 1.5s linear infinite reverse;
+        }
+        .fl-ring:nth-child(3) {
+            width: 134px; height: 134px;
+            border-width: 1.5px;
+            border-top-color: rgba(201,168,76,0.65);
+            border-right-color: rgba(201,168,76,0.2);
+            animation: fl-spin 2.2s linear infinite;
+        }
+        @keyframes fl-spin {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .fl-brand {
+            margin-top: 28px;
+            font-family: 'Bebas Neue', 'Segoe UI', Arial, sans-serif;
+            font-size: 18px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: rgba(201,168,76,0.7);
+            font-weight: 400;
+            text-shadow: 0 0 20px rgba(201,168,76,0.2);
+        }
+        .fl-brand span { color: #fff; font-weight: 300; }
+
+        /* ===== OTHER COMPONENTS ===== */
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            padding: 30px 24px;
+            transition: 0.3s;
+            height: 100%;
+        }
+        .info-card:hover {
+            border-color: var(--brand-gold);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px var(--brand-gold-glow);
+        }
+        .info-card i { color: var(--brand-gold); }
+        .info-card h4 { color: #fff; margin-top: 16px; }
+        .info-card p { color: var(--text-muted); }
+
+        .team-card {
+            background: #0e0e24;
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 20px 16px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .team-card:hover {
+            border-color: var(--brand-gold);
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px var(--brand-gold-glow);
+        }
+        .team-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--brand-gold);
+            margin-bottom: 12px;
+        }
+        .team-card h5 { color: #fff; }
+        .team-card p { color: var(--text-muted); font-size: 0.9rem; }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 30px 22px;
+            transition: 0.3s;
+            height: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--brand-gold);
+            transform: scaleX(0);
+            transition: 0.3s;
+        }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-card:hover {
+            border-color: var(--brand-gold);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px var(--brand-gold-glow);
+        }
+        .service-card .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: rgba(201,168,76,0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 2px solid rgba(201,168,76,0.2);
+            transition: 0.3s;
+        }
+        .service-card:hover .icon-wrapper {
+            background: rgba(201,168,76,0.15);
+            border-color: var(--brand-gold);
+            transform: scale(1.05);
+        }
+        .service-card .icon-wrapper i { font-size: 2rem; color: var(--brand-gold); }
+        .service-card h4 { color: #fff; font-weight: 600; margin-bottom: 8px; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0; }
+        .service-card .service-tag {
+            display: inline-block;
+            background: rgba(201,168,76,0.13);
+            color: var(--brand-gold);
+            font-size: 0.7rem;
+            padding: 3px 12px;
+            border-radius: 50px;
+            border: 1px solid rgba(201,168,76,0.27);
+            margin-top: 12px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #1a1a3a;
+        }
+        .feature-item:last-child { border-bottom: none; }
+        .feature-item i {
+            font-size: 1.5rem;
+            color: var(--brand-gold);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .feature-item h6 { color: #fff; font-weight: 600; margin-bottom: 2px; }
+        .feature-item p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0; }
+
+        #brands-section { display: block; }
 
         /* Scroll margin for sections */
-        #lighting,
-        #guide,
-        #contact,
-        #compare {
-            scroll-margin-top: 80px;
+        #lighting, #guide, #contact, #compare { scroll-margin-top: 80px; }
+
+        @media (max-width: 768px) {
+            .hero { min-height: 70vh; }
+            .hero h1 { font-size: 2.8rem; }
+            .brand-home-card img { height: 70px; }
+            .brand-card { width: 170px; padding: 12px !important; }
+            .brand-card img { height: 80px; }
+            .brand-card h5 { font-size: 1rem; }
+            .brand-product-card .img-wrap { height: 160px; }
+            .lighting-card .img-wrap { height: 140px; }
+            .kit-card .img-wrap { height: 160px; }
+            .cat-strip { top: 68px; padding: 8px 0; }
+            .cat-pill { padding: 6px 14px; font-size: 12px; }
+            .lighting-hero { min-height: 30vh; }
+            .lighting-hero h1 { font-size: 2.5rem; }
+            .comparison-table th, .comparison-table td {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
         }
-        /* ============================================================
-   SCROLL TO TOP BUTTON - Fixed Bottom Right
-   ============================================================ */
-#scrollToTop {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 9999;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    background: var(--brand-gold, #C9A84C);
-    color: var(--bg-dark, #0b0b1a);
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px) scale(0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
 
-#scrollToTop:hover {
-    background: var(--brand-gold-dark, #b8973a);
-    transform: translateY(-3px) scale(1.08);
-    box-shadow: 0 8px 35px rgba(201, 168, 76, 0.6);
-}
-
-#scrollToTop:active {
-    transform: scale(0.92);
-}
-
-#scrollToTop.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-}
-
-#scrollToTop i {
-    animation: scrollTopBounce 2s ease-in-out infinite;
-}
-
-@keyframes scrollTopBounce {
-    0%, 100% { 
-        transform: translateY(0); 
-    }
-    50% { 
-        transform: translateY(-5px); 
-    }
-}
-
-/* Scroll to Top - Tooltip on hover */
-#scrollToTop .tooltip-text {
-    position: absolute;
-    right: 65px;
-    background: rgba(11, 11, 26, 0.9);
-    color: #fff;
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-family: 'Inter', sans-serif;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(201, 168, 76, 0.2);
-}
-
-#scrollToTop .tooltip-text::after {
-    content: '';
-    position: absolute;
-    right: -6px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-left: 6px solid rgba(11, 11, 26, 0.9);
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-}
-
-#scrollToTop:hover .tooltip-text {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Responsive for mobile */
-@media (max-width: 576px) {
-    #scrollToTop {
-        width: 48px;
-        height: 48px;
-        font-size: 18px;
-        bottom: 20px;
-        right: 20px;
-    }
-    #scrollToTop .tooltip-text {
-        display: none;
-    }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    #scrollToTop {
-        background: var(--brand-gold, #C9A84C);
-        color: var(--bg-dark, #0b0b1a);
-    }
-}
-
-/* ============================================================
-   PROFESSIONAL FADE & SLIDER ANIMATIONS
-   ============================================================ */
-
-/* ----- FADE IN ANIMATIONS ----- */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.85);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* ----- SLIDER/REVEAL ANIMATIONS ----- */
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(60px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-60px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-60px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideRight {
-    from {
-        opacity: 0;
-        transform: translateX(60px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideUpFade {
-    0% {
-        opacity: 0;
-        transform: translateY(80px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ----- STAGGERED ANIMATION CLASSES ----- */
-.anim-fade-in {
-    opacity: 0;
-    animation: fadeIn 1s ease forwards;
-}
-
-.anim-fade-up {
-    opacity: 0;
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.anim-fade-down {
-    opacity: 0;
-    animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.anim-fade-left {
-    opacity: 0;
-    animation: fadeInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.anim-fade-right {
-    opacity: 0;
-    animation: fadeInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.anim-fade-scale {
-    opacity: 0;
-    animation: fadeInScale 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.anim-slide-up {
-    opacity: 0;
-    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.anim-slide-down {
-    opacity: 0;
-    animation: slideDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.anim-slide-left {
-    opacity: 0;
-    animation: slideLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.anim-slide-right {
-    opacity: 0;
-    animation: slideRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.anim-slide-up-fade {
-    opacity: 0;
-    animation: slideUpFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* ----- STAGGERED DELAYS ----- */
-.anim-delay-1 {
-    animation-delay: 0.1s;
-}
-.anim-delay-2 {
-    animation-delay: 0.2s;
-}
-.anim-delay-3 {
-    animation-delay: 0.3s;
-}
-.anim-delay-4 {
-    animation-delay: 0.4s;
-}
-.anim-delay-5 {
-    animation-delay: 0.5s;
-}
-.anim-delay-6 {
-    animation-delay: 0.6s;
-}
-.anim-delay-7 {
-    animation-delay: 0.7s;
-}
-.anim-delay-8 {
-    animation-delay: 0.8s;
-}
-.anim-delay-9 {
-    animation-delay: 0.9s;
-}
-.anim-delay-10 {
-    animation-delay: 1s;
-}
-
-/* ----- SCROLL REVEAL (Intersection Observer) ----- */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.reveal-left {
-    opacity: 0;
-    transform: translateX(-60px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-left.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.reveal-right {
-    opacity: 0;
-    transform: translateX(60px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-right.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.reveal-scale {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-scale.visible {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.reveal-rotate {
-    opacity: 0;
-    transform: rotateY(20deg) scale(0.95);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-rotate.visible {
-    opacity: 1;
-    transform: rotateY(0) scale(1);
-}
-
-/* ----- STAGGERED CHILDREN ----- */
-.stagger-children > * {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.stagger-children.visible > *:nth-child(1) {
-    transition-delay: 0.05s;
-}
-.stagger-children.visible > *:nth-child(2) {
-    transition-delay: 0.12s;
-}
-.stagger-children.visible > *:nth-child(3) {
-    transition-delay: 0.19s;
-}
-.stagger-children.visible > *:nth-child(4) {
-    transition-delay: 0.26s;
-}
-.stagger-children.visible > *:nth-child(5) {
-    transition-delay: 0.33s;
-}
-.stagger-children.visible > *:nth-child(6) {
-    transition-delay: 0.4s;
-}
-.stagger-children.visible > *:nth-child(7) {
-    transition-delay: 0.47s;
-}
-.stagger-children.visible > *:nth-child(8) {
-    transition-delay: 0.54s;
-}
-
-.stagger-children.visible > * {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ----- GLOW TEXT ANIMATION ----- */
-.glow-text {
-    animation: glowPulse 3s ease-in-out infinite;
-}
-
-@keyframes glowPulse {
-    0%,
-    100% {
-        text-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
-    }
-    50% {
-        text-shadow: 0 0 40px rgba(201, 168, 76, 0.6), 0 0 60px rgba(201, 168, 76, 0.2);
-    }
-}
-
-/* ----- FLOATING ANIMATION ----- */
-.floating {
-    animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-/* ----- SLIDE IN FROM BOTTOM WITH DELAY (For cards) ----- */
-.card-slide-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card-slide-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ----- HERO TEXT REVEAL (Split Animation) ----- */
-.hero-text-reveal {
-    overflow: hidden;
-}
-
-.hero-text-reveal .line {
-    display: block;
-    transform: translateY(100%);
-    animation: textReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.hero-text-reveal .line:nth-child(1) {
-    animation-delay: 0.1s;
-}
-.hero-text-reveal .line:nth-child(2) {
-    animation-delay: 0.3s;
-}
-.hero-text-reveal .line:nth-child(3) {
-    animation-delay: 0.5s;
-}
-
-@keyframes textReveal {
-    from {
-        transform: translateY(100%);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
-
-/* ----- ZOOM IN ON HOVER ----- */
-.hover-zoom {
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hover-zoom:hover {
-    transform: scale(1.05);
-}
-
-/* ----- SMOOTH APPEAR ON LOAD ----- */
-.appear-on-load {
-    opacity: 0;
-    animation: fadeIn 1.2s ease forwards;
-}
-
-.appear-on-load.appear-1 {
-    animation-delay: 0.1s;
-}
-.appear-on-load.appear-2 {
-    animation-delay: 0.3s;
-}
-.appear-on-load.appear-3 {
-    animation-delay: 0.5s;
-}
-.appear-on-load.appear-4 {
-    animation-delay: 0.7s;
-}
-.appear-on-load.appear-5 {
-    animation-delay: 0.9s;
-}
-
-/* ============================================================
-   SCROLL TO TOP BUTTON - Fixed Bottom Right
-   ============================================================ */
-#scrollToTop {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 9999;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    background: var(--brand-gold, #C9A84C);
-    color: var(--bg-dark, #0b0b1a);
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px) scale(0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-#scrollToTop:hover {
-    background: var(--brand-gold-dark, #b8973a);
-    transform: translateY(-3px) scale(1.08);
-    box-shadow: 0 8px 35px rgba(201, 168, 76, 0.6);
-}
-
-#scrollToTop:active {
-    transform: scale(0.92);
-}
-
-#scrollToTop.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-}
-
-#scrollToTop i {
-    animation: scrollTopBounce 2s ease-in-out infinite;
-}
-
-@keyframes scrollTopBounce {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
-}
-
-/* Scroll to Top - Tooltip on hover */
-#scrollToTop .tooltip-text {
-    position: absolute;
-    right: 65px;
-    background: rgba(11, 11, 26, 0.9);
-    color: #fff;
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-family: 'Inter', sans-serif;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(201, 168, 76, 0.2);
-}
-
-#scrollToTop .tooltip-text::after {
-    content: '';
-    position: absolute;
-    right: -6px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-left: 6px solid rgba(11, 11, 26, 0.9);
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-}
-
-#scrollToTop:hover .tooltip-text {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Responsive for mobile */
-@media (max-width: 576px) {
-    #scrollToTop {
-        width: 48px;
-        height: 48px;
-        font-size: 18px;
-        bottom: 20px;
-        right: 20px;
-    }
-    #scrollToTop .tooltip-text {
-        display: none;
-    }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    #scrollToTop {
-        background: var(--brand-gold, #C9A84C);
-        color: var(--bg-dark, #0b0b1a);
-    }
-}
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.2rem; }
+            .brand-card { width: 150px; }
+            .lighting-hero h1 { font-size: 2rem; }
+            .comparison-table { font-size: 0.75rem; }
+            .comparison-table th, .comparison-table td { padding: 8px 6px; }
+        }
     </style>
 </head>
 <body>
+
     <!-- ============================================================
-SCROLL TO TOP BUTTON - Bottom Right
-============================================================ -->
-<button id="scrollToTop" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-    <span class="tooltip-text">Back to Top</span>
-</button>
+    SCROLL TO TOP BUTTON
+    ============================================================ -->
+    <button id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <!-- ============================================================
     LOADER
     ============================================================ -->
@@ -2377,27 +1391,24 @@ SCROLL TO TOP BUTTON - Bottom Right
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#home">
-                <img src="images/fotologo.png" alt="FOTOLAB Logo" width="50" height="50" class="me-2" onerror="this.src='https://picsum.photos/seed/fotolablogo/50/50'">
-                <span class="fw-bold fs-3" style="color: #fff; text-shadow: 0 0 12px rgba(201,168,76,0.33);">FOTOLAB</span>
+                <img src="team imagelogo,image/fotolab logo.png" alt="FOTOLAB Logo" width="200" height="50" class="me-2" onerror="this.src='https://picsum.photos/seed/fotolablogo/50/50'">
+                <span class="fw-bold fs-3" style="color:#fff;text-shadow:0 0 12px rgba(201,168,76,0.33);">FOTOLAB</span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter:invert(1);"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <!-- Main visible links -->
                     <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
                     <li class="nav-item"><a class="nav-link" href="#compare">Compare</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-
-                    <!-- More dropdown (Humburger) -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
                             <i class="fas fa-bars"></i> More
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#about">About</a></li>
                             <li><a class="dropdown-item" href="#brands-section">Brands</a></li>
                             <li><a class="dropdown-item" href="#lighting">Lighting Kits</a></li>
@@ -2439,7 +1450,7 @@ SCROLL TO TOP BUTTON - Bottom Right
     <!-- ============================================================
     ABOUT SECTION
     ============================================================ -->
-    <section class="py-5" id="about" style="background: var(--bg-dark);">
+    <section class="py-5" id="about" style="background:var(--bg-dark);">
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6" data-aos="fade-right">
@@ -2457,7 +1468,6 @@ SCROLL TO TOP BUTTON - Bottom Right
                 </div>
             </div>
 
-            <!-- Mission & Values -->
             <div class="row g-4 mt-5">
                 <div class="col-md-4" data-aos="flip-up" data-aos-delay="50">
                     <div class="info-card text-center">
@@ -2482,7 +1492,6 @@ SCROLL TO TOP BUTTON - Bottom Right
                 </div>
             </div>
 
-            <!-- Team -->
             <div class="text-center mt-5" data-aos="fade-up">
                 <h2 class="section-title text-white">Meet the Team</h2>
                 <p class="text-white-50">Passionate people behind the lens.</p>
@@ -2490,7 +1499,7 @@ SCROLL TO TOP BUTTON - Bottom Right
             <div class="row g-4 justify-content-center mt-2">
                 <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="50">
                     <div class="team-card">
-                        <img src="images/team image 1.jpg" alt="Team Member" onerror="this.src='https://picsum.photos/seed/team1/120/120'">
+                        <img src="team imagelogo,image/leader img.jpeg" alt="Team Member" onerror="this.src='https://picsum.photos/seed/team1/120/120'">
                         <h5>Tahami Javed</h5>
                         <p>Team Leader</p>
                     </div>
@@ -2523,13 +1532,13 @@ SCROLL TO TOP BUTTON - Bottom Right
     <!-- ============================================================
     SERVICES SECTION
     ============================================================ -->
-    <section class="py-5" id="services" style="background: linear-gradient(145deg, #0f0f28, #1a1a3a);">
+    <section class="py-5" id="services" style="background: linear-gradient(145deg,#0f0f28,#1a1a3a);">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
                 <p class="section-eyebrow">What We Offer</p>
                 <h2 class="section-title text-white">Our Services</h2>
                 <div class="divider-line mx-auto"></div>
-                <p class="text-white-50">From sales to support — everything you need for your photography journey.</p>
+                <p class="text-white-50">From sales to support — everything you need.</p>
             </div>
 
             <div class="row g-4">
@@ -2537,7 +1546,7 @@ SCROLL TO TOP BUTTON - Bottom Right
                     <div class="service-card">
                         <div class="icon-wrapper"><i class="fas fa-camera"></i></div>
                         <h4>Camera Sales</h4>
-                        <p>Latest mirrorless and DSLR models from Canon, Nikon, Sony, Fujifilm, and more.</p>
+                        <p>Latest mirrorless and DSLR models from top brands.</p>
                         <span class="service-tag">All Brands</span>
                     </div>
                 </div>
@@ -2545,7 +1554,7 @@ SCROLL TO TOP BUTTON - Bottom Right
                     <div class="service-card">
                         <div class="icon-wrapper"><i class="fas fa-search-dollar"></i></div>
                         <h4>Lens &amp; Gear Advice</h4>
-                        <p>Professional guidance on lenses, tripods, lighting, and accessories.</p>
+                        <p>Professional guidance on lenses, tripods, and accessories.</p>
                         <span class="service-tag">Expert Consultation</span>
                     </div>
                 </div>
@@ -2553,7 +1562,7 @@ SCROLL TO TOP BUTTON - Bottom Right
                     <div class="service-card">
                         <div class="icon-wrapper"><i class="fas fa-tools"></i></div>
                         <h4>Repair &amp; Maintenance</h4>
-                        <p>Trusted repair services for camera bodies, lenses, flashes, and electronics.</p>
+                        <p>Trusted repair services for cameras, lenses, and flashes.</p>
                         <span class="service-tag">Authorized Service</span>
                     </div>
                 </div>
@@ -2561,7 +1570,7 @@ SCROLL TO TOP BUTTON - Bottom Right
                     <div class="service-card">
                         <div class="icon-wrapper"><i class="fas fa-lightbulb"></i></div>
                         <h4>Lighting Solutions</h4>
-                        <p>Studio and on-location lighting kits from Profoto, Godox, and more.</p>
+                        <p>Studio and on-location lighting kits from top brands.</p>
                         <span class="service-tag">Studio &amp; Location</span>
                     </div>
                 </div>
@@ -2569,7 +1578,7 @@ SCROLL TO TOP BUTTON - Bottom Right
                     <div class="service-card">
                         <div class="icon-wrapper"><i class="fas fa-calendar-alt"></i></div>
                         <h4>Gear Rentals</h4>
-                        <p>Rent high-end cameras, lenses, and lighting equipment for projects or travel.</p>
+                        <p>Rent high-end cameras and lenses for projects or travel.</p>
                         <span class="service-tag">Daily / Weekly</span>
                     </div>
                 </div>
@@ -2577,62 +1586,8 @@ SCROLL TO TOP BUTTON - Bottom Right
                     <div class="service-card">
                         <div class="icon-wrapper"><i class="fas fa-graduation-cap"></i></div>
                         <h4>Training &amp; Workshops</h4>
-                        <p>Photography workshops and one-on-one training sessions.</p>
+                        <p>Photography workshops and one-on-one training.</p>
                         <span class="service-tag">All Levels</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Features -->
-            <div class="row mt-5 g-4" data-aos="fade-up">
-                <div class="col-lg-6">
-                    <div class="bg-dark p-4 rounded-4 border border-secondary" style="background: #0e0e24 !important;">
-                        <h3 class="text-amber mb-4"><i class="fas fa-star me-2"></i>Why Choose FOTOLAB?</h3>
-                        <div class="feature-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <div>
-                                <h6>30 Years of Trust</h6>
-                                <p>Established in 1991, we've been serving photographers across Pakistan.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-certificate"></i>
-                            <div>
-                                <h6>Authorized Dealers</h6>
-                                <p>We are authorized partners of all major camera brands.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-headset"></i>
-                            <div>
-                                <h6>Dedicated Support</h6>
-                                <p>Our team is always ready to help you before and after your purchase.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="bg-dark p-4 rounded-4 border border-secondary" style="background: #0e0e24 !important;">
-                        <h3 class="text-amber mb-4"><i class="fas fa-clock me-2"></i>Service Hours</h3>
-                        <div class="d-flex justify-content-between py-2 border-bottom border-secondary">
-                            <span class="text-white-50">Monday - Friday</span>
-                            <span class="text-white">10:00 AM - 8:00 PM</span>
-                        </div>
-                        <div class="d-flex justify-content-between py-2 border-bottom border-secondary">
-                            <span class="text-white-50">Saturday</span>
-                            <span class="text-white">11:00 AM - 6:00 PM</span>
-                        </div>
-                        <div class="d-flex justify-content-between py-2 border-bottom border-secondary">
-                            <span class="text-white-50">Sunday</span>
-                            <span class="text-white">Closed</span>
-                        </div>
-                        <div class="d-flex justify-content-between py-2">
-                            <span class="text-white-50">Emergency Support</span>
-                            <span class="text-amber">+92 300 1234567</span>
-                        </div>
-                        <div class="mt-3">
-                            <a href="#contact" class="btn btn-amber w-100">Book a Consultation</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -2642,7 +1597,7 @@ SCROLL TO TOP BUTTON - Bottom Right
     <!-- ============================================================
     PRODUCTS SECTION
     ============================================================ -->
-    <section class="py-5" id="products" style="background: var(--bg-dark);">
+    <section class="py-5" id="products" style="background:var(--bg-dark);">
         <div class="container">
             <div class="text-center mb-4" data-aos="fade-up">
                 <p class="section-eyebrow">Browse Our Collection</p>
@@ -2661,6 +1616,7 @@ SCROLL TO TOP BUTTON - Bottom Right
                 <button class="filter-btn" data-category="lighting">Lighting</button>
                 <button class="filter-btn" data-category="bags">Bags & Cases</button>
                 <button class="filter-btn" data-category="accessories">Accessories</button>
+                <button class="filter-btn" data-category="drones">Drones</button>
             </div>
 
             <div class="row g-4" id="productGrid" data-aos="fade-up" data-aos-delay="100"></div>
@@ -4398,135 +3354,135 @@ console.log('%c💡 Press "T" key to scroll to top', 'font-size:12px; color:#888
             });
         });
 
-        // ============================================================
+// ============================================================
         // PRODUCTS DATA
         // ============================================================
         const productData = [
     // ============================================================
     // CAMERAS (10 Products)
     // ============================================================
-    { id: 1, name: "Canon EOS R5", brand: "Canon", category: "cameras", price: "$3,899", desc: "45MP full-frame mirrorless with 8K video and IBIS.", img: "https://picsum.photos/id/1060/400/300" },
-    { id: 2, name: "Nikon Z9", brand: "Nikon", category: "cameras", price: "$5,499", desc: "45.7MP stacked sensor, 8K video, 20fps burst.", img: "https://picsum.photos/id/1061/400/300" },
-    { id: 3, name: "Sony A7 IV", brand: "Sony", category: "cameras", price: "$2,499", desc: "33MP full-frame hybrid with 4K 60p video.", img: "https://picsum.photos/id/1062/400/300" },
-    { id: 4, name: "Fujifilm X-T5", brand: "Fujifilm", category: "cameras", price: "$1,699", desc: "40MP APS-C with film simulations and 6.2K video.", img: "https://picsum.photos/id/1063/400/300" },
-    { id: 5, name: "Panasonic Lumix S5 II", brand: "Panasonic", category: "cameras", price: "$1,999", desc: "24MP full-frame with phase-detect AF and 6K video.", img: "https://picsum.photos/id/1064/400/300" },
-    { id: 6, name: "Nikon Z8", brand: "Nikon", category: "cameras", price: "$3,999", desc: "45.7MP stacked sensor, 8.3K N-RAW video.", img: "https://picsum.photos/id/1067/400/300" },
-    { id: 7, name: "Sony A7R V", brand: "Sony", category: "cameras", price: "$3,899", desc: "61MP full-frame with AI autofocus and 8K video.", img: "https://picsum.photos/id/1068/400/300" },
-    { id: 8, name: "Canon EOS R6 Mark II", brand: "Canon", category: "cameras", price: "$2,499", desc: "40MP full-frame speed demon with 4K 60fps.", img: "https://picsum.photos/id/1069/400/300" },
-    { id: 9, name: "Fujifilm X-H2S", brand: "Fujifilm", category: "cameras", price: "$2,499", desc: "26.1MP stacked CMOS with 40fps burst and 4K 120p.", img: "https://picsum.photos/id/1071/400/300" },
-    { id: 10, name: "Olympus OM-D E-M1 III", brand: "Olympus", category: "cameras", price: "$1,699", desc: "20MP weather-sealed with 5-axis IBIS and 60fps.", img: "https://picsum.photos/id/1072/400/300" },
+    { id: 1, name: "Canon EOS R5", brand: "Canon", category: "cameras", price: "PKR 3,899", desc: "45MP full-frame mirrorless with 8K video and IBIS.", img: "our products images/Canon cameras Canon EOS R5.jpg" },
+    { id: 2, name: "Nikon Z9", brand: "Nikon", category: "cameras", price: "PKR 5,499", desc: "45.7MP stacked sensor, 8K video, 20fps burst.", img: "our products images/Nikon cameras Nikon Z9.jpg" },
+    { id: 3, name: "Sony A7 IV", brand: "Sony", category: "cameras", price: "PKR 2,499", desc: "33MP full-frame hybrid with 4K 60p video.", img: "our products images/Sony cameras Sony A7 IV 33MP full-frame hybrid with 4K 60p video..jpg" },
+    { id: 4, name: "Fujifilm X-T5", brand: "Fujifilm", category: "cameras", price: "PKR 1,699", desc: "40MP APS-C with film simulations and 6.2K video.", img: "our products images/Fujifilm cameras Fujifilm X-T5.jpg" },
+    { id: 5, name: "Panasonic Lumix S5 II", brand: "Panasonic", category: "cameras", price: "PKR 1,999", desc: "24MP full-frame with phase-detect AF and 6K video.", img: "our products images/Panasonic cameras Panasonic Lumix S5.jpg" },
+    { id: 6, name: "Nikon Z8", brand: "Nikon", category: "cameras", price: "PKR 3,999", desc: "45.7MP stacked sensor, 8.3K N-RAW video.", img: "our products images/Nikon cameras Nikon Z8 45.7MP.jpg" },
+    { id: 7, name: "Sony A7R V", brand: "Sony", category: "cameras", price: "PKR 3,899", desc: "61MP full-frame with AI autofocus and 8K video.", img: "our products images/Sony cameras Sony A7R V 61MP.jpg" },
+    { id: 8, name: "Canon EOS R6 Mark II", brand: "Canon", category: "cameras", price: "PKR 2,499", desc: "40MP full-frame speed demon with 4K 60fps.", img: "our products images/Canon cameras Canon EOS R6 Mark II.jpg" },
+    { id: 9, name: "Fujifilm X-H2S", brand: "Fujifilm", category: "cameras", price: "PKR 2,499", desc: "26.1MP stacked CMOS with 40fps burst and 4K 120p.", img: "our products images/Fujifilm cameras Fujifilm X-H2S 26.1MP.jpg" },
+    { id: 10, name: "Olympus OM-D E-M1 III", brand: "Olympus", category: "cameras", price: "PKR 1,699", desc: "20MP weather-sealed with 5-axis IBIS and 60fps.", img: "our products images/Olympus cameras Olympus OM-D E-M1 III.jpg" },
 
     // ============================================================
     // LENSES (10 Products)
     // ============================================================
-    { id: 11, name: "Canon RF 50mm f/1.2L", brand: "Canon", category: "lenses", price: "$2,399", desc: "L-series portrait lens with stunning bokeh.", img: "https://picsum.photos/id/1065/400/300" },
-    { id: 12, name: "Sony FE 85mm f/1.4 GM", brand: "Sony", category: "lenses", price: "$1,899", desc: "G Master portrait lens, razor sharp with creamy bokeh.", img: "https://picsum.photos/id/1066/400/300" },
-    { id: 13, name: "Nikon Z 24-70mm f/2.8 S", brand: "Nikon", category: "lenses", price: "$2,399", desc: "Professional standard zoom with OLED display.", img: "https://picsum.photos/id/1073/400/300" },
-    { id: 14, name: "Canon RF 24-70mm f/2.8L", brand: "Canon", category: "lenses", price: "$2,599", desc: "Professional standard zoom with IS and weather sealing.", img: "https://picsum.photos/id/1074/400/300" },
-    { id: 15, name: "Sigma 35mm f/1.4 Art", brand: "Sigma", category: "lenses", price: "$899", desc: "Wide prime with high sharpness and beautiful bokeh.", img: "https://picsum.photos/id/1075/400/300" },
-    { id: 16, name: "Tamron 28-75mm f/2.8 G2", brand: "Tamron", category: "lenses", price: "$799", desc: "Standard zoom with fast AF and constant f/2.8.", img: "https://picsum.photos/id/1076/400/300" },
-    { id: 17, name: "Fujifilm XF 56mm f/1.2", brand: "Fujifilm", category: "lenses", price: "$999", desc: "Fast portrait prime with weather sealing.", img: "https://picsum.photos/id/1077/400/300" },
-    { id: 18, name: "Sony FE 24-70mm f/2.8 GM II", brand: "Sony", category: "lenses", price: "$2,299", desc: "Duniya ka sabse halka f/2.8 standard zoom.", img: "https://picsum.photos/id/1078/400/300" },
-    { id: 19, name: "Nikon Z 85mm f/1.2 S", brand: "Nikon", category: "lenses", price: "$2,799", desc: "Ultimate portrait lens with multi-focus system.", img: "https://picsum.photos/id/1079/400/300" },
-    { id: 20, name: "Sigma 50mm f/1.4 Art", brand: "Sigma", category: "lenses", price: "$849", desc: "Iconic portrait lens with stunning bokeh and sharpness.", img: "https://picsum.photos/id/1082/400/300" },
+    { id: 11, name: "Canon RF 50mm f/1.2L", brand: "Canon", category: "lenses", price: "PKR 2,399", desc: "L-series portrait lens with stunning bokeh.", img: "our products images/Canon lenses Canon RF 50mm.jpg" },
+    { id: 12, name: "Sony FE 85mm f/1.4 GM", brand: "Sony", category: "lenses", price: "PKR 1,899", desc: "G Master portrait lens, razor sharp with creamy bokeh.", img: "our products images/Sony lenses Sony FE 85mm.jpg" },
+    { id: 13, name: "Nikon Z 24-70mm f/2.8 S", brand: "Nikon", category: "lenses", price: "PKR 2,399", desc: "Professional standard zoom with OLED display.", img: "our products images/Nikon Z 24-70mm.jpg" },
+    { id: 14, name: "Canon RF 24-70mm f/2.8L", brand: "Canon", category: "lenses", price: "PKR 2,599", desc: "Professional standard zoom with IS and weather sealing.", img: "our products images/Canon lenses Canon RF 24-70mm.jpg" },
+    { id: 15, name: "Sigma 35mm f/1.4 Art", brand: "Sigma", category: "lenses", price: "PKR 899", desc: "Wide prime with high sharpness and beautiful bokeh.", img: "our products images/Sigma lenses Sigma 35mm.jpg" },
+    { id: 16, name: "Tamron 28-75mm f/2.8 G2", brand: "Tamron", category: "lenses", price: "PKR 799", desc: "Standard zoom with fast AF and constant f/2.8.", img: "our products images/Tamron lenses Tamron 28-75mm.jpg" },
+    { id: 17, name: "Fujifilm XF 56mm f/1.2", brand: "Fujifilm", category: "lenses", price: "PKR 999", desc: "Fast portrait prime with weather sealing.", img: "our products images/Fujifilm lenses Fujifilm XF 56mm.jpg" },
+    { id: 18, name: "Sony FE 24-70mm f/2.8 GM II", brand: "Sony", category: "lenses", price: "PKR 2,299", desc: "Duniya ka sabse halka f/2.8 standard zoom.", img: "our products images/Sony lenses Sony FE 24-70mm.jpg" },
+    { id: 19, name: "Nikon Z 85mm f/1.2 S", brand: "Nikon", category: "lenses", price: "PKR 2,799", desc: "Ultimate portrait lens with multi-focus system.", img: "our products images/Nikon lenses Nikon Z 85mm.jpg" },
+    { id: 20, name: "Sigma 50mm f/1.4 Art", brand: "Sigma", category: "lenses", price: "PKR 849", desc: "Iconic portrait lens with stunning bokeh and sharpness.", img: "our products images/Sigma lenses Sigma 50mm.jpg" },
 
     // ============================================================
     // PRO AUDIO (10 Products)
     // ============================================================
-    { id: 21, name: "Rode VideoMic Pro+", brand: "Rode", category: "audio", price: "$399", desc: "On-camera shotgun mic with auto power and safety channel.", img: "https://picsum.photos/id/1080/400/300" },
-    { id: 22, name: "Zoom H6 Recorder", brand: "Zoom", category: "audio", price: "$499", desc: "6-track portable recorder with interchangeable capsules.", img: "https://picsum.photos/id/1081/400/300" },
-    { id: 23, name: "Rode Wireless GO II", brand: "Rode", category: "audio", price: "$699", desc: "Dual-channel wireless mic with onboard recording.", img: "https://picsum.photos/id/1083/400/300" },
-    { id: 24, name: "DJI Mic 2", brand: "DJI", category: "audio", price: "$799", desc: "Wireless mic with 250m range and 18-hour battery.", img: "https://picsum.photos/id/1084/400/300" },
-    { id: 25, name: "Boya BY-M1 Lavalier", brand: "Boya", category: "audio", price: "$29", desc: "Budget-friendly clip-on omnidirectional microphone.", img: "https://picsum.photos/id/1085/400/300" },
-    { id: 26, name: "Sennheiser MKH 416", brand: "Sennheiser", category: "audio", price: "$1,199", desc: "Professional shotgun mic for broadcast and film.", img: "https://picsum.photos/id/1086/400/300" },
-    { id: 27, name: "Tascam DR-40X", brand: "Tascam", category: "audio", price: "$199", desc: "4-track portable recorder with XLR inputs.", img: "https://picsum.photos/id/1087/400/300" },
-    { id: 28, name: "Shure SM7B", brand: "Shure", category: "audio", price: "$399", desc: "Dynamic microphone for vocals and broadcasting.", img: "https://picsum.photos/id/1088/400/300" },
-    { id: 29, name: "Audio-Technica AT4053B", brand: "Audio-Technica", category: "audio", price: "$799", desc: "Hypercardioid condenser microphone for film.", img: "https://picsum.photos/id/1089/400/300" },
-    { id: 30, name: "Zoom F6", brand: "Zoom", category: "audio", price: "$899", desc: "6-track field recorder with 32-bit float technology.", img: "https://picsum.photos/id/1090/400/300" },
+    { id: 21, name: "Rode VideoMic Pro+", brand: "Rode", category: "audio", price: "PKR 399", desc: "On-camera shotgun mic with auto power and safety channel.", img: "our products images/Rode audio Rode VideoMic Pro+.jpg" },
+    { id: 22, name: "Zoom H6 Recorder", brand: "Zoom", category: "audio", price: "PKR 499", desc: "6-track portable recorder with interchangeable capsules.", img: "our products images/Zoom audio Zoom H6 Recorder.jpg" },
+    { id: 23, name: "Rode Wireless GO II", brand: "Rode", category: "audio", price: "PKR 699", desc: "Dual-channel wireless mic with onboard recording.", img: "our products images/Rode Wireless GO II Dual-channel.jpg" },
+    { id: 24, name: "DJI Mic 2", brand: "DJI", category: "audio", price: "PKR 799", desc: "Wireless mic with 250m range and 18-hour battery.", img: "our products images/DJI Mic 2 Wireless mic with 250m.jpg" },
+    { id: 25, name: "Boya BY-M1 Lavalier", brand: "Boya", category: "audio", price: "PKR 29", desc: "Budget-friendly clip-on omnidirectional microphone.", img: "our products images/Boya audio Boya BY-M1 Lavalier.jpg" },
+    { id: 26, name: "Sennheiser MKH 416", brand: "Sennheiser", category: "audio", price: "PKR 1,199", desc: "Professional shotgun mic for broadcast and film.", img: "our products images/Sennheiser audio Sennheiser MKH 416.jpg" },
+    { id: 27, name: "Tascam DR-40X", brand: "Tascam", category: "audio", price: "PKR 199", desc: "4-track portable recorder with XLR inputs.", img: "our products images/Tascam audio Tascam DR-40X.jpg" },
+    { id: 28, name: "Shure SM7B", brand: "Shure", category: "audio", price: "PKR 399", desc: "Dynamic microphone for vocals and broadcasting.", img: "our products images/Shure audio Shure SM7B Dynamic.jpg" },
+    { id: 29, name: "Audio-Technica AT4053B", brand: "Audio-Technica", category: "audio", price: "PKR 799", desc: "Hypercardioid condenser microphone for film.", img: "our products images/Audio-Technica audio Audio-Technica AT4053B.jpg" },
+    { id: 30, name: "Zoom F6", brand: "Zoom", category: "audio", price: "PKR 899", desc: "6-track field recorder with 32-bit float technology.", img: "our products images/Zoom audio Zoom.jpg" },
 
     // ============================================================
     // MEMORY CARDS (10 Products)
     // ============================================================
-    { id: 31, name: "SanDisk Extreme Pro 128GB", brand: "SanDisk", category: "memory", price: "$149", desc: "UHS-I V30 card, 200MB/s read speed.", img: "https://picsum.photos/id/1070/400/300" },
-    { id: 32, name: "SanDisk Extreme Pro 256GB", brand: "SanDisk", category: "memory", price: "$229", desc: "UHS-I V30 card, 200MB/s read speed.", img: "https://picsum.photos/id/1091/400/300" },
-    { id: 33, name: "Lexar Professional 128GB", brand: "Lexar", category: "memory", price: "$169", desc: "UHS-II card with 280MB/s read speed.", img: "https://picsum.photos/id/1092/400/300" },
-    { id: 34, name: "Lexar Professional 256GB", brand: "Lexar", category: "memory", price: "$299", desc: "UHS-II card with 300MB/s read speed.", img: "https://picsum.photos/id/1093/400/300" },
-    { id: 35, name: "Sony Tough 128GB", brand: "Sony", category: "memory", price: "$199", desc: "Rugged UHS-II card with 300MB/s speed.", img: "https://picsum.photos/id/1094/400/300" },
-    { id: 36, name: "Sony Tough 256GB", brand: "Sony", category: "memory", price: "$349", desc: "Rugged UHS-II card with 300MB/s speed.", img: "https://picsum.photos/id/1095/400/300" },
-    { id: 37, name: "ProGrade Digital 128GB", brand: "ProGrade", category: "memory", price: "$189", desc: "UHS-II card with 300MB/s read speed.", img: "https://picsum.photos/id/1096/400/300" },
-    { id: 38, name: "ProGrade Digital 256GB", brand: "ProGrade", category: "memory", price: "$329", desc: "UHS-II card with 300MB/s read speed.", img: "https://picsum.photos/id/1097/400/300" },
-    { id: 39, name: "Kingston Canvas React 128GB", brand: "Kingston", category: "memory", price: "$89", desc: "UHS-II card with 285MB/s read speed.", img: "https://picsum.photos/id/1098/400/300" },
-    { id: 40, name: "Kingston Canvas React 256GB", brand: "Kingston", category: "memory", price: "$159", desc: "UHS-II card with 285MB/s read speed.", img: "https://picsum.photos/id/1099/400/300" },
+    { id: 31, name: "SanDisk Extreme Pro 128GB", brand: "SanDisk", category: "memory", price: "PKR 149", desc: "UHS-I V30 card, 200MB/s read speed.", img: "our products images/SanDisk memory SanDisk Extreme Pro 128GB.jpg" },
+    { id: 32, name: "SanDisk Extreme Pro 256GB", brand: "SanDisk", category: "memory", price: "PKR 229", desc: "UHS-I V30 card, 200MB/s read speed.", img: "our products images/SanDisk memory SanDisk Extreme Pro 256GB.jpg" },
+    { id: 33, name: "Lexar Professional 128GB", brand: "Lexar", category: "memory", price: "PKR 169", desc: "UHS-II card with 280MB/s read speed.", img: "our products images/Lexar memory Lexar Professional 128GB.jpg" },
+    { id: 34, name: "Lexar Professional 256GB", brand: "Lexar", category: "memory", price: "PKR 299", desc: "UHS-II card with 300MB/s read speed.", img: "our products images/Lexar memory Lexar Professional 256GB.jpg" },
+    { id: 35, name: "Sony Tough 128GB", brand: "Sony", category: "memory", price: "PKR 199", desc: "Rugged UHS-II card with 300MB/s speed.", img: "our products images/Sony memory Sony Tough 128GB.jpg" },
+    { id: 36, name: "Sony Tough 256GB", brand: "Sony", category: "memory", price: "PKR 349", desc: "Rugged UHS-II card with 300MB/s speed.", img: "our products images/Sony memory Sony Tough 256GB.jpg" },
+    { id: 37, name: "ProGrade Digital 128GB", brand: "ProGrade", category: "memory", price: "PKR 189", desc: "UHS-II card with 300MB/s read speed.", img: "our products images/ProGrade memory ProGrade Digital 128GB.jpg" },
+    { id: 38, name: "ProGrade Digital 256GB", brand: "ProGrade", category: "memory", price: "PKR 329", desc: "UHS-II card with 300MB/s read speed.", img: "our products images/ProGrade memory ProGrade Digital 256GB.jpg" },
+    { id: 39, name: "Kingston Canvas React 128GB", brand: "Kingston", category: "memory", price: "PKR 89", desc: "UHS-II card with 285MB/s read speed.", img: "our products images/Kingston memory Kingston Canvas React.jpg" },
+    { id: 40, name: "Kingston Canvas React 256GB", brand: "Kingston", category: "memory", price: "PKR 159", desc: "UHS-II card with 285MB/s read speed.", img: "our products images/Kingston memory Kingston Canvas React 256.jpg" },
 
     // ============================================================
     // TRIPODS (10 Products)
     // ============================================================
-    { id: 41, name: "Manfrotto MT055XPRO3", brand: "Manfrotto", category: "tripods", price: "$349", desc: "Aluminium tripod with 90° column, supports 9kg.", img: "https://picsum.photos/id/1040/400/300" },
-    { id: 42, name: "Gitzo GT2545T", brand: "Gitzo", category: "tripods", price: "$899", desc: "Carbon fiber travel tripod with great stability.", img: "https://picsum.photos/id/1100/400/300" },
-    { id: 43, name: "DJI RS 4 Gimbal", brand: "DJI", category: "tripods", price: "$1,199", desc: "3-axis gimbal with 3kg payload and Bluetooth control.", img: "https://picsum.photos/id/1101/400/300" },
-    { id: 44, name: "Manfrotto Befree Advanced", brand: "Manfrotto", category: "tripods", price: "$249", desc: "Compact travel tripod with aluminium legs.", img: "https://picsum.photos/id/1102/400/300" },
-    { id: 45, name: "Joby GorillaPod 5K", brand: "Joby", category: "tripods", price: "$89", desc: "Flexible-leg tripod that wraps around any surface.", img: "https://picsum.photos/id/1103/400/300" },
-    { id: 46, name: "Peak Design Travel Tripod", brand: "Peak Design", category: "tripods", price: "$599", desc: "Ultra-compact carbon fiber travel tripod.", img: "https://picsum.photos/id/1104/400/300" },
-    { id: 47, name: "Manfrotto 290 Xtra", brand: "Manfrotto", category: "tripods", price: "$189", desc: "Aluminium tripod with 4-section legs.", img: "https://picsum.photos/id/1105/400/300" },
-    { id: 48, name: "Gitzo GT3533LS", brand: "Gitzo", category: "tripods", price: "$1,199", desc: "Systematic carbon fiber tripod for heavy gear.", img: "https://picsum.photos/id/1106/400/300" },
-    { id: 49, name: "DJI RS 3 Mini", brand: "DJI", category: "tripods", price: "$699", desc: "Compact gimbal for lightweight cameras.", img: "https://picsum.photos/id/1107/400/300" },
-    { id: 50, name: "Manfrotto Monopod 680B", brand: "Manfrotto", category: "tripods", price: "$129", desc: "Lightweight 5-section monopod for sports.", img: "https://picsum.photos/id/1108/400/300" },
+    { id: 41, name: "Manfrotto MT055XPRO3", brand: "Manfrotto", category: "tripods", price: "PKR 349", desc: "Aluminium tripod with 90° column, supports 9kg.", img: "our products images/Manfrotto tripods Manfrotto MT055XPRO3.jpg" },
+    { id: 42, name: "Gitzo GT2545T", brand: "Gitzo", category: "tripods", price: "PKR 899", desc: "Carbon fiber travel tripod with great stability.", img: "our products images/Gitzo tripods Gitzo GT2545T.jpg" },
+    { id: 43, name: "DJI RS 4 Gimbal", brand: "DJI", category: "tripods", price: "PKR 1,199", desc: "3-axis gimbal with 3kg payload and Bluetooth control.", img: "our products images/DJI tripods DJI RS 4 Gimbal.jpg" },
+    { id: 44, name: "Manfrotto Befree Advanced", brand: "Manfrotto", category: "tripods", price: "PKR 249", desc: "Compact travel tripod with aluminium legs.", img: "our products images/Manfrotto tripods Manfrotto Befree Advanced.jpg" },
+    { id: 45, name: "Joby GorillaPod 5K", brand: "Joby", category: "tripods", price: "PKR 89", desc: "Flexible-leg tripod that wraps around any surface.", img: "our products images/Joby tripods Joby GorillaPod.jpg" },
+    { id: 46, name: "Peak Design Travel Tripod", brand: "Peak Design", category: "tripods", price: "PKR 599", desc: "Ultra-compact carbon fiber travel tripod.", img: "our products images/Peak Design tripods Peak Design Travel.jpg" },
+    { id: 47, name: "Manfrotto 290 Xtra", brand: "Manfrotto", category: "tripods", price: "PKR 189", desc: "Aluminium tripod with 4-section legs.", img: "our products images/Manfrotto tripods Manfrotto 290.jpg" },
+    { id: 48, name: "Gitzo GT3533LS", brand: "Gitzo", category: "tripods", price: "PKR 1,199", desc: "Systematic carbon fiber tripod for heavy gear.", img: "our products images/Gitzo tripods Gitzo GT3533LS.jpg" },
+    { id: 49, name: "DJI RS 3 Mini", brand: "DJI", category: "tripods", price: "PKR 699", desc: "Compact gimbal for lightweight cameras.", img: "our products images/DJI tripods DJI RS 3 Mini.jpg" },
+    { id: 50, name: "Manfrotto Monopod 680B", brand: "Manfrotto", category: "tripods", price: "PKR 129", desc: "Lightweight 5-section monopod for sports.", img: "our products images/Manfrotto tripods Manfrotto Monopod 680B.jpg" },
 
     // ============================================================
     // LIGHTING (10 Products)
     // ============================================================
-    { id: 51, name: "Godox AD200Pro", brand: "Godox", category: "lighting", price: "$299", desc: "200Ws pocket strobe, TTL compatible, battery-powered.", img: "https://picsum.photos/id/1016/400/300" },
-    { id: 52, name: "Godox SL60W", brand: "Godox", category: "lighting", price: "$249", desc: "60W continuous LED with Bowens mount.", img: "https://picsum.photos/id/1015/400/300" },
-    { id: 53, name: "Aputure Amaran 100D", brand: "Aputure", category: "lighting", price: "$399", desc: "100W LED video light with ultra-bright output.", img: "https://picsum.photos/id/1109/400/300" },
-    { id: 54, name: "Profoto D2 Studio Light", brand: "Profoto", category: "lighting", price: "$1,495", desc: "High-speed studio flash with 10-stop power range.", img: "https://picsum.photos/id/1110/400/300" },
-    { id: 55, name: "Godox V1 Flash", brand: "Godox", category: "lighting", price: "$299", desc: "Compact round-head flash for on/off-camera use.", img: "https://picsum.photos/id/1111/400/300" },
-    { id: 56, name: "Aputure 300d Mark II", brand: "Aputure", category: "lighting", price: "$899", desc: "300W COB LED with app control and DMX.", img: "https://picsum.photos/id/1112/400/300" },
-    { id: 57, name: "Godox AD600Pro", brand: "Godox", category: "lighting", price: "$899", desc: "600Ws studio strobe with TTL and HSS.", img: "https://picsum.photos/id/1113/400/300" },
-    { id: 58, name: "Neewer RGB LED Panel", brand: "Neewer", category: "lighting", price: "$189", desc: "Full-color RGB panel for creative lighting effects.", img: "https://picsum.photos/id/1114/400/300" },
-    { id: 59, name: "Aputure LS 600c Pro", brand: "Aputure", category: "lighting", price: "$2,199", desc: "600W full-color RGB LED light for professionals.", img: "https://picsum.photos/id/1115/400/300" },
-    { id: 60, name: "Godox M600Bi", brand: "Godox", category: "lighting", price: "$1,299", desc: "600W bi-color LED video light with silent fan.", img: "https://picsum.photos/id/1116/400/300" },
+    { id: 51, name: "Godox AD200Pro", brand: "Godox", category: "lighting", price: "PKR 299", desc: "200Ws pocket strobe, TTL compatible, battery-powered.", img: "our products images/Godox lighting Godox AD200Pro 200Ws.jpg" },
+    { id: 52, name: "Godox SL60W", brand: "Godox", category: "lighting", price: "PKR 249", desc: "60W continuous LED with Bowens mount.", img: "our products images/Godox lighting Godox SL60W.jpg" },
+    { id: 53, name: "Aputure Amaran 100D", brand: "Aputure", category: "lighting", price: "PKR 399", desc: "100W LED video light with ultra-bright output.", img: "our products images/Aputure lighting Aputure Amaran.jpg" },
+    { id: 54, name: "Profoto D2 Studio Light", brand: "Profoto", category: "lighting", price: "PKR 1,495", desc: "High-speed studio flash with 10-stop power range.", img: "our products images/Profoto lighting Profoto D2 Studio.jpg" },
+    { id: 55, name: "Godox V1 Flash", brand: "Godox", category: "lighting", price: "PKR 299", desc: "Compact round-head flash for on/off-camera use.", img: "our products images/Godox lighting Godox V1.jpg" },
+    { id: 56, name: "Aputure 300d Mark II", brand: "Aputure", category: "lighting", price: "PKR 899", desc: "300W COB LED with app control and DMX.", img: "our products images/Aputure lighting Aputure.jpg" },
+    { id: 57, name: "Godox AD600Pro", brand: "Godox", category: "lighting", price: "PKR 899", desc: "600Ws studio strobe with TTL and HSS.", img: "our products images/Godox lighting Godox AD600Pro 600Ws.jpg" },
+    { id: 58, name: "Neewer RGB LED Panel", brand: "Neewer", category: "lighting", price: "PKR 189", desc: "Full-color RGB panel for creative lighting effects.", img: "our products images/Neewer lighting Neewer RGB LED Panel.jpg" },
+    { id: 59, name: "Aputure LS 600c Pro", brand: "Aputure", category: "lighting", price: "PKR 2,199", desc: "600W full-color RGB LED light for professionals.", img: "our products images/Aputure lighting Aputure LS 600c Pro 600W.jpg" },
+    { id: 60, name: "Godox M600Bi", brand: "Godox", category: "lighting", price: "PKR 1,299", desc: "600W bi-color LED video light with silent fan.", img: "our products images/Godox lighting Godox M600Bi.jpg" },
 
     // ============================================================
     // BAGS & CASES (10 Products)
     // ============================================================
-    { id: 61, name: "Lowepro ProTactic 450", brand: "Lowepro", category: "bags", price: "$299", desc: "Modular backpack for 2 bodies and 6+ lenses.", img: "https://picsum.photos/id/1025/400/300" },
-    { id: 62, name: "Peak Design Everyday Backpack", brand: "Peak Design", category: "bags", price: "$299", desc: "30L weatherproof backpack with FlexFold dividers.", img: "https://picsum.photos/id/1117/400/300" },
-    { id: 63, name: "Think Tank Airport Security V3", brand: "Think Tank", category: "bags", price: "$399", desc: "Rolling camera case for professional gear and travel.", img: "https://picsum.photos/id/1118/400/300" },
-    { id: 64, name: "Peak Design Everyday Sling", brand: "Peak Design", category: "bags", price: "$149", desc: "10L sling bag with quick-access design.", img: "https://picsum.photos/id/1119/400/300" },
-    { id: 65, name: "Lowepro Flipside 400 AW", brand: "Lowepro", category: "bags", price: "$199", desc: "Backpack with rear access for security.", img: "https://picsum.photos/id/1120/400/300" },
-    { id: 66, name: "Pelican 1510 Case", brand: "Pelican", category: "bags", price: "$279", desc: "Watertight and crushproof hard case, carry-on approved.", img: "https://picsum.photos/id/1121/400/300" },
-    { id: 67, name: "Manfrotto Pro Light Backpack", brand: "Manfrotto", category: "bags", price: "$249", desc: "Professional backpack with camera insert.", img: "https://picsum.photos/id/1122/400/300" },
-    { id: 68, name: "Think Tank Photo Speed Demon", brand: "Think Tank", category: "bags", price: "$159", desc: "Belt-mounted holster for camera and lens.", img: "https://picsum.photos/id/1123/400/300" },
-    { id: 69, name: "Lowepro Adventura 170", brand: "Lowepro", category: "bags", price: "$89", desc: "Compact shoulder bag for entry-level cameras.", img: "https://picsum.photos/id/1124/400/300" },
-    { id: 70, name: "Peak Design Camera Cube", brand: "Peak Design", category: "bags", price: "$119", desc: "Modular camera insert for any backpack.", img: "https://picsum.photos/id/1125/400/300" },
+    { id: 61, name: "Lowepro ProTactic 450", brand: "Lowepro", category: "bags", price: "PKR 299", desc: "Modular backpack for 2 bodies and 6+ lenses.", img: "our products images/Lowepro bags Lowepro ProTactic 450.jpg" },
+    { id: 62, name: "Peak Design Everyday Backpack", brand: "Peak Design", category: "bags", price: "PKR 299", desc: "30L weatherproof backpack with FlexFold dividers.", img: "our products images/Peak Design bags Peak Design Everyday.jpg" },
+    { id: 63, name: "Think Tank Airport Security V3", brand: "Think Tank", category: "bags", price: "PKR 399", desc: "Rolling camera case for professional gear and travel.", img: "our products images/Think Tank bags Think Tank Airport.jpg" },
+    { id: 64, name: "Peak Design Everyday Sling", brand: "Peak Design", category: "bags", price: "PKR 149", desc: "10L sling bag with quick-access design.", img: "our products images/Sling Peak Design bags Peak Design Everyday.jpg" },
+    { id: 65, name: "Lowepro Flipside 400 AW", brand: "Lowepro", category: "bags", price: "PKR 199", desc: "Backpack with rear access for security.", img: "our products images/Lowepro bags Lowepro Flipside 400.jpg" },
+    { id: 66, name: "Pelican 1510 Case", brand: "Pelican", category: "bags", price: "PKR 279", desc: "Watertight and crushproof hard case, carry-on approved.", img: "our products images/Pelican bags Pelican 1510 Case Watertight.jpg" },
+    { id: 67, name: "Manfrotto Pro Light Backpack", brand: "Manfrotto", category: "bags", price: "PKR 249", desc: "Professional backpack with camera insert.", img: "our products images/Manfrotto bags Manfrotto Pro Light Backpack.jpg" },
+    { id: 68, name: "Think Tank Photo Speed Demon", brand: "Think Tank", category: "bags", price: "PKR 159", desc: "Belt-mounted holster for camera and lens.", img: "our products images/Think Tank bags Think Tank Photo.jpg" },
+    { id: 69, name: "Lowepro Adventura 170", brand: "Lowepro", category: "bags", price: "PKR 89", desc: "Compact shoulder bag for entry-level cameras.", img: "our products images/Lowepro bags Lowepro Adventura 170.jpg" },
+    { id: 70, name: "Peak Design Camera Cube", brand: "Peak Design", category: "bags", price: "PKR 119", desc: "Modular camera insert for any backpack.", img: "our products images/Peak Design bags Peak Design.jpg" },
 
     // ============================================================
     // ACCESSORIES (10 Products)
     // ============================================================
-    { id: 71, name: "B+W 77mm UV Filter", brand: "B+W", category: "accessories", price: "$89", desc: "High-quality brass filter with MRC nano coating.", img: "https://picsum.photos/id/1126/400/300" },
-    { id: 72, name: "Canon Speedlite EL-5", brand: "Canon", category: "accessories", price: "$399", desc: "60m guide number with wireless control.", img: "https://picsum.photos/id/1127/400/300" },
-    { id: 73, name: "Sony HVL-F60RM2", brand: "Sony", category: "accessories", price: "$499", desc: "Wireless flash with high performance.", img: "https://picsum.photos/id/1128/400/300" },
-    { id: 74, name: "DJI Ronin RS 3 Pro", brand: "DJI", category: "accessories", price: "$999", desc: "Professional 3-axis gimbal for cinema rigs.", img: "https://picsum.photos/id/1129/400/300" },
-    { id: 75, name: "Hoya UV Filter 77mm", brand: "Hoya", category: "accessories", price: "$59", desc: "Multi-coated UV filter for lens protection.", img: "https://picsum.photos/id/1130/400/300" },
-    { id: 76, name: "Canon LP-E6NH Battery", brand: "Canon", category: "accessories", price: "$139", desc: "Genuine battery for EOS R5/R6 series cameras.", img: "https://picsum.photos/id/1131/400/300" },
-    { id: 77, name: "Sony NP-FZ100 Battery", brand: "Sony", category: "accessories", price: "$149", desc: "Genuine battery for Sony A7 series cameras.", img: "https://picsum.photos/id/1132/400/300" },
-    { id: 78, name: "VSGO Cleaning Kit", brand: "VSGO", category: "accessories", price: "$49", desc: "Complete sensor and lens cleaning kit.", img: "https://picsum.photos/id/1133/400/300" },
-    { id: 79, name: "Wireless Remote Shutter", brand: "FOTOLAB", category: "accessories", price: "$29", desc: "Trigger your shutter remotely for long exposures.", img: "https://picsum.photos/id/1134/400/300" },
-    { id: 80, name: "Godox X2T Trigger", brand: "Godox", category: "accessories", price: "$89", desc: "TTL-compatible 2.4GHz wireless trigger for flashes.", img: "https://picsum.photos/id/1135/400/300" },
+    { id: 71, name: "B+W 77mm UV Filter", brand: "B+W", category: "accessories", price: "PKR 89", desc: "High-quality brass filter with MRC nano coating.", img: "https://picsum.photos/id/1126/400/300" },
+    { id: 72, name: "Canon Speedlite EL-5", brand: "Canon", category: "accessories", price: "PKR 399", desc: "60m guide number with wireless control.", img: "https://picsum.photos/id/1127/400/300" },
+    { id: 73, name: "Sony HVL-F60RM2", brand: "Sony", category: "accessories", price: "PKR 499", desc: "Wireless flash with high performance.", img: "https://picsum.photos/id/1128/400/300" },
+    { id: 74, name: "DJI Ronin RS 3 Pro", brand: "DJI", category: "accessories", price: "PKR 999", desc: "Professional 3-axis gimbal for cinema rigs.", img: "https://picsum.photos/id/1129/400/300" },
+    { id: 75, name: "Hoya UV Filter 77mm", brand: "Hoya", category: "accessories", price: "PKR 59", desc: "Multi-coated UV filter for lens protection.", img: "https://picsum.photos/id/1130/400/300" },
+    { id: 76, name: "Canon LP-E6NH Battery", brand: "Canon", category: "accessories", price: "PKR 139", desc: "Genuine battery for EOS R5/R6 series cameras.", img: "https://picsum.photos/id/1131/400/300" },
+    { id: 77, name: "Sony NP-FZ100 Battery", brand: "Sony", category: "accessories", price: "PKR 149", desc: "Genuine battery for Sony A7 series cameras.", img: "https://picsum.photos/id/1132/400/300" },
+    { id: 78, name: "VSGO Cleaning Kit", brand: "VSGO", category: "accessories", price: "PKR 49", desc: "Complete sensor and lens cleaning kit.", img: "https://picsum.photos/id/1133/400/300" },
+    { id: 79, name: "Wireless Remote Shutter", brand: "FOTOLAB", category: "accessories", price: "PKR 29", desc: "Trigger your shutter remotely for long exposures.", img: "https://picsum.photos/id/1134/400/300" },
+    { id: 80, name: "Godox X2T Trigger", brand: "Godox", category: "accessories", price: "PKR 89", desc: "TTL-compatible 2.4GHz wireless trigger for flashes.", img: "https://picsum.photos/id/1135/400/300" },
 
     // ============================================================
     // DRONES (10 Products - New Category)
     // ============================================================
-    { id: 81, name: "DJI Mavic 3 Pro", brand: "DJI", category: "drones", price: "$2,199", desc: "Triple-camera drone with 4/3 CMOS sensor.", img: "https://picsum.photos/id/1136/400/300" },
-    { id: 82, name: "DJI Mini 4 Pro", brand: "DJI", category: "drones", price: "$759", desc: "Lightweight drone with 4K video and obstacle sensing.", img: "https://picsum.photos/id/1137/400/300" },
-    { id: 83, name: "DJI Air 3", brand: "DJI", category: "drones", price: "$1,099", desc: "Dual-camera drone with 4K 60fps and 46-minute flight.", img: "https://picsum.photos/id/1138/400/300" },
-    { id: 84, name: "DJI Avata 2", brand: "DJI", category: "drones", price: "$999", desc: "FPV drone with 4K video and immersive flying.", img: "https://picsum.photos/id/1139/400/300" },
-    { id: 85, name: "Autel EVO Lite+", brand: "Autel", category: "drones", price: "$1,199", desc: "1-inch sensor drone with 6K video and 40-min flight.", img: "https://picsum.photos/id/1140/400/300" },
-    { id: 86, name: "DJI Phantom 4 Pro V2", brand: "DJI", category: "drones", price: "$1,599", desc: "Professional drone with 1-inch sensor and 4K video.", img: "https://picsum.photos/id/1141/400/300" },
-    { id: 87, name: "DJI Mini 3 Pro", brand: "DJI", category: "drones", price: "$699", desc: "Lightweight drone with 4K video and obstacle sensing.", img: "https://picsum.photos/id/1142/400/300" },
-    { id: 88, name: "Autel Evo Nano+", brand: "Autel", category: "drones", price: "$699", desc: "Compact drone with 4K video and 28-min flight.", img: "https://picsum.photos/id/1143/400/300" },
-    { id: 89, name: "DJI Mavic 3 Classic", brand: "DJI", category: "drones", price: "$1,499", desc: "4/3 CMOS sensor drone with Hasselblad camera.", img: "https://picsum.photos/id/1144/400/300" },
-    { id: 90, name: "DJI Mini 4K", brand: "DJI", category: "drones", price: "$299", desc: "Entry-level 4K drone with 31-minute flight time.", img: "https://picsum.photos/id/1145/400/300" }
+    { id: 81, name: "DJI Mavic 3 Pro", brand: "DJI", category: "drones", price: "PKR 2,199", desc: "Triple-camera drone with 4/3 CMOS sensor.", img: "https://picsum.photos/id/1136/400/300" },
+    { id: 82, name: "DJI Mini 4 Pro", brand: "DJI", category: "drones", price: "PKR 759", desc: "Lightweight drone with 4K video and obstacle sensing.", img: "https://picsum.photos/id/1137/400/300" },
+    { id: 83, name: "DJI Air 3", brand: "DJI", category: "drones", price: "PKR 1,099", desc: "Dual-camera drone with 4K 60fps and 46-minute flight.", img: "https://picsum.photos/id/1138/400/300" },
+    { id: 84, name: "DJI Avata 2", brand: "DJI", category: "drones", price: "PKR 999", desc: "FPV drone with 4K video and immersive flying.", img: "https://picsum.photos/id/1139/400/300" },
+    { id: 85, name: "Autel EVO Lite+", brand: "Autel", category: "drones", price: "PKR 1,199", desc: "1-inch sensor drone with 6K video and 40-min flight.", img: "https://picsum.photos/id/1140/400/300" },
+    { id: 86, name: "DJI Phantom 4 Pro V2", brand: "DJI", category: "drones", price: "PKR 1,599", desc: "Professional drone with 1-inch sensor and 4K video.", img: "https://picsum.photos/id/1141/400/300" },
+    { id: 87, name: "DJI Mini 3 Pro", brand: "DJI", category: "drones", price: "PKR 699", desc: "Lightweight drone with 4K video and obstacle sensing.", img: "https://picsum.photos/id/1142/400/300" },
+    { id: 88, name: "Autel Evo Nano+", brand: "Autel", category: "drones", price: "PKR 699", desc: "Compact drone with 4K video and 28-min flight.", img: "https://picsum.photos/id/1143/400/300" },
+    { id: 89, name: "DJI Mavic 3 Classic", brand: "DJI", category: "drones", price: "PKR 1,499", desc: "4/3 CMOS sensor drone with Hasselblad camera.", img: "https://picsum.photos/id/1144/400/300" },
+    { id: 90, name: "DJI Mini 4K", brand: "DJI", category: "drones", price: "PKR 299", desc: "Entry-level 4K drone with 31-minute flight time.", img: "https://picsum.photos/id/1145/400/300" }
 ];
 
         function renderProducts(category) {
