@@ -28,6 +28,19 @@
             --text-muted: #b0b0d0;
         }
 
+        /* ===== HERO WITH CAMERA BACKGROUND IMAGE ===== */
+.hero {
+    min-height: 85vh;
+    background: linear-gradient(rgba(11, 11, 26, 0.7), rgba(26, 26, 58, 0.85)), url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1920');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
         html { scroll-behavior: smooth; }
 
         body {
@@ -463,6 +476,34 @@
             text-align: center;
             padding: 60px 0;
         }
+        /* ===== LIGHTING SECTION WITH BACKGROUND IMAGE ===== */
+.lighting-section {
+    background: linear-gradient(rgba(11, 11, 26, 0.75), rgba(26, 26, 58, 0.85)), url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=1920');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.lighting-hero {
+    min-height: 35vh;
+    background: transparent !important;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.lighting-hero .overlay {
+    display: none;
+}
+
+.lighting-hero h1 {
+    text-shadow: 0 0 40px rgba(201,168,76,0.4);
+    letter-spacing: 2px;
+}
         .lighting-hero .overlay {
             position: absolute;
             inset: 0;
@@ -1409,7 +1450,7 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#home">
-                <img src="team imagelogo,image/fotolab logo.png" alt="FOTOLAB Logo" width="200" height="50" class="me-2" onerror="this.src='https://picsum.photos/seed/fotolablogo/50/50'">
+                <img src="team imagelogo,image/fotolab logo.png" alt="FOTOLAB Logo" width="50" height="50" class="me-2" onerror="this.src='https://picsum.photos/seed/fotolablogo/50/50'">
                 <span class="fw-bold fs-3" style="color:#fff;text-shadow:0 0 12px rgba(201,168,76,0.33);">FOTOLAB</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -1441,29 +1482,33 @@
     <!-- ============================================================
     HERO SECTION
     ============================================================ -->
-    <section class="hero" id="home">
-        <div class="hero-overlay"></div>
-        <div class="container position-relative z-3">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <div class="lens-aperture mb-4 mx-auto">
-                        <svg width="160" height="160" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="100" cy="100" r="90" fill="none" stroke="#C9A84C" stroke-width="8"/>
-                            <circle cx="100" cy="100" r="70" fill="none" stroke="#0F3460" stroke-width="12"/>
-                            <circle cx="100" cy="100" r="45" fill="#1A1A2E"/>
-                            <polygon points="100,30 110,60 140,70 115,90 120,120 100,105 80,120 85,90 60,70 90,60" fill="rgba(201,168,76,0.33)" stroke="#C9A84C" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h1 class="display-1 fw-bold text-white mb-3" data-aos="fade-up">CAPTURE THE MOMENT</h1>
-                    <p class="lead text-white-50 fs-3 mb-5" data-aos="fade-up" data-aos-delay="150">Premium Cameras &amp; Gear Since 1991</p>
-                    <a href="#products" class="btn btn-amber px-5 py-3 fs-5" data-aos="fade-up" data-aos-delay="300">SHOP NOW</a>
+    <section class="hero" id="home" style="background: linear-gradient(rgba(11, 11, 26, 0.7), rgba(11, 11, 26, 0.8)), url('team imagelogo,image/image bg.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative z-3">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <div class="lens-aperture mb-4 mx-auto">
+                    <svg width="160" height="160" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="90" fill="none" stroke="#C9A84C" stroke-width="8"/>
+                        <circle cx="100" cy="100" r="70" fill="none" stroke="#0F3460" stroke-width="12"/>
+                        <circle cx="100" cy="100" r="45" fill="#1A1A2E"/>
+                        <polygon points="100,30 110,60 140,70 115,90 120,120 100,105 80,120 85,90 60,70 90,60" fill="rgba(201,168,76,0.33)" stroke="#C9A84C" stroke-width="2"/>
+                    </svg>
                 </div>
+                <h1 class="display-1 fw-bold text-white mb-3" data-aos="fade-up">CAPTURE THE MOMENT</h1>
+                <p class="lead text-white-50 fs-3 mb-5" data-aos="fade-up" data-aos-delay="150">Premium Cameras &amp; Gear Since 1991</p>
+                <a href="#products" class="btn btn-amber px-5 py-3 fs-5" data-aos="fade-up" data-aos-delay="300">SHOP NOW</a>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down fa-2x text-white"></i>
-        </div>
-    </section>
+    </div>
+    <div class="scroll-indicator">
+        <i class="fas fa-chevron-down fa-2x text-white"></i>
+    </div>
+</section>
+    <div class="scroll-indicator">
+        <i class="fas fa-chevron-down fa-2x text-white"></i>
+    </div>
+</section>
 
     <!-- ============================================================
     ABOUT SECTION
@@ -1667,7 +1712,7 @@
     <!-- ============================================================
     LIGHTING KITS SECTION - 10 Products Per Category
     ============================================================ -->
-    <section class="py-5" id="lighting" style="background: var(--bg-dark);">
+<section class="py-5" id="lighting" style="background: var(--bg-dark);">
         <div class="container">
             <div class="lighting-hero">
                 <div class="overlay"></div>
@@ -1677,18 +1722,18 @@
                 </div>
             </div>
 
-            <div class="cat-strip">
-                <div class="container">
-                    <div class="cat-strip-inner">
-                        <button class="cat-pill active" data-target="cat-bundles"><i class="fas fa-box"></i> Complete Kits (10)</button>
-                        <button class="cat-pill" data-target="cat-strobes"><i class="fas fa-bolt"></i> Strobes &amp; Flash (10)</button>
-                        <button class="cat-pill" data-target="cat-led"><i class="fas fa-lightbulb"></i> Continuous LED (10)</button>
-                        <button class="cat-pill" data-target="cat-modifiers"><i class="fas fa-expand"></i> Modifiers (10)</button>
-                        <button class="cat-pill" data-target="cat-backdrops"><i class="fas fa-image"></i> Backdrops &amp; Stands (10)</button>
-                        <button class="cat-pill" data-target="cat-triggers"><i class="fas fa-wifi"></i> Triggers &amp; Remotes (10)</button>
-                    </div>
+        <div class="cat-strip" style="background: rgba(13, 13, 26, 0.9); backdrop-filter: blur(10px); border-radius: 12px; margin-top: 20px; border-bottom: 1px solid rgba(255,255,255,0.06); position: sticky; top: 76px; z-index: 500; padding: 12px 0;">
+            <div class="container">
+                <div class="cat-strip-inner" style="display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; flex-wrap: nowrap;">
+                    <button class="cat-pill active" data-target="cat-bundles"><i class="fas fa-box"></i> Complete Kits (10)</button>
+                    <button class="cat-pill" data-target="cat-strobes"><i class="fas fa-bolt"></i> Strobes &amp; Flash (10)</button>
+                    <button class="cat-pill" data-target="cat-led"><i class="fas fa-lightbulb"></i> Continuous LED (10)</button>
+                    <button class="cat-pill" data-target="cat-modifiers"><i class="fas fa-expand"></i> Modifiers (10)</button>
+                    <button class="cat-pill" data-target="cat-backdrops"><i class="fas fa-image"></i> Backdrops &amp; Stands (10)</button>
+                    <button class="cat-pill" data-target="cat-triggers"><i class="fas fa-wifi"></i> Triggers &amp; Remotes (10)</button>
                 </div>
             </div>
+        </div>
 
             <!-- ============================================================
             COMPLETE KITS (10 Products)
@@ -1707,7 +1752,7 @@
                     <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="50">
                         <div class="kit-card">
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1015/420/300" alt="Starter lighting kit">
+                                <img src="complete lighting kits images/Beginner Friendly FOTOLAB Starter Kit 2x.jpg" alt="Starter lighting kit">
                             </div>
                             <div class="body">
                                 <div class="kit-tagline">Beginner Friendly</div>
@@ -1731,7 +1776,7 @@
                         <div class="kit-card featured">
                             <div class="ribbon">Most Popular</div>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1016/420/300" alt="Studio pro lighting kit">
+                                <img src="complete lighting kits images/3-Point Studio Setup Studio Pro Kit 2x.jpg" alt="Studio pro lighting kit">
                             </div>
                             <div class="body">
                                 <div class="kit-tagline">3-Point Studio Setup</div>
@@ -1754,7 +1799,7 @@
                     <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="150">
                         <div class="kit-card">
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1019/420/300" alt="Content creator lighting kit">
+                                <img src="complete lighting kits images/Vlogging & YouTube Content Creator Kit.jpg" alt="Content creator lighting kit">
                             </div>
                             <div class="body">
                                 <div class="kit-tagline">Vlogging &amp; YouTube</div>
@@ -1777,7 +1822,7 @@
                     <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="200">
                         <div class="kit-card">
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1020/420/300" alt="Portrait lighting kit">
+                                <img src="complete lighting kits images/Portrait Specialist Portrait Pro Kit 1x.jpg" alt="Portrait lighting kit">
                             </div>
                             <div class="body">
                                 <div class="kit-tagline">Portrait Specialist</div>
@@ -1800,7 +1845,7 @@
                     <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="250">
                         <div class="kit-card">
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1021/420/300" alt="Product photography kit">
+                                <img src="complete lighting kits images/Product Photography Product Shoot Kit 2x.jpg" alt="Product photography kit">
                             </div>
                             <div class="body">
                                 <div class="kit-tagline">Product Photography</div>
@@ -1823,7 +1868,7 @@
                     <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="300">
                         <div class="kit-card">
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1022/420/300" alt="Event lighting kit">
+                                <img src="complete lighting kits images/Event & Wedding Event Pro Kit 4x.jpg" alt="Event lighting kit">
                             </div>
                             <div class="body">
                                 <div class="kit-tagline">Event &amp; Wedding</div>
@@ -1846,7 +1891,7 @@
                     <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="350">
                         <div class="kit-card">
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1023/420/300" alt="Outdoor lighting kit">
+                                <img src="complete lighting kits images/Location Lighting Outdoor Pro Kit 2x.jpg" alt="Outdoor lighting kit">
                             </div>
                             <div class="body">
                                 <div class="kit-tagline">Location Lighting</div>
@@ -1869,7 +1914,7 @@
                     <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="400">
                         <div class="kit-card">
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1024/420/300" alt="Studio lighting kit">
+                                <img src="complete lighting kits images/Complete Studio Studio Master.jpg" alt="Studio lighting kit">
                             </div>
                             <div class="body">
                                 <div class="kit-tagline">Complete Studio</div>
@@ -1892,7 +1937,7 @@
                     <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="450">
                         <div class="kit-card">
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1025/420/300" alt="Travel lighting kit">
+                                <img src="complete lighting kits images/Travel Friendly Travel Light Kit 2x.jpg" alt="Travel lighting kit">
                             </div>
                             <div class="body">
                                 <div class="kit-tagline">Travel Friendly</div>
@@ -1915,7 +1960,7 @@
                     <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="500">
                         <div class="kit-card">
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1026/420/300" alt="YouTube lighting kit">
+                                <img src="complete lighting kits images/YouTube Studio YouTube Pro Kit 2x.jpg" alt="YouTube lighting kit">
                             </div>
                             <div class="body">
                                 <div class="kit-tagline">YouTube Studio</div>
@@ -1950,7 +1995,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AD200Pro Strobe"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1016/300/250" alt="Godox strobe">
+                                <img src="strobes & flash image/Godox AD200Pro Pocket.jpg" alt="Godox strobe">
                                 <span class="badge-tag">Pro</span>
                             </div>
                             <div class="body">
@@ -1969,7 +2014,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AD600Pro Studio Strobe"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1020/300/250" alt="Studio strobe">
+                                <img src="strobes & flash image/Godox AD600Pro Studio Strobe.jpg" alt="Studio strobe">
                                 <span class="badge-tag">High Power</span>
                             </div>
                             <div class="body">
@@ -1988,7 +2033,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon Speedlite EL-5"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1021/300/250" alt="Canon speedlite">
+                                <img src="strobes & flash image/Canon Speedlite EL-5 Flash 60m.jpg" alt="Canon speedlite">
                                 <span class="badge-tag">Canon</span>
                             </div>
                             <div class="body">
@@ -2007,7 +2052,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Sony HVL-F60RM2 Flash"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1022/300/250" alt="Sony flash">
+                                <img src="strobes & flash image/Sony HVL-F60RM2 Flash 60m.jpg" alt="Sony flash">
                                 <span class="badge-tag">Sony</span>
                             </div>
                             <div class="body">
@@ -2026,7 +2071,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Profoto D2 Studio Light"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1023/300/250" alt="Profoto strobe">
+                                <img src="strobes & flash image/Profoto D2 Studio Light High-speed.jpg" alt="Profoto strobe">
                                 <span class="badge-tag">Profoto</span>
                             </div>
                             <div class="body">
@@ -2045,7 +2090,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox V1 Flash"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1024/300/250" alt="Godox V1 flash">
+                                <img src="strobes & flash image/Godox V1 Round-Head Flash.jpg" alt="Godox V1 flash">
                                 <span class="badge-tag">Best Seller</span>
                             </div>
                             <div class="body">
@@ -2064,7 +2109,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Neewer 660 Speedlight"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1025/300/250" alt="Neewer speedlight">
+                                <img src="strobes & flash image/Neewer 660 Speedlight.jpg" alt="Neewer speedlight">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Neewer</div>
@@ -2082,7 +2127,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Canon Speedlite 470EX-AI"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1026/300/250" alt="Canon speedlite">
+                                <img src="strobes & flash image/Canon Speedlite 470EX.jpg" alt="Canon speedlite">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Canon</div>
@@ -2100,7 +2145,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AD100Pro Flash"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1027/300/250" alt="Godox AD100Pro">
+                                <img src="strobes & flash image/Godox AD100Pro Pocket Flash.jpg" alt="Godox AD100Pro">
                                 <span class="badge-tag">Compact</span>
                             </div>
                             <div class="body">
@@ -2119,7 +2164,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Profoto B10 Plus"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1028/300/250" alt="Profoto B10">
+                                <img src="strobes & flash image/Profoto B10 Plus Studio Light.jpg" alt="Profoto B10">
                                 <span class="badge-tag">Profoto</span>
                             </div>
                             <div class="body">
@@ -2150,7 +2195,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox SL60W LED"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1015/300/250" alt="Godox SL60W">
+                                <img src="continues led lighting images/Godox SL60W LED Video.jpg" alt="Godox SL60W">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Godox</div>
@@ -2168,7 +2213,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Aputure 300d Mark II"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1023/300/250" alt="Aputure LED">
+                                <img src="continues led lighting images/Aputure 300d Mark II LED.jpg" alt="Aputure LED">
                                 <span class="badge-tag">Cinema Grade</span>
                             </div>
                             <div class="body">
@@ -2187,7 +2232,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Neewer RGB LED Panel"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1024/300/250" alt="RGB LED panel">
+                                <img src="continues led lighting images/Neewer RGB LED Panel.jpg" alt="RGB LED panel">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Neewer</div>
@@ -2205,7 +2250,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox SL150W LED"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1029/300/250" alt="Godox SL150W">
+                                <img src="continues led lighting images/Godox SL150W LED Video.jpg" alt="Godox SL150W">
                                 <span class="badge-tag">High Power</span>
                             </div>
                             <div class="body">
@@ -2224,7 +2269,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Aputure LS 600c Pro"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1030/300/250" alt="Aputure LS600c">
+                                <img src="continues led lighting images/Aputure LS 600c Pro RGB.jpg" alt="Aputure LS600c">
                                 <span class="badge-tag">Full Color</span>
                             </div>
                             <div class="body">
@@ -2243,7 +2288,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox M600Bi LED"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1031/300/250" alt="Godox M600Bi">
+                                <img src="continues led lighting images/Godox M600Bi Bi-Color.jpg" alt="Godox M600Bi">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Godox</div>
@@ -2261,7 +2306,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Aputure Amaran 100D"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1032/300/250" alt="Aputure Amaran">
+                                <img src="continues led lighting images/Aputure Amaran 100D.jpg" alt="Aputure Amaran">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Aputure</div>
@@ -2279,7 +2324,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox UL150 Silent LED"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1033/300/250" alt="Godox UL150">
+                                <img src="continues led lighting images/Godox UL150 Silent LED.jpg" alt="Godox UL150">
                                 <span class="badge-tag">Silent</span>
                             </div>
                             <div class="body">
@@ -2298,7 +2343,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox FV150 LED"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1034/300/250" alt="Godox FV150">
+                                <img src="continues led lighting images/Godox FV150 Bi-Color LED 150W.jpg" alt="Godox FV150">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Godox</div>
@@ -2316,7 +2361,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Nanlite Forza 60 LED"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1035/300/250" alt="Nanlite Forza 60">
+                                <img src="continues led lighting images/Nanlite Forza 60 LED.jpg" alt="Nanlite Forza 60">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Nanlite</div>
