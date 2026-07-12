@@ -1083,6 +1083,23 @@
         }
         #scrollToTop i { animation: scrollTopBounce 2s ease-in-out infinite; }
 
+        #backToAllBtn {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+            box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+        }
+        #backToAllBtn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
         @keyframes scrollTopBounce {
             0%,100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
@@ -1329,7 +1346,7 @@
         #brands-section { display: block; }
 
         /* Scroll margin for sections */
-        #lighting, #guide, #contact, #compare { scroll-margin-top: 80px; }
+        #products, #brands-section, #lighting, #guide, #contact, #compare { scroll-margin-top: 80px; }
 
         @media (max-width: 768px) {
             .hero { min-height: 70vh; }
@@ -1368,6 +1385,7 @@
     <button id="scrollToTop" aria-label="Scroll to top">
         <i class="fas fa-chevron-up"></i>
     </button>
+    <button id="backToAllBtn" class="btn btn-amber" aria-label="Back to all products">Back to all products</button>
 
     <!-- ============================================================
     LOADER
@@ -3355,9 +3373,9 @@ console.log('%c💡 Press "T" key to scroll to top', 'font-size:12px; color:#888
         });
 
 // ============================================================
-        // PRODUCTS DATA
-        // ============================================================
-        const productData = [
+// PRODUCTS DATA
+// ============================================================
+const productData = [
     // ============================================================
     // CAMERAS (10 Products)
     // ============================================================
@@ -3459,91 +3477,169 @@ console.log('%c💡 Press "T" key to scroll to top', 'font-size:12px; color:#888
     // ============================================================
     // ACCESSORIES (10 Products)
     // ============================================================
-    { id: 71, name: "B+W 77mm UV Filter", brand: "B+W", category: "accessories", price: "PKR 89", desc: "High-quality brass filter with MRC nano coating.", img: "https://picsum.photos/id/1126/400/300" },
-    { id: 72, name: "Canon Speedlite EL-5", brand: "Canon", category: "accessories", price: "PKR 399", desc: "60m guide number with wireless control.", img: "https://picsum.photos/id/1127/400/300" },
-    { id: 73, name: "Sony HVL-F60RM2", brand: "Sony", category: "accessories", price: "PKR 499", desc: "Wireless flash with high performance.", img: "https://picsum.photos/id/1128/400/300" },
-    { id: 74, name: "DJI Ronin RS 3 Pro", brand: "DJI", category: "accessories", price: "PKR 999", desc: "Professional 3-axis gimbal for cinema rigs.", img: "https://picsum.photos/id/1129/400/300" },
-    { id: 75, name: "Hoya UV Filter 77mm", brand: "Hoya", category: "accessories", price: "PKR 59", desc: "Multi-coated UV filter for lens protection.", img: "https://picsum.photos/id/1130/400/300" },
-    { id: 76, name: "Canon LP-E6NH Battery", brand: "Canon", category: "accessories", price: "PKR 139", desc: "Genuine battery for EOS R5/R6 series cameras.", img: "https://picsum.photos/id/1131/400/300" },
-    { id: 77, name: "Sony NP-FZ100 Battery", brand: "Sony", category: "accessories", price: "PKR 149", desc: "Genuine battery for Sony A7 series cameras.", img: "https://picsum.photos/id/1132/400/300" },
-    { id: 78, name: "VSGO Cleaning Kit", brand: "VSGO", category: "accessories", price: "PKR 49", desc: "Complete sensor and lens cleaning kit.", img: "https://picsum.photos/id/1133/400/300" },
-    { id: 79, name: "Wireless Remote Shutter", brand: "FOTOLAB", category: "accessories", price: "PKR 29", desc: "Trigger your shutter remotely for long exposures.", img: "https://picsum.photos/id/1134/400/300" },
-    { id: 80, name: "Godox X2T Trigger", brand: "Godox", category: "accessories", price: "PKR 89", desc: "TTL-compatible 2.4GHz wireless trigger for flashes.", img: "https://picsum.photos/id/1135/400/300" },
+    { id: 71, name: "B+W 77mm UV Filter", brand: "B+W", category: "accessories", price: "PKR 89", desc: "High-quality brass filter with MRC nano coating.", img: "our products images/B+W accessories B+W 77mm.jpg" },
+    { id: 72, name: "Canon Speedlite EL-5", brand: "Canon", category: "accessories", price: "PKR 399", desc: "60m guide number with wireless control.", img: "our products images/Canon accessories Canon Speedlite.jpg" },
+    { id: 73, name: "Sony HVL-F60RM2", brand: "Sony", category: "accessories", price: "PKR 499", desc: "Wireless flash with high performance.", img: "our products images/Sony accessories Sony HVL-F60RM2.jpg" },
+    { id: 74, name: "DJI Ronin RS 3 Pro", brand: "DJI", category: "accessories", price: "PKR 999", desc: "Professional 3-axis gimbal for cinema rigs.", img: "our products images/DJI accessories DJI Ronin.jpg" },
+    { id: 75, name: "Hoya UV Filter 77mm", brand: "Hoya", category: "accessories", price: "PKR 59", desc: "Multi-coated UV filter for lens protection.", img: "our products images/Hoya accessories Hoya UV Filter 77mm.jpg" },
+    { id: 76, name: "Canon LP-E6NH Battery", brand: "Canon", category: "accessories", price: "PKR 139", desc: "Genuine battery for EOS R5/R6 series cameras.", img: "our products images/Canon accessories Canon LP-E6NH Battery.jpg" },
+    { id: 77, name: "Sony NP-FZ100 Battery", brand: "Sony", category: "accessories", price: "PKR 149", desc: "Genuine battery for Sony A7 series cameras.", img: "our products images/Sony accessories Sony NP-FZ100 Battery.jpg" },
+    { id: 78, name: "VSGO Cleaning Kit", brand: "VSGO", category: "accessories", price: "PKR 49", desc: "Complete sensor and lens cleaning kit.", img: "our products images/VSGO accessories VSGO Cleaning Kit.jpg" },
+    { id: 79, name: "Wireless Remote Shutter", brand: "FOTOLAB", category: "accessories", price: "PKR 29", desc: "Trigger your shutter remotely for long exposures.", img: "our products images/FOTOLAB accessories Wireless.jpg" },
+    { id: 80, name: "Godox X2T Trigger", brand: "Godox", category: "accessories", price: "PKR 89", desc: "TTL-compatible 2.4GHz wireless trigger for flashes.", img: "our products images/Godox accessories Godox X2T Trigger.jpg" },
 
     // ============================================================
     // DRONES (10 Products - New Category)
     // ============================================================
-    { id: 81, name: "DJI Mavic 3 Pro", brand: "DJI", category: "drones", price: "PKR 2,199", desc: "Triple-camera drone with 4/3 CMOS sensor.", img: "https://picsum.photos/id/1136/400/300" },
-    { id: 82, name: "DJI Mini 4 Pro", brand: "DJI", category: "drones", price: "PKR 759", desc: "Lightweight drone with 4K video and obstacle sensing.", img: "https://picsum.photos/id/1137/400/300" },
-    { id: 83, name: "DJI Air 3", brand: "DJI", category: "drones", price: "PKR 1,099", desc: "Dual-camera drone with 4K 60fps and 46-minute flight.", img: "https://picsum.photos/id/1138/400/300" },
-    { id: 84, name: "DJI Avata 2", brand: "DJI", category: "drones", price: "PKR 999", desc: "FPV drone with 4K video and immersive flying.", img: "https://picsum.photos/id/1139/400/300" },
-    { id: 85, name: "Autel EVO Lite+", brand: "Autel", category: "drones", price: "PKR 1,199", desc: "1-inch sensor drone with 6K video and 40-min flight.", img: "https://picsum.photos/id/1140/400/300" },
-    { id: 86, name: "DJI Phantom 4 Pro V2", brand: "DJI", category: "drones", price: "PKR 1,599", desc: "Professional drone with 1-inch sensor and 4K video.", img: "https://picsum.photos/id/1141/400/300" },
-    { id: 87, name: "DJI Mini 3 Pro", brand: "DJI", category: "drones", price: "PKR 699", desc: "Lightweight drone with 4K video and obstacle sensing.", img: "https://picsum.photos/id/1142/400/300" },
-    { id: 88, name: "Autel Evo Nano+", brand: "Autel", category: "drones", price: "PKR 699", desc: "Compact drone with 4K video and 28-min flight.", img: "https://picsum.photos/id/1143/400/300" },
-    { id: 89, name: "DJI Mavic 3 Classic", brand: "DJI", category: "drones", price: "PKR 1,499", desc: "4/3 CMOS sensor drone with Hasselblad camera.", img: "https://picsum.photos/id/1144/400/300" },
-    { id: 90, name: "DJI Mini 4K", brand: "DJI", category: "drones", price: "PKR 299", desc: "Entry-level 4K drone with 31-minute flight time.", img: "https://picsum.photos/id/1145/400/300" }
+    { id: 81, name: "DJI Mavic 3 Pro", brand: "DJI", category: "drones", price: "PKR 2,199", desc: "Triple-camera drone with 4/3 CMOS sensor.", img: "our products images/DJI drones DJI Mavic 3 Pro.jpg" },
+    { id: 82, name: "DJI Mini 4 Pro", brand: "DJI", category: "drones", price: "PKR 759", desc: "Lightweight drone with 4K video and obstacle sensing.", img: "our products images/DJI drones DJI Mini 4 Pro Lightweight.jpg" },
+    { id: 83, name: "DJI Air 3", brand: "DJI", category: "drones", price: "PKR 1,099", desc: "Dual-camera drone with 4K 60fps and 46-minute flight.", img: "our products images/DJI drones DJI Air 3 Dual-camera.jpg" },
+    { id: 84, name: "DJI Avata 2", brand: "DJI", category: "drones", price: "PKR 999", desc: "FPV drone with 4K video and immersive flying.", img: "our products images/DJI drones DJI Avata 2 FPV drone.jpg" },
+    { id: 85, name: "Autel EVO Lite+", brand: "Autel", category: "drones", price: "PKR 1,199", desc: "1-inch sensor drone with 6K video and 40-min flight.", img: "our products images/Autel drones Autel EVO Lite+ 1-inch.jpg" },
+    { id: 86, name: "DJI Phantom 4 Pro V2", brand: "DJI", category: "drones", price: "PKR 1,599", desc: "Professional drone with 1-inch sensor and 4K video.", img: "our products images/DJI drones DJI Phantom 4 Pro V2.jpg" },
+    { id: 87, name: "DJI Mini 3 Pro", brand: "DJI", category: "drones", price: "PKR 699", desc: "Lightweight drone with 4K video and obstacle sensing.", img: "our products images/DJI drones DJI Mini 3 Pro Lightweight drone.jpg" },
+    { id: 88, name: "Autel Evo Nano+", brand: "Autel", category: "drones", price: "PKR 699", desc: "Compact drone with 4K video and 28-min flight.", img: "our products images/Autel drones Autel Evo Nano+ Compact.jpg" },
+    { id: 89, name: "DJI Mavic 3 Classic", brand: "DJI", category: "drones", price: "PKR 1,499", desc: "4/3 CMOS sensor drone with Hasselblad camera.", img: "our products images/DJI drones DJI Mavic 3 Classic.jpg" },
+    { id: 90, name: "DJI Mini 4K", brand: "DJI", category: "drones", price: "PKR 299", desc: "Entry-level 4K drone with 31-minute flight time.", img: "our products images/DJI drones DJI Mini 4K.jpg" }
 ];
 
-        function renderProducts(category) {
-            const grid = document.getElementById('productGrid');
-            if (!grid) return;
+// ============================================================
+// RENDER PRODUCTS FUNCTION (Modified)
+// ============================================================
+function renderProducts(category) {
+    const grid = document.getElementById('productGrid');
+    if (!grid) return;
 
-            const filtered = category === 'all' || !category ?
-                productData :
-                productData.filter(p => p.category === category);
+    // Filter products based on category
+    const filtered = category === 'all' || !category ?
+        productData :
+        productData.filter(p => p.category === category);
 
-            if (filtered.length === 0) {
-                grid.innerHTML =
-                    `<div class="col-12 text-center py-5"><i class="fas fa-box-open fa-3x text-amber mb-3"></i><h4 class="text-white">No products found</h4></div>`;
-                return;
-            }
+    // Show message if no products found
+    if (filtered.length === 0) {
+        grid.innerHTML = `
+            <div class="col-12 text-center py-5">
+                <i class="fas fa-box-open fa-3x text-amber mb-3" style="color: #fbbf24;"></i>
+                <h4 class="text-white">No products found</h4>
+            </div>
+        `;
+        return;
+    }
 
-            grid.innerHTML = filtered.map(p => `
-                <div class="col-6 col-md-4 col-lg-3">
-                    <div class="product-card">
-                        <img src="${p.img}" alt="${p.name}" loading="lazy">
-                        <div class="d-flex justify-content-between align-items-center mt-2">
-                            <span class="badge-brand">${p.brand}</span>
-                            <span class="badge bg-dark text-white-50" style="font-size:0.65rem; text-transform:capitalize;">${p.category}</span>
-                        </div>
-                        <h5>${p.name}</h5>
-                        <p class="desc">${p.desc}</p>
-                        <div class="d-flex justify-content-between align-items-center mt-2">
-                            <span class="price">${p.price}</span>
-                            <button class="btn-details" onclick="alert('Product: ${p.name}\\nBrand: ${p.brand}\\nPrice: ${p.price}')">
-                                <i class="fas fa-info-circle me-1"></i> Details
-                            </button>
-                        </div>
-                    </div>
+    // Render products
+    grid.innerHTML = filtered.map(p => `
+        <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card">
+                <img src="${p.img}" alt="${p.name}" loading="lazy">
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <span class="badge-brand">${p.brand}</span>
+                    <span class="badge bg-dark text-white-50" style="font-size:0.65rem; text-transform:capitalize;">${p.category}</span>
                 </div>
-            `).join('');
-        }
+                <h5>${p.name}</h5>
+                <p class="desc">${p.desc}</p>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <span class="price">${p.price}</span>
+                    <button class="btn-details" onclick="alert('Product: ${p.name}\\nBrand: ${p.brand}\\nPrice: ${p.price}')">
+                        <i class="fas fa-info-circle me-1"></i> Details
+                    </button>
+                </div>
+            </div>
+        </div>
+    `).join('');
 
-        document.querySelectorAll('.filter-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active') });
-                this.classList.add('active');
-                renderProducts(this.dataset.category);
-            });
-        });
+    // ✅ IMPORTANT: Force page to adjust height automatically
+    // This ensures the page height updates to show all products
+    document.body.style.height = 'auto';
+    
+    // If we're on a category view, scroll to products section
+    if (category !== 'all') {
+        // Small delay to let content render, then scroll
+        setTimeout(() => {
+            const productSection = document.querySelector('.container');
+            if (productSection) {
+                productSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 100);
+    }
+}
+
+// ============================================================
+// SCROLL TO NEXT SECTION (Existing)
+// ============================================================
+function scrollToNextSection() {
+    const nextSection = document.getElementById('brands-section');
+    if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+// ============================================================
+// BACK TO ALL BUTTON TOGGLE (Modified)
+// ============================================================
+const backToAllBtn = document.getElementById('backToAllBtn');
+
+function toggleBackToAllButton(show) {
+    if (!backToAllBtn) return;
+    backToAllBtn.classList.toggle('show', show);
+}
+
+// ============================================================
+// SET ACTIVE CATEGORY (Modified)
+// ============================================================
+function setActiveCategory(category) {
+    // Update active button
+    document.querySelectorAll('.filter-btn').forEach(function(b) {
+        b.classList.toggle('active', b.dataset.category === category);
+    });
+    
+    // Render products for selected category
+    renderProducts(category);
+    
+    // Show/hide back button
+    toggleBackToAllButton(category !== 'all');
+    
+    // ✅ Force page to show all content
+    // This ensures the page doesn't cut off
+    window.dispatchEvent(new Event('resize'));
+}
+
+// ============================================================
+// EVENT LISTENERS
+// ============================================================
+document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        setActiveCategory(this.dataset.category);
+    });
+});
+
+// Back to All button
+if (backToAllBtn) {
+    backToAllBtn.addEventListener('click', function() {
+        setActiveCategory('all');
+    });
+}
+
+// ============================================================
+// INITIAL RENDER
+// ============================================================
+renderProducts('all');
 
         // ============================================================
         // BRANDS DATA
         // ============================================================
         const brandData = [
-            { id: 'canon', name: "Canon", desc: "Precision optics & L-series glass.", img: "https://picsum.photos/seed/canon/300/200", color: "#0d6efd" },
-            { id: 'nikon', name: "Nikon", desc: "Legendary ruggedness & EXPEED processing.", img: "https://picsum.photos/seed/nikon/300/200", color: "#FFE000" },
-            { id: 'sony', name: "Sony", desc: "Alpha mirrorless, 4D focus & speed.", img: "https://picsum.photos/seed/sony/300/200", color: "#8B4513" },
-            { id: 'fujifilm', name: "Fujifilm", desc: "Film simulation & X-Trans sensor.", img: "https://picsum.photos/seed/fujifilm/300/200", color: "#009966" },
-            { id: 'panasonic', name: "Panasonic", desc: "Lumix GH, 6K video & Leica partnership.", img: "https://picsum.photos/seed/panasonic/300/200", color: "#00B4A8" },
-            { id: 'leica', name: "Leica", desc: "German engineering & timeless M-mount.", img: "https://picsum.photos/seed/leica/300/200", color: "#FF69B4" },
-            { id: 'hasselblad', name: "Hasselblad", desc: "Swedish precision & medium format.", img: "https://picsum.photos/seed/hasselblad/300/200", color: "#F5D76E" },
-            { id: 'gopro', name: "GoPro", desc: "Action cameras, HyperSmooth & 5K video.", img: "https://picsum.photos/seed/gopro/300/200", color: "#9E9E9E" },
-            { id: 'olympus', name: "Olympus", desc: "Compact MFT, weather sealed & IBIS.", img: "https://picsum.photos/seed/olympus/300/200", color: "#4FC3F7" },
-            { id: 'sigma', name: "Sigma", desc: "Art, Sports, Contemporary lenses.", img: "https://picsum.photos/seed/sigma/300/200", color: "#FF6B00" },
-            { id: 'tamron', name: "Tamron", desc: "Versatile lenses, VC stabilization.", img: "https://picsum.photos/seed/tamron/300/200", color: "#B39DDB" },
-            { id: 'yashica', name: "Yashica", desc: "Classic film cameras & vintage style.", img: "https://picsum.photos/seed/yashica/300/200", color: "#8A2BE2" }
+            { id: 'canon', name: "Canon", desc: "Precision optics & L-series glass.", img: "canon images/canon coo.jpg", color: "#0d6efd" },
+            { id: 'nikon', name: "Nikon", desc: "Legendary ruggedness & EXPEED processing.", img: "nikon images/nikon coo.jpg", color: "#FFE000" },
+            { id: 'sony', name: "Sony", desc: "Alpha mirrorless, 4D focus & speed.", img: "sony images/sony coo.jpg", color: "#8B4513" },
+            { id: 'fujifilm', name: "Fujifilm", desc: "Film simulation & X-Trans sensor.", img: "fujifilm images/fujifilm coo.jpg", color: "#009966" },
+            { id: 'panasonic', name: "Panasonic", desc: "Lumix GH, 6K video & Leica partnership.", img: "panasonic images/panasonic coo.jpg", color: "#00B4A8" },
+            { id: 'leica', name: "Leica", desc: "German engineering & timeless M-mount.", img: "leica images/leica coo.jpg", color: "#FF69B4" },
+            { id: 'hasselblad', name: "Hasselblad", desc: "Swedish precision & medium format.", img: "hasselblad images/hasselblad coo.jpg", color: "#F5D76E" },
+            { id: 'gopro', name: "GoPro", desc: "Action cameras, HyperSmooth & 5K video.", img: "gopro images/gopro coo.jpg", color: "#9E9E9E" },
+            { id: 'olympus', name: "Olympus", desc: "Compact MFT, weather sealed & IBIS.", img: "olympus images/olympus coo.jpg", color: "#4FC3F7" },
+            { id: 'sigma', name: "Sigma", desc: "Art, Sports, Contemporary lenses.", img: "sigma images/sigma coo.jpg", color: "#FF6B00" },
+            { id: 'tamron', name: "Tamron", desc: "Versatile lenses, VC stabilization.", img: "tamron images/tamron coo.jpg", color: "#B39DDB" },
+            { id: 'yashica', name: "Yashica", desc: "Classic film cameras & vintage style.", img: "yashica images/yashica cookies.jpg", color: "#8A2BE2" }
         ];
 
         // ============================================================
@@ -3551,150 +3647,162 @@ console.log('%c💡 Press "T" key to scroll to top', 'font-size:12px; color:#888
 // ============================================================
 const brandProducts = {
     canon: [
-        { name: "EOS R5 Mark II", category: "Mirrorless", desc: "45MP full-frame with 8K RAW video and AI-powered AF.", specs: ["45MP", "8K RAW", "30fps", "IBIS"], price: "PKR 6,49,000", badge: "Flagship", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo1d-LC0_hWWkIr9ug-DBk1FleScxN9xJRp0kvi4iSrg&s=10" },
-        { name: "EOS R6 Mark II", category: "Mirrorless", desc: "40MP full-frame speed demon with 4K 60fps.", specs: ["40MP", "4K 60fps", "40fps", "IBIS"], price: "PKR 3,89,000", badge: "Best Seller", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEEnD5tqrJFyd6tswvydcf_dvcLkg3hsE0bBADRSswcw&s=10" },
-        { name: "EOS R50", category: "Mirrorless", desc: "Compact APS-C mirrorless for creators and beginners.", specs: ["24MP APS-C", "4K", "Vari-angle LCD"], price: "PKR 1,29,000", badge: "Compact", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIcrDLxXVCP9xHv30UauA4fOtEsv93VfssRyqe628Pw&s=10" },
-        { name: "EOS 90D", category: "DSLR", desc: "32.5MP APS-C DSLR with 45-point AF system.", specs: ["32.5MP", "4K", "10fps", "EF Mount"], price: "PKR 2,49,000", badge: "DSLR", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUzwqjhoISOc4q94QNYylUmcyg5RNN_Jktlu77iwfJ3Q&s=10" },
-        { name: "EOS 5D Mark IV", category: "DSLR", desc: "30.4MP full-frame workhorse with weather sealing.", specs: ["30.4MP FF", "4K", "Weather Sealed"], price: "PKR 3,19,000", badge: "Pro Classic", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzrv0DkzB3A4-Fyr_UIrhpQNXyzx1yWnh9cf4LJrhuGw&s=10" },
-        { name: "RF 50mm f/1.2L USM", category: "Lens", desc: "Stunning bokeh, razor-sharp wide open, silent AF.", specs: ["f/1.2", "L-Series", "Nano USM"], price: "PKR 3,89,000", badge: "L-Series", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8-fLvwtIcLmfrq8JHSK-fQaL1JMEM1RpZj8Z4qbVAXg&s=10" },
-        { name: "RF 24-70mm f/2.8L IS", category: "Lens", desc: "Professional standard zoom with IS and weather sealing.", specs: ["f/2.8", "IS System", "Weather Sealed"], price: "PKR 4,49,000", badge: "L-Series", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz9rzX1NsbPHgnkNv7WXYD1OpgoYkgcI5lP714jFXerA&s=10" },
-        { name: "RF 70-200mm f/2.8L IS", category: "Lens", desc: "Professional telephoto zoom with stunning sharpness.", specs: ["70-200mm", "f/2.8", "IS System"], price: "PKR 5,99,000", badge: "L-Series", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwt8yTBFrWDjag6JWYKGx4iHWidYmTJwlzf_XUgNnXLg&s=10" },
-        { name: "EOS C70 Cinema", category: "Video", desc: "Cinema EOS in compact body with 4K 120fps.", specs: ["4K 120fps", "Canon Log 3", "15+ Stops DR"], price: "PKR 5,49,000", badge: "Cinema", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo7bJCjU9dMjpseJTh9IHmLhFoU4LznObtCRLnDJq7DA&s=10" },
-        { name: "PowerShot V10", category: "Compact", desc: "Vlog-first compact with selfie 4K and built-in stand.", specs: ["4K Selfie", "Built-in Stand", "Stereo Mic"], price: "PKR 89,000", badge: "Vlog", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmUYOpGo8a6SrhGvM2Xh-5IvVtihXUke2_pVkEvYu8jw&s=10" }
+        { name: "EOS R5 Mark II", category: "Mirrorless", desc: "45MP full-frame with 8K RAW video and AI-powered AF.", specs: ["45MP", "8K RAW", "30fps", "IBIS"], price: "PKR 6,49,000", badge: "Flagship", img: "canon images/Mirrorless EOS R5 Mark II 45MP.jpg" },
+        { name: "EOS R6 Mark II", category: "Mirrorless", desc: "40MP full-frame speed demon with 4K 60fps.", specs: ["40MP", "4K 60fps", "40fps", "IBIS"], price: "PKR 3,89,000", badge: "Best Seller", img: "canon images/Mirrorless EOS R6 Mark II 40MP full-frame.jpg" },
+        { name: "EOS R50", category: "Mirrorless", desc: "Compact APS-C mirrorless for creators and beginners.", specs: ["24MP APS-C", "4K", "Vari-angle LCD"], price: "PKR 1,29,000", badge: "Compact", img: "canon images/Mirrorless EOS R50 Compact APS-C mirrorless.jpg" },
+        { name: "EOS 90D", category: "DSLR", desc: "32.5MP APS-C DSLR with 45-point AF system.", specs: ["32.5MP", "4K", "10fps", "EF Mount"], price: "PKR 2,49,000", badge: "DSLR", img: "canon images/DSLR EOS 90D 32.5MP APS-C DSLR.jpg" },
+        { name: "EOS 5D Mark IV", category: "DSLR", desc: "30.4MP full-frame workhorse with weather sealing.", specs: ["30.4MP FF", "4K", "Weather Sealed"], price: "PKR 3,19,000", badge: "Pro Classic", img: "canon images/DSLR EOS 5D Mark IV 30.4MP.jpg" },
+        { name: "RF 50mm f/1.2L USM", category: "Lens", desc: "Stunning bokeh, razor-sharp wide open, silent AF.", specs: ["f/1.2", "L-Series", "Nano USM"], price: "PKR 3,89,000", badge: "L-Series", img: "canon images/Lens RF 50mm.jpg" },
+        { name: "RF 24-70mm f/2.8L IS", category: "Lens", desc: "Professional standard zoom with IS and weather sealing.", specs: ["f/2.8", "IS System", "Weather Sealed"], price: "PKR 4,49,000", badge: "L-Series", img: "canon images/Lens RF 24-70mm.jpg" },
+        { name: "RF 70-200mm f/2.8L IS", category: "Lens", desc: "Professional telephoto zoom with stunning sharpness.", specs: ["70-200mm", "f/2.8", "IS System"], price: "PKR 5,99,000", badge: "L-Series", img: "canon images/Lens RF 70-200mm.jpg" },
+        { name: "EOS C70 Cinema", category: "Video", desc: "Cinema EOS in compact body with 4K 120fps.", specs: ["4K 120fps", "Canon Log 3", "15+ Stops DR"], price: "PKR 5,49,000", badge: "Cinema", img: "canon images/Video EOS C70 Cinema Cinema EOS.jpg" },
+        { name: "PowerShot V10", category: "Compact", desc: "Vlog-first compact with selfie 4K and built-in stand.", specs: ["4K Selfie", "Built-in Stand", "Stereo Mic"], price: "PKR 89,000", badge: "Vlog", img: "canon images/Compact PowerShot V10 Vlog-first.jpg" }
     ],
     nikon: [
-        { name: "Nikon Z8", category: "Mirrorless", desc: "45.7MP stacked sensor with 8.3K N-RAW internal video.", specs: ["45.7MP", "8.3K N-RAW", "EXPEED 7"], price: "PKR 8,95,000", badge: "Flagship", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRELSLwI2LW9tAePJJNwlv8_uPP-GvOFiAL2rGln77PtQ&s=10" },
-        { name: "Nikon Z6 III", category: "Mirrorless", desc: "Partially-stacked CMOS sensor with 6K RAW video.", specs: ["24.5MP", "6K RAW", "8.0 Stop IBIS"], price: "PKR 5,45,000", badge: "New", img: "data:image/jpeg;base64,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" },
-        { name: "Nikon Z f", category: "Mirrorless", desc: "Retro-style mirrorless with brass mechanical dials.", specs: ["24.5MP", "Retro Dials", "Pixel Shift"], price: "PKR 4,35,000", badge: "Retro", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4YaQWhLH_mkLgPynhMmYMiIcumDwO9-sTtdB-MxWzw&s=10" },
-        { name: "Nikon Z30", category: "Mirrorless", desc: "Vlogging-focused APS-C body with flip screen.", specs: ["20.9MP", "4K", "Flip Screen"], price: "PKR 1,15,000", badge: "Vlog", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbg_OGKyJYmMiHvYBpl5AzL_ecUUOaCYiSzQOYt8hp8Q&s=10" },
-        { name: "Nikon D7500", category: "DSLR", desc: "20.9MP APS-C DSLR with weather sealing.", specs: ["20.9MP", "8fps", "Weather Sealed"], price: "PKR 1,99,000", badge: "DSLR", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4PqeyG70PgOgYtiwyE_S1JtkPOruk1ZOT9f8lxJrQDA&s" },
-        { name: "NIKKOR Z 85mm f/1.2 S", category: "Lens", desc: "Ultimate flagship portrait lens with multi-focus system.", specs: ["f/1.2", "S-Line", "Dual Linear Motors"], price: "PKR 6,15,000", badge: "S-Line", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0fjF0YicbUZMeciZrNVoc6WhCI_z5tXhJz2QBUtJ7_Q&s=10" },
-        { name: "NIKKOR Z 24-70mm f/2.8 S", category: "Lens", desc: "Professional standard zoom with OLED display.", specs: ["f/2.8", "S-Line", "OLED Display"], price: "PKR 4,65,000", badge: "S-Line", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5IeMUuLj3v8YepVuS9ZftDdVNfbEl9Prxaqm9MDGb9w&s=10" },
-        { name: "NIKKOR Z 70-200mm f/2.8 S", category: "Lens", desc: "Professional telephoto zoom with VR stabilization.", specs: ["70-200mm", "f/2.8", "VR"], price: "PKR 5,49,000", badge: "S-Line", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfWkhP2RNLaw4fhiHxaKVd7ikHI76nWl6EdC71_lgRgQ&s=10" },
-        { name: "Nikon Z9", category: "Flagship", desc: "Full-size flagship with 8K 60p recording.", specs: ["45.7MP", "8K/60p", "Dual CFexpress"], price: "PKR 12,90,000", badge: "Flagship", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvidOVL-t6HRhsTsCmFFOSoIR5dQxc0YWq6IObn9hyfQ&s=10" },
-        { name: "NIKKOR Z 50mm f/1.8 S", category: "Lens", desc: "Compact full-frame prime with stunning sharpness.", specs: ["f/1.8", "S-Line", "Compact"], price: "PKR 1,99,000", badge: "S-Line", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt2nWZ9dDhVaxqUsAgdmWCJtWR6mJTWHkklnMNap9a8w&s=10" }
+        { name: "Nikon Z8", category: "Mirrorless", desc: "45.7MP stacked sensor with 8.3K N-RAW internal video.", specs: ["45.7MP", "8.3K N-RAW", "EXPEED 7"], price: "PKR 8,95,000", badge: "Flagship", img: "nikon images/Mirrorless Nikon Z8 45.7MP.jpg" },
+        { name: "Nikon Z6 III", category: "Mirrorless", desc: "Partially-stacked CMOS sensor with 6K RAW video.", specs: ["24.5MP", "6K RAW", "8.0 Stop IBIS"], price: "PKR 5,45,000", badge: "New", img: "nikon images/Mirrorless Nikon Z6 III Partially-stacked.jpg" },
+        { name: "Nikon Z f", category: "Mirrorless", desc: "Retro-style mirrorless with brass mechanical dials.", specs: ["24.5MP", "Retro Dials", "Pixel Shift"], price: "PKR 4,35,000", badge: "Retro", img: "nikon images/Mirrorless Nikon Z f Retro-style mirrorless.jpg" },
+        { name: "Nikon Z30", category: "Mirrorless", desc: "Vlogging-focused APS-C body with flip screen.", specs: ["20.9MP", "4K", "Flip Screen"], price: "PKR 1,15,000", badge: "Vlog", img: "nikon images/Mirrorless Nikon Z30 Vlogging-focused.jpg" },
+        { name: "Nikon D7500", category: "DSLR", desc: "20.9MP APS-C DSLR with weather sealing.", specs: ["20.9MP", "8fps", "Weather Sealed"], price: "PKR 1,99,000", badge: "DSLR", img: "nikon images/DSLR Nikon D7500 20.9MP APS-C.jpg" },
+        { name: "NIKKOR Z 85mm f/1.2 S", category: "Lens", desc: "Ultimate flagship portrait lens with multi-focus system.", specs: ["f/1.2", "S-Line", "Dual Linear Motors"], price: "PKR 6,15,000", badge: "S-Line", img: "nikon images/Lens NIKKOR Z 85mm.jpg" },
+        { name: "NIKKOR Z 24-70mm f/2.8 S", category: "Lens", desc: "Professional standard zoom with OLED display.", specs: ["f/2.8", "S-Line", "OLED Display"], price: "PKR 4,65,000", badge: "S-Line", img: "nikon images/Lens NIKKOR Z 24-70mm.jpg" },
+        { name: "NIKKOR Z 70-200mm f/2.8 S", category: "Lens", desc: "Professional telephoto zoom with VR stabilization.", specs: ["70-200mm", "f/2.8", "VR"], price: "PKR 5,49,000", badge: "S-Line", img: "nikon images/Lens NIKKOR Z 70-200mm.jpg" },
+        { name: "Nikon Z9", category: "Flagship", desc: "Full-size flagship with 8K 60p recording.", specs: ["45.7MP", "8K/60p", "Dual CFexpress"], price: "PKR 12,90,000", badge: "Flagship", img: "nikon images/Flagship Nikon Z9 Full-size.jpg" },
+        { name: "NIKKOR Z 50mm f/1.8 S", category: "Lens", desc: "Compact full-frame prime with stunning sharpness.", specs: ["f/1.8", "S-Line", "Compact"], price: "PKR 1,99,000", badge: "S-Line", img: "nikon images/Lens NIKKOR Z 50mm.jpg" }
     ],
     sony: [
-        { name: "Alpha 7R V", category: "Mirrorless", desc: "61MP full-frame with AI autofocus and 8K video.", specs: ["61MP", "8K", "AI Tracking"], price: "PKR 6,85,000", badge: "High Res", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0mTb5iQ5JhH0Zn0OAZGCpXJHOhTulpOqLplxW5hXqoQ&s" },
-        { name: "Alpha 7 IV", category: "Mirrorless", desc: "33MP hybrid powerhouse with 4K 60p and S-Cinetone.", specs: ["33MP", "4K 60p", "S-Cinetone"], price: "PKR 4,35,000", badge: "Best Seller", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9Qw_zEkp5jWatyoNAtJTkj2wBZr8ZZ7_jq1nGcKhxbg&s=10" },
-        { name: "Alpha 6700", category: "Mirrorless", desc: "Flagship APS-C with AI recognition and 4K 120p.", specs: ["26MP APS-C", "4K 120p", "AI Autofocus"], price: "PKR 2,95,000", badge: "APS-C", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8zoja0Dh6zMLo7j1UJuKcGTolF2vn8vcdWOSHt-UOLA&s=10" },
-        { name: "ZV-E10", category: "Vlog", desc: "Interchangeable lens vlogging camera with product showcase.", specs: ["4K Vlog", "Product Showcase", "Flip LCD"], price: "PKR 1,65,000", badge: "Vlog King", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTljCZAPSif-lwa1ZyboQa3Vffr7u3-l2OY33z64_2ASA&s=10" },
-        { name: "ZV-E1", category: "Vlog", desc: "Full-frame vlog camera with AI autofocus and 4K 120p.", specs: ["Full-Frame", "4K 120p", "AI AF"], price: "PKR 3,45,000", badge: "Full-Frame Vlog", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Zj9vtnC_SjudWJT3DopZS3gwxYfUf13yHCM8sOvnkw&s=10" },
-        { name: "FE 50mm f/1.2 GM", category: "Lens", desc: "Premium portrait lens with stunning bokeh and sharpness.", specs: ["f/1.2", "G-Master", "XD Motor"], price: "PKR 4,65,000", badge: "G-Master", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk8iWkWNgWo-yX2I5fxTjniTTKc5LIDDgDw_m9v6vKoQ&s=10" },
-        { name: "FE 24-70mm f/2.8 GM II", category: "Lens", desc: "Duniya ka sabse halka f/2.8 standard zoom.", specs: ["f/2.8", "G-Master II", "Weather Sealed"], price: "PKR 5,15,000", badge: "G-Master II", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9jwZ1njIXjd19u6TdA_Cw2T2K93ZJDfmYmWU3wXGXYQ&s" },
-        { name: "FE 70-200mm f/2.8 GM OSS", category: "Lens", desc: "Professional telephoto zoom with optical stabilization.", specs: ["70-200mm", "f/2.8", "OSS"], price: "PKR 6,50,000", badge: "G-Master", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKS3r32hoJNgRBL4RX99XwDa1z7-wNNtJ-ePC4rXV5_Q&s=10" },
-        { name: "FX30 Cinema", category: "Video", desc: "Indie filmmaker's choice with dual base ISO and S-Log3.", specs: ["4K Super35", "Dual Base ISO", "XAVC S-I"], price: "PKR 3,99,000", badge: "Cinema Line", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd8qu3c7D331tMSxBbhn17NqsHwTm-M--5MuYUtO1MsA&s=10" },
-        { name: "FE 85mm f/1.4 GM", category: "Lens", desc: "G Master portrait lens with razor sharp bokeh.", specs: ["f/1.4", "G-Master", "XD Motor"], price: "PKR 3,99,000", badge: "G-Master", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIfInD50kqA8Q2gQ3kw8sf8LzE-EqNvZWIYxcwScK8TA&s=10" }
+        { name: "Alpha 7R V", category: "Mirrorless", desc: "61MP full-frame with AI autofocus and 8K video.", specs: ["61MP", "8K", "AI Tracking"], price: "PKR 6,85,000", badge: "High Res", img: "sony images/Mirrorless Alpha 7R V.jpg" },
+        { name: "Alpha 7 IV", category: "Mirrorless", desc: "33MP hybrid powerhouse with 4K 60p and S-Cinetone.", specs: ["33MP", "4K 60p", "S-Cinetone"], price: "PKR 4,35,000", badge: "Best Seller", img: "sony images/Mirrorless Alpha 7 IV 33MP.jpg" },
+        { name: "Alpha 6700", category: "Mirrorless", desc: "Flagship APS-C with AI recognition and 4K 120p.", specs: ["26MP APS-C", "4K 120p", "AI Autofocus"], price: "PKR 2,95,000", badge: "APS-C", img: "sony images/Mirrorless Alpha 6700 Flagship.jpg" },
+        { name: "ZV-E10", category: "Vlog", desc: "Interchangeable lens vlogging camera with product showcase.", specs: ["4K Vlog", "Product Showcase", "Flip LCD"], price: "PKR 1,65,000", badge: "Vlog King", img: "sony images/Vlog ZV-E10 Interchangeable lens.jpg" },
+        { name: "ZV-E1", category: "Vlog", desc: "Full-frame vlog camera with AI autofocus and 4K 120p.", specs: ["Full-Frame", "4K 120p", "AI AF"], price: "PKR 3,45,000", badge: "Full-Frame Vlog", img: "sony images/Vlog ZV-E1 Full-frame vlog camera.jpg" },
+        { name: "FE 50mm f/1.2 GM", category: "Lens", desc: "Premium portrait lens with stunning bokeh and sharpness.", specs: ["f/1.2", "G-Master", "XD Motor"], price: "PKR 4,65,000", badge: "G-Master", img: "sony images/Lens FE 50mm.jpg" },
+        { name: "FE 24-70mm f/2.8 GM II", category: "Lens", desc: "Duniya ka sabse halka f/2.8 standard zoom.", specs: ["f/2.8", "G-Master II", "Weather Sealed"], price: "PKR 5,15,000", badge: "G-Master II", img: "sony images/Lens FE 24-70mm.jpg" },
+        { name: "FE 70-200mm f/2.8 GM OSS", category: "Lens", desc: "Professional telephoto zoom with optical stabilization.", specs: ["70-200mm", "f/2.8", "OSS"], price: "PKR 6,50,000", badge: "G-Master", img: "sony images/Lens FE 70-200mm.jpg" },
+        { name: "FX30 Cinema", category: "Video", desc: "Indie filmmaker's choice with dual base ISO and S-Log3.", specs: ["4K Super35", "Dual Base ISO", "XAVC S-I"], price: "PKR 3,99,000", badge: "Cinema Line", img: "sony images/Video FX30 Cinema Indie filmmaker's.jpg" },
+        { name: "FE 85mm f/1.4 GM", category: "Lens", desc: "G Master portrait lens with razor sharp bokeh.", specs: ["f/1.4", "G-Master", "XD Motor"], price: "PKR 3,99,000", badge: "G-Master", img: "sony images/Lens FE 85mm.jpg" }
     ],
     fujifilm: [
-        { name: "X-T5", category: "Mirrorless", desc: "40MP APS-C with retro dials and 6.2K video.", specs: ["40.2MP", "6.2K", "7-Stop IBIS"], price: "PKR 3,85,000", badge: "Photographer's Pick", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMF4UCp4PO9oulO5aDFFMi5EqBQXyFhqu0o3yTIOU09w&s=10" },
-        { name: "X100VI", category: "Compact", desc: "40MP compact with hybrid viewfinder and film simulations.", specs: ["40.2MP", "Hybrid Viewfinder", "IBIS"], price: "PKR 3,95,000", badge: "Global Trend", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdDh0tIUsQnPLHkVaZY8W5XGU1CjjgzPyqMTVmaT-9A&s" },
-        { name: "X-H2S", category: "Mirrorless", desc: "Stacked CMOS with 40fps burst and 4K 120p ProRES.", specs: ["26.1MP Stacked", "4K 120p", "40fps"], price: "PKR 5,10,000", badge: "Speed & Video", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyAdEADHwhJ5dSZBJaZqwUywiGvdLoU9fQz8uhG4BhFA&s=10" },
-        { name: "X-T50", category: "Mirrorless", desc: "40MP compact with dedicated Film Simulation dial.", specs: ["40.2MP", "Simulation Dial", "IBIS"], price: "PKR 2,90,000", badge: "New Arrival", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzTA-2K3cMQHSWC-3Uh6fHnKWCJkygYmOqWG4vq-Lcxg&s=10" },
-        { name: "X-S20", category: "Mirrorless", desc: "Vlog-friendly grip with 6.2K video and IBIS.", specs: ["26MP", "6.2K", "Vlog-friendly"], price: "PKR 2,19,000", badge: "Vlog", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc9K3bc9K6JfDoKmJK2dbaL9UwGX4N6bCYwBjIJ-5QKw&s" },
-        { name: "GFX 100S II", category: "Medium Format", desc: "102MP medium format with 8-stop IBIS.", specs: ["102MP", "8-Stop IBIS", "Medium Format"], price: "PKR 12,50,000", badge: "102MP", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHBP49nliZ1-H0ssSku_yVCxmXo-Q9mWUV7ISPftSDA&s=10" },
-        { name: "XF 56mm f/1.2 R WR", category: "Lens", desc: "Ultimate portrait glass with weather sealing.", specs: ["f/1.2", "Weather Sealed", "Bokeh Master"], price: "PKR 2,35,000", badge: "Bokeh Master", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN41aCWzJP9b3delKgb5vwh6m82llnJXlTaZNB-Ojk3g&s=10" },
-        { name: "XF 16-55mm f/2.8", category: "Lens", desc: "Flagship Red Badge zoom with prime-like sharpness.", specs: ["f/2.8", "Red Badge", "Pro Resolution"], price: "PKR 2,65,000", badge: "Red Badge", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQFfIoRctss1vmTjq4deyVxTXWu3rqozZMhQ0I7mHXNw&s=10" },
-        { name: "XF 50-140mm f/2.8", category: "Lens", desc: "Professional telephoto zoom with OIS and weather sealing.", specs: ["50-140mm", "f/2.8", "OIS"], price: "PKR 3,49,000", badge: "Red Badge", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2pV9ME4QUwIKgomQ2E-IwSuLK3xeng0gD5Ncl8HMlQA&s" },
-        { name: "X-Pro3", category: "Rangefinder", desc: "Classic rangefinder style with hidden LCD and film sims.", specs: ["26MP", "Hybrid Viewfinder", "Film Sims"], price: "PKR 3,29,000", badge: "Rangefinder", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdr8SyARcCwubpY3odoCKkAkSd9YAwBEtnhKnKSakdsg&s=10" }
+        { name: "X-T5", category: "Mirrorless", desc: "40MP APS-C with retro dials and 6.2K video.", specs: ["40.2MP", "6.2K", "7-Stop IBIS"], price: "PKR 3,85,000", badge: "Photographer's Pick", img: "fujifilm images/Mirrorless X-T5 40MP.jpg" },
+        { name: "X100VI", category: "Compact", desc: "40MP compact with hybrid viewfinder and film simulations.", specs: ["40.2MP", "Hybrid Viewfinder", "IBIS"], price: "PKR 3,95,000", badge: "Global Trend", img: "fujifilm images/Global Trend Compact X100VI 40MP.jpg" },
+        { name: "X-H2S", category: "Mirrorless", desc: "Stacked CMOS with 40fps burst and 4K 120p ProRES.", specs: ["26.1MP Stacked", "4K 120p", "40fps"], price: "PKR 5,10,000", badge: "Speed & Video", img: "fujifilm images/Speed & Video Mirrorless X-H2S.jpg" },
+        { name: "X-T50", category: "Mirrorless", desc: "40MP compact with dedicated Film Simulation dial.", specs: ["40.2MP", "Simulation Dial", "IBIS"], price: "PKR 2,90,000", badge: "New Arrival", img: "fujifilm images/Mirrorless X-T50 40MP.jpg" },
+        { name: "X-S20", category: "Mirrorless", desc: "Vlog-friendly grip with 6.2K video and IBIS.", specs: ["26MP", "6.2K", "Vlog-friendly"], price: "PKR 2,19,000", badge: "Vlog", img: "fujifilm images/Vlog Mirrorless X-S20 Vlog-friendly.jpg" },
+        { name: "GFX 100S II", category: "Medium Format", desc: "102MP medium format with 8-stop IBIS.", specs: ["102MP", "8-Stop IBIS", "Medium Format"], price: "PKR 12,50,000", badge: "102MP", img: "fujifilm images/102MP Medium Format GFX.jpg" },
+        { name: "XF 56mm f/1.2 R WR", category: "Lens", desc: "Ultimate portrait glass with weather sealing.", specs: ["f/1.2", "Weather Sealed", "Bokeh Master"], price: "PKR 2,35,000", badge: "Bokeh Master", img: "fujifilm images/Lens XF 56mm.jpg" },
+        { name: "XF 16-55mm f/2.8", category: "Lens", desc: "Flagship Red Badge zoom with prime-like sharpness.", specs: ["f/2.8", "Red Badge", "Pro Resolution"], price: "PKR 2,65,000", badge: "Red Badge", img: "fujifilm images/Lens XF 16-55mm.jpg" },
+        { name: "XF 50-140mm f/2.8", category: "Lens", desc: "Professional telephoto zoom with OIS and weather sealing.", specs: ["50-140mm", "f/2.8", "OIS"], price: "PKR 3,49,000", badge: "Red Badge", img: "fujifilm images/Lens XF 50-140mm.jpg" },
+        { name: "X-Pro3", category: "Rangefinder", desc: "Classic rangefinder style with hidden LCD and film sims.", specs: ["26MP", "Hybrid Viewfinder", "Film Sims"], price: "PKR 3,29,000", badge: "Rangefinder", img: "fujifilm images/Rangefinder X-Pro3 Classic.jpg" }
     ],
     panasonic: [
-        { name: "Lumix S5 II", category: "Full-Frame", desc: "24MP full-frame with phase-detection AF and 6K video.", specs: ["24MP", "6K", "Phase-Detect AF"], price: "PKR 4,49,000", badge: "Flagship", img: "https://picsum.photos/seed/pana1/400/300" },
-        { name: "Lumix S5 IIX", category: "Full-Frame", desc: "Pro variant with ProRes recording and RAW output.", specs: ["24MP", "ProRes", "RAW Output"], price: "PKR 5,19,000", badge: "Cinema", img: "https://picsum.photos/seed/pana2/400/300" },
-        { name: "Lumix GH6", category: "Micro Four Thirds", desc: "25.2MP with 5.7K video and dual native ISO.", specs: ["25.2MP", "5.7K", "Dual Native ISO"], price: "PKR 3,49,000", badge: "Best Seller", img: "https://picsum.photos/seed/pana3/400/300" },
-        { name: "Lumix GH5 II", category: "Micro Four Thirds", desc: "20.3MP with unlimited 4K 60fps recording.", specs: ["20.3MP", "4K 60fps", "V-Log L"], price: "PKR 2,19,000", badge: "Content Creator", img: "https://picsum.photos/seed/pana4/400/300" },
-        { name: "Lumix G100", category: "Vlog", desc: "Vlogging-first with OZO Audio and 4K video.", specs: ["20MP", "4K", "OZO Audio"], price: "PKR 99,000", badge: "Vlog", img: "https://picsum.photos/seed/pana5/400/300" },
-        { name: "Lumix S 50mm f/1.8", category: "Lens", desc: "Compact full-frame prime with beautiful bokeh.", specs: ["f/1.8", "L-Mount", "Weather Sealed"], price: "PKR 1,99,000", badge: "L-Mount", img: "https://picsum.photos/seed/pana6/400/300" },
-        { name: "Lumix S 24-105mm f/4", category: "Lens", desc: "Versatile standard zoom with constant f/4 aperture.", specs: ["f/4", "L-Mount", "OIS"], price: "PKR 3,29,000", badge: "L-Mount", img: "https://picsum.photos/seed/pana7/400/300" },
-        { name: "Lumix S 70-200mm f/4", category: "Lens", desc: "Compact telephoto zoom with constant f/4 aperture.", specs: ["70-200mm", "f/4", "L-Mount"], price: "PKR 3,99,000", badge: "L-Mount", img: "https://picsum.photos/seed/pana8/400/300" },
-        { name: "Lumix GH5S", category: "Video", desc: "10.2MP low-light beast with dual native ISO.", specs: ["10.2MP", "4K 60fps", "Dual Native ISO"], price: "PKR 3,99,000", badge: "Cinema", img: "https://picsum.photos/seed/pana9/400/300" },
-        { name: "Lumix FZ300", category: "Compact", desc: "24x optical zoom bridge camera with f/2.8 constant.", specs: ["12.1MP", "24x Zoom", "f/2.8"], price: "PKR 79,000", badge: "Bridge", img: "https://picsum.photos/seed/pana10/400/300" }
+        { name: "Lumix S5 II", category: "Full-Frame", desc: "24MP full-frame with phase-detection AF and 6K video.", specs: ["24MP", "6K", "Phase-Detect AF"], price: "PKR 4,49,000", badge: "Flagship", img: "panasonic images/Full-Frame Lumix S5 II.jpg" },
+        { name: "Lumix S5 IIX", category: "Full-Frame", desc: "Pro variant with ProRes recording and RAW output.", specs: ["24MP", "ProRes", "RAW Output"], price: "PKR 5,19,000", badge: "Cinema", img: "panasonic images/Cinema Full-Frame Lumix S5 IIX.jpg" },
+        { name: "Lumix GH6", category: "Micro Four Thirds", desc: "25.2MP with 5.7K video and dual native ISO.", specs: ["25.2MP", "5.7K", "Dual Native ISO"], price: "PKR 3,49,000", badge: "Best Seller", img: "panasonic images/Micro Four Thirds Lumix GH6.jpg" },
+        { name: "Lumix GH5 II", category: "Micro Four Thirds", desc: "20.3MP with unlimited 4K 60fps recording.", specs: ["20.3MP", "4K 60fps", "V-Log L"], price: "PKR 2,19,000", badge: "Content Creator", img: "panasonic images/Content Creator Micro Four.jpg" },
+        { name: "Lumix G100", category: "Vlog", desc: "Vlogging-first with OZO Audio and 4K video.", specs: ["20MP", "4K", "OZO Audio"], price: "PKR 99,000", badge: "Vlog", img: "panasonic images/Vlog Vlog Lumix G100.jpg" },
+        { name: "Lumix S 50mm f/1.8", category: "Lens", desc: "Compact full-frame prime with beautiful bokeh.", specs: ["f/1.8", "L-Mount", "Weather Sealed"], price: "PKR 1,99,000", badge: "L-Mount", img: "panasonic images/L-Mount Lens Lumix S 50mm.jpg" },
+        { name: "Lumix S 24-105mm f/4", category: "Lens", desc: "Versatile standard zoom with constant f/4 aperture.", specs: ["f/4", "L-Mount", "OIS"], price: "PKR 3,29,000", badge: "L-Mount", img: "panasonic images/L-Mount Lens Lumix S 24-105mm.jpg" },
+        { name: "Lumix S 70-200mm f/4", category: "Lens", desc: "Compact telephoto zoom with constant f/4 aperture.", specs: ["70-200mm", "f/4", "L-Mount"], price: "PKR 3,99,000", badge: "L-Mount", img: "panasonic images/L-Mount Lens Lumix S 70-200mm.jpg" },
+        { name: "Lumix GH5S", category: "Video", desc: "10.2MP low-light beast with dual native ISO.", specs: ["10.2MP", "4K 60fps", "Dual Native ISO"], price: "PKR 3,99,000", badge: "Cinema", img: "panasonic images/Video Lumix GH5S 10.2MP.jpg" },
+        { name: "Lumix FZ300", category: "Compact", desc: "24x optical zoom bridge camera with f/2.8 constant.", specs: ["12.1MP", "24x Zoom", "f/2.8"], price: "PKR 79,000", badge: "Bridge", img: "panasonic images/Bridge Compact Lumix FZ300.jpg" }
     ],
     leica: [
-        { name: "Leica M11", category: "Rangefinder", desc: "60MP full-frame rangefinder with iconic M-Mount.", specs: ["60MP", "M-Mount", "Made in Germany"], price: "PKR 21,50,000", badge: "Flagship", img: "https://picsum.photos/seed/leica1/400/300" },
-        { name: "Leica Q3", category: "Compact", desc: "60MP compact with 28mm f/1.7 lens and 8K video.", specs: ["60MP", "28mm f/1.7", "8K"], price: "PKR 13,50,000", badge: "Best Seller", img: "https://picsum.photos/seed/leica2/400/300" },
-        { name: "Leica SL3", category: "Mirrorless", desc: "60MP professional mirrorless with L-Mount and 8K.", specs: ["60MP", "L-Mount", "8K", "Weather Sealed"], price: "PKR 18,50,000", badge: "Pro Mirrorless", img: "https://picsum.photos/seed/leica3/400/300" },
-        { name: "Leica M6 Reissue", category: "Rangefinder", desc: "Iconic film rangefinder re-released with modern improvements.", specs: ["35mm Film", "M-Mount", "Rangefinder"], price: "PKR 8,99,000", badge: "Classic", img: "https://picsum.photos/seed/leica4/400/300" },
-        { name: "Leica Summilux-M 35mm f/1.4", category: "Lens", desc: "Legendary fast wide-angle lens with stunning bokeh.", specs: ["f/1.4", "M-Mount", "Made in Germany"], price: "PKR 7,50,000", badge: "Legendary", img: "https://picsum.photos/seed/leica5/400/300" },
-        { name: "Leica Summilux-M 50mm f/1.4", category: "Lens", desc: "The quintessential Leica lens for portraits.", specs: ["f/1.4", "M-Mount", "Made in Germany"], price: "PKR 5,99,000", badge: "Classic", img: "https://picsum.photos/seed/leica6/400/300" },
-        { name: "Leica APO-Summicron-SL 50mm f/2", category: "Lens", desc: "APO corrected lens with stunning color accuracy.", specs: ["f/2", "L-Mount", "APO Design"], price: "PKR 9,99,000", badge: "APO", img: "https://picsum.photos/seed/leica7/400/300" },
-        { name: "Leica D-Lux 8", category: "Compact", desc: "Premium compact with 4/3 sensor and Leica optics.", specs: ["4/3 Sensor", "Leica Lens", "Compact"], price: "PKR 4,99,000", badge: "Compact", img: "https://picsum.photos/seed/leica8/400/300" },
-        { name: "Leica APO-Telyt-R 280mm", category: "Lens", desc: "Ultra-telephoto lens for wildlife and sports.", specs: ["280mm", "APO", "R-Mount"], price: "PKR 12,50,000", badge: "Telephoto", img: "https://picsum.photos/seed/leica9/400/300" },
-        { name: "Leica Sofort 2", category: "Instant", desc: "Instant camera with Leica design and film simulations.", specs: ["Instant Print", "Leica Design", "Film Sims"], price: "PKR 2,99,000", badge: "Instant", img: "https://picsum.photos/seed/leica10/400/300" }
+        { name: "Leica M11", category: "Rangefinder", desc: "60MP full-frame rangefinder with iconic M-Mount.", specs: ["60MP", "M-Mount", "Made in Germany"], price: "PKR 21,50,000", badge: "Flagship", img: "leica images/Rangefinder Leica M11 60MP.jpg" },
+        { name: "Leica Q3", category: "Compact", desc: "60MP compact with 28mm f/1.7 lens and 8K video.", specs: ["60MP", "28mm f/1.7", "8K"], price: "PKR 13,50,000", badge: "Best Seller", img: "leica images/Best Seller Compact Leica Q3.jpg" },
+        { name: "Leica SL3", category: "Mirrorless", desc: "60MP professional mirrorless with L-Mount and 8K.", specs: ["60MP", "L-Mount", "8K", "Weather Sealed"], price: "PKR 18,50,000", badge: "Pro Mirrorless", img: "leica images/Mirrorless Leica SL3 60MP.jpg" },
+        { name: "Leica M6 Reissue", category: "Rangefinder", desc: "Iconic film rangefinder re-released with modern improvements.", specs: ["35mm Film", "M-Mount", "Rangefinder"], price: "PKR 8,99,000", badge: "Classic", img: "leica images/Classic Rangefinder Leica M6.jpg" },
+        { name: "Leica Summilux-M 35mm f/1.4", category: "Lens", desc: "Legendary fast wide-angle lens with stunning bokeh.", specs: ["f/1.4", "M-Mount", "Made in Germany"], price: "PKR 7,50,000", badge: "Legendary", img: "leica images/Legendary Lens Leica Summilux-M.jpg" },
+        { name: "Leica Summilux-M 50mm f/1.4", category: "Lens", desc: "The quintessential Leica lens for portraits.", specs: ["f/1.4", "M-Mount", "Made in Germany"], price: "PKR 5,99,000", badge: "Classic", img: "leica images/Legendary Lens Leica Summilux-M 35mm.jpg" },
+        { name: "Leica APO-Summicron-SL 50mm f/2", category: "Lens", desc: "APO corrected lens with stunning color accuracy.", specs: ["f/2", "L-Mount", "APO Design"], price: "PKR 9,99,000", badge: "APO", img: "leica images/Lens Leica APO-Summicron-SL 50mm.jpg" },
+        { name: "Leica D-Lux 8", category: "Compact", desc: "Premium compact with 4/3 sensor and Leica optics.", specs: ["4/3 Sensor", "Leica Lens", "Compact"], price: "PKR 4,99,000", badge: "Compact", img: "leica images/Compact Compact Leica D-Lux 8.jpg" },
+        { name: "Leica APO-Telyt-R 280mm", category: "Lens", desc: "Ultra-telephoto lens for wildlife and sports.", specs: ["280mm", "APO", "R-Mount"], price: "PKR 12,50,000", badge: "Telephoto", img: "leica images/Telephoto Lens Leica APO-Telyt-R 280mm.jpg" },
+        { name: "Leica Sofort 2", category: "Instant", desc: "Instant camera with Leica design and film simulations.", specs: ["Instant Print", "Leica Design", "Film Sims"], price: "PKR 2,99,000", badge: "Instant", img: "leica images/Instant Instant Leica Sofort 2.jpg" }
     ],
     hasselblad: [
-        { name: "X2D 100C", category: "Medium Format", desc: "100MP with IBIS, 15 stops DR, and HNCS color.", specs: ["100MP", "IBIS", "15 Stops DR"], price: "PKR 28,50,000", badge: "Flagship", img: "https://picsum.photos/seed/hass1/400/300" },
-        { name: "X1D II 50C", category: "Medium Format", desc: "50MP compact medium format with HNCS color.", specs: ["50MP", "HNCS", "Compact MF"], price: "PKR 15,50,000", badge: "Compact MF", img: "https://picsum.photos/seed/hass2/400/300" },
-        { name: "H6D-100c", category: "H-System", desc: "100MP professional studio camera with modular design.", specs: ["100MP", "HNCS", "Modular"], price: "PKR 35,00,000", badge: "Studio Pro", img: "https://picsum.photos/seed/hass3/400/300" },
-        { name: "XCD 45mm f/4 P", category: "Lens", desc: "Compact medium format lens with stunning sharpness.", specs: ["45mm", "f/4", "HNCS"], price: "PKR 4,99,000", badge: "XCD Lens", img: "https://picsum.photos/seed/hass4/400/300" },
-        { name: "XCD 90mm f/2.5 V", category: "Lens", desc: "Fast portrait lens with stunning bokeh for medium format.", specs: ["90mm", "f/2.5", "V-Series"], price: "PKR 6,99,000", badge: "Portrait", img: "https://picsum.photos/seed/hass5/400/300" },
-        { name: "XCD 28mm f/4", category: "Lens", desc: "Wide-angle lens for landscape and architecture.", specs: ["28mm", "f/4", "HNCS"], price: "PKR 5,49,000", badge: "Wide Angle", img: "https://picsum.photos/seed/hass6/400/300" },
-        { name: "500C/M Vintage", category: "Film", desc: "Iconic vintage medium format film camera restored.", specs: ["6x6 Format", "Vintage", "Restored"], price: "PKR 8,50,000", badge: "Classic", img: "https://picsum.photos/seed/hass7/400/300" },
-        { name: "907X 50C", category: "Medium Format", desc: "Modular medium format camera with unique design.", specs: ["50MP", "Modular", "HNCS"], price: "PKR 18,50,000", badge: "Modular", img: "https://picsum.photos/seed/hass8/400/300" },
-        { name: "CFV II 50C Digital Back", category: "Accessory", desc: "Digital back for vintage Hasselblad V cameras.", specs: ["50MP", "V-Mount", "HNCS"], price: "PKR 14,50,000", badge: "Digital Back", img: "https://picsum.photos/seed/hass9/400/300" },
-        { name: "HC 80mm f/2.8", category: "Lens", desc: "Standard lens for H-System with stunning sharpness.", specs: ["80mm", "f/2.8", "H-Mount"], price: "PKR 4,49,000", badge: "H-System", img: "https://picsum.photos/seed/hass10/400/300" }
+        { name: "X2D 100C", category: "Medium Format", desc: "100MP with IBIS, 15 stops DR, and HNCS color.", specs: ["100MP", "IBIS", "15 Stops DR"], price: "PKR 28,50,000", badge: "Flagship", img: "hasselblad images/Medium Format X2D 100C 100MP.jpg" },
+        { name: "X1D II 50C", category: "Medium Format", desc: "50MP compact medium format with HNCS color.", specs: ["50MP", "HNCS", "Compact MF"], price: "PKR 15,50,000", badge: "Compact MF", img: "hasselblad images/Compact MF Medium Format X1D.jpg" },
+        { name: "H6D-100c", category: "H-System", desc: "100MP professional studio camera with modular design.", specs: ["100MP", "HNCS", "Modular"], price: "PKR 35,00,000", badge: "Studio Pro", img: "hasselblad images/H-System H6D-100c 100MP.jpg" },
+        { name: "XCD 45mm f/4 P", category: "Lens", desc: "Compact medium format lens with stunning sharpness.", specs: ["45mm", "f/4", "HNCS"], price: "PKR 4,99,000", badge: "XCD Lens", img: "hasselblad images/Lens XCD 45mm.jpg" },
+        { name: "XCD 90mm f/2.5 V", category: "Lens", desc: "Fast portrait lens with stunning bokeh for medium format.", specs: ["90mm", "f/2.5", "V-Series"], price: "PKR 6,99,000", badge: "Portrait", img: "hasselblad images/Lens XCD 90mm.jpg" },
+        { name: "XCD 28mm f/4", category: "Lens", desc: "Wide-angle lens for landscape and architecture.", specs: ["28mm", "f/4", "HNCS"], price: "PKR 5,49,000", badge: "Wide Angle", img: "hasselblad images/Lens XCD 28mm.jpg" },
+        { name: "500C/M Vintage", category: "Film", desc: "Iconic vintage medium format film camera restored.", specs: ["6x6 Format", "Vintage", "Restored"], price: "PKR 8,50,000", badge: "Classic", img: "hasselblad images/Classic Film.jpg" },
+        { name: "907X 50C", category: "Medium Format", desc: "Modular medium format camera with unique design.", specs: ["50MP", "Modular", "HNCS"], price: "PKR 18,50,000", badge: "Modular", img: "hasselblad images/Modular Medium Format.jpg" },
+        { name: "CFV II 50C Digital Back", category: "Accessory", desc: "Digital back for vintage Hasselblad V cameras.", specs: ["50MP", "V-Mount", "HNCS"], price: "PKR 14,50,000", badge: "Digital Back", img: "hasselblad images/Digital Back Accessory.jpg" },
+        { name: "HC 80mm f/2.8", category: "Lens", desc: "Standard lens for H-System with stunning sharpness.", specs: ["80mm", "f/2.8", "H-Mount"], price: "PKR 4,49,000", badge: "H-System", img: "hasselblad images/Lens HC 80mm.jpg" }
     ],
     gopro: [
-        { name: "Hero13 Black", category: "Action", desc: "5.3K60 video, HyperSmooth 6.0, waterproof to 33ft.", specs: ["5.3K60", "HyperSmooth 6.0", "Waterproof"], price: "PKR 1,29,000", badge: "Flagship", img: "https://picsum.photos/seed/gopro1/400/300" },
-        { name: "Hero12 Black", category: "Action", desc: "5.3K HDR video with HyperSmooth 6.0 stabilization.", specs: ["5.3K", "HDR", "HyperSmooth 6.0"], price: "PKR 99,000", badge: "Best Seller", img: "https://picsum.photos/seed/gopro2/400/300" },
-        { name: "Hero11 Black", category: "Action", desc: "5.3K video with HyperSmooth 5.0 and larger sensor.", specs: ["5.3K", "HyperSmooth 5.0", "Larger Sensor"], price: "PKR 79,000", badge: "Action", img: "https://picsum.photos/seed/gopro3/400/300" },
-        { name: "GoPro Max", category: "360°", desc: "Dual-lens 360° capture with 5.6K video.", specs: ["5.6K 360°", "360 Audio", "Waterproof"], price: "PKR 1,09,000", badge: "360°", img: "https://picsum.photos/seed/gopro4/400/300" },
-        { name: "Volta Battery Grip", category: "Accessory", desc: "Built-in battery extends run time with remote control.", specs: ["Extends Battery", "Tripod Mount", "Remote Control"], price: "PKR 25,000", badge: "Accessory", img: "https://picsum.photos/seed/gopro5/400/300" },
-        { name: "Head Strap Mount", category: "Accessory", desc: "Hands-free head mount for POV shooting.", specs: ["Hands-Free", "Adjustable", "Secure Fit"], price: "PKR 4,500", badge: "Accessory", img: "https://picsum.photos/seed/gopro6/400/300" },
-        { name: "Dual Battery Charger", category: "Accessory", desc: "Charge two batteries simultaneously with fast charging.", specs: ["Dual Charging", "Fast Charge", "LED Indicator"], price: "PKR 8,000", badge: "Accessory", img: "https://picsum.photos/seed/gopro7/400/300" },
-        { name: "GoPro Media Mod", category: "Accessory", desc: "Media mod with directional mic and HDMI output.", specs: ["Directional Mic", "HDMI", "Cold Shoe"], price: "PKR 18,000", badge: "Media Mod", img: "https://picsum.photos/seed/gopro8/400/300" },
-        { name: "GoPro Floaty", category: "Accessory", desc: "Floatation device for water sports and diving.", specs: ["Floating", "Bright Color", "Secure Mount"], price: "PKR 5,500", badge: "Float", img: "https://picsum.photos/seed/gopro9/400/300" },
-        { name: "GoPro Chest Mount", category: "Accessory", desc: "Chest harness for immersive POV perspective.", specs: ["POV", "Adjustable", "Comfortable"], price: "PKR 6,500", badge: "Chest Mount", img: "https://picsum.photos/seed/gopro10/400/300" }
+        { name: "Hero13 Black", category: "Action", desc: "5.3K60 video, HyperSmooth 6.0, waterproof to 33ft.", specs: ["5.3K60", "HyperSmooth 6.0", "Waterproof"], price: "PKR 1,29,000", badge: "Flagship", img: "gopro images/Action Hero13 Black.jpg" },
+        { name: "Hero12 Black", category: "Action", desc: "5.3K HDR video with HyperSmooth 6.0 stabilization.", specs: ["5.3K", "HDR", "HyperSmooth 6.0"], price: "PKR 99,000", badge: "Best Seller", img: "gopro images/Best Seller Action Hero12 Black 5.3K.jpg" },
+        { name: "Hero11 Black", category: "Action", desc: "5.3K video with HyperSmooth 5.0 and larger sensor.", specs: ["5.3K", "HyperSmooth 5.0", "Larger Sensor"], price: "PKR 79,000", badge: "Action", img: "gopro images/Action Action Hero11 Black.jpg" },
+        { name: "GoPro Max", category: "360°", desc: "Dual-lens 360° capture with 5.6K video.", specs: ["5.6K 360°", "360 Audio", "Waterproof"], price: "PKR 1,09,000", badge: "360°", img: "gopro images/360° GoPro Max.jpg" },
+        { name: "Volta Battery Grip", category: "Accessory", desc: "Built-in battery extends run time with remote control.", specs: ["Extends Battery", "Tripod Mount", "Remote Control"], price: "PKR 25,000", badge: "Accessory", img: "gopro images/Accessory Volta Battery.jpg" },
+        { name: "Head Strap Mount", category: "Accessory", desc: "Hands-free head mount for POV shooting.", specs: ["Hands-Free", "Adjustable", "Secure Fit"], price: "PKR 4,500", badge: "Accessory", img: "gopro images/Accessory Accessory Head.jpg" },
+        { name: "Dual Battery Charger", category: "Accessory", desc: "Charge two batteries simultaneously with fast charging.", specs: ["Dual Charging", "Fast Charge", "LED Indicator"], price: "PKR 8,000", badge: "Accessory", img: "gopro images/Accessory Dual Battery Charger.jpg" },
+        { name: "GoPro Media Mod", category: "Accessory", desc: "Media mod with directional mic and HDMI output.", specs: ["Directional Mic", "HDMI", "Cold Shoe"], price: "PKR 18,000", badge: "Media Mod", img: "gopro images/Accessory GoPro Media Mod.jpg" },
+        { name: "GoPro Floaty", category: "Accessory", desc: "Floatation device for water sports and diving.", specs: ["Floating", "Bright Color", "Secure Mount"], price: "PKR 5,500", badge: "Float", img: "gopro images/Float Accessory GoPro Floaty.jpg" },
+        { name: "GoPro Chest Mount", category: "Accessory", desc: "Chest harness for immersive POV perspective.", specs: ["POV", "Adjustable", "Comfortable"], price: "PKR 6,500", badge: "Chest Mount", img: "gopro images/Accessory GoPro Chest Mount Chest.jpg" }
     ],
     olympus: [
-        { name: "OM-D E-M1 Mark III", category: "Mirrorless", desc: "20MP weather-sealed with 5-axis IBIS and 60fps.", specs: ["20MP", "5-Axis IBIS", "60fps"], price: "PKR 3,49,000", badge: "Flagship", img: "https://picsum.photos/seed/olym1/400/300" },
-        { name: "OM-D E-M5 Mark III", category: "Mirrorless", desc: "20MP lightweight weather-sealed with IBIS.", specs: ["20MP", "5-Axis IBIS", "Weather Sealed"], price: "PKR 2,19,000", badge: "Best Seller", img: "https://picsum.photos/seed/olym2/400/300" },
-        { name: "PEN E-P7", category: "Compact", desc: "Retro-style compact with 20MP sensor and IBIS.", specs: ["20MP", "Retro Design", "IBIS"], price: "PKR 1,69,000", badge: "Style Icon", img: "https://picsum.photos/seed/olym3/400/300" },
-        { name: "TOUGH TG-6", category: "Rugged", desc: "Waterproof, shockproof, freezeproof compact camera.", specs: ["Waterproof", "Shockproof", "12MP"], price: "PKR 99,000", badge: "Rugged", img: "https://picsum.photos/seed/olym4/400/300" },
-        { name: "M.Zuiko 12-40mm f/2.8 Pro", category: "Lens", desc: "Professional standard zoom with weather sealing.", specs: ["f/2.8", "Weather Sealed", "Pro Series"], price: "PKR 2,65,000", badge: "Pro Lens", img: "https://picsum.photos/seed/olym5/400/300" },
-        { name: "M.Zuiko 40-150mm f/2.8 Pro", category: "Lens", desc: "Professional telephoto zoom with stunning bokeh.", specs: ["40-150mm", "f/2.8", "Pro Series"], price: "PKR 3,49,000", badge: "Telephoto Pro", img: "https://picsum.photos/seed/olym6/400/300" },
-        { name: "M.Zuiko 45mm f/1.8", category: "Lens", desc: "Affordable portrait lens with beautiful bokeh.", specs: ["f/1.8", "Compact", "Great Bokeh"], price: "PKR 69,000", badge: "Portrait", img: "https://picsum.photos/seed/olym7/400/300" },
-        { name: "M.Zuiko 17mm f/1.8", category: "Lens", desc: "Classic street photography lens with fast aperture.", specs: ["17mm", "f/1.8", "Compact"], price: "PKR 79,000", badge: "Street", img: "https://picsum.photos/seed/olym8/400/300" },
-        { name: "OM-D E-M10 Mark IV", category: "Mirrorless", desc: "Entry-level OMD with 20MP and 5-axis IBIS.", specs: ["20MP", "5-Axis IBIS", "Compact"], price: "PKR 1,49,000", badge: "Entry Level", img: "https://picsum.photos/seed/olym9/400/300" },
-        { name: "M.Zuiko 12mm f/2", category: "Lens", desc: "Ultra-wide angle lens for landscape and architecture.", specs: ["12mm", "f/2", "Compact"], price: "PKR 1,19,000", badge: "Wide Angle", img: "https://picsum.photos/seed/olym10/400/300" }
+        { name: "OM-D E-M1 Mark III", category: "Mirrorless", desc: "20MP weather-sealed with 5-axis IBIS and 60fps.", specs: ["20MP", "5-Axis IBIS", "60fps"], price: "PKR 3,49,000", badge: "Flagship", img: "olympus images/Mirrorless OM-D E-M1 Mark III.jpg" },
+        { name: "OM-D E-M5 Mark III", category: "Mirrorless", desc: "20MP lightweight weather-sealed with IBIS.", specs: ["20MP", "5-Axis IBIS", "Weather Sealed"], price: "PKR 2,19,000", badge: "Best Seller", img: "olympus images/Mirrorless OM-D E-M5 Mark III 20MP.jpg" },
+        { name: "PEN E-P7", category: "Compact", desc: "Retro-style compact with 20MP sensor and IBIS.", specs: ["20MP", "Retro Design", "IBIS"], price: "PKR 1,69,000", badge: "Style Icon", img: "olympus images/Compact PEN E-P7.jpg" },
+        { name: "TOUGH TG-6", category: "Rugged", desc: "Waterproof, shockproof, freezeproof compact camera.", specs: ["Waterproof", "Shockproof", "12MP"], price: "PKR 99,000", badge: "Rugged", img: "olympus images/Rugged Rugged TOUGH TG-6 Waterproof.jpg" },
+        { name: "M.Zuiko 12-40mm f/2.8 Pro", category: "Lens", desc: "Professional standard zoom with weather sealing.", specs: ["f/2.8", "Weather Sealed", "Pro Series"], price: "PKR 2,65,000", badge: "Pro Lens", img: "olympus images/Pro Lens Lens M.Zuiko 12-40mm.jpg" },
+        { name: "M.Zuiko 40-150mm f/2.8 Pro", category: "Lens", desc: "Professional telephoto zoom with stunning bokeh.", specs: ["40-150mm", "f/2.8", "Pro Series"], price: "PKR 3,49,000", badge: "Telephoto Pro", img: "olympus images/M.Zuiko 40-150mm.jpg" },
+        { name: "M.Zuiko 45mm f/1.8", category: "Lens", desc: "Affordable portrait lens with beautiful bokeh.", specs: ["f/1.8", "Compact", "Great Bokeh"], price: "PKR 69,000", badge: "Portrait", img: "olympus images/Lens M.Zuiko 45mm.jpg" },
+        { name: "M.Zuiko 17mm f/1.8", category: "Lens", desc: "Classic street photography lens with fast aperture.", specs: ["17mm", "f/1.8", "Compact"], price: "PKR 79,000", badge: "Street", img: "olympus images/Lens M.Zuiko 17mm.jpg" },
+        { name: "OM-D E-M10 Mark IV", category: "Mirrorless", desc: "Entry-level OMD with 20MP and 5-axis IBIS.", specs: ["20MP", "5-Axis IBIS", "Compact"], price: "PKR 1,49,000", badge: "Entry Level", img: "olympus images/Mirrorless OM-D E-M10.jpg" },
+        { name: "M.Zuiko 12mm f/2", category: "Lens", desc: "Ultra-wide angle lens for landscape and architecture.", specs: ["12mm", "f/2", "Compact"], price: "PKR 1,19,000", badge: "Wide Angle", img: "olympus images/Lens M.Zuiko 12mm.jpg" }
     ],
     sigma: [
-        { name: "50mm f/1.4 Art", category: "Lens", desc: "Iconic portrait lens with stunning bokeh and sharpness.", specs: ["f/1.4", "Art Series", "Multi-Mount"], price: "PKR 2,49,000", badge: "Art Series", img: "https://picsum.photos/seed/sigma1/400/300" },
-        { name: "24-70mm f/2.8 Art", category: "Lens", desc: "Professional standard zoom with constant f/2.8.", specs: ["f/2.8", "Art Series", "Weather Sealed"], price: "PKR 3,99,000", badge: "Art Series", img: "https://picsum.photos/seed/sigma2/400/300" },
-        { name: "85mm f/1.4 Art", category: "Lens", desc: "Ultimate portrait lens with creamy bokeh and sharpness.", specs: ["f/1.4", "Art Series", "Portrait"], price: "PKR 3,49,000", badge: "Art Series", img: "https://picsum.photos/seed/sigma3/400/300" },
-        { name: "150-600mm f/5-6.3 Sports", category: "Lens", desc: "Super-telephoto zoom for wildlife and sports.", specs: ["150-600mm", "Sports Series", "Weather Sealed"], price: "PKR 4,49,000", badge: "Sports Series", img: "https://picsum.photos/seed/sigma4/400/300" },
-        { name: "100-400mm f/5-6.3 Contemporary", category: "Lens", desc: "Compact telephoto zoom for travel and wildlife.", specs: ["100-400mm", "Contemporary", "Compact"], price: "PKR 2,99,000", badge: "Contemporary", img: "https://picsum.photos/seed/sigma5/400/300" },
-        { name: "28-70mm f/2.8 Contemporary", category: "Lens", desc: "Ultra-compact standard zoom with constant f/2.8.", specs: ["f/2.8", "Contemporary", "Compact"], price: "PKR 2,19,000", badge: "Contemporary", img: "https://picsum.photos/seed/sigma6/400/300" },
-        { name: "Sigma fp", category: "Camera", desc: "Duniya ka sabse chhota full-frame mirrorless camera.", specs: ["24.6MP", "Full-Frame", "Modular"], price: "PKR 3,49,000", badge: "Camera", img: "https://picsum.photos/seed/sigma7/400/300" },
-        { name: "35mm f/1.4 Art", category: "Lens", desc: "Wide prime with high sharpness and beautiful bokeh.", specs: ["f/1.4", "Art Series", "Multi-Mount"], price: "PKR 2,29,000", badge: "Art Series", img: "https://picsum.photos/seed/sigma8/400/300" },
-        { name: "105mm f/1.4 Art", category: "Lens", desc: "Legendary portrait lens with unmatched bokeh.", specs: ["f/1.4", "Art Series", "Portrait"], price: "PKR 4,99,000", badge: "Art Series", img: "https://picsum.photos/seed/sigma9/400/300" },
-        { name: "14-24mm f/2.8 Art", category: "Lens", desc: "Ultra-wide zoom for landscape and architecture.", specs: ["14-24mm", "f/2.8", "Art Series"], price: "PKR 3,79,000", badge: "Art Series", img: "https://picsum.photos/seed/sigma10/400/300" }
+        { name: "50mm f/1.4 Art", category: "Lens", desc: "Iconic portrait lens with stunning bokeh and sharpness.", specs: ["f/1.4", "Art Series", "Multi-Mount"], price: "PKR 2,49,000", badge: "Art Series", img: "sigma images/Lens 50mm.jpg" },
+        { name: "24-70mm f/2.8 Art", category: "Lens", desc: "Professional standard zoom with constant f/2.8.", specs: ["f/2.8", "Art Series", "Weather Sealed"], price: "PKR 3,99,000", badge: "Art Series", img: "sigma images/Lens 24-70mm.jpg" },
+        { name: "85mm f/1.4 Art", category: "Lens", desc: "Ultimate portrait lens with creamy bokeh and sharpness.", specs: ["f/1.4", "Art Series", "Portrait"], price: "PKR 3,49,000", badge: "Art Series", img: "sigma images/Art Series Lens 85mm.jpg" },
+        { name: "150-600mm f/5-6.3 Sports", category: "Lens", desc: "Super-telephoto zoom for wildlife and sports.", specs: ["150-600mm", "Sports Series", "Weather Sealed"], price: "PKR 4,49,000", badge: "Sports Series", img: "sigma images/Lens 150-600mm.jpg" },
+        { name: "100-400mm f/5-6.3 Contemporary", category: "Lens", desc: "Compact telephoto zoom for travel and wildlife.", specs: ["100-400mm", "Contemporary", "Compact"], price: "PKR 2,99,000", badge: "Contemporary", img: "sigma images/Contemporary Lens 100-400mm.jpg" },
+        { name: "28-70mm f/2.8 Contemporary", category: "Lens", desc: "Ultra-compact standard zoom with constant f/2.8.", specs: ["f/2.8", "Contemporary", "Compact"], price: "PKR 2,19,000", badge: "Contemporary", img: "sigma images/Contemporary Lens 28-70mm.jpg" },
+        { name: "Sigma fp", category: "Camera", desc: "Duniya ka sabse chhota full-frame mirrorless camera.", specs: ["24.6MP", "Full-Frame", "Modular"], price: "PKR 3,49,000", badge: "Camera", img: "sigma images/Camera Sigma fp mirrorless.jpg" },
+        { name: "35mm f/1.4 Art", category: "Lens", desc: "Wide prime with high sharpness and beautiful bokeh.", specs: ["f/1.4", "Art Series", "Multi-Mount"], price: "PKR 2,29,000", badge: "Art Series", img: "sigma images/Art Series Lens 35mm.jpg" },
+        { name: "105mm f/1.4 Art", category: "Lens", desc: "Legendary portrait lens with unmatched bokeh.", specs: ["f/1.4", "Art Series", "Portrait"], price: "PKR 4,99,000", badge: "Art Series", img: "sigma images/Lens 105mm.jpg" },
+        { name: "14-24mm f/2.8 Art", category: "Lens", desc: "Ultra-wide zoom for landscape and architecture.", specs: ["14-24mm", "f/2.8", "Art Series"], price: "PKR 3,79,000", badge: "Art Series", img: "sigma images/Art Series Lens 14-24mm.jpg" }
     ],
     tamron: [
-        { name: "28-75mm f/2.8 Di III VXD", category: "Lens", desc: "Popular standard zoom for mirrorless with fast AF.", specs: ["f/2.8", "Di III", "VXD Motor"], price: "PKR 1,99,000", badge: "Best Seller", img: "https://picsum.photos/seed/tamron1/400/300" },
-        { name: "18-300mm f/3.5-6.3 Di III-A VC", category: "Lens", desc: "Ultra-zoom lens for APS-C mirrorless cameras.", specs: ["18-300mm", "VC", "16.6x Zoom"], price: "PKR 2,19,000", badge: "Ultra-Zoom", img: "https://picsum.photos/seed/tamron2/400/300" },
-        { name: "17-70mm f/2.8 Di III-A VC", category: "Lens", desc: "APS-C mirrorless zoom with constant f/2.8.", specs: ["f/2.8", "Di III-A", "VC"], price: "PKR 1,79,000", badge: "APS-C", img: "https://picsum.photos/seed/tamron3/400/300" },
-        { name: "70-180mm f/2.8 Di III VXD", category: "Lens", desc: "Ultra-compact telephoto zoom with constant f/2.8.", specs: ["f/2.8", "Di III", "VXD Motor"], price: "PKR 2,49,000", badge: "Telephoto", img: "https://picsum.photos/seed/tamron4/400/300" },
-        { name: "35-150mm f/2-2.8 Di III VXD", category: "Lens", desc: "Duniya ka pehla f/2-2.8 zoom lens.", specs: ["f/2-2.8", "Di III", "VXD Motor"], price: "PKR 3,99,000", badge: "Flagship", img: "https://picsum.photos/seed/tamron5/400/300" },
-        { name: "24-70mm f/2.8 VC Di", category: "Lens", desc: "Professional standard zoom for DSLR cameras.", specs: ["f/2.8", "Di", "VC"], price: "PKR 2,29,000", badge: "Pro", img: "https://picsum.photos/seed/tamron6/400/300" },
-        { name: "150-600mm f/5-6.3 VC Di", category: "Lens", desc: "Super-telephoto zoom for wildlife and sports.", specs: ["150-600mm", "Di", "VC"], price: "PKR 3,49,000", badge: "Wildlife", img: "https://picsum.photos/seed/tamron7/400/300" },
-        { name: "18-400mm f/3.5-6.3 Di II VC", category: "Lens", desc: "Ultra-zoom lens for DSLR with 22.2x zoom.", specs: ["18-400mm", "Di II", "VC"], price: "PKR 2,79,000", badge: "Ultra-Zoom", img: "https://picsum.photos/seed/tamron8/400/300" },
-        { name: "70-210mm f/4 Di III", category: "Lens", desc: "Lightweight telephoto zoom for mirrorless cameras.", specs: ["70-210mm", "f/4", "Di III"], price: "PKR 1,69,000", badge: "Compact", img: "https://picsum.photos/seed/tamron9/400/300" },
-        { name: "20mm f/2.8 Di III", category: "Lens", desc: "Compact wide-angle prime for mirrorless cameras.", specs: ["20mm", "f/2.8", "Di III"], price: "PKR 99,000", badge: "Wide Angle", img: "https://picsum.photos/seed/tamron10/400/300" }
+        { name: "28-75mm f/2.8 Di III VXD", category: "Lens", desc: "Popular standard zoom for mirrorless with fast AF.", specs: ["f/2.8", "Di III", "VXD Motor"], price: "PKR 1,99,000", badge: "Best Seller", img: "tamron images/Lens 28-75mm.jpg" },
+        { name: "18-300mm f/3.5-6.3 Di III-A VC", category: "Lens", desc: "Ultra-zoom lens for APS-C mirrorless cameras.", specs: ["18-300mm", "VC", "16.6x Zoom"], price: "PKR 2,19,000", badge: "Ultra-Zoom", img: "tamron images/Lens 18-300mm.jpg" },
+        { name: "17-70mm f/2.8 Di III-A VC", category: "Lens", desc: "APS-C mirrorless zoom with constant f/2.8.", specs: ["f/2.8", "Di III-A", "VC"], price: "PKR 1,79,000", badge: "APS-C", img: "tamron images/Lens 17-70mm.jpg" },
+        { name: "70-180mm f/2.8 Di III VXD", category: "Lens", desc: "Ultra-compact telephoto zoom with constant f/2.8.", specs: ["f/2.8", "Di III", "VXD Motor"], price: "PKR 2,49,000", badge: "Telephoto", img: "tamron images/Lens 70-180mm.jpg" },
+        { name: "35-150mm f/2-2.8 Di III VXD", category: "Lens", desc: "Duniya ka pehla f/2-2.8 zoom lens.", specs: ["f/2-2.8", "Di III", "VXD Motor"], price: "PKR 3,99,000", badge: "Flagship", img: "tamron images/Lens 35-150mm.jpg" },
+        { name: "24-70mm f/2.8 VC Di", category: "Lens", desc: "Professional standard zoom for DSLR cameras.", specs: ["f/2.8", "Di", "VC"], price: "PKR 2,29,000", badge: "Pro", img: "tamron images/Pro Lens 24-70mm.jpg" },
+        { name: "150-600mm f/5-6.3 VC Di", category: "Lens", desc: "Super-telephoto zoom for wildlife and sports.", specs: ["150-600mm", "Di", "VC"], price: "PKR 3,49,000", badge: "Wildlife", img: "tamron images/Wildlife Lens 150-600mm.jpg" },
+        { name: "18-400mm f/3.5-6.3 Di II VC", category: "Lens", desc: "Ultra-zoom lens for DSLR with 22.2x zoom.", specs: ["18-400mm", "Di II", "VC"], price: "PKR 2,79,000", badge: "Ultra-Zoom", img: "tamron images/Ultra-Zoom Lens 18-400mm.jpg" },
+        { name: "70-210mm f/4 Di III", category: "Lens", desc: "Lightweight telephoto zoom for mirrorless cameras.", specs: ["70-210mm", "f/4", "Di III"], price: "PKR 1,69,000", badge: "Compact", img: "tamron images/Compact Lens 70-210mm.jpg" },
+        { name: "20mm f/2.8 Di III", category: "Lens", desc: "Compact wide-angle prime for mirrorless cameras.", specs: ["20mm", "f/2.8", "Di III"], price: "PKR 99,000", badge: "Wide Angle", img: "tamron images/Lens 20mm.jpg" }
     ],
     yashica: [
-        { name: "FX-3 Super 2000", category: "Film", desc: "All-manual 35mm film SLR with fully mechanical shutter.", specs: ["35mm Film", "Mechanical", "Manual Focus"], price: "PKR 45,000", badge: "Classic", img: "https://picsum.photos/seed/yash1/400/300" },
-        { name: "Electro 35", category: "Rangefinder", desc: "Classic 1960s rangefinder with auto-exposure.", specs: ["35mm Film", "Auto Exposure", "Restored"], price: "PKR 32,000", badge: "Vintage", img: "https://picsum.photos/seed/yash2/400/300" },
-        { name: "T5 Compact", category: "Film", desc: "Pocket-sized point-and-shoot with Carl Zeiss lens.", specs: ["35mm Film", "Zeiss Lens", "Pocket Size"], price: "PKR 28,000", badge: "Compact", img: "https://picsum.photos/seed/yash3/400/300" },
-        { name: "Y35 DigiFilm", category: "DigiFilm", desc: "Unique digi-film system with interchangeable film modules.", specs: ["14MP", "Film Modules", "Retro Body"], price: "PKR 39,500", badge: "DigiFilm", img: "https://picsum.photos/seed/yash4/400/300" },
-        { name: "Film Module Set", category: "Accessory", desc: "4 different film modules for Y35 camera.", specs: ["4 Modules", "Color Profiles", "Easy Swap"], price: "PKR 12,000", badge: "Accessory", img: "https://picsum.photos/seed/yash5/400/300" },
-        { name: "50mm f/1.9 Prime", category: "Lens", desc: "Classic Yashica prime lens for FX mount.", specs: ["f/1.9", "FX Mount", "Manual Focus"], price: "PKR 18,000", badge: "Lens", img: "https://picsum.photos/seed/yash6/400/300" },
-        { name: "Classic Neck Strap", category: "Accessory", desc: "Vintage-style camera neck strap with Yashica branding.", specs: ["Vintage Design", "Leather Look", "Comfortable"], price: "PKR 3,500", badge: "Accessory", img: "https://picsum.photos/seed/yash7/400/300" },
-        { name: "Yashica Mat 124G", category: "Film", desc: "Classic Twin Lens Reflex (TLR) film camera.", specs: ["6x6 Format", "TLR", "Film Camera"], price: "PKR 55,000", badge: "TLR", img: "https://picsum.photos/seed/yash8/400/300" },
-        { name: "35mm f/2.8", category: "Lens", desc: "Wide-angle prime lens for FX mount cameras.", specs: ["35mm", "f/2.8", "FX Mount"], price: "PKR 22,000", badge: "Lens", img: "https://picsum.photos/seed/yash9/400/300" },
-        { name: "Yashica Minister D", category: "Rangefinder", desc: "Classic rangefinder with built-in light meter.", specs: ["35mm Film", "Rangefinder", "Light Meter"], price: "PKR 25,000", badge: "Rangefinder", img: "https://picsum.photos/seed/yash10/400/300" }
+        { name: "FX-3 Super 2000", category: "Film", desc: "All-manual 35mm film SLR with fully mechanical shutter.", specs: ["35mm Film", "Mechanical", "Manual Focus"], price: "PKR 45,000", badge: "Classic", img: "yashica images/Film FX-3 Super 2000 All-manual 35mm.jpg" },
+        { name: "Electro 35", category: "Rangefinder", desc: "Classic 1960s rangefinder with auto-exposure.", specs: ["35mm Film", "Auto Exposure", "Restored"], price: "PKR 32,000", badge: "Vintage", img: "yashica images/Vintage Rangefinder Electro 35.jpg" },
+        { name: "T5 Compact", category: "Film", desc: "Pocket-sized point-and-shoot with Carl Zeiss lens.", specs: ["35mm Film", "Zeiss Lens", "Pocket Size"], price: "PKR 28,000", badge: "Compact", img: "yashica images/Compact Film T5 Compact.jpg" },
+        { name: "Y35 DigiFilm", category: "DigiFilm", desc: "Unique digi-film system with interchangeable film modules.", specs: ["14MP", "Film Modules", "Retro Body"], price: "PKR 39,500", badge: "DigiFilm", img: "yashica images/DigiFilm DigiFilm Y35 DigiFilm Unique.jpg" },
+        { name: "Film Module Set", category: "Accessory", desc: "4 different film modules for Y35 camera.", specs: ["4 Modules", "Color Profiles", "Easy Swap"], price: "PKR 12,000", badge: "Accessory", img: "yashica images/Accessory Accessory Film Module.jpg" },
+        { name: "50mm f/1.9 Prime", category: "Lens", desc: "Classic Yashica prime lens for FX mount.", specs: ["f/1.9", "FX Mount", "Manual Focus"], price: "PKR 18,000", badge: "Lens", img: "yashica images/Lens Lens 50mm.jpg" },
+        { name: "Classic Neck Strap", category: "Accessory", desc: "Vintage-style camera neck strap with Yashica branding.", specs: ["Vintage Design", "Leather Look", "Comfortable"], price: "PKR 3,500", badge: "Accessory", img: "yashica images/Accessory Accessory Classic.jpg" },
+        { name: "Yashica Mat 124G", category: "Film", desc: "Classic Twin Lens Reflex (TLR) film camera.", specs: ["6x6 Format", "TLR", "Film Camera"], price: "PKR 55,000", badge: "TLR", img: "yashica images/TLR Film Yashica Mat 124G.jpg" },
+        { name: "35mm f/2.8", category: "Lens", desc: "Wide-angle prime lens for FX mount cameras.", specs: ["35mm", "f/2.8", "FX Mount"], price: "PKR 22,000", badge: "Lens", img: "yashica images/Lens Lens 35mm.jpg" },
+        { name: "Yashica Minister D", category: "Rangefinder", desc: "Classic rangefinder with built-in light meter.", specs: ["35mm Film", "Rangefinder", "Light Meter"], price: "PKR 25,000", badge: "Rangefinder", img: "yashica images/Rangefinder Rangefinder Yashica.jpg" }
     ]
 };
+
+        // Sanitize any embedded data URI images to safe external placeholders
+        (function() {
+            Object.keys(brandProducts).forEach(function(brandId) {
+                brandProducts[brandId] = brandProducts[brandId].map(function(p, idx) {
+                    if (p && typeof p.img === 'string' && p.img.startsWith('data:')) {
+                        p.img = 'https://picsum.photos/seed/' + encodeURIComponent(brandId + '_' + idx) + '/400/300';
+                    }
+                    return p;
+                });
+            });
+        })();
 
         // Render Brands Showcase
         const brandsShowcase = document.getElementById('brandsShowcase');
