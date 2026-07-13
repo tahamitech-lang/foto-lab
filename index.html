@@ -231,11 +231,12 @@
         }
         .brand-home-card img {
             width: 100%;
-            height: 100px;
-            object-fit: cover;
+            height: 120px;
+            object-fit: contain;
             border-radius: 16px;
             background: #1a1a2e;
             border: 1px solid #333366;
+            padding: 10px;
         }
         .brand-home-card h6 { color: var(--brand-gold); margin-top: 12px; font-weight: 600; }
         .brand-home-card p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0; }
@@ -280,12 +281,13 @@
         }
         .brand-card img {
             width: 100%;
-            height: 110px;
-            object-fit: cover;
+            height: 130px;
+            object-fit: contain;
             border-radius: 20px;
             background: #1a1a2e;
             border: 1px solid #3a3a6a;
             transition: 0.3s;
+            padding: 12px;
         }
         .brand-card:hover img { border-color: var(--brand-gold); }
         .brand-card h5 { color: var(--brand-gold); font-weight: 600; margin-top: 14px; letter-spacing: 0.5px; }
@@ -369,14 +371,18 @@
         }
         .brand-product-card .img-wrap {
             background: #181818;
-            height: 200px;
+            height: 220px;
             overflow: hidden;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
         }
         .brand-product-card .img-wrap img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.5s ease;
         }
         .brand-product-card:hover .img-wrap img { transform: scale(1.06); }
@@ -572,14 +578,18 @@
         }
         .lighting-card .img-wrap {
             background: #1a1a2e;
-            height: 180px;
+            height: 200px;
             overflow: hidden;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
         .lighting-card .img-wrap img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: 0.5s;
         }
         .lighting-card:hover .img-wrap img { transform: scale(1.05); }
@@ -671,13 +681,17 @@
         }
         .kit-card .img-wrap {
             background: #1a1a2e;
-            height: 200px;
+            height: 220px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
         .kit-card .img-wrap img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: 0.5s;
         }
         .kit-card:hover .img-wrap img { transform: scale(1.05); }
@@ -1016,12 +1030,13 @@
         }
         .product-card img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: 220px;
+            object-fit: contain;
             border-radius: 16px;
             background: #1a1a2e;
             border: 1px solid var(--border-color);
             transition: 0.3s;
+            padding: 15px;
         }
         .product-card:hover img { border-color: var(--brand-gold); }
         .product-card .badge-brand {
@@ -2391,7 +2406,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="80cm Octagon Softbox"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1018/300/250" alt="Softbox">
+                                <img src="modifiers images/FOTOLAB Studio 80cm Octagon.jpg" alt="Softbox">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">FOTOLAB Studio</div>
@@ -2409,7 +2424,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="120cm Octagon Softbox"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1036/300/250" alt="Large softbox">
+                                <img src="modifiers images/FOTOLAB Studio 120cm.jpg" alt="Large softbox">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">FOTOLAB Studio</div>
@@ -2427,7 +2442,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Reflective Umbrella 105cm"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1026/300/250" alt="Reflective umbrella">
+                                <img src="modifiers images/Godox Reflective Umbrella 105cm.jpg" alt="Reflective umbrella">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Godox</div>
@@ -2445,7 +2460,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Beauty Dish 55cm"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1027/300/250" alt="Beauty dish">
+                                <img src="modifiers images/Godox Beauty Dish 55cm.jpg" alt="Beauty dish">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Godox</div>
@@ -2463,7 +2478,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="5-in-1 Reflector"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1028/300/250" alt="Reflector">
+                                <img src="modifiers images/Neewer 5-in-1 Reflector 110cm.jpg" alt="Reflector">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Neewer</div>
@@ -2481,7 +2496,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Strip Softbox 30x120cm"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1037/300/250" alt="Strip softbox">
+                                <img src="modifiers images/FOTOLAB Studio Strip Softbox.jpg" alt="Strip softbox">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">FOTOLAB Studio</div>
@@ -2499,7 +2514,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Grid Spot Kit"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1038/300/250" alt="Grid spot">
+                                <img src="modifiers images/Godox Grid Spot Kit Grid spots.jpg" alt="Grid spot">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Godox</div>
@@ -2517,7 +2532,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Snoot Kit"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1039/300/250" alt="Snoot">
+                                <img src="modifiers images/Godox Snoot Kit Snoot.jpg" alt="Snoot">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Godox</div>
@@ -2535,7 +2550,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Beauty Dish 80cm"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1040/300/250" alt="Large beauty dish">
+                                <img src="modifiers images/Godox Beauty Dish 80cm.jpg" alt="Large beauty dish">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Godox</div>
@@ -2553,7 +2568,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Color Gel Filter Set"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1041/300/250" alt="Gel filters">
+                                <img src="modifiers images/Neewer Color Gel Filter.jpg" alt="Gel filters">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Neewer</div>
@@ -2583,7 +2598,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Backdrop Stand Kit"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1019/300/250" alt="Backdrop stand">
+                                <img src="backdrops and stands images/FOTOLAB Studio Backdrop Stand Kit.jpg" alt="Backdrop stand">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">FOTOLAB Studio</div>
@@ -2601,7 +2616,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Muslin Backdrop White"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1029/300/250" alt="White backdrop">
+                                <img src="backdrops and stands images/FOTOLAB Studio Muslin Backdrop 3x6m.jpg" alt="White backdrop">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">FOTOLAB Studio</div>
@@ -2619,7 +2634,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Muslin Backdrop Black"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1042/300/250" alt="Black backdrop">
+                                <img src="backdrops and stands images/FOTOLAB Studio Muslin Backdrop 3x6m black.jpg" alt="Black backdrop">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">FOTOLAB Studio</div>
@@ -2637,7 +2652,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Green Screen Collapsible"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1030/300/250" alt="Green screen">
+                                <img src="backdrops and stands images/Neewer Collapsible Green Screen.jpg" alt="Green screen">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Neewer</div>
@@ -2655,7 +2670,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Boom Arm with Sandbag"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1031/300/250" alt="Boom arm">
+                                <img src="backdrops and stands images/FOTOLAB Studio Boom Arm.jpg" alt="Boom arm">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">FOTOLAB Studio</div>
@@ -2673,7 +2688,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Heavy Duty Light Stand"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1043/300/250" alt="Heavy stand">
+                                <img src="backdrops and stands images/Manfrotto Heavy Duty Light Stand.jpg" alt="Heavy stand">
                                 <span class="badge-tag">Pro</span>
                             </div>
                             <div class="body">
@@ -2692,7 +2707,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Compact Light Stand"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1044/300/250" alt="Compact stand">
+                                <img src="backdrops and stands images/Godox Compact Light Stand 2m.jpg" alt="Compact stand">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Godox</div>
@@ -2710,7 +2725,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="C-Stand with Grip"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1045/300/250" alt="C-stand">
+                                <img src="backdrops and stands images/Manfrotto C-Stand with Grip.png" alt="C-stand">
                                 <span class="badge-tag">Studio</span>
                             </div>
                             <div class="body">
@@ -2729,7 +2744,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Vinyl Backdrop 2.7x3m"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1046/300/250" alt="Vinyl backdrop">
+                                <img src="backdrops and stands images/Neewer Vinyl Backdrop 2.7x3m.jpg" alt="Vinyl backdrop">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Neewer</div>
@@ -2747,7 +2762,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Paper Backdrop Roll 2.7x11m"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1047/300/250" alt="Paper backdrop">
+                                <img src="backdrops and stands images/FOTOLAB Studio Paper Backdrop.jpg" alt="Paper backdrop">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">FOTOLAB Studio</div>
@@ -2777,7 +2792,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox X2T Trigger"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1032/300/250" alt="Wireless trigger">
+                                <img src="triggers and remotes images/Godox X2T Wireless Trigger.jpg" alt="Wireless trigger">
                                 <span class="badge-tag">Best Seller</span>
                             </div>
                             <div class="body">
@@ -2796,7 +2811,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox XPro Trigger"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1048/300/250" alt="XPro trigger">
+                                <img src="triggers and remotes images/Godox XPro Wireless Trigger.jpg" alt="XPro trigger">
                                 <span class="badge-tag">Pro</span>
                             </div>
                             <div class="body">
@@ -2815,7 +2830,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Wireless Remote Shutter"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1038/300/250" alt="Remote shutter">
+                                <img src="triggers and remotes images/FOTOLAB Essentials Wireless.jpg" alt="Remote shutter">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">FOTOLAB Essentials</div>
@@ -2833,7 +2848,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Optical Slave Trigger"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1033/300/250" alt="Optical trigger">
+                                <img src="triggers and remotes images/Neewer Optical Slave.jpg" alt="Optical trigger">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Neewer</div>
@@ -2851,7 +2866,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox AK-R1 Remote Kit"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1034/300/250" alt="Accessory kit">
+                                <img src="triggers and remotes images/Godox AK-R1 Accessory Kit.jpg" alt="Accessory kit">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Godox</div>
@@ -2869,7 +2884,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Profoto Air Remote"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1049/300/250" alt="Profoto remote">
+                                <img src="triggers and remotes images/Profoto Air Remote TTL.jpg" alt="Profoto remote">
                                 <span class="badge-tag">Profoto</span>
                             </div>
                             <div class="body">
@@ -2888,7 +2903,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="PocketWizard Plus III"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1050/300/250" alt="PocketWizard">
+                                <img src="triggers and remotes images/PocketWizard Plus III.jpg" alt="PocketWizard">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">PocketWizard</div>
@@ -2906,7 +2921,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Godox R2 Pro Trigger"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1051/300/250" alt="R2 Pro trigger">
+                                <img src="triggers and remotes images/Godox R2 Pro Wireless Trigger.jpg" alt="R2 Pro trigger">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Godox</div>
@@ -2924,7 +2939,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Bluetooth Remote Shutter"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1052/300/250" alt="Bluetooth shutter">
+                                <img src="triggers and remotes images/FOTOLAB Bluetooth Remote.jpg" alt="Bluetooth shutter">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">FOTOLAB</div>
@@ -2942,7 +2957,7 @@
                         <div class="lighting-card">
                             <label class="compare-check"><input type="checkbox" class="compare-cb" data-name="Flash Sync Cord"></label>
                             <div class="img-wrap">
-                                <img src="https://picsum.photos/id/1053/300/250" alt="Sync cord">
+                                <img src="triggers and remotes images/Neewer Flash Sync Cord 5m.jpg" alt="Sync cord">
                             </div>
                             <div class="body">
                                 <div class="brand-tag">Neewer</div>
@@ -3982,11 +3997,109 @@ const brandProducts = {
         // COMPARE FUNCTIONALITY
         // ============================================================
         const compareProducts = [
-            { id: 1, name: "Canon EOS R6 Mark II", brand: "Canon", sensor: "24.2MP Full-Frame", video: "4K 60fps", price: "₨ 650,000", iso: "100-102400", weight: "670g" },
-            { id: 2, name: "Sony A7 IV", brand: "Sony", sensor: "33MP Full-Frame", video: "4K 60fps", price: "₨ 620,000", iso: "100-51200", weight: "658g" },
-            { id: 3, name: "Nikon Z6 II", brand: "Nikon", sensor: "24.5MP Full-Frame", video: "4K UHD", price: "₨ 580,000", iso: "100-51200", weight: "705g" },
-            { id: 4, name: "Fujifilm X-T5", brand: "Fujifilm", sensor: "40MP APS-C", video: "6.2K", price: "₨ 155,000", iso: "125-12800", weight: "607g" }
-        ];
+    // ===== CANON =====
+    { id: 1, name: "Canon EOS R5 Mark II", brand: "Canon", sensor: "45MP Full-Frame", video: "8K RAW", price: "₨ 6,49,000", iso: "100-51200", weight: "738g" },
+    { id: 2, name: "Canon EOS R6 Mark II", brand: "Canon", sensor: "24.2MP Full-Frame", video: "4K 60fps", price: "₨ 3,89,000", iso: "100-102400", weight: "670g" },
+    { id: 3, name: "Canon EOS R50", brand: "Canon", sensor: "24MP APS-C", video: "4K", price: "₨ 1,29,000", iso: "100-51200", weight: "376g" },
+    { id: 4, name: "Canon EOS 90D", brand: "Canon", sensor: "32.5MP APS-C", video: "4K", price: "₨ 2,49,000", iso: "100-25600", weight: "701g" },
+    { id: 5, name: "Canon EOS 5D Mark IV", brand: "Canon", sensor: "30.4MP Full-Frame", video: "4K", price: "₨ 3,19,000", iso: "100-32000", weight: "890g" },
+    
+    // ===== NIKON =====
+    { id: 6, name: "Nikon Z9", brand: "Nikon", sensor: "45.7MP Full-Frame", video: "8K 60p", price: "₨ 12,90,000", iso: "64-25600", weight: "1340g" },
+    { id: 7, name: "Nikon Z8", brand: "Nikon", sensor: "45.7MP Full-Frame", video: "8.3K N-RAW", price: "₨ 8,95,000", iso: "64-25600", weight: "910g" },
+    { id: 8, name: "Nikon Z6 III", brand: "Nikon", sensor: "24.5MP Full-Frame", video: "6K RAW", price: "₨ 5,45,000", iso: "100-64000", weight: "705g" },
+    { id: 9, name: "Nikon Z f", brand: "Nikon", sensor: "24.5MP Full-Frame", video: "4K", price: "₨ 4,35,000", iso: "100-64000", weight: "710g" },
+    { id: 10, name: "Nikon Z30", brand: "Nikon", sensor: "20.9MP APS-C", video: "4K", price: "₨ 1,15,000", iso: "100-51200", weight: "405g" },
+    { id: 11, name: "Nikon D7500", brand: "Nikon", sensor: "20.9MP APS-C", video: "4K", price: "₨ 1,99,000", iso: "100-51200", weight: "720g" },
+    
+    // ===== SONY =====
+    { id: 12, name: "Sony Alpha 7R V", brand: "Sony", sensor: "61MP Full-Frame", video: "8K", price: "₨ 6,85,000", iso: "100-32000", weight: "723g" },
+    { id: 13, name: "Sony Alpha 7 IV", brand: "Sony", sensor: "33MP Full-Frame", video: "4K 60p", price: "₨ 4,35,000", iso: "100-51200", weight: "658g" },
+    { id: 14, name: "Sony Alpha 6700", brand: "Sony", sensor: "26MP APS-C", video: "4K 120p", price: "₨ 2,95,000", iso: "100-32000", weight: "493g" },
+    { id: 15, name: "Sony ZV-E10", brand: "Sony", sensor: "24.2MP APS-C", video: "4K", price: "₨ 1,65,000", iso: "100-32000", weight: "343g" },
+    { id: 16, name: "Sony ZV-E1", brand: "Sony", sensor: "12MP Full-Frame", video: "4K 120p", price: "₨ 3,45,000", iso: "80-102400", weight: "483g" },
+    
+    // ===== FUJIFILM =====
+    { id: 17, name: "Fujifilm X-T5", brand: "Fujifilm", sensor: "40.2MP APS-C", video: "6.2K", price: "₨ 3,85,000", iso: "125-12800", weight: "607g" },
+    { id: 18, name: "Fujifilm X100VI", brand: "Fujifilm", sensor: "40.2MP APS-C", video: "4K", price: "₨ 3,95,000", iso: "125-12800", weight: "521g" },
+    { id: 19, name: "Fujifilm X-H2S", brand: "Fujifilm", sensor: "26.1MP APS-C", video: "4K 120p", price: "₨ 5,10,000", iso: "160-12800", weight: "660g" },
+    { id: 20, name: "Fujifilm X-T50", brand: "Fujifilm", sensor: "40.2MP APS-C", video: "4K", price: "₨ 2,90,000", iso: "125-12800", weight: "438g" },
+    { id: 21, name: "Fujifilm X-S20", brand: "Fujifilm", sensor: "26.1MP APS-C", video: "6.2K", price: "₨ 2,19,000", iso: "160-12800", weight: "491g" },
+    { id: 22, name: "Fujifilm GFX 100S II", brand: "Fujifilm", sensor: "102MP Medium Format", video: "4K", price: "₨ 12,50,000", iso: "100-12800", weight: "900g" },
+    { id: 23, name: "Fujifilm X-Pro3", brand: "Fujifilm", sensor: "26.1MP APS-C", video: "4K", price: "₨ 3,29,000", iso: "160-12800", weight: "497g" },
+    
+    // ===== PANASONIC =====
+    { id: 24, name: "Panasonic Lumix S5 II", brand: "Panasonic", sensor: "24MP Full-Frame", video: "6K", price: "₨ 4,49,000", iso: "100-51200", weight: "740g" },
+    { id: 25, name: "Panasonic Lumix S5 IIX", brand: "Panasonic", sensor: "24MP Full-Frame", video: "ProRes", price: "₨ 5,19,000", iso: "100-51200", weight: "740g" },
+    { id: 26, name: "Panasonic Lumix GH6", brand: "Panasonic", sensor: "25.2MP MFT", video: "5.7K", price: "₨ 3,49,000", iso: "100-25600", weight: "823g" },
+    { id: 27, name: "Panasonic Lumix GH5 II", brand: "Panasonic", sensor: "20.3MP MFT", video: "4K 60fps", price: "₨ 2,19,000", iso: "100-25600", weight: "727g" },
+    { id: 28, name: "Panasonic Lumix G100", brand: "Panasonic", sensor: "20.3MP MFT", video: "4K", price: "₨ 99,000", iso: "100-25600", weight: "352g" },
+    
+    // ===== LEICA =====
+    { id: 29, name: "Leica M11", brand: "Leica", sensor: "60MP Full-Frame", video: "4K", price: "₨ 21,50,000", iso: "64-50000", weight: "540g" },
+    { id: 30, name: "Leica Q3", brand: "Leica", sensor: "60MP Full-Frame", video: "8K", price: "₨ 13,50,000", iso: "100-100000", weight: "743g" },
+    { id: 31, name: "Leica SL3", brand: "Leica", sensor: "60MP Full-Frame", video: "8K", price: "₨ 18,50,000", iso: "100-100000", weight: "837g" },
+    { id: 32, name: "Leica D-Lux 8", brand: "Leica", sensor: "17MP MFT", video: "4K", price: "₨ 4,99,000", iso: "100-25600", weight: "397g" },
+    
+    // ===== HASSELBLAD =====
+    { id: 33, name: "Hasselblad X2D 100C", brand: "Hasselblad", sensor: "100MP Medium Format", video: "4K", price: "₨ 28,50,000", iso: "64-25600", weight: "895g" },
+    { id: 34, name: "Hasselblad X1D II 50C", brand: "Hasselblad", sensor: "50MP Medium Format", video: "4K", price: "₨ 15,50,000", iso: "100-25600", weight: "725g" },
+    { id: 35, name: "Hasselblad 907X 50C", brand: "Hasselblad", sensor: "50MP Medium Format", video: "4K", price: "₨ 18,50,000", iso: "100-25600", weight: "740g" },
+    
+    // ===== GOPRO =====
+    { id: 36, name: "GoPro Hero13 Black", brand: "GoPro", sensor: "27MP", video: "5.3K60", price: "₨ 1,29,000", iso: "100-6400", weight: "154g" },
+    { id: 37, name: "GoPro Hero12 Black", brand: "GoPro", sensor: "27MP", video: "5.3K", price: "₨ 99,000", iso: "100-6400", weight: "154g" },
+    { id: 38, name: "GoPro Hero11 Black", brand: "GoPro", sensor: "27MP", video: "5.3K", price: "₨ 79,000", iso: "100-6400", weight: "153g" },
+    { id: 39, name: "GoPro Max", brand: "GoPro", sensor: "18MP", video: "5.6K 360°", price: "₨ 1,09,000", iso: "100-6400", weight: "163g" },
+    
+    // ===== OLYMPUS =====
+    { id: 40, name: "Olympus OM-D E-M1 Mark III", brand: "Olympus", sensor: "20MP MFT", video: "4K", price: "₨ 3,49,000", iso: "200-25600", weight: "580g" },
+    { id: 41, name: "Olympus OM-D E-M5 Mark III", brand: "Olympus", sensor: "20MP MFT", video: "4K", price: "₨ 2,19,000", iso: "200-25600", weight: "414g" },
+    { id: 42, name: "Olympus PEN E-P7", brand: "Olympus", sensor: "20MP MFT", video: "4K", price: "₨ 1,69,000", iso: "200-25600", weight: "337g" },
+    { id: 43, name: "Olympus OM-D E-M10 Mark IV", brand: "Olympus", sensor: "20MP MFT", video: "4K", price: "₨ 1,49,000", iso: "200-25600", weight: "383g" },
+    
+    // ===== SIGMA =====
+    { id: 44, name: "Sigma fp", brand: "Sigma", sensor: "24.6MP Full-Frame", video: "4K", price: "₨ 3,49,000", iso: "100-25600", weight: "370g" },
+    
+    // ===== YASHICA =====
+    { id: 45, name: "Yashica Y35 DigiFilm", brand: "Yashica", sensor: "14MP", video: "720p", price: "₨ 39,500", iso: "100-1600", weight: "180g" }
+];
+
+// For lens-only comparison
+const compareLenses = [
+    { id: 101, name: "Canon RF 50mm f/1.2L", brand: "Canon", type: "Prime", mount: "RF", maxAperture: "f/1.2", minAperture: "f/16", weight: "950g", price: "₨ 3,89,000" },
+    { id: 102, name: "Canon RF 24-70mm f/2.8L", brand: "Canon", type: "Zoom", mount: "RF", maxAperture: "f/2.8", minAperture: "f/22", weight: "900g", price: "₨ 4,49,000" },
+    { id: 103, name: "Canon RF 70-200mm f/2.8L", brand: "Canon", type: "Zoom", mount: "RF", maxAperture: "f/2.8", minAperture: "f/32", weight: "1070g", price: "₨ 5,99,000" },
+    { id: 104, name: "Nikon Z 50mm f/1.8 S", brand: "Nikon", type: "Prime", mount: "Z", maxAperture: "f/1.8", minAperture: "f/16", weight: "415g", price: "₨ 1,99,000" },
+    { id: 105, name: "Nikon Z 24-70mm f/2.8 S", brand: "Nikon", type: "Zoom", mount: "Z", maxAperture: "f/2.8", minAperture: "f/22", weight: "805g", price: "₨ 4,65,000" },
+    { id: 106, name: "Nikon Z 70-200mm f/2.8 S", brand: "Nikon", type: "Zoom", mount: "Z", maxAperture: "f/2.8", minAperture: "f/32", weight: "1360g", price: "₨ 5,49,000" },
+    { id: 107, name: "Nikon Z 85mm f/1.2 S", brand: "Nikon", type: "Prime", mount: "Z", maxAperture: "f/1.2", minAperture: "f/16", weight: "1160g", price: "₨ 6,15,000" },
+    { id: 108, name: "Sony FE 50mm f/1.2 GM", brand: "Sony", type: "Prime", mount: "E", maxAperture: "f/1.2", minAperture: "f/16", weight: "778g", price: "₨ 4,65,000" },
+    { id: 109, name: "Sony FE 24-70mm f/2.8 GM II", brand: "Sony", type: "Zoom", mount: "E", maxAperture: "f/2.8", minAperture: "f/22", weight: "695g", price: "₨ 5,15,000" },
+    { id: 110, name: "Sony FE 70-200mm f/2.8 GM OSS", brand: "Sony", type: "Zoom", mount: "E", maxAperture: "f/2.8", minAperture: "f/22", weight: "1045g", price: "₨ 6,50,000" },
+    { id: 111, name: "Sony FE 85mm f/1.4 GM", brand: "Sony", type: "Prime", mount: "E", maxAperture: "f/1.4", minAperture: "f/16", weight: "820g", price: "₨ 3,99,000" },
+    { id: 112, name: "Fujifilm XF 56mm f/1.2 R WR", brand: "Fujifilm", type: "Prime", mount: "X", maxAperture: "f/1.2", minAperture: "f/16", weight: "445g", price: "₨ 2,35,000" },
+    { id: 113, name: "Fujifilm XF 16-55mm f/2.8", brand: "Fujifilm", type: "Zoom", mount: "X", maxAperture: "f/2.8", minAperture: "f/22", weight: "655g", price: "₨ 2,65,000" },
+    { id: 114, name: "Fujifilm XF 50-140mm f/2.8", brand: "Fujifilm", type: "Zoom", mount: "X", maxAperture: "f/2.8", minAperture: "f/22", weight: "995g", price: "₨ 3,49,000" },
+    { id: 115, name: "Panasonic Lumix S 50mm f/1.8", brand: "Panasonic", type: "Prime", mount: "L", maxAperture: "f/1.8", minAperture: "f/22", weight: "300g", price: "₨ 1,99,000" },
+    { id: 116, name: "Panasonic Lumix S 24-105mm f/4", brand: "Panasonic", type: "Zoom", mount: "L", maxAperture: "f/4", minAperture: "f/22", weight: "680g", price: "₨ 3,29,000" },
+    { id: 117, name: "Panasonic Lumix S 70-200mm f/4", brand: "Panasonic", type: "Zoom", mount: "L", maxAperture: "f/4", minAperture: "f/22", weight: "800g", price: "₨ 3,99,000" },
+    { id: 118, name: "Leica Summilux-M 50mm f/1.4", brand: "Leica", type: "Prime", mount: "M", maxAperture: "f/1.4", minAperture: "f/16", weight: "335g", price: "₨ 5,99,000" },
+    { id: 119, name: "Leica Summilux-M 35mm f/1.4", brand: "Leica", type: "Prime", mount: "M", maxAperture: "f/1.4", minAperture: "f/16", weight: "320g", price: "₨ 7,50,000" },
+    { id: 120, name: "Hasselblad XCD 45mm f/4 P", brand: "Hasselblad", type: "Prime", mount: "XCD", maxAperture: "f/4", minAperture: "f/32", weight: "417g", price: "₨ 4,99,000" },
+    { id: 121, name: "Hasselblad XCD 90mm f/2.5 V", brand: "Hasselblad", type: "Prime", mount: "XCD", maxAperture: "f/2.5", minAperture: "f/32", weight: "551g", price: "₨ 6,99,000" },
+    { id: 122, name: "Sigma 50mm f/1.4 Art", brand: "Sigma", type: "Prime", mount: "Multi", maxAperture: "f/1.4", minAperture: "f/16", weight: "815g", price: "₨ 2,49,000" },
+    { id: 123, name: "Sigma 24-70mm f/2.8 Art", brand: "Sigma", type: "Zoom", mount: "Multi", maxAperture: "f/2.8", minAperture: "f/22", weight: "835g", price: "₨ 3,99,000" },
+    { id: 124, name: "Sigma 85mm f/1.4 Art", brand: "Sigma", type: "Prime", mount: "Multi", maxAperture: "f/1.4", minAperture: "f/16", weight: "1130g", price: "₨ 3,49,000" },
+    { id: 125, name: "Tamron 28-75mm f/2.8 Di III VXD", brand: "Tamron", type: "Zoom", mount: "E/Z", maxAperture: "f/2.8", minAperture: "f/22", weight: "540g", price: "₨ 1,99,000" },
+    { id: 126, name: "Tamron 35-150mm f/2-2.8 Di III VXD", brand: "Tamron", type: "Zoom", mount: "E/Z", maxAperture: "f/2-2.8", minAperture: "f/22", weight: "1165g", price: "₨ 3,99,000" },
+    { id: 127, name: "Tamron 70-180mm f/2.8 Di III VXD", brand: "Tamron", type: "Zoom", mount: "E/Z", maxAperture: "f/2.8", minAperture: "f/22", weight: "855g", price: "₨ 2,49,000" },
+    { id: 128, name: "Olympus M.Zuiko 12-40mm f/2.8 Pro", brand: "Olympus", type: "Zoom", mount: "MFT", maxAperture: "f/2.8", minAperture: "f/22", weight: "382g", price: "₨ 2,65,000" },
+    { id: 129, name: "Olympus M.Zuiko 40-150mm f/2.8 Pro", brand: "Olympus", type: "Zoom", mount: "MFT", maxAperture: "f/2.8", minAperture: "f/22", weight: "760g", price: "₨ 3,49,000" },
+    { id: 130, name: "Olympus M.Zuiko 45mm f/1.8", brand: "Olympus", type: "Prime", mount: "MFT", maxAperture: "f/1.8", minAperture: "f/22", weight: "116g", price: "₨ 69,000" },
+    { id: 131, name: "Yashica 50mm f/1.9 Prime", brand: "Yashica", type: "Prime", mount: "FX", maxAperture: "f/1.9", minAperture: "f/16", weight: "200g", price: "₨ 18,000" },
+    { id: 132, name: "Yashica 35mm f/2.8", brand: "Yashica", type: "Prime", mount: "FX", maxAperture: "f/2.8", minAperture: "f/16", weight: "180g", price: "₨ 22,000" }
+];
 
         function populateCompareDropdowns() {
             const select1 = document.getElementById('product1');
