@@ -1404,33 +1404,1161 @@
         /* Scroll margin for sections */
         #products, #brands-section, #lighting, #guide, #contact, #compare { scroll-margin-top: 80px; }
 
-        @media (max-width: 768px) {
-            .hero { min-height: 70vh; }
-            .hero h1 { font-size: 2.8rem; }
-            .brand-home-card img { height: 70px; }
-            .brand-card { width: 170px; padding: 12px !important; }
-            .brand-card img { height: 80px; }
-            .brand-card h5 { font-size: 1rem; }
-            .brand-product-card .img-wrap { height: 160px; }
-            .lighting-card .img-wrap { height: 140px; }
-            .kit-card .img-wrap { height: 160px; }
-            .cat-strip { top: 68px; padding: 8px 0; }
-            .cat-pill { padding: 6px 14px; font-size: 12px; }
-            .lighting-hero { min-height: 30vh; }
-            .lighting-hero h1 { font-size: 2.5rem; }
-            .comparison-table th, .comparison-table td {
-                padding: 10px 12px;
-                font-size: 0.85rem;
-            }
-        }
+        /* ===== RESPONSIVE MEDIA QUERIES ===== */
 
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2.2rem; }
-            .brand-card { width: 150px; }
-            .lighting-hero h1 { font-size: 2rem; }
-            .comparison-table { font-size: 0.75rem; }
-            .comparison-table th, .comparison-table td { padding: 8px 6px; }
-        }
+/* === LARGE SCREENS (Desktops, TVs, Large Monitors) === */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    .hero h1 {
+        font-size: clamp(60px, 8vw, 100px);
+    }
+    .brand-card {
+        width: 240px;
+    }
+    .brand-card img {
+        height: 150px;
+    }
+    .brand-product-card .img-wrap {
+        height: 260px;
+    }
+    .lighting-card .img-wrap {
+        height: 220px;
+    }
+    .kit-card .img-wrap {
+        height: 240px;
+    }
+    .product-card img {
+        height: 260px;
+    }
+}
+
+/* === DESKTOPS & LAPTOPS (1024px - 1399px) === */
+@media (min-width: 1024px) and (max-width: 1399px) {
+    .hero h1 {
+        font-size: clamp(48px, 6vw, 75px);
+    }
+    .brand-card {
+        width: 210px;
+    }
+    .brand-card img {
+        height: 120px;
+    }
+    .brand-product-card .img-wrap {
+        height: 210px;
+    }
+    .lighting-card .img-wrap {
+        height: 190px;
+    }
+    .kit-card .img-wrap {
+        height: 200px;
+    }
+}
+
+/* === TABLETS & iPads (768px - 1023px) === */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero {
+        min-height: 65vh;
+        background-attachment: scroll;
+    }
+    .hero h1 {
+        font-size: clamp(36px, 5vw, 48px);
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .brand-home-card img {
+        height: 90px;
+        padding: 8px;
+    }
+    .brand-card {
+        width: 185px;
+        padding: 14px !important;
+    }
+    .brand-card img {
+        height: 100px;
+        padding: 10px;
+    }
+    .brand-card h5 {
+        font-size: 1rem;
+    }
+    
+    .brand-product-card .img-wrap {
+        height: 180px;
+        padding: 20px;
+    }
+    .lighting-card .img-wrap {
+        height: 160px;
+        padding: 15px;
+    }
+    .kit-card .img-wrap {
+        height: 180px;
+        padding: 18px;
+    }
+    .product-card img {
+        height: 180px;
+        padding: 12px;
+    }
+    
+    .section-title {
+        font-size: clamp(28px, 3.5vw, 38px);
+    }
+    .brand-section-title {
+        font-size: clamp(26px, 3.5vw, 36px);
+    }
+    
+    .cat-strip {
+        top: 70px;
+        padding: 10px 0;
+    }
+    .cat-pill {
+        padding: 7px 16px;
+        font-size: 12px;
+    }
+    
+    .lighting-hero {
+        min-height: 28vh;
+        padding: 30px 0;
+    }
+    .lighting-hero h1 {
+        font-size: clamp(28px, 4vw, 38px);
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+    
+    .navbar {
+        padding: 0.5rem 0 !important;
+    }
+    .nav-link {
+        padding: 6px 12px !important;
+        font-size: 0.9rem;
+    }
+}
+
+/* === iPAD MINI & SMALL TABLETS (600px - 767px) === */
+@media (min-width: 600px) and (max-width: 767px) {
+    .hero {
+        min-height: 60vh;
+        background-attachment: scroll;
+        padding: 40px 0;
+    }
+    .hero h1 {
+        font-size: clamp(30px, 4.5vw, 40px);
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .brand-home-card img {
+        height: 80px;
+        padding: 6px;
+    }
+    .brand-card {
+        width: 165px;
+        padding: 12px !important;
+    }
+    .brand-card img {
+        height: 85px;
+        padding: 8px;
+    }
+    .brand-card h5 {
+        font-size: 0.95rem;
+    }
+    .brand-card p {
+        font-size: 0.75rem;
+    }
+    
+    .brand-product-card .img-wrap {
+        height: 160px;
+        padding: 18px;
+    }
+    .lighting-card .img-wrap {
+        height: 140px;
+        padding: 12px;
+    }
+    .kit-card .img-wrap {
+        height: 160px;
+        padding: 15px;
+    }
+    .product-card img {
+        height: 160px;
+        padding: 10px;
+    }
+    
+    .section-title {
+        font-size: clamp(24px, 3vw, 32px);
+    }
+    .brand-section-title {
+        font-size: clamp(22px, 3vw, 30px);
+    }
+    .section-eyebrow {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+    
+    .cat-strip {
+        top: 65px;
+        padding: 8px 0;
+    }
+    .cat-pill {
+        padding: 6px 14px;
+        font-size: 11px;
+    }
+    .cat-pill i {
+        font-size: 10px;
+    }
+    
+    .lighting-hero {
+        min-height: 25vh;
+        padding: 25px 0;
+    }
+    .lighting-hero h1 {
+        font-size: clamp(24px, 3.5vw, 32px);
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .navbar {
+        padding: 0.4rem 0 !important;
+    }
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+    .nav-link {
+        padding: 5px 10px !important;
+        font-size: 0.85rem;
+    }
+    
+    .brand-marquee-wrapper {
+        padding: 15px 0;
+    }
+    .brand-marquee-track {
+        gap: 12px;
+    }
+}
+
+/* === LARGE PHONES (480px - 599px) === */
+@media (min-width: 480px) and (max-width: 599px) {
+    .hero {
+        min-height: 55vh;
+        background-attachment: scroll;
+        padding: 30px 0;
+    }
+    .hero h1 {
+        font-size: clamp(26px, 4vw, 34px);
+    }
+    .hero p {
+        font-size: 0.9rem;
+    }
+    .scroll-indicator {
+        display: none;
+    }
+    
+    .brand-home-card img {
+        height: 70px;
+        padding: 5px;
+    }
+    .brand-home-card h6 {
+        font-size: 0.9rem;
+        margin-top: 8px;
+    }
+    .brand-home-card p {
+        font-size: 0.7rem;
+    }
+    
+    .brand-card {
+        width: 150px;
+        padding: 10px !important;
+        border-radius: 20px;
+    }
+    .brand-card img {
+        height: 75px;
+        padding: 8px;
+        border-radius: 14px;
+    }
+    .brand-card h5 {
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+    .brand-card p {
+        font-size: 0.7rem;
+    }
+    
+    .brand-product-card .img-wrap {
+        height: 140px;
+        padding: 15px;
+    }
+    .brand-product-card .body {
+        padding: 14px;
+    }
+    .brand-product-card .product-name {
+        font-size: 17px;
+    }
+    .brand-product-card .product-desc {
+        font-size: 11px;
+        min-height: 28px;
+    }
+    .brand-product-card .price {
+        font-size: 18px;
+    }
+    
+    .lighting-card .img-wrap {
+        height: 120px;
+        padding: 10px;
+    }
+    .lighting-card .body {
+        padding: 14px;
+    }
+    .lighting-card .name {
+        font-size: 17px;
+    }
+    .lighting-card .desc {
+        font-size: 11px;
+        min-height: 30px;
+    }
+    .lighting-card .price {
+        font-size: 18px;
+    }
+    
+    .kit-card .img-wrap {
+        height: 140px;
+        padding: 12px;
+    }
+    .kit-card .body {
+        padding: 16px;
+    }
+    .kit-card .kit-name {
+        font-size: 20px;
+    }
+    .kit-card .includes li {
+        font-size: 11px;
+    }
+    .kit-card .price {
+        font-size: 20px;
+    }
+    
+    .product-card img {
+        height: 140px;
+        padding: 8px;
+    }
+    .product-card {
+        padding: 14px;
+    }
+    .product-card h5 {
+        font-size: 1rem;
+        margin-top: 8px;
+    }
+    .product-card .price {
+        font-size: 1rem;
+    }
+    .product-card .desc {
+        font-size: 0.75rem;
+    }
+    
+    .section-title {
+        font-size: clamp(22px, 2.8vw, 28px);
+    }
+    .brand-section-title {
+        font-size: clamp(20px, 2.8vw, 26px);
+    }
+    .section-eyebrow {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+    .divider-line {
+        width: 40px;
+        margin: 8px 0 14px;
+    }
+    
+    .cat-strip {
+        top: 60px;
+        padding: 6px 0;
+    }
+    .cat-pill {
+        padding: 5px 12px;
+        font-size: 10px;
+    }
+    .cat-pill i {
+        font-size: 9px;
+    }
+    
+    .lighting-hero {
+        min-height: 22vh;
+        padding: 20px 0;
+    }
+    .lighting-hero h1 {
+        font-size: clamp(20px, 3vw, 28px);
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 6px 8px;
+        font-size: 0.7rem;
+    }
+    
+    .navbar {
+        padding: 0.3rem 0 !important;
+    }
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    .navbar-brand img {
+        max-height: 35px;
+    }
+    .nav-link {
+        padding: 4px 8px !important;
+        font-size: 0.8rem;
+        margin: 0 2px;
+    }
+    
+    .brand-marquee-wrapper {
+        padding: 12px 0;
+        border-radius: 25px;
+    }
+    .brand-marquee-track {
+        gap: 10px;
+        animation: scrollBrands 25s linear infinite;
+    }
+    
+    .btn-amber {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    .btn-details {
+        font-size: 10px;
+        padding: 4px 12px;
+    }
+    
+    .category-card {
+        padding: 20px 16px;
+    }
+    .category-card i {
+        font-size: 2rem;
+    }
+    .category-card h5 {
+        font-size: 1rem;
+    }
+    .category-card p {
+        font-size: 0.8rem;
+    }
+    
+    .contact-card {
+        padding: 18px 16px;
+    }
+    .contact-card i {
+        font-size: 1.5rem;
+    }
+    .contact-card h5 {
+        font-size: 1rem;
+    }
+    .contact-card p {
+        font-size: 0.85rem;
+    }
+    
+    #scrollToTop {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+        bottom: 15px;
+        right: 15px;
+    }
+    #backToAllBtn {
+        bottom: 70px;
+        right: 15px;
+        padding: 6px 14px;
+        font-size: 0.75rem;
+    }
+}
+
+/* === SMALL PHONES (320px - 479px) === */
+@media (max-width: 479px) {
+    .hero {
+        min-height: 50vh;
+        background-attachment: scroll;
+        padding: 20px 0;
+    }
+    .hero h1 {
+        font-size: clamp(22px, 3.5vw, 28px);
+    }
+    .hero p {
+        font-size: 0.8rem;
+    }
+    .scroll-indicator {
+        display: none;
+    }
+    .hero-overlay {
+        background: radial-gradient(circle at 30% 40%, rgba(201,168,76,0.08), transparent 70%);
+    }
+    
+    .brand-home-card img {
+        height: 60px;
+        padding: 4px;
+        border-radius: 12px;
+    }
+    .brand-home-card {
+        padding: 14px 8px;
+        border-radius: 16px;
+    }
+    .brand-home-card h6 {
+        font-size: 0.8rem;
+        margin-top: 6px;
+    }
+    .brand-home-card p {
+        font-size: 0.65rem;
+    }
+    
+    .brand-card {
+        width: 135px;
+        padding: 8px !important;
+        border-radius: 16px;
+    }
+    .brand-card img {
+        height: 65px;
+        padding: 6px;
+        border-radius: 12px;
+    }
+    .brand-card h5 {
+        font-size: 0.8rem;
+        margin-top: 8px;
+    }
+    .brand-card p {
+        font-size: 0.65rem;
+    }
+    
+    .brand-product-card .img-wrap {
+        height: 120px;
+        padding: 12px;
+    }
+    .brand-product-card .badge-tag {
+        font-size: 8px;
+        padding: 3px 8px;
+        top: 8px;
+        left: 8px;
+    }
+    .brand-product-card .body {
+        padding: 12px;
+    }
+    .brand-product-card .product-category {
+        font-size: 9px;
+    }
+    .brand-product-card .product-name {
+        font-size: 15px;
+    }
+    .brand-product-card .product-desc {
+        font-size: 10px;
+        min-height: 24px;
+    }
+    .brand-product-card .spec-tag {
+        font-size: 9px;
+        padding: 2px 8px;
+    }
+    .brand-product-card .price {
+        font-size: 16px;
+    }
+    .brand-product-card .price span {
+        font-size: 9px;
+    }
+    
+    .lighting-card .img-wrap {
+        height: 100px;
+        padding: 8px;
+    }
+    .lighting-card .badge-tag {
+        font-size: 8px;
+        padding: 3px 8px;
+        top: 8px;
+        left: 8px;
+    }
+    .lighting-card .body {
+        padding: 12px;
+    }
+    .lighting-card .brand-tag {
+        font-size: 9px;
+    }
+    .lighting-card .name {
+        font-size: 15px;
+    }
+    .lighting-card .desc {
+        font-size: 10px;
+        min-height: 24px;
+    }
+    .lighting-card .price {
+        font-size: 16px;
+    }
+    .lighting-card .price span {
+        font-size: 9px;
+    }
+    
+    .kit-card .img-wrap {
+        height: 120px;
+        padding: 10px;
+    }
+    .kit-card .ribbon {
+        font-size: 8px;
+        padding: 4px 10px;
+        top: 10px;
+    }
+    .kit-card .body {
+        padding: 12px;
+    }
+    .kit-card .kit-tagline {
+        font-size: 10px;
+    }
+    .kit-card .kit-name {
+        font-size: 17px;
+    }
+    .kit-card .includes li {
+        font-size: 10px;
+        padding: 3px 0;
+    }
+    .kit-card .includes li i {
+        font-size: 9px;
+    }
+    .kit-card .price {
+        font-size: 17px;
+    }
+    .kit-card .price span {
+        font-size: 9px;
+    }
+    
+    .product-card img {
+        height: 120px;
+        padding: 6px;
+        border-radius: 12px;
+    }
+    .product-card {
+        padding: 12px;
+        border-radius: 18px;
+    }
+    .product-card .badge-brand {
+        font-size: 0.6rem;
+        padding: 2px 10px;
+    }
+    .product-card h5 {
+        font-size: 0.9rem;
+        margin-top: 6px;
+    }
+    .product-card .price {
+        font-size: 0.9rem;
+    }
+    .product-card .desc {
+        font-size: 0.7rem;
+    }
+    .product-card .btn-details {
+        font-size: 0.7rem;
+        padding: 4px 12px;
+    }
+    
+    .section-title {
+        font-size: clamp(20px, 2.5vw, 24px);
+    }
+    .brand-section-title {
+        font-size: clamp(18px, 2.5vw, 22px);
+    }
+    .section-eyebrow {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+    .divider-line {
+        width: 35px;
+        height: 2px;
+        margin: 6px 0 12px;
+    }
+    
+    .cat-strip {
+        top: 56px;
+        padding: 4px 0;
+    }
+    .cat-pill {
+        padding: 4px 10px;
+        font-size: 9px;
+        gap: 4px;
+    }
+    .cat-pill i {
+        font-size: 8px;
+    }
+    
+    .lighting-hero {
+        min-height: 20vh;
+        padding: 15px 0;
+    }
+    .lighting-hero h1 {
+        font-size: clamp(18px, 2.8vw, 24px);
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 5px 6px;
+        font-size: 0.6rem;
+    }
+    .comparison-table th {
+        font-size: 0.65rem;
+        padding: 6px 8px;
+    }
+    
+    .navbar {
+        padding: 0.2rem 0 !important;
+        border-bottom-width: 1.5px;
+    }
+    .navbar-brand {
+        font-size: 0.9rem;
+    }
+    .navbar-brand img {
+        max-height: 30px;
+    }
+    .nav-link {
+        padding: 3px 6px !important;
+        font-size: 0.75rem;
+        margin: 0 1px;
+    }
+    .dropdown-item {
+        padding: 6px 16px !important;
+        font-size: 12px !important;
+    }
+    
+    .brand-marquee-wrapper {
+        padding: 10px 0;
+        border-radius: 20px;
+    }
+    .brand-marquee-track {
+        gap: 8px;
+        animation: scrollBrands 22s linear infinite;
+    }
+    
+    .btn-amber {
+        padding: 0.4rem 1rem;
+        font-size: 0.75rem;
+    }
+    .btn-details {
+        font-size: 9px;
+        padding: 3px 10px;
+        letter-spacing: 1px;
+    }
+    
+    .category-card {
+        padding: 16px 12px;
+        border-radius: 20px;
+    }
+    .category-card i {
+        font-size: 1.5rem;
+    }
+    .category-card h5 {
+        font-size: 0.85rem;
+    }
+    .category-card p {
+        font-size: 0.7rem;
+    }
+    
+    .service-card {
+        padding: 20px 16px;
+    }
+    .service-card .icon-wrapper {
+        width: 55px;
+        height: 55px;
+    }
+    .service-card .icon-wrapper i {
+        font-size: 1.5rem;
+    }
+    .service-card h4 {
+        font-size: 1rem;
+    }
+    .service-card p {
+        font-size: 0.8rem;
+    }
+    
+    .team-card img {
+        width: 90px;
+        height: 90px;
+    }
+    .team-card h5 {
+        font-size: 0.9rem;
+    }
+    .team-card p {
+        font-size: 0.75rem;
+    }
+    
+    .contact-card {
+        padding: 16px 14px;
+    }
+    .contact-card i {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
+    .contact-card h5 {
+        font-size: 0.9rem;
+    }
+    .contact-card p {
+        font-size: 0.75rem;
+    }
+    .contact-card .small-text {
+        font-size: 0.7rem;
+    }
+    
+    .info-card {
+        padding: 20px 16px;
+        border-radius: 20px;
+    }
+    .info-card i {
+        font-size: 1.5rem;
+    }
+    .info-card h4 {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+    .info-card p {
+        font-size: 0.8rem;
+    }
+    
+    .rec-card {
+        padding: 16px 14px;
+    }
+    .rec-card .icon-wrap {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .rec-card .rec-title {
+        font-size: 18px;
+    }
+    .rec-card .rec-desc {
+        font-size: 11px;
+    }
+    .rec-card .rec-item {
+        font-size: 11px;
+    }
+    
+    .tip-q {
+        font-size: 13px;
+    }
+    .tip-a {
+        font-size: 11px;
+    }
+    
+    .guide-cta {
+        padding: 25px 20px;
+    }
+    
+    .feature-item {
+        padding: 12px 0;
+        gap: 12px;
+    }
+    .feature-item i {
+        font-size: 1.2rem;
+    }
+    .feature-item h6 {
+        font-size: 0.9rem;
+    }
+    .feature-item p {
+        font-size: 0.8rem;
+    }
+    
+    #locationInfo {
+        font-size: 0.75rem;
+        padding: 8px 12px !important;
+        min-height: 50px;
+    }
+    #locationInfo i {
+        width: 18px;
+        font-size: 0.9rem;
+    }
+    
+    footer {
+        padding: 30px 0 20px !important;
+    }
+    footer h5 {
+        font-size: 0.9rem;
+    }
+    footer p,
+    footer li a {
+        font-size: 0.75rem;
+    }
+    
+    #scrollToTop {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+        bottom: 12px;
+        right: 12px;
+    }
+    #backToAllBtn {
+        bottom: 60px;
+        right: 12px;
+        padding: 5px 12px;
+        font-size: 0.65rem;
+    }
+    
+    .fl-img-wrap {
+        width: 200px;
+        height: 180px;
+    }
+    .fl-brand {
+        font-size: 14px;
+        letter-spacing: 4px;
+        margin-top: 20px;
+    }
+    .fl-ring:nth-child(1) {
+        width: 55px;
+        height: 55px;
+    }
+    .fl-ring:nth-child(2) {
+        width: 80px;
+        height: 80px;
+    }
+    .fl-ring:nth-child(3) {
+        width: 105px;
+        height: 105px;
+    }
+    .fl-lens-flash {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* === EXTRA SMALL DEVICES (Below 320px) === */
+@media (max-width: 319px) {
+    .hero h1 {
+        font-size: 18px;
+    }
+    .hero p {
+        font-size: 0.7rem;
+    }
+    .brand-card {
+        width: 120px;
+    }
+    .brand-card img {
+        height: 55px;
+    }
+    .brand-card h5 {
+        font-size: 0.7rem;
+    }
+    .brand-card p {
+        font-size: 0.6rem;
+    }
+    .brand-home-card img {
+        height: 50px;
+    }
+    .brand-product-card .img-wrap {
+        height: 100px;
+    }
+    .lighting-card .img-wrap {
+        height: 85px;
+    }
+    .kit-card .img-wrap {
+        height: 100px;
+    }
+    .product-card img {
+        height: 100px;
+    }
+    .section-title {
+        font-size: 18px;
+    }
+    .cat-pill {
+        font-size: 8px;
+        padding: 3px 8px;
+    }
+    .comparison-table th,
+    .comparison-table td {
+        font-size: 0.5rem;
+        padding: 4px 4px;
+    }
+    .navbar-brand {
+        font-size: 0.75rem;
+    }
+    .nav-link {
+        font-size: 0.65rem;
+        padding: 2px 4px !important;
+    }
+}
+
+/* === TOUCH DEVICES OPTIMIZATION === */
+@media (hover: none) and (pointer: coarse) {
+    .brand-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    .category-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    .product-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    .lighting-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    .kit-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    .btn-amber:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    .brand-home-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    .service-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    .contact-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    /* Active state for touch */
+    .brand-card:active {
+        transform: scale(0.97);
+        background: #19193b;
+    }
+    .category-card:active {
+        transform: scale(0.97);
+    }
+    .btn-amber:active {
+        transform: scale(0.97);
+    }
+}
+
+/* === PRINT MEDIA === */
+@media print {
+    body {
+        background: #fff !important;
+        color: #000 !important;
+        padding-top: 0 !important;
+    }
+    .navbar,
+    footer,
+    #scrollToTop,
+    #backToAllBtn,
+    #compare-bar,
+    .cat-strip,
+    .scroll-indicator {
+        display: none !important;
+    }
+    .brand-section {
+        display: block !important;
+        padding: 20px 0 !important;
+        page-break-inside: avoid;
+    }
+    .brand-section.active {
+        display: block !important;
+    }
+    .brand-section:nth-of-type(even),
+    .brand-section:nth-of-type(odd) {
+        background: #fff !important;
+    }
+    .brand-product-card {
+        border: 1px solid #ddd !important;
+        page-break-inside: avoid;
+    }
+    .brand-product-card .img-wrap {
+        height: 150px !important;
+    }
+    .brand-product-card .price {
+        color: #000 !important;
+    }
+    .btn-details {
+        display: none !important;
+    }
+    .hero {
+        min-height: 30vh !important;
+        background: #f5f5f5 !important;
+    }
+    .hero h1 {
+        color: #000 !important;
+        text-shadow: none !important;
+    }
+    .text-amber {
+        color: #000 !important;
+    }
+    .section-title {
+        color: #000 !important;
+    }
+    .comparison-table th {
+        background: #f0f0f0 !important;
+        color: #000 !important;
+    }
+    .comparison-table td {
+        color: #000 !important;
+    }
+    .comparison-table .highlight {
+        color: #000 !important;
+    }
+}
+
+/* === LANDSCAPE PHONE OPTIMIZATION === */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh;
+        padding: 30px 0;
+    }
+    .hero h1 {
+        font-size: clamp(24px, 3.5vw, 36px);
+    }
+    .hero p {
+        font-size: 0.85rem;
+    }
+    .scroll-indicator {
+        display: none;
+    }
+    .navbar {
+        padding: 0.2rem 0 !important;
+    }
+    .brand-card {
+        width: 150px;
+    }
+    .brand-card img {
+        height: 70px;
+    }
+    .brand-product-card .img-wrap {
+        height: 130px;
+    }
+    .lighting-card .img-wrap {
+        height: 110px;
+    }
+    .kit-card .img-wrap {
+        height: 130px;
+    }
+    .product-card img {
+        height: 130px;
+    }
+}
+
+/* === RETINA DISPLAY OPTIMIZATION === */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .brand-card img,
+    .brand-home-card img,
+    .product-card img,
+    .lighting-card .img-wrap img,
+    .kit-card .img-wrap img,
+    .brand-product-card .img-wrap img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* === DARK MODE COMPATIBILITY === */
+@media (prefers-color-scheme: light) {
+    /* Only apply if needed, maintaining dark theme */
+    body {
+        background: var(--bg-dark);
+        color: var(--text-light);
+    }
+}
+        
     </style>
 </head>
 <body>
