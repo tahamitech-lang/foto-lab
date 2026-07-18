@@ -1715,32 +1715,30 @@ a[href*="wa.me"]:hover {
     color: var(--brand-gold) !important;
 }
 
+       /* Mobile Fixes */
         @media (max-width: 768px) {
             .hero { min-height: 70vh; }
-            .hero h1 { font-size: 2.8rem; }
-            .brand-home-card img { height: 70px; }
-            .brand-card { width: 170px; padding: 12px !important; }
-            .brand-card img { height: 80px; }
-            .brand-card h5 { font-size: 1rem; }
-            .brand-product-card .img-wrap { height: 160px; }
-            .lighting-card .img-wrap { height: 140px; }
-            .kit-card .img-wrap { height: 160px; }
-            .cat-strip { top: 68px; padding: 8px 0; }
-            .cat-pill { padding: 6px 14px; font-size: 12px; }
-            .lighting-hero { min-height: 30vh; }
-            .lighting-hero h1 { font-size: 2.5rem; }
-            .comparison-table th, .comparison-table td {
-                padding: 10px 12px;
-                font-size: 0.85rem;
+            .hero h1 { font-size: 2.8rem !important; }
+            .section-title { font-size: 2.2rem !important; }
+            .brand-card, .product-card, .kit-card, .lighting-card {
+                margin-bottom: 20px;
+            }
+            .cat-strip-inner {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            .cat-pill {
+                padding: 8px 16px;
+                font-size: 12px;
+                white-space: nowrap;
             }
         }
 
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2.2rem; }
-            .brand-card { width: 150px; }
-            .lighting-hero h1 { font-size: 2rem; }
-            .comparison-table { font-size: 0.75rem; }
-            .comparison-table th, .comparison-table td { padding: 8px 6px; }
+        /* General Responsive */
+        .product-card img, .kit-card img, .lighting-card img {
+            max-height: 200px;
+            object-fit: contain;
         }
     </style>
 </head>
@@ -1752,7 +1750,6 @@ a[href*="wa.me"]:hover {
     <button id="scrollToTop" aria-label="Scroll to top">
         <i class="fas fa-chevron-up"></i>
     </button>
-    <button id="backToAllBtn" class="btn btn-amber" aria-label="Back to all products">Back to all products</button>
 
     <!-- ============================================================
     LOADER
@@ -1764,7 +1761,7 @@ a[href*="wa.me"]:hover {
                 <div class="fl-ring"></div>
                 <div class="fl-ring"></div>
             </div>
-            <img src="images/fotoloader.png" alt="Loading" onerror="this.src='https://picsum.photos/seed/fotolab/280/240'">
+            <img src="images/fotoloader.png" alt="Loading" loading="lazy" decoding="async" onerror="this.src='https://picsum.photos/seed/fotolab/280/240'">
             <div class="fl-lens-flash"></div>
         </div>
         <div class="fl-brand">FOTO<span>LAB</span></div>
@@ -1776,7 +1773,7 @@ a[href*="wa.me"]:hover {
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#home">
-                <img src="team imagelogo,image/fotolab logo.png" alt="FOTOLAB Logo" width="50" height="50" class="me-2" onerror="this.src='https://picsum.photos/seed/fotolablogo/50/50'">
+                <img src="team imagelogo,image/fotolab logo.png" alt="FOTOLAB Logo" width="50" height="50" class="me-2" loading="lazy" decoding="async" onerror="this.src='https://picsum.photos/seed/fotolablogo/50/50'">
                 <span class="fw-bold fs-3" style="color:#fff;text-shadow:0 0 12px rgba(201,168,76,0.33);">FOTOLAB</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -4158,7 +4155,7 @@ const brandProducts = {
             brandsShowcase.innerHTML = brandData.map(b => `
                 <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up">
                     <div class="brand-home-card" onclick="showBrand('${b.id}')">
-                        <img src="${b.img}" alt="${b.name}" class="img-fluid rounded">
+                        <img src="${b.img}" alt="${b.name}" class="img-fluid rounded" loading="lazy" decoding="async">
                         <h6 style="color:${b.color}">${b.name}</h6>
                         <p>${b.desc}</p>
                     </div>
@@ -4173,7 +4170,7 @@ const brandProducts = {
             marqueeTrack.innerHTML = allBrands.map(b => `
                 <div class="p-2">
                     <div class="brand-card" onclick="showBrand('${b.id}')">
-                        <img src="${b.img}" alt="${b.name}" class="img-fluid mb-3 rounded">
+                        <img src="${b.img}" alt="${b.name}" class="img-fluid mb-3 rounded" loading="lazy" decoding="async">
                         <h5 class="text-amber">${b.name}</h5>
                         <p class="text-white-50 small">${b.desc}</p>
                     </div>
@@ -4216,7 +4213,7 @@ const brandProducts = {
                 <div class="col-sm-6 col-lg-4">
                     <div class="brand-product-card">
                         <div class="img-wrap">
-                            <img src="${p.img}" alt="${p.name}">
+                            <img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async">
                             <span class="badge-tag">${p.badge || 'New'}</span>
                         </div>
                         <div class="body">
