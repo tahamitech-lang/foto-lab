@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <style>
+<style>
         /* ===== ALL CSS ===== */
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -231,12 +231,14 @@
         }
         .brand-home-card img {
             width: 100%;
-            height: 120px;
-            object-fit: contain;
+            height: 140px;
+            object-fit: cover;
+            object-position: center;
             border-radius: 16px;
             background: #1a1a2e;
             border: 1px solid #333366;
-            padding: 10px;
+            padding: 0;
+            display: block;
         }
         .brand-home-card h6 { color: var(--brand-gold); margin-top: 12px; font-weight: 600; }
         .brand-home-card p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0; }
@@ -282,12 +284,14 @@
         .brand-card img {
             width: 100%;
             height: 130px;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center;
             border-radius: 20px;
             background: #1a1a2e;
             border: 1px solid #3a3a6a;
             transition: 0.3s;
-            padding: 12px;
+            padding: 0;
+            display: block;
         }
         .brand-card:hover img { border-color: var(--brand-gold); }
         .brand-card h5 { color: var(--brand-gold); font-weight: 600; margin-top: 14px; letter-spacing: 0.5px; }
@@ -364,6 +368,9 @@
             overflow: hidden;
             transition: all 0.4s ease;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
         .brand-product-card:hover {
             transform: translateY(-8px);
@@ -371,19 +378,25 @@
         }
         .brand-product-card .img-wrap {
             background: #181818;
-            height: 220px;
+            height: 240px;
+            width: 100%;
             overflow: hidden;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 25px;
+            display: block;
+            padding: 0;
+            margin: 0;
+            flex-shrink: 0;
         }
         .brand-product-card .img-wrap img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center;
             transition: transform 0.5s ease;
+            display: block;
+            margin: 0;
+            padding: 0;
+            border: none;
         }
         .brand-product-card:hover .img-wrap img { transform: scale(1.06); }
         .brand-product-card .badge-tag {
@@ -399,6 +412,7 @@
             padding: 4px 10px;
             border-radius: 4px;
             font-family: 'Inter', sans-serif;
+            z-index: 2;
         }
         .brand-product-card .body { padding: 18px; }
         .brand-product-card .product-category {
@@ -570,6 +584,8 @@
             height: 100%;
             transition: 0.3s;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
         .lighting-card:hover {
             border-color: var(--brand-gold);
@@ -578,19 +594,25 @@
         }
         .lighting-card .img-wrap {
             background: #1a1a2e;
-            height: 200px;
+            height: 240px;
+            width: 100%;
             overflow: hidden;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            display: block;
+            padding: 0;
+            margin: 0;
+            flex-shrink: 0;
         }
         .lighting-card .img-wrap img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center;
             transition: 0.5s;
+            display: block;
+            margin: 0;
+            padding: 0;
+            border: none;
         }
         .lighting-card:hover .img-wrap img { transform: scale(1.05); }
         .lighting-card .badge-tag {
@@ -606,6 +628,7 @@
             padding: 4px 12px;
             border-radius: 4px;
             font-family: 'Inter', sans-serif;
+            z-index: 2;
         }
         .lighting-card .body { padding: 18px; }
         .lighting-card .brand-tag {
@@ -657,6 +680,8 @@
             height: 100%;
             transition: 0.3s;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
         .kit-card:hover {
             border-color: var(--brand-gold);
@@ -681,18 +706,24 @@
         }
         .kit-card .img-wrap {
             background: #1a1a2e;
-            height: 220px;
+            height: 240px;
+            width: 100%;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            display: block;
+            padding: 0;
+            margin: 0;
+            flex-shrink: 0;
         }
         .kit-card .img-wrap img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center;
             transition: 0.5s;
+            display: block;
+            margin: 0;
+            padding: 0;
+            border: none;
         }
         .kit-card:hover .img-wrap img { transform: scale(1.05); }
         .kit-card .body { padding: 22px; }
@@ -1017,11 +1048,13 @@
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 24px;
-            padding: 20px 18px;
+            padding: 0;
             transition: 0.3s;
             height: 100%;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
+            position: relative;
         }
         .product-card:hover {
             border-color: var(--brand-gold);
@@ -1030,15 +1063,19 @@
         }
         .product-card img {
             width: 100%;
-            height: 220px;
-            object-fit: contain;
-            border-radius: 16px;
+            height: 240px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 0;
             background: #1a1a2e;
-            border: 1px solid var(--border-color);
-            transition: 0.3s;
-            padding: 15px;
+            border: none;
+            transition: 0.4s ease;
+            padding: 0;
+            display: block;
+            flex-shrink: 0;
+            margin: 0;
         }
-        .product-card:hover img { border-color: var(--brand-gold); }
+        .product-card:hover img { transform: scale(1.03); }
         .product-card .badge-brand {
             background: rgba(201,168,76,0.13);
             color: var(--brand-gold);
@@ -1046,10 +1083,33 @@
             padding: 4px 12px;
             border-radius: 50px;
             border: 1px solid rgba(201,168,76,0.27);
+            display: inline-block;
+            width: fit-content;
+            margin-left: 18px;
+            margin-right: 18px;
+            margin-top: 16px;
         }
-        .product-card h5 { color: #fff; font-weight: 600; margin-top: 12px; }
-        .product-card .price { color: var(--brand-gold); font-weight: 600; font-size: 1.2rem; }
-        .product-card .desc { color: var(--text-muted); font-size: 0.85rem; flex-grow: 1; }
+        .product-card h5 {
+            color: #fff;
+            font-weight: 600;
+            margin-top: 12px;
+            margin-left: 18px;
+            margin-right: 18px;
+        }
+        .product-card .price {
+            color: var(--brand-gold);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-left: 18px;
+            margin-right: 18px;
+        }
+        .product-card .desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            flex-grow: 1;
+            margin-left: 18px;
+            margin-right: 18px;
+        }
         .product-card .btn-details {
             background: transparent;
             border: 1px solid var(--brand-gold);
@@ -1058,7 +1118,11 @@
             padding: 6px 16px;
             font-size: 0.85rem;
             transition: 0.3s;
-            width: 100%;
+            width: calc(100% - 36px);
+            margin-left: 18px;
+            margin-right: 18px;
+            margin-bottom: 18px;
+            margin-top: 10px;
         }
         .product-card .btn-details:hover { background: var(--brand-gold); color: var(--bg-dark); }
 
@@ -1733,12 +1797,141 @@ a[href*="wa.me"]:hover {
                 font-size: 12px;
                 white-space: nowrap;
             }
+            /* ✅ Mobile image heights */
+            .product-card img {
+                height: 160px;
+            }
+            .brand-product-card .img-wrap {
+                height: 160px;
+            }
+            .lighting-card .img-wrap {
+                height: 160px;
+            }
+            .kit-card .img-wrap {
+                height: 180px;
+            }
         }
 
-        /* General Responsive */
-        .product-card img, .kit-card img, .lighting-card img {
-            max-height: 200px;
+        /* ===== FULL SCREEN IMAGE LIGHTBOX ===== */
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.96);
+            backdrop-filter: blur(8px);
+            z-index: 100000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            cursor: zoom-out;
+            padding: 20px;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-overlay img {
+            max-width: 95vw;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
             object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 80px rgba(201, 168, 76, 0.5);
+            border: 2px solid rgba(201, 168, 76, 0.4);
+            transform: scale(0.85);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: default;
+            background: #0b0b1a;
+        }
+
+        .lightbox-overlay.active img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(201, 168, 76, 0.15);
+            border: 2px solid var(--brand-gold);
+            color: var(--brand-gold);
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 100001;
+        }
+
+        .lightbox-close:hover {
+            background: var(--brand-gold);
+            color: #0b0b1a;
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 0 30px rgba(201, 168, 76, 0.7);
+        }
+
+        .lightbox-hint {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 1px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(201, 168, 76, 0.25);
+            pointer-events: none;
+        }
+
+        .lightbox-hint i {
+            color: var(--brand-gold);
+            margin-right: 6px;
+        }
+
+        /* All product images get zoom-in cursor */
+        .product-card img,
+        .brand-product-card .img-wrap img,
+        .lighting-card .img-wrap img,
+        .kit-card .img-wrap img,
+        .brand-card img,
+        .brand-home-card img {
+            cursor: zoom-in;
+        }
+
+        /* Prevent body scroll when lightbox is open */
+        body.lightbox-open {
+            overflow: hidden !important;
+        }
+
+        @media (max-width: 576px) {
+            .lightbox-close {
+                top: 16px;
+                right: 16px;
+                width: 44px;
+                height: 44px;
+                font-size: 18px;
+            }
+            .lightbox-hint {
+                font-size: 11px;
+                padding: 6px 14px;
+                bottom: 16px;
+            }
+            .lightbox-overlay img {
+                max-width: 98vw;
+                max-height: 85vh;
+            }
         }
     </style>
 </head>
@@ -3623,6 +3816,19 @@ a[href*="wa.me"]:hover {
     </footer>
 
     <!-- ============================================================
+    FULL SCREEN IMAGE LIGHTBOX
+    ============================================================ -->
+    <div id="fotolab-lightbox" class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Full screen image viewer">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close full screen image">
+            <i class="fas fa-times"></i>
+        </button>
+        <img src="" alt="Full screen view" id="lightboxImage">
+        <div class="lightbox-hint">
+            <i class="fas fa-search-minus"></i> Press ESC or click outside to close
+        </div>
+    </div>
+
+    <!-- ============================================================
     SCRIPTS
     ============================================================ -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -3992,19 +4198,19 @@ renderProducts('all');
 // ============================================================
 const brandProducts = {
     canon: [
-        { name: "EOS R5 Mark II", category: "Mirrorless", desc: "45MP full-frame with 8K RAW video and AI-powered AF.", specs: ["45MP", "8K RAW", "30fps", "IBIS"], price: "PKR 6,49,000", badge: "Flagship", img: "canon images/Mirrorless EOS R5 Mark II 45MP.jpg" },
-        { name: "EOS R6 Mark II", category: "Mirrorless", desc: "40MP full-frame speed demon with 4K 60fps.", specs: ["40MP", "4K 60fps", "40fps", "IBIS"], price: "PKR 3,89,000", badge: "Best Seller", img: "canon images/Mirrorless EOS R6 Mark II 40MP full-frame.jpg" },
-        { name: "EOS R50", category: "Mirrorless", desc: "Compact APS-C mirrorless for creators and beginners.", specs: ["24MP APS-C", "4K", "Vari-angle LCD"], price: "PKR 1,29,000", badge: "Compact", img: "canon images/Mirrorless EOS R50 Compact APS-C mirrorless.jpg" },
-        { name: "EOS 90D", category: "DSLR", desc: "32.5MP APS-C DSLR with 45-point AF system.", specs: ["32.5MP", "4K", "10fps", "EF Mount"], price: "PKR 2,49,000", badge: "DSLR", img: "canon images/DSLR EOS 90D 32.5MP APS-C DSLR.jpg" },
-        { name: "EOS 5D Mark IV", category: "DSLR", desc: "30.4MP full-frame workhorse with weather sealing.", specs: ["30.4MP FF", "4K", "Weather Sealed"], price: "PKR 3,19,000", badge: "Pro Classic", img: "canon images/DSLR EOS 5D Mark IV 30.4MP.jpg" },
-        { name: "RF 50mm f/1.2L USM", category: "Lens", desc: "Stunning bokeh, razor-sharp wide open, silent AF.", specs: ["f/1.2", "L-Series", "Nano USM"], price: "PKR 3,89,000", badge: "L-Series", img: "canon images/Lens RF 50mm.jpg" },
-        { name: "RF 24-70mm f/2.8L IS", category: "Lens", desc: "Professional standard zoom with IS and weather sealing.", specs: ["f/2.8", "IS System", "Weather Sealed"], price: "PKR 4,49,000", badge: "L-Series", img: "canon images/Lens RF 24-70mm.jpg" },
-        { name: "RF 70-200mm f/2.8L IS", category: "Lens", desc: "Professional telephoto zoom with stunning sharpness.", specs: ["70-200mm", "f/2.8", "IS System"], price: "PKR 5,99,000", badge: "L-Series", img: "canon images/Lens RF 70-200mm.jpg" },
-        { name: "EOS C70 Cinema", category: "Video", desc: "Cinema EOS in compact body with 4K 120fps.", specs: ["4K 120fps", "Canon Log 3", "15+ Stops DR"], price: "PKR 5,49,000", badge: "Cinema", img: "canon images/Video EOS C70 Cinema Cinema EOS.jpg" },
-        { name: "PowerShot V10", category: "Compact", desc: "Vlog-first compact with selfie 4K and built-in stand.", specs: ["4K Selfie", "Built-in Stand", "Stereo Mic"], price: "PKR 89,000", badge: "Vlog", img: "canon images/Compact PowerShot V10 Vlog-first.jpg" }
+        { name: "EOS R5 Mark II", category: "Mirrorless", desc: "45MP full-frame with 8K RAW video and AI-powered AF.", specs: ["45MP", "8K RAW", "30fps", "IBIS"], price: "PKR 6,49,000", badge: "Flagship", img: "canon images/Mirrorless EOS R5 Mark II 45MP.png" },
+        { name: "EOS R6 Mark II", category: "Mirrorless", desc: "40MP full-frame speed demon with 4K 60fps.", specs: ["40MP", "4K 60fps", "40fps", "IBIS"], price: "PKR 3,89,000", badge: "Best Seller", img: "canon images/Mirrorless EOS R6 Mark II 40MP full-frame.png" },
+        { name: "EOS R50", category: "Mirrorless", desc: "Compact APS-C mirrorless for creators and beginners.", specs: ["24MP APS-C", "4K", "Vari-angle LCD"], price: "PKR 1,29,000", badge: "Compact", img: "canon images/Mirrorless EOS R50 Compact APS-C mirrorless.png" },
+        { name: "EOS 90D", category: "DSLR", desc: "32.5MP APS-C DSLR with 45-point AF system.", specs: ["32.5MP", "4K", "10fps", "EF Mount"], price: "PKR 2,49,000", badge: "DSLR", img: "canon images/DSLR EOS 90D 32.5MP APS-C DSLR.png" },
+        { name: "EOS 5D Mark IV", category: "DSLR", desc: "30.4MP full-frame workhorse with weather sealing.", specs: ["30.4MP FF", "4K", "Weather Sealed"], price: "PKR 3,19,000", badge: "Pro Classic", img: "canon images/DSLR EOS 5D Mark IV 30.4MP.png" },
+        { name: "RF 50mm f/1.2L USM", category: "Lens", desc: "Stunning bokeh, razor-sharp wide open, silent AF.", specs: ["f/1.2", "L-Series", "Nano USM"], price: "PKR 3,89,000", badge: "L-Series", img: "canon images/Lens RF 50mm.png" },
+        { name: "RF 24-70mm f/2.8L IS", category: "Lens", desc: "Professional standard zoom with IS and weather sealing.", specs: ["f/2.8", "IS System", "Weather Sealed"], price: "PKR 4,49,000", badge: "L-Series", img: "canon images/Lens RF 24-70mm.png" },
+        { name: "RF 70-200mm f/2.8L IS", category: "Lens", desc: "Professional telephoto zoom with stunning sharpness.", specs: ["70-200mm", "f/2.8", "IS System"], price: "PKR 5,99,000", badge: "L-Series", img: "canon images/Lens RF 70-200mm.png" },
+        { name: "EOS C70 Cinema", category: "Video", desc: "Cinema EOS in compact body with 4K 120fps.", specs: ["4K 120fps", "Canon Log 3", "15+ Stops DR"], price: "PKR 5,49,000", badge: "Cinema", img: "canon images/Video EOS C70 Cinema Cinema EOS.png" },
+        { name: "PowerShot V10", category: "Compact", desc: "Vlog-first compact with selfie 4K and built-in stand.", specs: ["4K Selfie", "Built-in Stand", "Stereo Mic"], price: "PKR 89,000", badge: "Vlog", img: "canon images/Compact PowerShot V10 Vlog-first.png" }
     ],
     nikon: [
-        { name: "Nikon Z8", category: "Mirrorless", desc: "45.7MP stacked sensor with 8.3K N-RAW internal video.", specs: ["45.7MP", "8.3K N-RAW", "EXPEED 7"], price: "PKR 8,95,000", badge: "Flagship", img: "nikon images/Mirrorless Nikon Z8 45.7MP.jpg" },
+        { name: "Nikon Z8", category: "Mirrorless", desc: "45.7MP stacked sensor with 8.3K N-RAW internal video.", specs: ["45.7MP", "8.3K N-RAW", "EXPEED 7"], price: "PKR 8,95,000", badge: "Flagship", img: "nikon images/Mirrorless Nikon Z8 45.7MP.png" },
         { name: "Nikon Z6 III", category: "Mirrorless", desc: "Partially-stacked CMOS sensor with 6K RAW video.", specs: ["24.5MP", "6K RAW", "8.0 Stop IBIS"], price: "PKR 5,45,000", badge: "New", img: "nikon images/Mirrorless Nikon Z6 III Partially-stacked.jpg" },
         { name: "Nikon Z f", category: "Mirrorless", desc: "Retro-style mirrorless with brass mechanical dials.", specs: ["24.5MP", "Retro Dials", "Pixel Shift"], price: "PKR 4,35,000", badge: "Retro", img: "nikon images/Mirrorless Nikon Z f Retro-style mirrorless.jpg" },
         { name: "Nikon Z30", category: "Mirrorless", desc: "Vlogging-focused APS-C body with flip screen.", specs: ["20.9MP", "4K", "Flip Screen"], price: "PKR 1,15,000", badge: "Vlog", img: "nikon images/Mirrorless Nikon Z30 Vlogging-focused.jpg" },
@@ -4562,6 +4768,88 @@ const compareLenses = [
                 updateCompareBar();
             });
         }
+
+        // ============================================================
+        // FULL SCREEN IMAGE LIGHTBOX
+        // ============================================================
+        (function() {
+            const lightbox = document.getElementById('fotolab-lightbox');
+            const lightboxImg = document.getElementById('lightboxImage');
+            const lightboxClose = document.getElementById('lightboxClose');
+            if (!lightbox || !lightboxImg) return;
+
+            function openLightbox(src, alt) {
+                lightboxImg.src = src;
+                lightboxImg.alt = alt || 'Full screen view';
+                lightbox.classList.add('active');
+                document.body.classList.add('lightbox-open');
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.classList.remove('lightbox-open');
+                setTimeout(function() {
+                    lightboxImg.src = '';
+                }, 300);
+            }
+
+            function attachLightboxListeners() {
+                const selectors = [
+                    '.product-card img',
+                    '.brand-product-card .img-wrap img',
+                    '.lighting-card .img-wrap img',
+                    '.kit-card .img-wrap img',
+                    '.brand-card img',
+                    '.brand-home-card img'
+                ];
+                document.querySelectorAll(selectors.join(',')).forEach(function(img) {
+                    if (!img.dataset.lightboxBound) {
+                        img.dataset.lightboxBound = 'true';
+                        img.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            openLightbox(this.src, this.alt);
+                        });
+                    }
+                });
+            }
+
+            if (lightboxClose) {
+                lightboxClose.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    closeLightbox();
+                });
+            }
+
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+
+            attachLightboxListeners();
+
+            const observer = new MutationObserver(function() {
+                attachLightboxListeners();
+            });
+            observer.observe(document.body, { childList: true, subtree: true });
+
+            const originalRenderProducts = window.renderProducts;
+            if (typeof originalRenderProducts === 'function') {
+                window.renderProducts = function(cat) {
+                    originalRenderProducts(cat);
+                    setTimeout(attachLightboxListeners, 50);
+                };
+            }
+
+            console.log('%c🔍 Lightbox Loaded — Click any product image for full screen view', 'font-size:12px; color:#C9A84C;');
+        })();
 
         // ============================================================
         // INITIALIZE
